@@ -108,13 +108,13 @@
 	--gradient-glass-1: linear-gradient(to top, var(--gray-trans) 16%, var(--menu-trans) 64%);
 	--gradient-glass-2: linear-gradient(to top, var(--nav-trans) -5%, var(--menu-hover) 24%, var(--fainter-trans) 60%, var(--faint-trans));
 	
-	/* --aero-accent-1: hsl(calc(var(--accent-h) + 8 ), calc(var(--accent-s) * 0.8), calc(var(--accent-l) * 1.85));
+	--aero-accent-1: hsl(calc(var(--accent-h) + 8 ), calc(var(--accent-s) * 0.8), calc(var(--accent-l) * 1.85));
 	--aero-accent-2: hsl(calc(var(--accent-h) + 6 ), calc(var(--accent-s) * 0.75), calc(var(--accent-l) * 1.35));
 	--aero-accent-3: hsl(calc(var(--accent-h) + 4 ), calc(var(--accent-s) * 0.9), calc(var(--accent-l) * 1.05));
 	--aero-accent-4: hsl(var(--accent-h), calc(var(--accent-s) * 1), calc(var(--accent-l) * 1.5));
 
 	--aero-gradient: 
-	linear-gradient(to bottom, var(--aero-accent-1), var(--aero-accent-2) 50%, var(--aero-accent-3) 50%, var(--aero-accent-4)); */
+	linear-gradient(to bottom, var(--aero-accent-1), var(--aero-accent-2) 50%, var(--aero-accent-3) 50%, var(--aero-accent-4));
 
 	--menu-trans: #ffffff9e;
 	--search-trans: #ffffff2f;
@@ -193,9 +193,9 @@
 	inset 0 0 0 0.9px var(--color-base-35), 
 	inset 0 0px 0 1.8px var(--menu-trans);
 
-	/* --input-shadow-cta: 
+	--input-shadow-cta: 
 	inset 0 0 0 0.8px var(--color-base-50), 
-	inset 0 0px 0 1.5px white; */
+	inset 0 0px 0 1.5px white;
 
 	--input-shadow-dark: 
 	inset 0 0 0 0.75px var(--color-base-50),
@@ -448,8 +448,9 @@ button:not(.clickable-icon) {
 	min-width: 92px;
 }
 button.mod-cta:not(.clickable-icon) {
-	box-shadow: var(--input-shadow);
-	font-weight: var(--font-semibold);
+	background-image: var(--aero-gradient);
+	box-shadow: var(--input-shadow-cta);
+	font-weight: var(--font-medium);
 	padding-inline: 16px;
 }
 
