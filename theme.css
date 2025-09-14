@@ -819,64 +819,48 @@ body {
 	--text-faint: var(--color-base-55);
 }
 .theme-light.utopia {
+	--accent-h: 148;	
+	--accent-s: 48%;	
+	--accent-l: 39%;
 
-	--color-red-rgb: 250, 30, 14;
-	--color-red: rgb(240, 42, 28);
-	--color-orange-rgb: 255, 143, 0;
-	--color-orange: rgb(255, 143, 0);
-	--color-yellow-rgb: 233, 188, 0;
-	--color-yellow: rgb(233, 188, 0);
-	--color-green-rgb: 9, 180, 29;
-	--color-green: rgb(9, 180, 29);
-	--color-cyan-rgb: 4, 176, 167;
-	--color-cyan: rgb(4, 176, 167);
-	--color-blue-rgb: 0, 132, 255;
-	--color-blue: rgb(0, 132, 255);
-	--color-purple-rgb: 180, 68, 241;
-	--color-purple: rgb(178, 74, 236);
-	--color-pink-rgb: 225, 70, 147;
-	--color-pink: rgb(225, 70, 147);
+	--color-red-rgb: 238, 28, 35;
+	--color-red: rgb(238, 28, 35);
+	--color-orange-rgb: 255, 106, 28;
+	--color-orange: rgb(255, 106, 28);
+	--color-yellow-rgb: 242, 161, 0;
+	--color-yellow: rgb(242, 161, 0);
+	--color-green-rgb: 46, 179, 108;
+	--color-green: rgb(46, 179, 108);
+	--color-cyan-rgb: 4, 168, 178;
+	--color-cyan: rgb(4, 168, 178);
+	--color-blue-rgb: 0, 144, 240;
+	--color-blue: rgb(0, 144, 240);
+	--color-purple-rgb: 126, 99, 236;
+	--color-purple: rgb(126, 99, 236);
+	--color-pink-rgb: 219, 76, 224;
+	--color-pink: rgb(219, 76, 224);
 
-	--base-hue: 104;
-	--base-sat-xtr: 0.02000;
-	--base-sat-str: 0.00750;
-	--base-sat-med: 0.00100;
+	--base-hue: 108;
+	--base-sat-xtr: 0.00750;
+	--base-sat-str: 0.00375;
+	--base-sat-med: 0.00125;
 	--base-sat-low: 0.00000;
 
 	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(98.90% var(--base-sat-low) var(--base-hue));
-	--color-base-10: oklch(96.20% var(--base-sat-med) var(--base-hue));
+	--color-base-05: oklch(98.80% var(--base-sat-low) var(--base-hue));
+	--color-base-10: oklch(96.20% var(--base-sat-low) var(--base-hue));
 	--color-base-20: oklch(92.00% var(--base-sat-med) var(--base-hue));
 	--color-base-25: oklch(88.25% var(--base-sat-med) var(--base-hue)); 
-	--color-base-30: oklch(85.75% var(--base-sat-str) var(--base-hue)); 
+	--color-base-30: oklch(85.75% var(--base-sat-med) var(--base-hue)); 
 	--color-base-35: oklch(78.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-40: oklch(75.50% var(--base-sat-str) var(--base-hue)); 
-	--color-base-50: oklch(74.25% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-55: oklch(69.00% var(--base-sat-str) var(--base-hue)); 
-	--color-base-60: oklch(56.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(48.75% var(--base-sat-str) var(--base-hue));
-	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
+	--color-base-40: oklch(76.50% var(--base-sat-str) var(--base-hue)); 
+	--color-base-50: oklch(74.75% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-55: oklch(69.00% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-60: oklch(58.75% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(51.25% var(--base-sat-str) var(--base-hue));
+	--color-base-80: oklch(43.75% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(28.25% var(--base-sat-low) var(--base-hue)); 
    --color-base-100: oklch(22.50% var(--base-sat-low) var(--base-hue)); 
-
-	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
-	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.800);
-	--trans-strong-20: oklch(from var(--color-base-00) l c h / 0.750);
-	--trans-strong-30: oklch(from var(--color-base-00) l c h / 0.400);
-	--trans-strong-40: oklch(from var(--color-base-55) l 0.0375 h / 0.100);
-	
-	--trans-faint-00: oklch(from var(--color-base-70) l c h / 0.0325);
-	--trans-faint-05: oklch(from var(--color-base-70) l c h / 0.0375);
-	--trans-faint-10: oklch(from var(--color-base-70) l c h / 0.0750);
-	--trans-faint-20: oklch(from var(--color-base-60) l c h / 0.1000);
-	--trans-faint-25: oklch(from var(--color-base-60) l c h / 0.1250);
-	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
-	--trans-faint-40: oklch(0.000% 0 0 / 0.1140);
-	--trans-faint-50: oklch(0.000% 0 0 / 0.1450);
-	--trans-faint-60: oklch(0.000% 0 0 / 0.3200); 
-	
-	--text-muted: var(--color-base-70);
-	--text-faint: var(--color-base-55);
 }
 .theme-dark {
 	
