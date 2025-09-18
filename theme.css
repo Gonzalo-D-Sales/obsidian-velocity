@@ -820,11 +820,11 @@ body {
 }
 .theme-light.utopia {
 	--accent-h: 118;	
-	--accent-s: 36%;	
-	--accent-l: 48%;
+	--accent-s: 88%;	
+	--accent-l: 32%;
 
-	--color-red-rgb: 238, 28, 35;
-	--color-red: rgb(238, 28, 35);
+	--color-red-rgb: 244, 41, 27;
+	--color-red: rgb(244, 41, 27);
 	--color-orange-rgb: 255, 106, 28;
 	--color-orange: rgb(255, 106, 28);
 	--color-yellow-rgb: 242, 161, 0;
