@@ -5087,7 +5087,7 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 
 }
 .block-language-todoist {
-	contain: content;
+	contain: layout;
 	border-radius: var(--radius-xl);
 	padding: 0.125rem 0.125rem 0.15625rem 0.125rem;
 }
