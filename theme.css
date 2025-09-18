@@ -315,8 +315,8 @@ body {
 	--h4-color: var(--color-base-90);
 	--h5-color: var(--color-base-80);
 	--h6-color: var(--color-base-70);
-	--h1-weight-alt: 575;
-	--h1-size-alt: 1.75em;
+	--h1-weight-alt: 600;
+	--h1-size-alt: 1.875em;
 	--h1-size: 2.125em;
 	--h2-size: 1.5625em;
 	--h3-size: 1.4125em;
@@ -819,9 +819,9 @@ body {
 	--text-faint: var(--color-base-55);
 }
 .theme-light.utopia {
-	--accent-h: 148;	
-	--accent-s: 48%;	
-	--accent-l: 39%;
+	--accent-h: 118;	
+	--accent-s: 36%;	
+	--accent-l: 48%;
 
 	--color-red-rgb: 238, 28, 35;
 	--color-red: rgb(238, 28, 35);
@@ -841,26 +841,28 @@ body {
 	--color-pink: rgb(219, 76, 224);
 
 	--base-hue: 108;
-	--base-sat-xtr: 0.00750;
-	--base-sat-str: 0.00375;
+	--base-sat-xtr: 0.01500;
+	--base-sat-str: 0.00250;
 	--base-sat-med: 0.00125;
 	--base-sat-low: 0.00000;
 
 	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(98.80% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(99.00% var(--base-sat-low) var(--base-hue));
 	--color-base-10: oklch(96.20% var(--base-sat-low) var(--base-hue));
 	--color-base-20: oklch(92.00% var(--base-sat-med) var(--base-hue));
 	--color-base-25: oklch(88.25% var(--base-sat-med) var(--base-hue)); 
 	--color-base-30: oklch(85.75% var(--base-sat-med) var(--base-hue)); 
 	--color-base-35: oklch(78.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-40: oklch(76.50% var(--base-sat-str) var(--base-hue)); 
-	--color-base-50: oklch(74.75% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-55: oklch(69.00% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-40: oklch(76.25% var(--base-sat-str) var(--base-hue)); 
+	--color-base-50: oklch(72.50% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-55: oklch(68.75% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-60: oklch(58.75% var(--base-sat-xtr) var(--base-hue));
 	--color-base-70: oklch(51.25% var(--base-sat-str) var(--base-hue));
 	--color-base-80: oklch(43.75% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(28.25% var(--base-sat-low) var(--base-hue)); 
    --color-base-100: oklch(22.50% var(--base-sat-low) var(--base-hue)); 
+
+   --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
 .theme-dark {
 	
@@ -1115,11 +1117,6 @@ body {
 	
 	/* alt font for corsa override */
 	--font-label: var(--font-interface-theme);
-
-	/* corner smoothing */
-	/* * { 
-	-electron-corner-smoothing: 60% !important;
-	} */
 }
 
 /*
@@ -1151,7 +1148,7 @@ body:not(.mod-windows, .mod-linux) {
 	--font-semibold: 600;
 	--font-bold: 700;
 	--font-extrabold: 800;
-	--h1-weight-alt: 500;
+	--h1-weight-alt: 525;
 	--h1-weight: 250;
 	--h2-weight: 500;
 	--h3-weight: 500;
@@ -1180,7 +1177,7 @@ body:not(.mod-windows, .mod-linux) {
 	--font-semibold: 625;
 	--font-bold: 725;
 	--font-extrabold: 825;
-	--h1-weight-alt: 550;
+	--h1-weight-alt: 575;
 	--h1-weight: 300;
 	--h2-weight: 550;
 	--h3-weight: 550;
@@ -1227,7 +1224,8 @@ body:not(.is-mobile) :is(
 	select,
 	.clickable-icon,
 	.dropdown,
-	.metadata-add-button) {
+	.metadata-add-button,
+	.todoist-task-container) {
 	-electron-corner-smoothing: 60%;	
 	}
 
@@ -1475,6 +1473,8 @@ thead,
 .bases-thead,
 .bases-cards-property.mod-title,
 .tag,
+.todoist-callout,
+.todoist-group,
 .metadata-content,
 #calendar-container {
 	font-feature-settings: 'cv11' off, 'calt';
@@ -2418,6 +2418,7 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 body:not(.is-mobile) .mod-root > .mod-horizontal > .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf),
 body:not(.is-mobile) .mod-root .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
     border-radius: var(--radius-ml);	
+	-electron-corner-smoothing: 60%;	
 }
 body:not(.is-mobile) .mod-root .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
@@ -5072,6 +5073,89 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 }
 .setting-item + div > .setting-item-heading, .setting-item + .setting-item-heading {
     margin-top: 8px;
+}
+
+/* Todoist Sync */
+
+.todoist-tasks-list {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.5rem;
+}
+.cm-lang-todoist {
+	border-radius: var(--radius-ml) !important;
+
+}
+.block-language-todoist {
+	contain: content;
+	border-radius: var(--radius-xl);
+	padding: 0.125rem 0.125rem 0.15625rem 0.125rem;
+}
+.cm-embed-block.markdown-rendered.cm-lang-todoist,
+.el-pre > .block-language-todoist {
+	margin-block: var(--p-spacing) !important;
+}
+
+.todoist-query-header {
+	position: absolute;
+	right: 0%;
+}
+.todoist-query-header .todoist-query-controls {
+    gap: 4px;
+}
+.todoist-query-header .todoist-query-controls .todoist-query-control-button {
+    padding-inline: 12px;
+	border: none !important;
+	margin: unset;
+    transition: var(--anim-fast-swing);
+    opacity: 0;
+	--interactive-normal: transparent;
+	&:hover {
+		background-color: var(--nav-item-background-active);
+	}
+}
+
+.todoist-group-title {
+    margin-block: 0 1.25rem;
+}
+.todoist-task-container {
+	background-color: var(--trans-strong-40);
+	border-block: unset !important;
+	border-radius: var(--radius-m);
+	padding: 0.5rem;
+}
+
+.todoist-task-container .todoist-task-checkbox {
+    margin-block-start: 0.25rem;
+	margin-inline-start: 0.1875rem;
+}
+.todoist-task-metadata {
+	margin: unset !important;
+	padding-inline-end: 0.125rem;
+	--icon-s: 0.875rem;
+}
+.todoist-task-metadata .task-metadata-item[data-project-color="charcoal"] {
+	color: var(--icon-color);
+}
+.todoist-task-metadata .task-metadata-item > .obsidian-icon {
+	padding-bottom: 0.125rem;
+}
+.todoist-task-container .todoist-task-checkbox div {
+    border: unset !important;
+    box-shadow: inset 0 0 0 1.25px var(--todoist-checkbox-border);
+	opacity: 0.75;
+	transition: var(--anim-fast-smooth);
+	&:hover {
+		opacity: unset;
+	}
+}
+
+.todoist-callout {
+    border-radius: var(--radius-sm);
+	margin-block-start: 0;
+}
+.todoist-callout .callout-header {
+    margin-block-end: unset;
 }
 
 /*--> Widgets <--*/
