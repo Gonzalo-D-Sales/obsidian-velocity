@@ -324,7 +324,7 @@ body {
 	--h5-size: 1.0875em;
 	--h6-size: 1em;
 	--h1-weight: 325;
-	--h2-weight: 575;
+	--h2-weight: 550;
 	--h3-weight: 575;
 	--h4-weight: 650;
 	--h5-weight: 675;
@@ -479,7 +479,7 @@ body {
 
 	/* Tags */
 	--tag-shadow: 
-	inset 0px -1.4px 0px 0px var(--trans-strong-30);
+	inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
 	--tag-size: var(--font-smallest);
 	--tag-background: transparent;
 	--tag-background-hover: transparent;
@@ -552,8 +552,8 @@ body {
 	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-60: oklch(55.00% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(45.00% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
+	--color-base-70: oklch(45.50% var(--base-sat-xtr) var(--base-hue));
+	--color-base-80: oklch(42.50% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(28.25% var(--base-sat-low) var(--base-hue)); 
    --color-base-100: oklch(22.50% var(--base-sat-low) var(--base-hue)); 
 
@@ -591,7 +591,7 @@ body {
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
 		var(--color-base-05) 37.5%, 
-		var(--color-base-50) 225%
+		var(--color-base-50) 237.5%
 		);
 	--background-gradient-menu: radial-gradient( at 64% 50%, 
 		var(--color-base-10) 30%, 
@@ -619,7 +619,7 @@ body {
 	--color-accent-3: color-mix(in oklch, var(--color-accent), transparent 5%);
 	--color-accent-4: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
 	--color-accent-5: color-mix(in oklch, var(--text-selection) 100%, transparent 75%);
-	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 100%);
+	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
 
 	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--base-hue));
 	--blockquote-color: var(--color-base-80);
@@ -675,7 +675,7 @@ body {
 	--tab-sidebar-bg-top: var(--trans-strong-10);
 	--tab-sidebar-bg-top-left: var(--trans-strong-20);
 	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--trans-faint-05), var(--trans-faint-05));
-	--tag-background-image: linear-gradient(to top, var(--text-selection) -30%, var(--color-accent-6) 60%);
+	--tag-background-image: linear-gradient(to top, var(--color-accent-5), var(--color-accent-6) 50%);
 
 	--vault-profile-color: var(--text-normal);
 	--workspace-border-color: var(--trans-faint-25);
@@ -1151,7 +1151,7 @@ body:not(.mod-windows, .mod-linux) {
 	--h1-weight-alt: 525;
 	--h1-weight: 250;
 	--h2-weight: 500;
-	--h3-weight: 500;
+	--h3-weight: 525;
 	--h4-weight: 575;
 	--h5-weight: 600;
 	--h6-weight: 650;
@@ -1177,9 +1177,9 @@ body:not(.mod-windows, .mod-linux) {
 	--font-semibold: 625;
 	--font-bold: 725;
 	--font-extrabold: 825;
-	--h1-weight-alt: 575;
+	--h1-weight-alt: 525;
 	--h1-weight: 300;
-	--h2-weight: 550;
+	--h2-weight: 525;
 	--h3-weight: 550;
 	--h4-weight: 625;
 	--h5-weight: 650;
@@ -2664,7 +2664,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 
 .workspace-leaf-content .tree-item-self.mod-collapsible {
 	--nav-item-color: var(--nav-folder-color);
-	--nav-item-background-selected: var(--color-accent-5);
+	--nav-item-background-selected: var(--color-accent-6);
 	--nav-item-background-hover: var(--trans-faint-05);
 	--nav-item-weight: var(--font-semibold);
 	--nav-item-weight-hover: var(--font-semibold);
@@ -3943,7 +3943,7 @@ input.prompt-input:hover {
 	--interactive-accent: var(--color-base-40);
 	--tag-padding-x: 0.625rem;
 	--tag-size: 0.8rem;
-	--tag-weight: var(--font-medium);
+	--tag-weight: var(--font-semi-medium);
 }
 /* fix for missing border radius visual bug */
 .mod-root .workspace-leaf-content[data-type="bases"] {
