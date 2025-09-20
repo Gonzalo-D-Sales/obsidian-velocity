@@ -2195,17 +2195,27 @@ button.clickable-icon {
 	.clickable-icon {
     padding: 8px;
 }
-/* sidebar toggle alignment */
-.sidebar-toggle-button {
-    padding-block: 8px;
-	margin-top: 1px;
+
+.workspace-tab-header-new-tab .clickable-icon {
+	height: 32px;
+	width: 32px;
+	margin-bottom: 2px;
+	--icon-color: var(--text-muted);
 }
-.sidebar-toggle-button.mod-left {
-    padding-inline: 2px;
+.mod-root .workspace-tab-header-tab-list,
+.sidebar-toggle-button {
+	contain: content;
+	margin-block-start: 1px;
+	padding-block: 8px;
+	--icon-color: var(--text-muted);
+}
+.workspace-tab-header-tab-list .clickable-icon {
+	height: 100%;
+	padding: 8px;
 }
 .sidebar-toggle-button .clickable-icon {
-    width: 34px;
-	--icon-color: var(--text-muted);
+	height: 100%;
+	padding: 8px;
 }
 .menu-item-icon svg {
 	padding: 0;
@@ -2811,19 +2821,6 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 
 /*--> Workspace Tabs <--*/
 
-.workspace-tab-header-new-tab .clickable-icon {
-	height: 32px;
-	width: 32px;
-	margin-bottom: 2px;
-	--icon-color: var(--text-muted);
-}
-.workspace-tab-header-tab-list {
-	padding-block: 1px 0;
-}
-.workspace-tab-header-tab-list .clickable-icon {
-	padding-block: 8px;
-}
-
 /* Remove tab gutter curves */
 .workspace-split.mod-root .workspace-tab-header::before, 
 .workspace-split.mod-root .workspace-tab-header::after,
@@ -2841,6 +2838,9 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 .workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
 	padding-inline-start: 0;
+}
+.mod-root .workspace-tab-header-container {
+	transition: calc(var(--anim-duration-fast) * 1.25);
 }
 .mod-root .workspace-tab-header-container-inner {
 	height: var(--header-height);
@@ -2893,7 +2893,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 body.disable-exit 
 	.workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button {
 	pointer-events: none;
-	--icon-color: var(--text-faint);
+	--icon-color: var(--color-base-35);
 }
 .workspace-tab-header-inner-close-button,
 .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
