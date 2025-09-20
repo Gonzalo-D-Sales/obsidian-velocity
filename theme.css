@@ -386,7 +386,7 @@ body {
 	--nav-item-color-hover: var(--nav-text-color);
 	--nav-item-color-active: var(--nav-text-color);
 	--nav-item-color-selected: var(--nav-text-color);
-	--nav-file-weight: var(--font-semibold);	
+	--nav-file-weight: calc(var(--font-medium) + 50);	
 	--collapse-icon-color: var(--trans-faint-60);
 
 	/* Metadata */
@@ -2098,7 +2098,6 @@ mjx-math {
 }
 .workspace-leaf-content[data-type="file-properties"] .metadata-container {
 	background-color: unset;
-	box-shadow: none;
 	container-type: inline-size;
 }
 .mod-sidedock .metadata-property-key input {
@@ -2106,7 +2105,8 @@ mjx-math {
 	font-weight: var(--font-semi-medium);
 	padding: 0 6px;
 }
-@container (width < 25em) {
+@container (width < 20em) {
+	.mod-sidedock {
 	.metadata-property {
 		flex-direction: column;
 		border-top: 1px solid var(--divider-color);
@@ -2122,11 +2122,12 @@ mjx-math {
 	.metadata-property-value {
 		padding-inline: 16px 0;
 	}
-	.metadata-property > .metadata-property-key > input {
-		font-weight: var(--font-medium);
+	.metadata-property-key > input {
+		font-weight: var(--nav-file-weight);
 	}
 	.metadata-property-value > * {
 		padding: 4px 8px 8px;
+	}
 	}
 }
 /*--> Tables <--*/
@@ -2682,7 +2683,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color: var(--nav-folder-color);
 	--nav-item-background-selected: var(--color-accent-6);
 	--nav-item-background-hover: var(--trans-faint-05);
-	--nav-item-weight: calc(var(--font-medium) + 50);
+	--nav-item-weight: var(--nav-file-weight);
 	--nav-item-weight-hover: var(--nav-item-weight);
 }
 
