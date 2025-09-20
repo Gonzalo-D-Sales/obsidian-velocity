@@ -138,33 +138,43 @@ settings:
 	level: 2
 	collapsed: false
 - 	
+	id: disable-exit
+	title: Accidental exit prevention for tabs
+	description: Disables the exit button when hovering over inactive tabs.
+	type: class-toggle
+- 
 	id: active-line-highlight
-	title: Enable active line highlighting
+	title: Active line highlighting
 	description: Highlights the active line with slight backdrop for easier text navigation.  
 	type: class-toggle
 - 	
-	id: enable-dim-img
-	title: Enable image dimming in Dark mode
-	description: Reduces the brightness of images in Dark mode except when hovered.
-	type: class-toggle
-- 	
-	id: prop-headings
-	title: Enable proportional heading margins
-	description: Decreases the margin sizes of smaller headings.
-	type: class-toggle
--
 	id: hide-bases-header
-	title: Enable minimal Bases display for Reading mode
+	title: Cleaner Bases display 
 	description: Hides the filter toolbar options for embedded Bases in Reading mode.
 	type: class-toggle
 - 	
+	id: enable-dim-img
+	title: Image dimming in Dark mode
+	description: Reduces the brightness of images in Dark mode except when hovered.
+	type: class-toggle
+- 	
+	id: pinned-tabs-left
+	title: Improved pinned tabs appearance
+	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
+	type: class-toggle
+-
+	id: prop-headings
+	title: Proportional heading margins
+	description: Decreases the margin sizes of smaller headings.
+	type: class-toggle
+-
 	id: enable-performance-tweaks
-	title: Enable experimental performance tweaks
+	title: Experimental performance tweaks
 	description: Activates special CSS hacks which typically improve editor performance. Leave off if stability or performance is negatively affected.
 	type: class-toggle
 - 	
 	id: code-special
-	title: Enable unique color for inline code
+	title: Unique color for inline code
 	type: variable-select
 	default: var(--code-normal)
 	allowEmpty: false
@@ -2848,8 +2858,12 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	.workspace-tab-header.is-active {
 		background-color: transparent;
 	}
+	.workspace-tab-header:not(.is-active) .workspace-tab-header-status-container {
+		pointer-events: none;
+		--text-accent: var(--icon-color);
+	}
 	.workspace-tab-header-inner {
-		padding-inline: 6px 5px;
+		padding-inline: 6px;
 	}
 	.workspace-tab-header:hover .workspace-tab-header-inner {
 		color: var(--tab-text-color-active);
@@ -2860,10 +2874,16 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	.workspace-tab-header-inner-title {
 		transition: color var(--anim-super-smooth);
 	}
-	.workspace-tab-header:is([data-type="empty"],[data-type="markdown"]) 
+	.workspace-tab-header:is([data-type="empty"], [data-type="markdown"]) 
 	.workspace-tab-header-inner-title {
 		text-indent: 4px;
 	}
+}
+
+body.disable-exit 
+	.workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button {
+	pointer-events: none;
+	--icon-color: var(--text-faint);
 }
 .workspace-tab-header-inner-close-button,
 .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
@@ -2924,11 +2944,17 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 /* FROM Willemstad */
 /* By tingmelvin */
 
-.mod-root .workspace-tab-header-container-inner .workspace-tab-header:has(.mod-pinned) {
-	max-width: 80px;
+body.pinned-tabs-left .mod-root .workspace-tab-header-container-inner .workspace-tab-header:has(.mod-pinned) {
     order: -1;
-	& .workspace-tab-header-inner {
-		max-width: 80px;
+	max-width: 60px;
+	> .workspace-tab-header-inner {
+		background-color: var(--trans-faint-05);
+	}
+	&.is-active > .workspace-tab-header-inner {
+		background-color: var(--color-accent-6);
+	}
+	.workspace-tab-header-inner-title {
+		display: none;
 	}
 }
 
