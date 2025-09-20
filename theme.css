@@ -661,6 +661,7 @@ body {
 	/* --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
 	--background-modifier-cover: rgba(220, 220, 220, 0.4); */
 	
+	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
 	--nav-text-color: var(--text-normal);
 	--nav-folder-color: var(--color-base-80);
@@ -2561,31 +2562,34 @@ body:not(.is-mobile) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 4px 4px 0;
-		margin-block: 6px -12px;
+		padding: 6px;
+		margin-block: 0px -24px;
 		transition: var(--anim-fast-swing);
 	}
 	.nav-buttons-container {
+		contain: content;
 		display: flex;
 		width: fit-content;
 		max-width: 100%;
 		padding: 2px;
 		border-radius: var(--radius-xxl);
-		background-color: var(--nav-header-bg);
+		background-color: var(--trans-strong-40);
 		flex-wrap: nowrap;
-		transform: scale(25%, 20%) translateY(-60px);
+		transform: scale(22.5%, 17.5%) translateY(-80px);
 		transition: var(--anim-fast-smooth);
 		& > * {
 			filter: opacity(0);
 		}
 	}
 	.nav-action-button {
-		border-radius: var(--radius-s);
-		height: 26px;
+		contain: content;
+		border-radius: var(--radius-xl);
+		height: 32px;
 		width: 44px;
+		transition: var(--anim-super-smooth);
 	}
 	.nav-header > .search-input-container {
-		margin-block: -8px 16px;
+		margin-block: -12px 28px;
 		width: calc(100% - 28px);
 	}
 	.mod-sidedock .nav-header + * {
@@ -2610,9 +2614,8 @@ body:not(.is-mobile).disable-hover-header .nav-buttons-container,
 body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header > .nav-buttons-container {
 	transform: scale(100%);
 	transform: translateY(0);
-	border-radius: var(--radius-sm);
 	flex-wrap: nowrap;
-	margin-bottom: 16px;
+	margin-bottom: 28px;
 	--background-modifier-active-hover: var(--color-accent-5);
 	& > * {
 		filter: unset;
@@ -2684,7 +2687,8 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-background-selected: var(--color-accent-6);
 	--nav-item-background-hover: var(--trans-faint-05);
 	--nav-item-weight: var(--nav-file-weight);
-	--nav-item-weight-hover: var(--nav-item-weight);
+	--nav-item-weight-hover: var(--nav-file-weight);
+	--nav-item-weight-active: var(--nav-file-weight);
 }
 
 /* Backlinks */
