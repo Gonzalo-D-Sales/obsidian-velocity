@@ -382,7 +382,7 @@ body {
     --nav-item-parent-padding: 8px 8px 8px 24px; 
 	--nav-item-weight: var(--font-normal);
 	--nav-item-weight-active: var(--font-normal);
-	--nav-item-color: var(--color-base-80);
+	--nav-item-color: var(--color-base-70);
 	--nav-item-color-hover: var(--nav-text-color);
 	--nav-item-color-active: var(--nav-text-color);
 	--nav-item-color-selected: var(--nav-text-color);
@@ -525,7 +525,7 @@ body {
 .theme-light {
 
 	--accent-h: 212;	
-	--accent-s: 100%;	
+	--accent-s: 96%;	
 	--accent-l: 48%;
 	
 	--color-red-rgb: 250, 30, 14;
@@ -561,11 +561,11 @@ body {
 	--color-base-40: oklch(75.25% var(--base-sat-str) var(--base-hue)); 
 	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-60: oklch(55.00% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(45.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(42.50% var(--base-sat-str) var(--base-hue)); 
-	--color-base-90: oklch(28.25% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(22.50% var(--base-sat-low) var(--base-hue)); 
+	--color-base-60: oklch(55.50% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(45.75% var(--base-sat-xtr) var(--base-hue));
+	--color-base-80: oklch(42.75% var(--base-sat-str) var(--base-hue)); 
+	--color-base-90: oklch(28.75% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(23.00% var(--base-sat-low) var(--base-hue)); 
 
 	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
 	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.800);
@@ -662,7 +662,7 @@ body {
 	--background-modifier-cover: rgba(220, 220, 220, 0.4); */
 	
 	--nav-header-bg: var(--trans-strong-40);
-	--nav-text-color: var(--color-base-100);
+	--nav-text-color: var(--text-normal);
 	--nav-folder-color: var(--color-base-80);
 
 	--search-result-background: var(--trans-strong-30);
@@ -2093,36 +2093,42 @@ mjx-math {
 	--metadata-input-text-color: var(--text-muted);
     --metadata-divider-width: 0;
     --metadata-property-radius: 0;
+	--metadata-property-padding: 2px 0;
 	--background-modifier-border-focus: var(--color-accent-4);
 }
-.mod-sidedock .metadata-container {
+.workspace-leaf-content[data-type="file-properties"] .metadata-container {
 	background-color: unset;
 	box-shadow: none;
-}
-.mod-sidedock .metadata-property {
-	flex-direction: column;
-	border-top: 1px solid var(--divider-color);
-}
-.mod-sidedock .metadata-property:first-child {
-	border-top: none;
-}
-.mod-sidedock .metadata-property-key {
-	align-items: baseline;
-	width: auto;
-}
-.mod-sidedock .metadata-property-value {
-	padding-inline: 16px 0;
+	container-type: inline-size;
 }
 .mod-sidedock .metadata-property-key input {
-	background-color: transparent;
-	color: var(--text-normal);
-	font-weight: var(--font-medium);
+	color: var(--color-base-80);
+	font-weight: var(--font-semi-medium);
 	padding: 0 6px;
 }
-.mod-sidedock .metadata-property-value > * {
-	padding: 4px 8px 8px;
+@container (width < 25em) {
+	.metadata-property {
+		flex-direction: column;
+		border-top: 1px solid var(--divider-color);
+		--metadata-property-padding: 0;
+	}
+	.metadata-property:first-child {
+		border-top: none;
+	}
+	.metadata-property-key {
+		align-items: baseline;
+		width: auto;
+	}
+	.metadata-property-value {
+		padding-inline: 16px 0;
+	}
+	.metadata-property > .metadata-property-key > input {
+		font-weight: var(--font-medium);
+	}
+	.metadata-property-value > * {
+		padding: 4px 8px 8px;
+	}
 }
-
 /*--> Tables <--*/
 
 .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, 
@@ -2676,9 +2682,8 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color: var(--nav-folder-color);
 	--nav-item-background-selected: var(--color-accent-6);
 	--nav-item-background-hover: var(--trans-faint-05);
-	--nav-item-weight: var(--font-semibold);
-	--nav-item-weight-hover: var(--font-semibold);
-	--nav-item-weight-active: var(--font-semibold);
+	--nav-item-weight: calc(var(--font-medium) + 50);
+	--nav-item-weight-hover: var(--nav-item-weight);
 }
 
 /* Backlinks */
