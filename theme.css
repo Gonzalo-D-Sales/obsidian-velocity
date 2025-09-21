@@ -1232,10 +1232,14 @@ body:not(.is-mobile) {
 /* Electron Corner-smoothing */
 body:not(.is-mobile) :is(
 	button,
+	img,
 	select,
 	.clickable-icon,
+	.community-item,
 	.dropdown,
+	.flair,
 	.metadata-add-button,
+	.nav-file-tag,
 	.todoist-task-container) {
 	-electron-corner-smoothing: 60%;	
 	}
@@ -2243,7 +2247,7 @@ body:not(.disable-custom-icons) :where(
 	svg.lucide-download-cloud,
 	svg.lucide-files,
 	svg.lucide-folder-closed,
-	svg.lucide-folder-open,
+	.modal svg.lucide-folder-open,
 	svg.lucide-git-fork,
 	svg.lucide-globe-2,
 	svg.lucide-layout-dashboard,
@@ -2309,7 +2313,7 @@ svg.lucide-files {
 svg.lucide-folder-closed {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWZvbGRlci1pY29uIGx1Y2lkZS1mb2xkZXIiPjxwYXRoIGQ9Ik0yMCAyMGEyIDIgMCAwIDAgMi0yVjhhMiAyIDAgMCAwLTItMmgtNy45YTIgMiAwIDAgMS0xLjY5LS45TDkuNiAzLjlBMiAyIDAgMCAwIDcuOTMgM0g0YTIgMiAwIDAgMC0yIDJ2MTNhMiAyIDAgMCAwIDIgMloiLz48L3N2Zz4=");
 }
-svg.lucide-folder-open {
+.modal svg.lucide-folder-open {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWZvbGRlci1zZWFyY2gtaWNvbiBsdWNpZGUtZm9sZGVyLXNlYXJjaCI+PHBhdGggZD0iTTEwLjcgMjBINGEyIDIgMCAwIDEtMi0yVjVhMiAyIDAgMCAxIDItMmgzLjlhMiAyIDAgMCAxIDEuNjkuOWwuODEgMS4yYTIgMiAwIDAgMCAxLjY3LjlIMjBhMiAyIDAgMCAxIDIgMnY0LjEiLz48cGF0aCBkPSJtMjEgMjEtMS45LTEuOSIvPjxjaXJjbGUgY3g9IjE3IiBjeT0iMTciIHI9IjMiLz48L3N2Zz4=");
 }
 svg.lucide-git-fork {
@@ -2669,9 +2673,10 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 
 .mod-sidedock .nav-file-tag {
-	border-radius: var(--radius-xs);
+	border-radius: var(--radius-l);
 	color: var(--text-normal);
-	font-weight: var(--font-medium);
+	font-weight: var(--font-semibold);
+	padding-inline: 5px;
 }
 
 /*--> Workspace Sidebar leaves <--*/
@@ -2892,8 +2897,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 
 body.disable-exit 
 	.workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button {
-	pointer-events: none;
-	--icon-color: var(--color-base-35);
+	display: none;
 }
 .workspace-tab-header-inner-close-button,
 .mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
@@ -3448,13 +3452,16 @@ body:not(.is-mobile)
 /*--> Confirmation Modal (Bookmarks/Iconic/etc.) <--*/
 
 .mod-confirmation.mod-dim {
-	& .setting-item-info {
+	.mod-cta {
+		order: -1;
+	}
+	.setting-item-info {
 		flex: 4 !important;
 		}
-	& .setting-item-control {
+	.setting-item-control {
 		flex: 6 !important;
 		}
-	& .setting-item:first-child .setting-item-control input:hover {
+	.setting-item:first-child .setting-item-control input:hover {
 		box-shadow: var(--shadow-input);
 		cursor: not-allowed;
 		}
@@ -3671,7 +3678,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
     background-image: var(--hotkey-gradient);
     color: var(--text-on-accent);
     gap: var(--size-2-2);
-	font-weight: var(--font-cta-button);
+	font-weight: calc(var(--font-cta-button) + 100) !important;
 }
 .hotkey-filter-remove-button {
     color: var(--trans-strong-20);
@@ -3769,14 +3776,14 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	padding-top: 32px;
 }
 .community-modal-search-results {
-    gap: 8px;
+    gap: 10px;
 	padding: 16px 24px;
 }
 .community-item {
     border-radius: var(--radius-ml);
     border: none;
 	box-shadow: var(--shadow-themes);
-	padding: 8px;
+	padding: 10px;
 }
 .mod-community-theme .community-item {
 	display: grid;
@@ -3817,7 +3824,12 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	grid-row: 1;
 }
 .community-item .flair {
-	padding-block-end: 1px;
+	font-weight: var(--font-semibold);
+	border-radius: var(--radius-l);
+	padding-inline: 6px;
+	padding-block: 3px 1px;
+	contain: content;
+	text-indent: 1px;
 	--tag-background: var(--color-accent-5);
 }
 
@@ -4921,6 +4933,86 @@ button.kanban-plugin__new-item-button {
 }
 .kanban-plugin__item-button-plus {
 	display: none;
+}
+
+/*--> Notebook Navigator <--*/
+
+.notebook-navigator {
+	background-color: transparent;
+	padding-block-start: unset !important;
+	/* colors */
+	--nn-theme-divider-resize-handle-hover-bg: var(--divider-color-hover);
+	--nn-theme-file-date-color: var(--color-base-80);
+	--nn-theme-file-selected-date-color: var(--color-base-80);
+	--nn-theme-file-preview-color: var(--icon-color);
+	--nn-theme-file-selected-preview-color: var(--icon-color);
+	--nn-theme-list-group-header-color: var(--text-faint);
+	--nn-theme-list-header-icon-color: var(--color-base-80);
+	--nn-theme-navitem-chevron-color: var(--collapse-icon-color);
+    --nn-theme-navitem-icon-color: var(--icon-color);
+    --nn-theme-navitem-name-color: var(--color-base-80);
+    --nn-theme-navitem-count-color: var(--trans-faint-60);
+	/* bg colors */
+	--nn-theme-file-selected-bg: var(--nav-item-background-active);
+	--nn-theme-list-bg: transparent;
+	--nn-theme-list-header-bg: transparent;
+	--nn-theme-nav-bg: transparent;
+	--nn-theme-nav-header-bg: transparent;
+	--nn-theme-navitem-selected-bg: var(--nav-item-background-active);
+	/* weights */
+    --nn-theme-file-name-font-weight: var(--font-semibold);
+    --nn-theme-file-slim-name-font-weight: var(--font-normal);
+    --nn-theme-file-preview-font-weight: var(--font-normal);
+    --nn-theme-file-date-font-weight: var(--font-normal);
+    --nn-theme-file-parent-font-weight: var(--font-normal);
+    --nn-theme-file-tag-font-weight: var(--font-medium);
+	--nn-theme-list-header-breadcrumb-font-weight: var(--font-semibold);
+    --nn-theme-list-group-header-font-weight: var(--nav-file-weight);
+	--nn-theme-navitem-name-font-weight: var(--font-normal);
+    --nn-theme-navitem-count-font-weight: var(--font-normal);
+	/* radius */
+	--nn-theme-navitem-border-radius: var(--radius-s);
+}
+.mod-sidedock .notebook-navigator {
+	padding-block-start: 2px !important;
+}
+
+.nn-pane-header {
+    height: auto;
+}
+.nn-header-actions button.nn-icon-button {
+	contain: content;
+    height: fit-content;
+	padding: 8px;
+}
+
+.nn-search-input-container {
+	--nn-theme-list-header-icon-color: var(--icon-color);
+}
+.nn-search-input {
+	border: unset !important;
+	--nn-theme-list-bg: var(--search-result-background);
+}
+.nn-search-input:focus {
+    box-shadow: 0 0 0 2.25px var(--color-accent-4) !important;
+}
+.nn-search-input-icon {
+	top: 5px;
+}
+
+.nn-file.nn-slim {
+	--nn-theme-file-border-radius: var(--radius-s);
+}
+.nn-file-second-line {
+    margin-block: 2px -2px;
+}
+
+.nn-navitem[aria-expanded="true"] {
+	--nn-theme-navitem-icon-color: var(--text-normal);
+	--nn-theme-navitem-name-font-weight: var(--font-semibold);
+}
+.nn-navitem-name {
+	transition: var(--anim-fast-swing);
 }
 
 /*--> Omnisearch <--*/
