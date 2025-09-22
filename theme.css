@@ -1040,11 +1040,14 @@ body {
 	--tab-sidebar-bg-top: var(--trans-faint-30);
 	--tab-sidebar-bg-top-left: var(--trans-faint-40);
 	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--trans-faint-00), var(--trans-strong-10) 80%);
-	--tag-background-image: linear-gradient(to top, var(--text-selection) -50%, var(--color-accent-6) 100%);
+	--tag-border-color: oklch(from var(--interactive-accent) l c h / 0.025);
+	--tag-background-image: linear-gradient(to top, var(--color-accent-6) -25%, var(--text-selection) 50%);
 	
 	--vault-profile-color: var(--color-base-80);
 	--workspace-border-color: var(--trans-faint-25);
 
+	--tag-shadow: 
+		inset 0 0.5px 0px 0.25px var(--trans-faint-40);
 	--input-shadow: 
 		inset 0 1px 1px 0.5px var(--trans-faint-25),
 		inset 0 0.0625px 0 0.25px var(--trans-strong-40),
@@ -2490,7 +2493,7 @@ body:not(.is-mobile) .workspace {
 	background-image: var(--background-gradient);
 	font-weight: var(--font-weight);
 }
-body:not(.is-mobile) .mod-root {
+body:not(.is-mobile) .workspace-split.mod-root {
     padding-bottom: 8px;
 }
 .workspace-split.mod-root,
@@ -2508,8 +2511,8 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 }
 
 /* Sidedock / workspace-split */
-body:not(.is-mobile) .mod-sidedock .workspace-tab-container {
-	margin-inline: 4px;
+body:not(.is-mobile) .mod-sidedock .workspace-leaf-content {
+	padding-inline: 4px;
 }
 
 /* empty sidedock */
@@ -4937,21 +4940,29 @@ button.kanban-plugin__new-item-button {
 
 /*--> Notebook Navigator <--*/
 
+body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
+	padding-inline: unset;
+}
+
 .notebook-navigator {
 	background-color: transparent;
 	padding-block-start: unset !important;
 	/* colors */
+	--nn-theme-divider-border-color: var(--hr-color);
 	--nn-theme-divider-resize-handle-hover-bg: var(--divider-color-hover);
 	--nn-theme-file-date-color: var(--color-base-80);
 	--nn-theme-file-selected-date-color: var(--color-base-80);
 	--nn-theme-file-preview-color: var(--icon-color);
 	--nn-theme-file-selected-preview-color: var(--icon-color);
-	--nn-theme-list-group-header-color: var(--text-faint);
+	--nn-theme-header-border-color: var(--hr-color);
+	--nn-theme-list-group-header-color: var(--color-base-55);
 	--nn-theme-list-header-icon-color: var(--color-base-80);
 	--nn-theme-navitem-chevron-color: var(--collapse-icon-color);
     --nn-theme-navitem-icon-color: var(--icon-color);
     --nn-theme-navitem-name-color: var(--color-base-80);
-    --nn-theme-navitem-count-color: var(--trans-faint-60);
+    --nn-theme-navitem-count-color: var(--collapse-icon-color);
+	--nn-theme-navitem-hover-bg: var(--trans-strong-40);
+
 	/* bg colors */
 	--nn-theme-file-selected-bg: var(--nav-item-background-active);
 	--nn-theme-list-bg: transparent;
@@ -4965,20 +4976,31 @@ button.kanban-plugin__new-item-button {
     --nn-theme-file-preview-font-weight: var(--font-normal);
     --nn-theme-file-date-font-weight: var(--font-normal);
     --nn-theme-file-parent-font-weight: var(--font-normal);
-    --nn-theme-file-tag-font-weight: var(--font-medium);
+    --nn-theme-file-tag-font-weight: var(--font-semi-medium);
 	--nn-theme-list-header-breadcrumb-font-weight: var(--font-semibold);
     --nn-theme-list-group-header-font-weight: var(--nav-file-weight);
 	--nn-theme-navitem-name-font-weight: var(--font-normal);
     --nn-theme-navitem-count-font-weight: var(--font-normal);
-	/* radius */
+	/* dimensions */
 	--nn-theme-navitem-border-radius: var(--radius-s);
+	--nn-separator-height: 0;
 }
 .mod-sidedock .notebook-navigator {
 	padding-block-start: 2px !important;
 }
 
+.nn-single-pane.show-navigation > .nn-navigation-pane > * {
+	border-inline: unset;
+}
+.nn-resize-handle {
+	transition: background-color 200ms ease-in-out;
+}
 .nn-pane-header {
+	border-block-end: unset;
     height: auto;
+}
+.nn-pane-header:first-child {
+	margin-inline-start: 4px;
 }
 .nn-header-actions button.nn-icon-button {
 	contain: content;
@@ -4987,7 +5009,8 @@ button.kanban-plugin__new-item-button {
 }
 
 .nn-search-input-container {
-	--nn-theme-list-header-icon-color: var(--icon-color);
+	--nn-theme-list-header-breadcrumb-color: var(--text-faint);
+	--nn-theme-list-header-icon-color: var(--text-faint);
 }
 .nn-search-input {
 	border: unset !important;
@@ -5006,13 +5029,27 @@ button.kanban-plugin__new-item-button {
 .nn-file-second-line {
     margin-block: 2px -2px;
 }
-
-.nn-navitem[aria-expanded="true"] {
-	--nn-theme-navitem-icon-color: var(--text-normal);
-	--nn-theme-navitem-name-font-weight: var(--font-semibold);
+.nn-file.nn-selected > .nn-file-content::before {
+    inset-block: 1px !important;
 }
-.nn-navitem-name {
-	transition: var(--anim-fast-swing);
+.nn-file:not(.nn-selected):hover > .nn-file-content::before {
+	content: '';
+    position: absolute;
+    top: 0;
+    inset-inline: 0;
+    inset-block: 1px;
+    border-radius: min(16px, var(--nn-theme-file-border-radius));
+    z-index: 0;
+	background-color: var(--nn-theme-navitem-hover-bg);
+}
+.nn-selected:hover {
+	--nn-theme-navitem-hover-bg: transparent;
+}
+.nn-navitem[aria-expanded="true"] {
+	--nn-theme-navitem-chevron-color: var(--text-muted);
+	--nn-theme-navitem-icon-color: var(--text-normal);
+	--nn-theme-navitem-selected-icon-color: var(--color-base-100);
+	--nn-theme-navitem-name-font-weight: var(--font-semibold);
 }
 
 /*--> Omnisearch <--*/
