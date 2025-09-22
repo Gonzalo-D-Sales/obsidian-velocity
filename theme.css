@@ -488,8 +488,6 @@ body {
 	--table-text-weight: var(--font-normal);
 
 	/* Tags */
-	--tag-shadow: 
-	inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
 	--tag-size: var(--font-smallest);
 	--tag-background: transparent;
 	--tag-background-hover: transparent;
@@ -691,6 +689,8 @@ body {
 	--vault-profile-color: var(--text-normal);
 	--workspace-border-color: var(--trans-faint-25);
 
+	--tag-shadow: 
+		inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
 	--input-shadow: 
 		0 0.125px 0 0.5px var(--trans-faint-30),
 		inset 0 -0.125px 1px 0px var(--trans-faint-30),
@@ -877,8 +877,8 @@ body {
 }
 .theme-dark {
 	
-	--accent-h: 200;	
-	--accent-s: 100%;	
+	--accent-h: 204;	
+	--accent-s: 98%;	
 	--accent-l: 49%;
 
 	--color-red-rgb: 251, 72, 79;
@@ -900,13 +900,13 @@ body {
 
 	--callout-quote: 150, 150, 160;
 
-	--base-hue: 275;
-	--base-hue-text: 275;
-	--base-sat-xtr: 0.01250;
-	--base-sat-str: 0.00625;
-	--base-sat-med: 0.00500;
-	--base-sat-low: 0.00375;
-	--color-base-00: oklch(24.00% var(--base-sat-low) var(--base-hue));
+	--base-hue: 281;
+	--base-hue-text: 281;
+	--base-sat-xtr: 0.010000;
+	--base-sat-str: 0.005000;
+	--base-sat-med: 0.003750;
+	--base-sat-low: 0.003125;
+	--color-base-00: oklch(23.75% var(--base-sat-low) var(--base-hue));
 	--color-base-05: oklch(25.75% var(--base-sat-med) var(--base-hue));
 	--color-base-10: oklch(27.50% var(--base-sat-str) var(--base-hue));
   	--color-base-20: oklch(28.75% var(--base-sat-str) var(--base-hue));
@@ -915,12 +915,12 @@ body {
 	--color-base-35: oklch(36.25% var(--base-sat-str) var(--base-hue));
 	--color-base-40: oklch(43.75% var(--base-sat-xtr) var(--base-hue));
 	--color-base-50: oklch(52.50% var(--base-sat-xtr) var(--base-hue-text));
-	--color-base-55: oklch(58.75% var(--base-sat-xtr) var(--base-hue-text));
-	--color-base-60: oklch(64.25% var(--base-sat-xtr) var(--base-hue-text));
+	--color-base-55: oklch(57.50% var(--base-sat-xtr) var(--base-hue-text));
+	--color-base-60: oklch(63.75% var(--base-sat-xtr) var(--base-hue-text));
 	--color-base-70: oklch(71.25% var(--base-sat-str) var(--base-hue-text));
-	--color-base-80: oklch(77.75% var(--base-sat-str) var(--base-hue-text));
-	--color-base-90: oklch(87.50% var(--base-sat-low) var(--base-hue-text));
-   --color-base-100: oklch(93.75% var(--base-sat-low) var(--base-hue-text));
+	--color-base-80: oklch(77.50% var(--base-sat-str) var(--base-hue-text));
+	--color-base-90: oklch(85.75% var(--base-sat-str) var(--base-hue-text));
+   --color-base-100: oklch(93.25% var(--base-sat-low) var(--base-hue-text));
 
     --trans-dark-00: oklch(from black l c h / 0.375);
 	--trans-dark-10: oklch(from black l c h / 0.250);
@@ -955,8 +955,8 @@ body {
 	--modal-border-color: var(--color-base-30);
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
-		var(--color-base-20) 32%, 
-		var(--background-primary) 128%
+		var(--color-base-20) 18%, 
+		var(--background-primary) 218%
 		);
 	--background-gradient-menu: radial-gradient( at 64% 50%, 
 		var(--color-base-20) 32%, 
@@ -979,8 +979,8 @@ body {
 	--toggle-gradient: linear-gradient(to bottom, var(--color-accent) -30%, var(--color-accent-4) 180%);
 	--warning-gradient: linear-gradient(to top, var(--color-red) -30%, var(--trans-strong-20) 180%);
 	
-	--color-accent-1: color-mix(in oklab, var(--color-accent) 52%, #fff 38%);
-	--color-accent-2: color-mix(in oklab, var(--color-accent-1), transparent 7%);
+	--color-accent-1: color-mix(in oklab, var(--color-accent) 64%, #fff 36%);
+	--color-accent-2: color-mix(in oklab, var(--color-accent-1), transparent 8%);
 	--color-accent-3: color-mix(in oklab, var(--color-accent), #fff 20%);
 	--color-accent-4: color-mix(in oklab, var(--color-accent) 50%, transparent 75%);
 	--color-accent-5: color-mix(in oklab, var(--text-selection) 100%, transparent 75%);
@@ -1095,8 +1095,8 @@ body {
 	--bases-cards-shadow-hover: 
 		0 0 0 0.375px var(--trans-faint-60);
 	--shadow-workspace: 
-		0px 12px 24px var(--color-base-00),
-		0px 2px 4px 0 var(--trans-strong-00);
+		0 10px 30px var(--color-base-00),
+		0 2px 4px 0 var(--trans-strong-00);
 	--shadow-workspace-multi: none;
 	--shadow-fab: 
 		inset 0 1.25px 2px 0px var(--trans-faint-10),
@@ -1242,7 +1242,11 @@ body:not(.is-mobile) :is(
 	.dropdown,
 	.flair,
 	.metadata-add-button,
+	.menu,
+	.modal,
 	.nav-file-tag,
+	.setting-item,
+	.tag,
 	.todoist-task-container) {
 	-electron-corner-smoothing: 60%;	
 	}
@@ -1606,7 +1610,7 @@ body.prop-headings {
 	--code-background: var(--code-background-alt);
 }
 body:not(.disable-callout-styling) {
-	--callout-border-opacity: 0.15;
+	--callout-border-opacity: 0.2;
 	--callout-radius: var(--radius-sm);
 	--callout-padding: 16px 16px 8px 16px;
 	--callout-title-padding: 0 0 0 2px;
@@ -1626,11 +1630,11 @@ body:not(.disable-callout-styling) {
 	.callout {
 		color: color-mix(in oklab, var(--blockquote-color), var(--text-normal));
 		background-color: transparent;
-		background-image: radial-gradient(at 20% 20%, 
-		rgb(var(--callout-color), 0.05),
-		rgb(var(--callout-color), 0.125));
+		background-image: radial-gradient(180% 60% at 50% 0%, 
+		rgb(var(--callout-color), 0.0625),
+		rgb(var(--callout-color), 0.1));
 		box-shadow: 
-		0 0 0 2px rgb(var(--callout-color), var(--callout-border-opacity));
+		0 0 0 1.75px rgb(var(--callout-color), var(--callout-border-opacity));
 		margin-inline: 1px;
 		outline: 1px solid var(--background-primary);
 		--bold-color: var(--text-normal);
@@ -5087,47 +5091,36 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
 body:not(.is-mobile) .vertical-tabs .nav-header .clickable-icon {
 	color: var(--color-base-40);
 	&:not(.is-disabled) {
-		color: var(--text-muted);
+		color: var(--icon-color);
 	}
 }
 body:not(.is-mobile) .vertical-tabs > .obsidian-vertical-tabs-container {
-	padding-block-start: 12px;
 	.tree-item.is-group .tree-item-children {
 		display: flex;
 		flex-direction: column;
-		row-gap: 4px;
+		row-gap: 1px;
 	}
 	.tree-item.is-tab {
-		height: 32px;
 		margin-left: 0;
 	}
 	.tree-item.is-tab > .tree-item-self.tree-item-self.is-clickable {
-		color: var(--color-base-80);
+		color: var(--text-muted);
 		font-weight: inherit;
 		margin-block: 0;
 		padding-inline-start: 28px;
+		padding-block: 9px 7px;
 	}
 	.tree-item.is-tab.is-highlighted > .tree-item-self.is-clickable {
-		color: var(--text-normal);
-		font-weight: inherit;
-		background-color: var(--nav-item-background-active);
-	}
-	.tree-item.is-tab-slot .tree-item-self {
-		height: 32px;
+		background-color: var(--color-accent-6);
+		color: var(--text-accent);
+		font-weight: var(--font-semibold);
 	}
 }
 /* other elements */
 body:not(.is-mobile) .obsidian-vertical-tabs-container .is-group-slot {
-    margin-top: 4px;
-	--background-modifier-border: var(--trans-faint-25);
 	.tree-item-self {
 		padding-inline-start: 28px;
 		margin-top: 4px;
-		transition: color var(--anim-super-swing);
-		--nav-item-background-hover: var(--color-accent-5);
-		&:hover {
-			color: var(--link-color);
-		}
 	}
 }
 
