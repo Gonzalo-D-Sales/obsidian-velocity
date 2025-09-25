@@ -67,8 +67,21 @@ settings:
 		label: Compact
 		value: '1.5'
 	- 
-		label: Relaxed
+		label: Spacious
 		value: '1.6'
+-
+	id: layout-nav-padding
+	title: Set interface and sidebar item spacing
+	type: variable-select
+	default: 8px
+	allowEmpty: false
+	options:
+	- 
+		label: Compact
+		value: 6px
+	- 
+		label: Spacious
+		value: 8px
 -
 	id: file-line-width
 	title: Set readable line width
@@ -363,6 +376,10 @@ body {
 	--italic-color: var(--color-base-80);
 
 	/* Z-index */
+
+	/* Custom theme layout variables */
+
+	--layout-nav-padding: 8px;
 
 	/* Line heights */
 	--line-height-normal: 1.6;
@@ -1250,6 +1267,8 @@ body:not(.is-mobile) :is(
 	.prompt,
 	.prompt-input,
 	.setting-item,
+	.suggestion-hotkey,
+	.suggestion-item,
 	.tag,
 	.todoist-task-container) {
 	-electron-corner-smoothing: 60%;	
@@ -2119,7 +2138,7 @@ mjx-math {
 .mod-sidedock .metadata-property-key input {
 	color: var(--color-base-80);
 	font-weight: var(--font-semi-medium);
-	padding: 0 6px;
+	padding: 0 4px;
 }
 @container (width < 20em) {
 	.mod-sidedock {
@@ -2140,9 +2159,10 @@ mjx-math {
 	}
 	.metadata-property-key > input {
 		font-weight: var(--nav-file-weight);
+		padding-inline-start: 6px;
 	}
 	.metadata-property-value > * {
-		padding: 4px 8px 8px;
+		padding: 4px 8px var(--layout-nav-padding);
 	}
 	}
 }
@@ -2588,7 +2608,7 @@ body:not(.is-mobile) {
 		flex-direction: column;
 		align-items: center;
 		padding: 6px;
-		margin-block: 0px -24px;
+		margin-block: 0 calc(var(--layout-nav-padding) - 32px);
 		transition: var(--anim-fast-swing);
 	}
 	.nav-buttons-container {
@@ -2650,7 +2670,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 /*--> Navigation / File Tree <--*/
 
 .workspace-leaf-content .tree-item-self {
-	padding-block: 8px;
+	padding-block: var(--layout-nav-padding);
 }
 
 /* Folders */
@@ -2787,6 +2807,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	margin-inline: 12px;
 }
 .mod-sidedock .search-params .setting-item {
+	padding-block: calc(var(--layout-nav-padding) * 0.75);
 	padding-inline: 8px 2px;
 }
 .mod-sidedock .search-results-info {
@@ -3502,7 +3523,7 @@ body:not(.is-mobile)
 }
 .menu-item {
 	border-radius: 7px;
-	padding: 6px 4px;
+	padding: calc(var(--layout-nav-padding) - 2px) 4px;
 }
 .menu-separator {
 	border-color: var(--color-base-20);
@@ -3577,7 +3598,7 @@ body:not(.is-phone) .vertical-tab-nav-item {
 	color: var(--color-base-80);
 	font-size: var(--font-ui-small);
 	font-weight: var(--font-medium);
-	padding-block: 8px;
+	padding-block: var(--layout-nav-padding);
 	padding-inline-start: 20px;
 	--background-modifier-hover: var(--trans-faint-05);
 }
@@ -3606,7 +3627,8 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		border-inline: 1px solid var(--setting-item-border-color);
 		box-shadow: var(--shadow-setting-item);
 		clip-path: inset(0px -24px 0px -24px);
-		padding: 12px 20px 12px 22px;
+		padding-block: calc(var(--layout-nav-padding) + 4px);
+		padding-inline: 22px 20px;
 		flex-wrap: wrap;
 		row-gap: 10px;
 		& .setting-item-info {
@@ -3627,7 +3649,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		border-bottom: 1px solid var(--setting-item-border-color);
 		border-radius: 0 0 var(--radius-ml) var(--radius-ml);
 		clip-path: inset(0px -24px -24px -24px);
-		padding-bottom: 14px;
+		padding-bottom: calc(var(--layout-nav-padding) + 6px);
 	}
 	& .setting-item.setting-item-heading + .setting-item:last-of-type,
 	.setting-item:not(.setting-item-heading):only-of-type,
@@ -3640,7 +3662,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		border: 1px solid var(--setting-item-border-color);
 		border-radius: var(--radius-ml) !important; 
 		clip-path: none !important;
-		padding-block: 14px;
+		padding-block: calc(var(--layout-nav-padding) + 6px);
 	}
 	& .setting-item:not(.setting-item-heading):first-of-type,
 	.setting-item.setting-item-heading + .setting-item,
@@ -3648,7 +3670,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		border-top: 1px solid var(--setting-item-border-color);
 		border-radius: var(--radius-ml) var(--radius-ml) 0 0;
 		clip-path: inset(-24px -24px 0px -24px);
-		padding-top: 16px;
+		padding-top: calc(var(--layout-nav-padding) + 8px);
 	}
 	& .setting-item.setting-item-heading  {
 		background-color: transparent !important;
@@ -3888,7 +3910,7 @@ input.prompt-input,
 input.prompt-input:active, 
 input.prompt-input:focus,
 input.prompt-input:hover {
-    padding: 16px;
+    padding: calc(var(--layout-nav-padding) + 8px);
     background-color: var(--trans-strong-30);
 	box-shadow: var(--input-shadow);
     font-size: 18px;
@@ -3904,8 +3926,8 @@ input.prompt-input:hover {
 .prompt .suggestion-item {
 	border-radius: var(--radius-sm);
 	color: var(--color-base-100);
-    padding-block: 10px;
-    padding-inline: 14px 10px;
+    padding-block: calc(var(--layout-nav-padding) * 1.25);
+    padding-inline: calc(var(--layout-nav-padding) + 6px) calc(var(--layout-nav-padding) * 1.25);
 }
 .prompt .suggestion-item .suggestion-hotkey {
 	background-color: var(--trans-strong-20);
@@ -3961,7 +3983,8 @@ input.prompt-input:hover {
 .suggestion-item {
 	color: var(--text-normal);
 	font-weight: var(--font-normal);
-    padding-block: 6px;
+    padding-block: calc(var(--layout-nav-padding) - 2px);
+	margin-block: 0;
 }
 .search-suggest-item.mod-group {
 	color: var(--text-normal);
