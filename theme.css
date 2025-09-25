@@ -1577,28 +1577,13 @@ thead,
 /*--> Proportional heading spacing <--*/
 
 body.prop-headings {
-	& .markdown-preview-view :is(.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + * > 
-	  :is(p,ul) {
+	& .markdown-preview-view :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + * > 
+	  :is(p,ul,ol) {
 		margin-block-start: 0;
 		}
-	& .markdown-rendered h2 {
-		margin-block-end: 0.875rem;
-		}
-	& .markdown-rendered h3 {
-		margin-block-end: 0.75rem;
-		--heading-spacing: 2.375rem;
-		}
-	& .markdown-rendered h4 {
-		margin-block-end: 0.6875rem;
-		--heading-spacing: 2.25rem;
-		}
-	& .markdown-rendered h5 {
-		margin-bottom: 0.625rem;
-		--heading-spacing: 2.125rem;
-		}
-	& .markdown-rendered h6 {
-		margin-block-end: 0.5625rem;
-		--heading-spacing: 2rem;
+	& .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+		margin-block-end: round(nearest, clamp(0px, 0.5em, 1rem), 4px);
+		--heading-spacing: round(nearest, 2em, 4px);
 		}
 }
 
@@ -1869,6 +1854,11 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 @container style(--line-height-normal: 1.5) {
 	.workspace {
 		--list-spacing: 0.075em;
+	}
+}
+@container style(--line-height-normal: 1.6) {
+	.markdown-rendered .el-p + .el-p > p {
+		margin-block-start: 1.25rem;
 	}
 }
 .markdown-rendered :is(ol, ul) > li {
