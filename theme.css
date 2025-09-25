@@ -388,6 +388,8 @@ body {
 	--link-decoration: none;
 	--link-decoration-hover: none;
 	--link-unresolved-opacity: 1;
+	--link-unresolved-color: 
+		oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
 
 	/* Lists */
 	--list-spacing: 0.15em;
@@ -610,7 +612,7 @@ body {
 	--text-highlight-bg-search: var(--text-highlight-bg);
 	--text-highlight-bg-search-active: color-mix(in oklab, var(--color-highlight), transparent 37.5%);
 
-	--link-unresolved-color: oklch(from var(--color-accent) 72% 36% h);
+	--link-unresolved-lch: 0.625;
 	
 	--modal-border-color: var(--color-base-40);
 	
@@ -1026,6 +1028,7 @@ body {
 	--interactive-normal: var(--color-base-30);
 
 	--link-color-sidebar: var(--color-accent-2);
+	--link-unresolved-lch: 0.75;
 
 	--list-bullet-color: var(--color-base-80);
 	--list-dash-color: var(--trans-faint-60);
@@ -2748,7 +2751,9 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	font-weight: var(--font-semi-medium);
 }
 .mod-sidedock .search-result-file-matches {
+	color: var(--icon-color);
     box-shadow: var(--shadow-sidebar);
+	font-weight: var(--font-semi-medium);
 	margin-block-start: 0;
 }
 .search-result-file-title {
@@ -2770,6 +2775,8 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 /* Outgoing links */
 .outgoing-link-pane .outgoing-link-item {
 	--nav-item-background-hover: var(--color-accent-5);
+	--nav-item-weight: var(--font-semi-medium);
+	--nav-item-weight-hover: var(--font-semi-medium);
 }
 .outgoing-link-pane .tree-item-inner-text {
 	line-height: var(--line-height-normal);
@@ -2785,7 +2792,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 /* special code for uncreated outgoing links */
 .outgoing-link-item:not([draggable="true"]) {
-	--nav-item-background-hover: color-mix(in oklab, var(--link-unresolved-color) 20%, transparent 100%); 
+	--nav-item-background-hover: var(--color-accent-6); 
 }
 .outgoing-link-item:not([draggable="true"]) .tree-item-inner-text,
 .outgoing-link-item:not([draggable="true"]):hover .tree-item-inner-text {
@@ -3926,6 +3933,7 @@ input.prompt-input:hover {
 .prompt .suggestion-item {
 	border-radius: var(--radius-sm);
 	color: var(--color-base-100);
+	margin-block: 1px;
     padding-block: calc(var(--layout-nav-padding) * 1.25);
     padding-inline: calc(var(--layout-nav-padding) + 6px) calc(var(--layout-nav-padding) * 1.25);
 }
