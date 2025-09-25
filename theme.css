@@ -1144,15 +1144,17 @@ body {
 /* Windows & Linux */
 .mod-windows,
 .mod-linux {
+	--callout-blend-mode: normal;
+	--flair-padding: 3px 1px;
 	/* frame spacing and autohide override */
   	--frame-right-space-override: 132px;
 	--frame-left-space-override: 0;
-	--callout-blend-mode: normal;
 }
 
 /* macOS */
 .mod-macos,
 body:not(.mod-windows, .mod-linux) {
+	--flair-padding: 2px;
 	/* -50 Windows weight */
 	--font-thin: 225;
 	--font-extralight: 250;
@@ -1245,6 +1247,8 @@ body:not(.is-mobile) :is(
 	.menu,
 	.modal,
 	.nav-file-tag,
+	.prompt,
+	.prompt-input,
 	.setting-item,
 	.tag,
 	.todoist-task-container) {
@@ -3835,7 +3839,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	font-weight: var(--font-semibold);
 	border-radius: var(--radius-l);
 	padding-inline: 6px;
-	padding-block: 3px 1px;
+	padding-block: var(--flair-padding);
 	contain: content;
 	text-indent: 1px;
 	--tag-background: var(--color-accent-5);
