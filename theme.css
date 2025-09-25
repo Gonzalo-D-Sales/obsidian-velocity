@@ -1582,8 +1582,8 @@ body.prop-headings {
 		margin-block-start: 0;
 		}
 	& .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
-		margin-block-end: round(nearest, clamp(0px, 0.5em, 1rem), 4px);
-		--heading-spacing: round(nearest, 2em, 4px);
+		margin-block-end: round(nearest, clamp(0px, 0.5em, 1rem), 2px);
+		--heading-spacing: round(nearest, 2em, 2px);
 		}
 }
 
@@ -1858,7 +1858,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 }
 @container style(--line-height-normal: 1.6) {
 	.markdown-rendered .el-p + .el-p > p {
-		margin-block-start: 1.25rem;
+		margin-block-start: 1.125rem;
 	}
 }
 .markdown-rendered :is(ol, ul) > li {
