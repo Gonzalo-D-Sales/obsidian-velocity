@@ -833,8 +833,8 @@ body {
 }
 .theme-light.utopia {
 	--accent-h: 352;	
-	--accent-s: 60%;	
-	--accent-l: 45%;
+	--accent-s: 57%;	
+	--accent-l: 48%;
 
 	--color-red-rgb: 244, 41, 27;
 	--color-red: rgb(244, 41, 27);
@@ -860,13 +860,10 @@ body {
 	--base-sat-med: 0.00125;
 	--base-sat-low: 0.00000;
 
-	--bg-main-outer: oklch(75.25% var(--base-sat-xtr) var(--base-hue)); 
-	--bg-main-inner: oklch(98.80% var(--base-sat-str) var(--base-hue));
+	--bg-main-inner: oklch(98.75% var(--base-sat-str) var(--base-hue));
+	--bg-main-outer: oklch(75.75% var(--base-sat-xtr) var(--base-hue)); 
 
 	--color-base-05: oklch(98.80% var(--base-sat-low) var(--base-hue));
-	--color-base-60: oklch(55.50% 0.0125 var(--base-hue-text));
-	--color-base-70: oklch(45.75% 0.0125 var(--base-hue-text));
-	--color-base-80: oklch(43.75% 0.0125 var(--base-hue-text)); 
 
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
@@ -3512,7 +3509,7 @@ body:not(.is-mobile)
 .menu-separator {
 	border-color: var(--color-base-20);
 	margin-block: 4px;
-	margin-inline-start: 28px;
+	margin-inline: 28px 0;
 }
 /* Menu icons */
 .menu-item-icon {
