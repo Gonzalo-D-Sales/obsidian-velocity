@@ -80,7 +80,7 @@ settings:
 		label: Spacious
 		value: '1.6'
 -
-	id: layout-nav-padding
+	id: vl-layout-padding
 	title: Select interface item spacing
 	type: variable-select
 	default: 8px
