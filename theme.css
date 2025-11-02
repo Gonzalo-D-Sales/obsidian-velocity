@@ -313,14 +313,14 @@ body {
 	/* UI font sizes */
 
 	/* Font weights */
-	--font-thin: 250;
-	--font-extralight: 275;
-	--font-light: 350;
-	--font-normal: 450;
-	--font-medium: 550;
-	--font-semibold: 650;
-	--font-bold: 750;
-	--font-extrabold: 850;
+	--font-thin: 200;
+	--font-extralight: 250;
+	--font-light: 300;
+	--font-normal: 400;
+	--font-medium: 500;
+	--font-semibold: 600;
+	--font-bold: 700;
+	--font-extrabold: 800;
 	--font-black: 900;
 
 	--font-semi-medium: calc(var(--font-normal) + 50);
@@ -333,12 +333,12 @@ body {
 	--graph-node-focused: transparent;
 
 	/* Headings */
-	--h1-color: var(--color-base-100);
-	--h2-color: var(--color-base-100);
-	--h3-color: var(--color-base-100);
-	--h4-color: var(--color-base-90);
-	--h5-color: var(--color-base-80);
-	--h6-color: var(--color-base-70);
+	--h1-color: var(--color-base-90);
+	--h2-color: var(--color-base-90);
+	--h3-color: var(--color-base-90);
+	--h4-color: var(--color-base-80);
+	--h5-color: var(--color-base-70);
+	--h6-color: var(--color-base-60);
 	--h1-weight-alt: 600;
 	--h1-size-alt: 1.875em;
 	--h1-size: 2.125em;
@@ -349,9 +349,9 @@ body {
 	--h6-size: 1em;
 	--h1-weight: 325;
 	--h2-weight: 550;
-	--h3-weight: 575;
+	--h3-weight: 550;
 	--h4-weight: 650;
-	--h5-weight: 675;
+	--h5-weight: 650;
 	--h6-weight: 700;
 	
 	--header-height: 52px;
@@ -360,6 +360,10 @@ body {
 	--icon-stroke-thick: 2.25px;
 	--icon-xs-stroke-width: 2.125px;
 	--icon-m-stroke-width: 1.875px;
+
+	--icon-color: var(--color-base-60);
+	--icon-color-hover: var(--text-normal);
+	--icon-color-focused: var(--icon-color-hover);
 
 	/* Indent size */
 	--indent-unit: .375em;
@@ -399,11 +403,11 @@ body {
     --nav-item-parent-padding: 8px 8px 8px 24px; 
 	--nav-item-weight: var(--font-normal);
 	--nav-item-weight-active: var(--font-normal);
-	--nav-item-color: var(--color-base-70);
+	--nav-item-color: var(--text-muted);
 	--nav-item-color-hover: var(--nav-text-color);
 	--nav-item-color-active: var(--nav-text-color);
 	--nav-item-color-selected: var(--nav-text-color);
-	--nav-file-weight: calc(var(--font-medium) + 50);	
+	--nav-file-weight: var(--font-medium);	
 	--collapse-icon-color: var(--trans-faint-60);
 
 	/* Metadata */
@@ -480,11 +484,11 @@ body {
 	--tab-container-background: transparent;
 	--tab-font-weight: var(--font-normal);
 	--tab-outline-width: 0;
-	--tab-text-color: var(--text-muted);
+	--tab-text-color: var(--icon-color);
 	--tab-text-color-active: var(--nav-text-color);
 	--tab-text-color-focused-active-current: var(--nav-text-color);
 	--tab-text-color-focused-active: var(--nav-text-color);
-	--tab-text-color-focused: var(--text-muted);
+	--tab-text-color-focused: var(--icon-color);
 	--tab-radius: var(--radius-s);
 
 	/* Mobile tab switcher */
@@ -516,11 +520,16 @@ body {
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
 
+	/* Vault profile */
+	--vault-profile-color: var(--icon-color);
+	--vault-profile-font-size: 17px;
+	--vault-profile-font-weight: var(--font-semi-medium);
+
 	/* Window frame */
 	--titlebar-background: transparent;
 	--titlebar-background-focused: transparent;
 	--titlebar-text-color: var(--trans-faint-60);
-	--titlebar-text-color-focused: var(--color-base-80);
+	--titlebar-text-color-focused: var(--text-normal);
 
 	/* Backgrounds */ 
 	--background-modifier-form-field: transparent;
@@ -539,16 +548,16 @@ body {
 }
 .theme-light {
 
-	--accent-h: 212;	
-	--accent-s: 96%;	
-	--accent-l: 48%;
+	--accent-h: 215;	
+	--accent-s: 94%;	
+	--accent-l: 52%;
 	
-	--color-red-rgb: 250, 30, 14;
-	--color-red: rgb(240, 42, 28);
-	--color-orange-rgb: 255, 143, 0;
-	--color-orange: rgb(255, 143, 0);
-	--color-yellow-rgb: 233, 188, 0;
-	--color-yellow: rgb(233, 188, 0);
+	--color-red-rgb: 240, 28, 28;
+	--color-red: rgb(240, 28, 28);
+	--color-orange-rgb: 255, 132, 0;
+	--color-orange: rgb(255, 132, 0);
+	--color-yellow-rgb: 231, 177, 0;
+	--color-yellow: rgb(231, 177, 0);
 	--color-green-rgb: 9, 180, 29;
 	--color-green: rgb(9, 180, 29);
 	--color-cyan-rgb: 4, 176, 167;
@@ -620,16 +629,16 @@ body {
 	--bg-menu-outer: var(--color-base-30);
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
-		var(--bg-main-inner) 37.5%, 
-		var(--bg-main-outer) 237.5%
+		var(--bg-main-inner) 32%, 
+		var(--bg-main-outer) 280%
 		);
 	--background-gradient-menu: radial-gradient( at 64% 50%, 
-		var(--bg-menu-inner) 25%, 
-		var(--bg-menu-outer) 175%
+		var(--bg-menu-inner) 20%, 
+		var(--bg-menu-outer) 180%
 		); 
 	--background-gradient-community: radial-gradient( at 50% 50%, 
-		var(--bg-menu-inner) 25%, 
-		var(--bg-menu-outer) 175%
+		var(--bg-menu-inner) 20%, 
+		var(--bg-menu-outer) 180%
 		); 
 
 	--background-button-hover: var(--background-primary);
@@ -667,15 +676,12 @@ body {
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--text-muted);
 
-	--hr-color: var(--trans-faint-30);
-
-	--icon-color: var(--color-base-60);
-	--icon-color-hover: var(--text-normal);
+	--hr-color: var(--trans-faint-40);
 
 	--link-color-sidebar: var(--color-accent-1);
 
 	--list-bullet-color: var(--text-muted);
-	--list-dash-color: var(--color-base-50);
+	--list-dash-color: var(--color-base-55);
 
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
@@ -713,8 +719,7 @@ body {
 	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--trans-faint-05), var(--trans-faint-05));
 	--tag-background-image: linear-gradient(to top, var(--color-accent-5), var(--color-accent-6) 50%);
 
-	--vault-profile-color: var(--text-normal);
-	--workspace-border-color: var(--trans-faint-25);
+	--workspace-border-color: var(--trans-faint-10);
 
 	--tag-shadow: 
 		inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
@@ -765,7 +770,7 @@ body {
 	--bases-cards-shadow-hover: 
 		0 0.125px 0px 0.375px var(--trans-faint-60);
 	--shadow-workspace: 
-		0 2.5px 4px 0px var(--trans-faint-10),
+		0 2px 3px 0px var(--trans-faint-30),
 		0px 15px 30px var(--trans-faint-25);	
 	--shadow-workspace-multi:
 		0px 2.5px 10px var(--trans-faint-10);	
@@ -832,9 +837,9 @@ body {
    --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
 }
 .theme-light.utopia {
-	--accent-h: 352;	
-	--accent-s: 57%;	
-	--accent-l: 48%;
+	--accent-h: 356;	
+	--accent-s: 58%;	
+	--accent-l: 45%;
 
 	--color-red-rgb: 244, 41, 27;
 	--color-red: rgb(244, 41, 27);
@@ -853,8 +858,7 @@ body {
 	--color-pink-rgb: 219, 76, 224;
 	--color-pink: rgb(219, 76, 224);
 
-	--base-hue: 108;
-	--base-hue-text: 75;
+	--base-hue: 112;
 	--base-sat-xtr: 0.00750;
 	--base-sat-str: 0.00375;
 	--base-sat-med: 0.00125;
@@ -995,9 +999,6 @@ body {
 
 	--hr-color: var(--trans-faint-30);
 
-	--icon-color: var(--color-base-60);
-	--icon-color-hover: var(--text-normal);
-
 	--interactive-normal: var(--color-base-30);
 
 	--link-color-sidebar: var(--color-accent-2);
@@ -1041,7 +1042,6 @@ body {
 	--tag-border-color: oklch(from var(--interactive-accent) l c h / 0.025);
 	--tag-background-image: linear-gradient(to top, var(--color-accent-6) -25%, var(--text-selection) 50%);
 	
-	--vault-profile-color: var(--color-base-80);
 	--workspace-border-color: var(--trans-faint-25);
 
 	--tag-shadow: 
@@ -1155,18 +1155,18 @@ body:not(.mod-windows, .mod-linux) {
 	--flair-padding: 2px;
 	/* -50 Windows weight */
 	--font-thin: 225;
-	--font-extralight: 250;
+	/* --font-extralight: 250;
 	--font-light: 300;
 	--font-normal: 400;
 	--font-medium: 500;
 	--font-semibold: 600;
 	--font-bold: 700;
-	--font-extrabold: 800;
+	--font-extrabold: 800; */
 	--h1-weight-alt: 525;
 	--h1-weight: 250;
 	--h2-weight: 500;
-	--h3-weight: 525;
-	--h4-weight: 575;
+	--h3-weight: 500;
+	--h4-weight: 600;
 	--h5-weight: 600;
 	--h6-weight: 650;
 	/* frame spacing and autohide override */
@@ -1194,9 +1194,9 @@ body:not(.mod-windows, .mod-linux) {
 	--h1-weight-alt: 525;
 	--h1-weight: 300;
 	--h2-weight: 525;
-	--h3-weight: 550;
+	--h3-weight: 525;
 	--h4-weight: 625;
-	--h5-weight: 650;
+	--h5-weight: 625;
 	--h6-weight: 675;
 	--font-cta-button: 575;
 }
@@ -1975,7 +1975,7 @@ input[type=checkbox][data-task="<"]:checked,
 /* MathJax */
 
 mjx-math {
-	color: var(--color-base-100);
+	color: oklch(from var(--color-base-100) 16% c h);
 }
 
 /*--> Metadata <--*/
@@ -2209,18 +2209,21 @@ button.clickable-icon {
     padding: 8px;
 }
 
+.workspace-drawer-vault-actions .clickable-icon {
+	--icon-color: var(--text-normal);
+}
 .workspace-tab-header-new-tab .clickable-icon {
 	height: 32px;
 	width: 32px;
 	margin-bottom: 2px;
-	--icon-color: var(--text-muted);
+	--icon-color: var(--text-normal);
 }
 .mod-root .workspace-tab-header-tab-list,
 .sidebar-toggle-button {
 	contain: content;
 	margin-block-start: 1px;
 	padding-block: 8px;
-	--icon-color: var(--text-muted);
+	--icon-color: var(--text-normal);
 }
 .workspace-tab-header-tab-list .clickable-icon {
 	height: 100%;
@@ -2581,12 +2584,14 @@ body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-op
 /*--> Nav Header <--*/
 
 body:not(.is-mobile) {
+	.mod-sidedock .nav-header {
+		margin-block: 0 calc(var(--vl-layout-padding) - 36px);
+	}
 	.nav-header {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		padding: 6px;
-		margin-block: 0 calc(var(--vl-layout-padding) - 32px);
 		transition: var(--anim-fast-swing);
 	}
 	.nav-buttons-container {
@@ -2716,15 +2721,36 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 
 /* Backlinks */
+
 .workspace-leaf-content[data-type="backlink"] > .view-content,
 .workspace-leaf-content[data-type="outgoing-link"] > .view-content {
 	padding-block-start: unset;
 }
-.backlink-pane .search-result-file-title .tree-item-inner,
-.outgoing-link-pane .tree-item-inner-text {
-	color: var(--link-color-sidebar);
-	font-weight: var(--font-semi-medium);
+.backlink-pane .search-result-file-title,
+.outgoing-link-pane .outgoing-link-item {
+	--nav-item-background-hover: var(--color-accent-5);
+	--nav-item-color: var(--link-color-sidebar);
+	--nav-item-color-hover: var(--link-color-sidebar);
+	--nav-item-color-active: var(--link-color-sidebar);
+	--nav-item-weight: var(--font-semi-medium);
+	--nav-item-weight-hover: var(--font-semi-medium);
 }
+
+:is(.backlink-pane, .outgoing-link-pane) > .tree-item-self {
+	--nav-heading-color: var(--icon-color);
+	--nav-heading-color-collapsed-hover: var(--nav-heading-color);
+	--nav-item-color-hover: var(--nav-heading-color);
+}
+:is(.backlink-pane, .outgoing-link-pane) > .tree-item-self > .tree-item-inner {
+	font-variation-settings: 'opsz' 28;
+	font-weight: var(--font-semi-medium);
+	font-size: var(--font-ui-medium);
+}
+.search-empty-state {
+	text-align: center;
+	padding: 4px 0;
+}
+
 .mod-sidedock .search-result-file-matches {
 	color: var(--icon-color);
     box-shadow: var(--shadow-sidebar);
@@ -2736,7 +2762,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 :is(.backlink-pane, .outgoing-link-pane) .search-result-file-title {
 	padding-inline: 24px 7px;
-	--nav-item-background-hover: var(--color-accent-5);
 }
 .search-result-file-matched-text {
 	background-color: var(--text-highlight-bg-search);
@@ -2748,17 +2773,10 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 
 /* Outgoing links */
-.outgoing-link-pane .outgoing-link-item {
-	--nav-item-background-hover: var(--color-accent-5);
-	--nav-item-weight: var(--font-semi-medium);
-	--nav-item-weight-hover: var(--font-semi-medium);
-}
 .outgoing-link-pane .tree-item-inner-text {
 	line-height: var(--line-height-normal);
 }
-.outgoing-link-pane .outgoing-link-item:hover .tree-item-inner-text {
-	color: var(--color-accent);
-}
+
 .outgoing-link-item .tree-item-icon {
 	padding-block-start: 2px;
 }
@@ -2793,10 +2811,12 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	padding-inline: 8px 2px;
 }
 .mod-sidedock .search-results-info {
-    color: var(--text-faint);
-    border-bottom: 1px solid var(--background-modifier-border);
     margin-inline: 12px;
     padding: 6px 2px 8px;
+	--background-button-hover: var(--nav-item-background-hover);
+	--input-shadow: none;
+	--interactive-accent: var(--text-normal);
+	--text-muted: var(--icon-color);
 }
 
 /*--> Sidebar Leaves with special content <--*/
@@ -3205,10 +3225,7 @@ body:not(.is-mobile)
 	.workspace-sidedock-vault-profile {
 	border: none;
 	background-color: transparent;
-	--icon-color: var(--text-muted);
-	--icon-color-hover: var(--text-muted);
-	--icon-color-active: var(--text-muted);
-	--icon-color-focused: var(--text-muted);
+	font-variation-settings: 'opsz' 32;
 }
 body:not(.is-mobile) 
 	.workspace-split.mod-left-split 
@@ -3422,6 +3439,21 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 	background-color: var(--background-secondary);
 	font-weight: var(--font-normal);
 }
+.modal-title {
+	color: var(--text-normal);
+	font-weight: calc(calc(var(--font-light) + var(--font-normal)) / 2);
+	font-size: 28px;
+	font-variation-settings: 'opsz' 32;
+	text-align: center;
+	padding-block: 4px;
+}
+.modal-button-container > button {
+	flex: 1;
+	height: 30px;
+}
+.modal-content > .setting-item:has(.mod-warning) {
+	padding-block-end: 0;
+}
 .mod-confirmation .modal {
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
@@ -3431,9 +3463,6 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 	}
 	&:not(.mod-file-rename, .mod-bookmark) .modal-header {
 		margin-bottom: 0.5em;
-		}
-	& .modal-header, .modal-header + * > * {
-    	padding-inline-start: 4px;
 		}
 	&::before {
 		content: '';
@@ -3445,10 +3474,14 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 		margin: -16px;
 		z-index: -1;
 		}
-}
-
-.mod-narrow :is(.modal-header, .modal-header + * > *) {
-    padding-inline-start: 4px;
+	> .modal-content > div {
+		color: var(--text-muted);
+		text-align: center;
+	}
+	> .modal-content > * > *,
+	  .modal-content > .setting-item {
+		text-align: start;
+	}
 }
 
 body:not(.is-mobile) 
@@ -3467,7 +3500,10 @@ body:not(.is-mobile)
 
 .mod-confirmation.mod-dim {
 	.mod-cta {
-		order: -1;
+		order: 0;
+	}
+	button {
+		order: 1;
 	}
 	.setting-item-info {
 		flex: 4 !important;
@@ -3485,9 +3521,6 @@ body:not(.is-mobile)
 
 /*--> Rename File <--*/
 
-.mod-file-rename {
-	--dialog-width: 360px;
-}
 .mod-file-rename .rename-textarea {
 	font-weight: var(--font-normal);
 	font-size: var(--font-ui-medium);
