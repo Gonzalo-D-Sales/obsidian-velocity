@@ -2921,12 +2921,22 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	.workspace-tab-header.is-active .workspace-tab-header-inner {
 		background-color: var(--background-modifier-hover);
 	}
-	.workspace-tab-header-inner-title {
-		transition: color var(--anim-super-smooth);
+	.workspace-tab-header.is-active .workspace-tab-header-inner-close-button {
+		margin-inline-start: -13px;
+		display: none;
 	}
-	.workspace-tab-header:is([data-type="empty"], [data-type="markdown"]) 
 	.workspace-tab-header-inner-title {
-		text-indent: 4px;
+		transition: color var(--anim-super-swing);
+		display: flex;
+		justify-content: center;
+		text-indent: -13px;
+	}
+	.workspace-tab-header.is-active:hover .workspace-tab-header-inner-title {
+		text-indent: unset;
+	}
+
+	.workspace-tab-header-new-tab {
+		margin-inline-end: 8px;
 	}
 }
 
