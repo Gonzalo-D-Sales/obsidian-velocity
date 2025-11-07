@@ -97,9 +97,9 @@ settings:
 	title: Customize readable line width
 	description: Set the readable width of text in the editor, using relative units (rem).
 	type: variable-number-slider
-	default: 43
+	default: 43.75
 	min: 40
-	max: 46
+	max: 47.5
 	step: 0.25
 	format: 'rem'
 -
@@ -302,7 +302,7 @@ body {
 	/* Blocks */
 
 	/* File layout */
-	--file-line-width: 43rem;
+	--file-line-width: 43.75rem;
 	--file-margin-y: 28px;
 	--file-margins: var(--file-margin-y) 5%;
 	--file-header-font-weight: var(--font-normal);
@@ -466,6 +466,9 @@ body {
 	--search-icon-color: var(--color-base-50);
 	--search-icon-size: 17px;
 
+	/* Sidebar toggles */
+	--sidebar-left-toggle-inner-width: 12%;
+	--sidebar-right-toggle-inner-width: 12%;
 
 	/* Sliders */
 	--slider-track-height: 20px;
@@ -490,6 +493,7 @@ body {
 	--tab-text-color-focused-active: var(--nav-text-color);
 	--tab-text-color-focused: var(--icon-color);
 	--tab-radius: var(--radius-s);
+	--tab-width: 220px;
 
 	/* Mobile tab switcher */
 
@@ -521,9 +525,10 @@ body {
 	--tag-padding-y: 0.3125em;
 
 	/* Vault profile */
-	--vault-profile-color: var(--icon-color);
-	--vault-profile-font-size: 17px;
-	--vault-profile-font-weight: var(--font-semi-medium);
+	--vault-profile-color: var(--color-base-55);
+	--vault-profile-color-hover: var(--text-muted);
+	--vault-profile-font-size: 18px;
+	--vault-profile-font-weight: var(--font-normal);
 
 	/* Window frame */
 	--titlebar-background: transparent;
@@ -549,8 +554,8 @@ body {
 .theme-light {
 
 	--accent-h: 215;	
-	--accent-s: 94%;	
-	--accent-l: 52%;
+	--accent-s: 100%;	
+	--accent-l: 55%;
 	
 	--color-red-rgb: 240, 28, 28;
 	--color-red: rgb(240, 28, 28);
@@ -629,8 +634,8 @@ body {
 	--bg-menu-outer: var(--color-base-30);
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
-		var(--bg-main-inner) 32%, 
-		var(--bg-main-outer) 280%
+		var(--bg-main-inner) 30%, 
+		var(--bg-main-outer) 300%
 		);
 	--background-gradient-menu: radial-gradient( at 64% 50%, 
 		var(--bg-menu-inner) 20%, 
@@ -802,9 +807,9 @@ body {
 	}
 }
 .theme-light.deflight {
-	--accent-h: 264;	
+	--accent-h: 258;	
 	--accent-s: 88%;	
-	--accent-l: 62%;
+	--accent-l: 66%;
 
 	--color-red-rgb: 233, 49, 71;
 	--color-red: #e93147;
@@ -837,9 +842,9 @@ body {
    --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
 }
 .theme-light.utopia {
-	--accent-h: 356;	
-	--accent-s: 58%;	
-	--accent-l: 45%;
+	--accent-h: 125;	
+	--accent-s: 41%;	
+	--accent-l: 41%;
 
 	--color-red-rgb: 244, 41, 27;
 	--color-red: rgb(244, 41, 27);
@@ -2233,6 +2238,20 @@ button.clickable-icon {
 	height: 100%;
 	padding: 8px;
 }
+.workspace .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-left-toggle-inner-width: 24%;
+	--sidebar-right-toggle-inner-width: 24%;
+}
+.workspace.is-left-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-left-toggle-inner-width-open: 12%;
+}
+.workspace.is-right-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-right-toggle-inner-width-open: 12%;
+}
+ .sidebar-toggle-icon-inner {
+	transition: var(--anim-super-smooth);
+ }
+
 .menu-item-icon svg {
 	padding: 0;
 }
@@ -2686,13 +2705,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	box-shadow: none;
 }
 
-.mod-sidedock .nav-file-tag {
-	border-radius: var(--radius-l);
-	color: var(--text-normal);
-	font-weight: var(--font-semibold);
-	padding-inline: 5px;
-}
-
 /*--> Workspace Sidebar leaves <--*/
 
 .mod-sidedock .workspace-leaf-content > .view-content {
@@ -2742,13 +2754,12 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color-hover: var(--nav-heading-color);
 }
 :is(.backlink-pane, .outgoing-link-pane) > .tree-item-self > .tree-item-inner {
-	font-variation-settings: 'opsz' 28;
+	font-variation-settings: 'opsz' 24;
 	font-weight: var(--font-semi-medium);
 	font-size: var(--font-ui-medium);
 }
 .search-empty-state {
-	text-align: center;
-	padding: 4px 0;
+	--text-faint: var(--color-base-40);
 }
 
 .mod-sidedock .search-result-file-matches {
@@ -2873,6 +2884,10 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	/* important: fixes top tab performance */
 	overflow: hidden;
 }
+.is-hidden-frameless .workspace-split.workspace-window .workspace-tabs .workspace-tab-header-container {
+	padding-inline-start: 1px;
+}
+
 .workspace .mod-root .workspace-tab-header-container-inner {
     padding-inline: 8px;
 }
@@ -2902,8 +2917,9 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 .mod-root .workspace-tabs:not(.mod-stacked) {
 	.workspace-tab-header {
 		border-radius: var(--tab-radius);
-		height: 35px;
-		padding: 1px 0 0 0;
+		height: 34px;
+		margin-block-start: 1px;
+		padding: 0;
 	}
 	.workspace-tab-header.is-active {
 		background-color: transparent;
@@ -3233,15 +3249,28 @@ body:not(.disable-status-fade) {
 body:not(.is-mobile)
 	.workspace-split.mod-left-split
 	.workspace-sidedock-vault-profile {
-	border: none;
-	background-color: transparent;
-	font-variation-settings: 'opsz' 32;
-}
+		border: none;
+		background-color: transparent;
+		font-variation-settings: 'opsz' 28;
+	}
 body:not(.is-mobile) 
 	.workspace-split.mod-left-split 
 	.workspace-sidedock-vault-profile 
 	.workspace-drawer-vault-switcher {
-		padding-block: 8px;
+		height: 100%;
+	} 
+body:not(.is-mobile) 
+	.workspace-split.mod-left-split 
+	.workspace-sidedock-vault-profile 
+	.workspace-drawer-vault-switcher-icon {
+		color: var(--color-base-55);
+		--icon-stroke: 2.125px;
+	}
+body:not(.is-mobile) 
+	.workspace-split.mod-left-split 
+	.workspace-sidedock-vault-profile 
+	.workspace-drawer-vault-actions > :first-child {
+		display: none;
 	} 
 
 /* ADAPTED FROM: Micro Mike */
@@ -3453,7 +3482,6 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 	color: var(--text-normal);
 	font-weight: calc(calc(var(--font-light) + var(--font-normal)) / 2);
 	font-size: 28px;
-	font-variation-settings: 'opsz' 32;
 	text-align: center;
 	padding-block: 4px;
 }
