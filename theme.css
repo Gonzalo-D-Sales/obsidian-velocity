@@ -240,10 +240,10 @@ body {
 	--bases-embed-border-radius: 0;
 	--bases-header-border-width: 0;
 	--bases-header-padding-start: 0;
-	--bases-header-padding-end: 4px;
 	--bases-table-cell-background-active: transparent;
 	--bases-table-cell-shadow-active: var(--shadow-input-active);
 	--bases-table-container-border-radius: 0;
+	--bases-table-group-background: transparent;
 	--bases-table-header-color: var(--text-muted);
 	--bases-table-header-color-hover: var(--color-base-80);
 	--bases-table-header-weight: var(--font-normal);
@@ -1982,7 +1982,7 @@ input[type=checkbox][data-task="<"]:checked,
 /* MathJax */
 
 mjx-math {
-	color: oklch(from var(--color-base-100) 16% c h);
+	color: var(--color-base-100);
 }
 
 /*--> Metadata <--*/
@@ -2839,7 +2839,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 /*--> Sidebar Leaves with special content <--*/
 
 body:not(.is-mobile) .mod-sidedock .workspace-leaf-content:is(
-	[data-type="bases"],
 	[data-type="canvas"],
 	[data-type="kanban"],
 	[data-type="pdf"],
@@ -2858,7 +2857,6 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf-content:is(
 	--bases-cards-group-padding: 2px 12px 12px 12px;
 }
 body:not(.is-mobile) .mod-sidedock .workspace-tabs:last-child .workspace-leaf-content:is(
-	[data-type="bases"],
 	[data-type="canvas"],
 	[data-type="kanban"],
 	[data-type="pdf"],
@@ -2867,7 +2865,6 @@ body:not(.is-mobile) .mod-sidedock .workspace-tabs:last-child .workspace-leaf-co
 	margin-block-end: 1px;
 }
 body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .workspace-leaf-content:is(
-	[data-type="bases"],
 	[data-type="canvas"],
 	[data-type="kanban"],
 	[data-type="pdf"],
@@ -4087,10 +4084,7 @@ input.prompt-input:hover {
 
 /*--> Obsidian Bases <--*/
 
-
-.bases-table-container {
-	--bases-table-header-background: var(--background-primary);
-	--interactive-accent: var(--color-base-40);
+.bases-view {
 	--tag-padding-x: 0.625rem;
 	--tag-size: 0.8rem;
 	--tag-weight: var(--font-semi-medium);
@@ -4100,11 +4094,19 @@ input.prompt-input:hover {
 	border-radius: var(--radius-ml);
 }
 /* Bases in sidebar */
-.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-header {
-	margin: 4px 2px;
+
+.mod-sidedock .bases-view {
+	--bases-table-header-background: transparent;
 }
-.mod-sidedock .workspace-leaf-content[data-type="bases"] .query-toolbar .text-icon-button {
-	border-radius: var(--radius-s);
+.mod-sidedock .workspace-leaf-content[data-type="bases"] .view-content {
+	padding-block: 6px 0;
+	--bases-table-header-background: transparent;
+}
+.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-thead {
+	position: relative;
+}
+.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-view {
+	margin: 4px 8px 0;
 }
 
 .bases-thead {
@@ -4151,6 +4153,7 @@ input.prompt-input:hover {
 }
 
 .bases-tbody {
+	background-color: transparent;
     background-image: 
 		repeating-linear-gradient(180deg, 
 		var(--table-row-alt-background),
@@ -4190,7 +4193,7 @@ input.prompt-input:hover {
 	font-size: var(--bases-cards-text-size);
 }
 
-body.hide-bases-header .markdown-preview-view {
+body.hide-bases-header .mod-root.markdown-preview-view {
 	.bases-view {
 		margin-top: 1.5rem;
 	}
@@ -4207,33 +4210,30 @@ body.hide-bases-header .markdown-preview-view {
 }
 
 /* query toolbar pills */
-.query-toolbar-item > * {
-	background-color: var(--background-secondary);
+.bases-toolbar-item > .text-icon-button {
+	background-color: var(--nav-item-background-active);
 	border-radius: var(--radius-xl);
 	height: var(--input-height);
-	padding: 1px 12px 0;
+	padding: 0 12px;
 	--input-font-weight: var(--font-medium);
 	--icon-size: var(--icon-s);
+	&:hover {
+		background-color: var(--trans-faint-25);
+	}
 }
-
-.query-toolbar-item.mod-views .mod-aux {
+.bases-toolbar-views-menu .mod-aux {
 	display: none;
 }
-.query-toolbar .bases-toolbar-result-count > * {
-	background-color: var(--background-modifier-active-hover);
+.bases-toolbar-views-menu > .text-icon-button {
+	--text-normal: var(--text-muted);
+}
+.bases-toolbar-result-count > .text-icon-button {
+	background-color: transparent !important;
 	padding: 2px 6px;
-	--background-modifier-active-hover: transparent;
 }
-.mod-root .query-toolbar-item:not(.mod-views, .bases-toolbar-result-count) > .text-icon-button {
-	padding: 0 8px;
-}
-.query-toolbar-item.mod-views > .text-icon-button,
-.query-toolbar-item:not(.mod-properties, .mod-add-note, .bases-toolbar-result-count) > 
-.text-icon-button.is-active {
-	color: var(--text-normal);
+:is(.bases-toolbar-sort-menu, .bases-toolbar-filter-menu) > .text-icon-button.is-active {
+	color: var(--color-accent-1);
 	background-color: var(--color-accent-5);
-	--icon-color-hover: var(--color-accent);
-	--text-normal: var(--color-accent-1);
 	&:hover {
 		background-color: var(--text-selection);
 	}
