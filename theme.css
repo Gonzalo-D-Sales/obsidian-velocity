@@ -233,6 +233,7 @@ body {
 	--anim-fast-delay: var(--anim-duration-fast) var(--anim-motion-delay);
 	--anim-fast-swing: var(--anim-duration-fast) var(--anim-motion-swing);
 	--anim-fast-smooth: var(--anim-duration-fast) var(--anim-motion-smooth);
+	--anim-super-delay: var(--anim-duration-superfast) var(--anim-motion-delay);
 	--anim-super-swing: var(--anim-duration-superfast) var(--anim-motion-swing);
 	--anim-super-smooth: var(--anim-duration-superfast) var(--anim-motion-smooth);
 
@@ -244,17 +245,16 @@ body {
 	--bases-table-cell-shadow-active: var(--shadow-input-active);
 	--bases-table-container-border-radius: 0;
 	--bases-table-group-background: transparent;
-	--bases-table-header-color: var(--text-muted);
+	--bases-table-header-color: var(--color-base-55);
 	--bases-table-header-color-hover: var(--color-base-80);
-	--bases-table-header-weight: var(--font-normal);
+	--bases-table-header-weight: var(--font-semi-medium);
 	--bases-table-header-background-hover: transparent;
 	--bases-table-row-background-hover: transparent;
 	--bases-table-row-border-width: 0;
 	--bases-table-text-size: var(--table-text-size);
 	--bases-table-row-height: 32px;
 	--bases-cards-label-size: 0.75rem;
-	--bases-cards-label-color: 
-		color-mix(in oklab, var(--color-base-50), var(--color-base-60));
+	--bases-cards-label-color: var(--color-base-55);
 	--bases-cards-text-size: var(--font-small);
 
 	/* Blockquotes */
@@ -508,7 +508,7 @@ body {
 	--table-row-background-hover: none;
 	--table-row-alt-background-hover: var(--table-row-bg);
 	--table-column-alt-background: none;
-	--table-border-color: var(--hr-color);
+	--table-border-color: var(--trans-faint-30);
 	--table-header-size: 0.8175em;
 	--table-header-color: var(--text-normal);
 	--table-line-height: var(--line-height-normal);
@@ -526,7 +526,7 @@ body {
 	--tag-padding-y: 0.3125em;
 
 	/* Vault profile */
-	--vault-profile-color: var(--color-base-55);
+	--vault-profile-color: var(--icon-color);
 	--vault-profile-color-hover: var(--text-muted);
 	--vault-profile-font-size: 18px;
 	--vault-profile-font-weight: var(--font-normal);
@@ -605,7 +605,7 @@ body {
 	
 	--trans-faint-00: oklch(62.50% 0 0 / 0.0300);
 	--trans-faint-05: oklch(20.00% 0 0 / 0.0275);
-	--trans-faint-10: oklch(10.00% 0 0 / 0.0550);
+	--trans-faint-10: oklch(05.00% 0 0 / 0.0550);
 	--trans-faint-20: oklch(0.000% 0 0 / 0.0600);
 	--trans-faint-25: oklch(0.000% 0 0 / 0.0700);
 	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
@@ -1258,7 +1258,10 @@ body:not(.is-mobile) :is(
 	.suggestion-hotkey,
 	.suggestion-item,
 	.tag,
-	.todoist-task-container) {
+	.text-icon-button,
+	.todoist-task-container,
+	.tree-item-self,
+	.workspace-tab-header-inner) {
 	-electron-corner-smoothing: 60%;	
 	}
 
@@ -3267,7 +3270,7 @@ body:not(.is-mobile)
 	.workspace-split.mod-left-split 
 	.workspace-sidedock-vault-profile 
 	.workspace-drawer-vault-switcher-icon {
-		color: var(--color-base-55);
+		color: var(--vault-profile-color);
 		--icon-stroke: 2.125px;
 	}
 body:not(.is-mobile) 
@@ -4203,10 +4206,11 @@ body.hide-bases-header .mod-root.markdown-preview-view {
 }
 /* popover Bases */
 .popover .bases-header {
-	padding-inline: 7px; 
+	padding-inline: 7px;
+	margin-top: 1px; 
 }
-.popover .query-toolbar-item > * {
-	border-radius: var(--radius-sm);
+.popover .bases-toolbar-item > .text-icon-button {
+	border-radius: var(--radius-s);
 }
 
 /* query toolbar pills */
@@ -4214,7 +4218,7 @@ body.hide-bases-header .mod-root.markdown-preview-view {
 	background-color: var(--nav-item-background-active);
 	border-radius: var(--radius-xl);
 	height: var(--input-height);
-	padding: 0 12px;
+	padding-inline: 10px;
 	--input-font-weight: var(--font-medium);
 	--icon-size: var(--icon-s);
 	&:hover {
@@ -4225,11 +4229,12 @@ body.hide-bases-header .mod-root.markdown-preview-view {
 	display: none;
 }
 .bases-toolbar-views-menu > .text-icon-button {
+	padding-inline: 12px;
 	--text-normal: var(--text-muted);
 }
 .bases-toolbar-result-count > .text-icon-button {
+	padding-inline: 8px;
 	background-color: transparent !important;
-	padding: 2px 6px;
 }
 :is(.bases-toolbar-sort-menu, .bases-toolbar-filter-menu) > .text-icon-button.is-active {
 	color: var(--color-accent-1);
