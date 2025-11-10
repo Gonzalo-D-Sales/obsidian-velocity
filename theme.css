@@ -258,7 +258,9 @@ body {
 	--bases-cards-text-size: var(--font-small);
 
 	/* Blockquotes */
-	--blockquote-border-thickness: 0;
+	--blockquote-color: var(--icon-color);
+	--blockquote-border-color: var(--text-faint);
+	--blockquote-border-thickness: 3px;
 
 	/* Bold */
 	--bold-color: var(--color-base-100);
@@ -609,7 +611,7 @@ body {
 	--trans-faint-20: oklch(0.000% 0 0 / 0.0600);
 	--trans-faint-25: oklch(0.000% 0 0 / 0.0700);
 	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
-	--trans-faint-40: oklch(0.000% 0 0 / 0.1140);
+	--trans-faint-40: oklch(0.000% 0 0 / 0.1000);
 	--trans-faint-50: oklch(0.000% 0 0 / 0.1450);
 	--trans-faint-60: oklch(0.000% 0 0 / 0.3200); 
 	
@@ -667,15 +669,12 @@ body {
 	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
 
 	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--base-hue));
-	--blockquote-color: var(--color-base-80);
-	--blockquote-border-color: var(--color-base-25);
-	--blockquote-background-color: var(--trans-faint-00);
 
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-50);
 
-	--code-background: var(--trans-faint-00);
-	--code-background-alt: var(--trans-strong-10);
+	--code-background: var(--trans-faint-05);
+	--code-background-alt: var(--trans-strong-20);
 	--code-border-color: var(--trans-faint-20);
 	--code-special: var(--color-red);
 
@@ -687,7 +686,7 @@ body {
 	--link-color-sidebar: var(--color-accent-1);
 
 	--list-bullet-color: var(--text-muted);
-	--list-dash-color: var(--color-base-55);
+	--list-dash-color: var(--text-faint);
 
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
@@ -993,9 +992,6 @@ body {
 	--color-accent-6: color-mix(in oklab, var(--text-selection) 40%, transparent 100%); 
 
 	--bases-cards-background: var(--trans-faint-05);
-	--blockquote-color: var(--color-base-80);
-	--blockquote-border-color: var(--color-base-30);
-	--blockquote-background-color: var(--trans-faint-05);
 
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-40);
@@ -1547,15 +1543,25 @@ thead,
 .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	font-feature-settings: 'cv11' off, 'calt';
 	letter-spacing: unset;
+	--bold-modifier: 150;
 }
 
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
-	border-bottom: 2px solid var(--hr-color);
-	padding-bottom: 6px;
 	letter-spacing: -0.015em;
 	text-indent: -0.0375em;
+	&::after {
+		content: '';
+		width: 100%;
+		position: relative;
+		height: 2px;
+		background-color: var(--hr-color);
+		display: block;
+		contain: content;
+		border-radius: var(--radius-xxl);
+		margin-block: 6px 0;
+	}
 }
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
@@ -1589,30 +1595,36 @@ body.prop-headings {
 .disable-title-h1 .markdown-rendered h1 {
 	font-size: var(--h1-size-alt);
 	font-weight: var(--h1-weight-alt);
-	border-bottom: none;
-	padding-bottom: 0;
+	&::after {
+		display: none;
+	}
 }
 
 /*--> Blockquotes <--*/
 
 .el-blockquote blockquote,
 .callout-content blockquote {
-	border-radius: var(--radius-sm);
-	box-shadow: var(--shadow-code);
-	padding-block: 12px;
-	padding-inline: 1em;
 	position: relative;
-	& * {
+	align-items: center;
+	border: none;
+	padding-inline: 1.75em;
 	--bold-color: var(--blockquote-color);	
 	--italic-color: var(--blockquote-color);
-	--link-color: var(--color-accent-1);
+	&::before {
+		content: '';
+		position: absolute;
+		height: 100%;
+		left: 0;
+		width: var(--blockquote-border-thickness);
+		background-color: var(--blockquote-border-color);
+		border-radius: var(--radius-m);
 	}
 }
 
 /*--> Callouts <--*/
 .callout .callout-content {
-	--blockquote-background-color: var(--code-background-alt);
 	--code-background: var(--code-background-alt);
+	--blockquote-border-color: rgb(var(--callout-color), 0.75);
 }
 body:not(.disable-callout-styling) {
 	--callout-border-opacity: 0.2;
@@ -1633,7 +1645,7 @@ body:not(.disable-callout-styling) {
 		}
 	}
 	.callout {
-		color: color-mix(in oklab, var(--blockquote-color), var(--text-normal));
+		color: var(--color-base-80);
 		background-color: transparent;
 		background-image: radial-gradient(180% 60% at 50% 0%, 
 		rgb(var(--callout-color), 0.0625),
@@ -1642,7 +1654,8 @@ body:not(.disable-callout-styling) {
 		0 0 0 1.75px rgb(var(--callout-color), var(--callout-border-opacity));
 		margin-inline: 1px;
 		outline: 1px solid var(--background-primary);
-		--bold-color: var(--text-normal);
+		--bold-color: var(--color-base-80);
+		--italic-color: var(--color-base-80);
 	}
 	.callout.is-collapsible {
 		padding-bottom: 16px;
@@ -1831,6 +1844,17 @@ body:not(.disable-naked-embeds) {
 }
 :is(.markdown-source-view, .markdown-preview-view) mark {
 	padding-inline: 0.1875em;
+}
+
+/*--> HRs <--*/
+
+hr,
+.markdown-rendered hr {
+	background-color: var(--hr-color);
+	border: none;
+	border-radius: var(--radius-l);
+	contain: content;
+	height: 2px;
 }
 
 /*--> Images <--*/
@@ -3570,12 +3594,6 @@ body:not(.is-mobile)
 	button {
 		order: 1;
 	}
-	.setting-item-info {
-		flex: 4 !important;
-		}
-	.setting-item-control {
-		flex: 6 !important;
-		}
 	.setting-item:first-child .setting-item-control input:hover {
 		box-shadow: var(--shadow-input);
 		cursor: not-allowed;
@@ -3710,14 +3728,11 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		clip-path: inset(0px -24px 0px -24px);
 		padding-block: calc(var(--vl-layout-padding) + 4px);
 		padding-inline: 22px 20px;
-		flex-wrap: wrap;
 		row-gap: 10px;
 		& .setting-item-info {
 			contain: content;
-			flex: 7;
 		}
 		&:not(.style-settings-info-text) .setting-item-control {
-			flex: 3;
 			--icon-color: var(--text-muted);
 		}
 	}
@@ -5554,7 +5569,6 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 .superheading:not(.override, .style-override) :is(
 	.markdown-source-view .HyperMD-header-1, 
 	.markdown-rendered h1) {
-	border-bottom: 2px solid var(--hr-color);
 	font-feature-settings: 'ss07', 'calt';
 	font-size: 2.5em;
 	font-weight: var(--font-extralight);
@@ -5572,7 +5586,6 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 	font-weight: var(--font-thin);
 	letter-spacing: -0.0625rem;
 	text-indent: -0.05em;
-	border-block-end: none;
 	padding-block: 0.125em 0 !important;
 	--bold-modifier: 300;
 }
