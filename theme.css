@@ -722,7 +722,7 @@ body {
 	--tab-sidebar-bg: var(--color-base-00);
 	--tab-sidebar-bg-top: var(--trans-strong-10);
 	--tab-sidebar-bg-top-left: var(--trans-strong-20);
-	--tab-sidebar-container-col: color-mix(in oklab, var(--trans-faint-00), var(--trans-faint-05));
+	--tab-sidebar-container-col: color-mix(in oklab, var(--trans-faint-00) 25%, var(--trans-faint-05) 75%);
 	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--tab-sidebar-container-col), var(--tab-sidebar-container-col));
 	--tag-background-image: linear-gradient(to top, var(--color-accent-5), var(--color-accent-6) 50%);
 
@@ -2682,24 +2682,30 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 
 .workspace-leaf-content .tree-item-self {
 	padding-block: var(--vl-layout-padding);
+	--nav-item-background-hover: var(--trans-faint-05);
+}
+.workspace-leaf-content .tree-item-self.mod-collapsible {
+	--nav-item-color: var(--color-base-80);
+	--nav-item-background-selected: var(--color-accent-6);
+	--nav-item-weight: var(--nav-file-weight);
+	--nav-item-weight-hover: var(--nav-file-weight);
+	--nav-item-weight-active: var(--nav-file-weight);
 }
 
 /* Folders */
 .nav-files-container .tree-item-self.mod-collapsible {
 	transition: background-color var(--anim-fast-swing);
+	--nav-item-background-hover: transparent;
+	--nav-item-color: unset;
+	--nav-item-color-hover: var(--nav-item-color);
 }
 .nav-files-container .tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible:not(.is-being-dragged) {
 	color: var(--link-color);
 	background-color: var(--nav-item-background-selected);
 }
 .nav-files-container .tree-item-children .tree-item.is-collapsed .tree-item-self.mod-collapsible:not(.is-being-dragged) {
-	color: var(--nav-folder-color);
+	color: var(--nav-item-color);
 	--nav-item-background-selected: transparent;
-	--nav-item-background-hover: var(--trans-faint-05);
-	&:hover {
-		color: var(--nav-item-color-hover);
-		background-color: var(--nav-item-background-hover);
-	}
 }
 .nav-files-container .tree-item-children {
 	border-left-color: transparent;
@@ -2707,9 +2713,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 
 /* Files */
-.tree-item.nav-file {
-	font-weight: var(--nav-item-weight);
-}
 .tree-item.nav-file .tree-item-self.nav-file-title.is-active {
 	box-shadow: none;
 }
@@ -2730,15 +2733,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	&:hover {
 		border-top-color: var(--trans-faint-20);
 	}
-}
-
-.workspace-leaf-content .tree-item-self.mod-collapsible {
-	--nav-item-color: var(--nav-folder-color);
-	--nav-item-background-selected: var(--color-accent-6);
-	--nav-item-background-hover: var(--trans-faint-05);
-	--nav-item-weight: var(--nav-file-weight);
-	--nav-item-weight-hover: var(--nav-file-weight);
-	--nav-item-weight-active: var(--nav-file-weight);
 }
 
 /* Backlinks */
