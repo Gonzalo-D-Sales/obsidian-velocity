@@ -260,14 +260,14 @@ body {
 	/* Blockquotes */
 	--blockquote-color: var(--icon-color);
 	--blockquote-border-color: var(--text-faint);
-	--blockquote-border-thickness: 3px;
+	--blockquote-border-thickness: 0.1875rem;
 
 	/* Bold */
 	--bold-color: var(--color-base-100);
 	--bold-modifier: 250;
 
 	/* Buttons */
-	--button-radius: var(--radius-s);
+	--button-radius: var(--radius-sm);
 
 	/* Canvas */
 
@@ -316,8 +316,8 @@ body {
 	/* UI font sizes */
 
 	/* Font weights */
-	--font-thin: 200;
-	--font-extralight: 250;
+	--font-thin: 210;
+	--font-extralight: 260;
 	--font-light: 300;
 	--font-normal: 400;
 	--font-medium: 500;
@@ -350,7 +350,7 @@ body {
 	--h4-size: 1.2125em;
 	--h5-size: 1.0875em;
 	--h6-size: 1em;
-	--h1-weight: 325;
+	--h1-weight: 335;
 	--h2-weight: 550;
 	--h3-weight: 550;
 	--h4-weight: 650;
@@ -427,7 +427,7 @@ body {
   	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 
 	/* Menus */
-	--menu-shadow: var(--shadow-themes);
+	--menu-shadow: var(--shadow-faint);
 	--menu-radius: var(--radius-ml);
 	--menu-background: color-mix(in oklab, var(--background-primary) 40%, var(--background-secondary) 60%);
 	--menu-border-color: var(--trans-faint-40);
@@ -600,8 +600,8 @@ body {
 	--color-base-60: oklch(55.50% var(--base-sat-xtr) var(--base-hue));
 	--color-base-70: oklch(45.75% var(--base-sat-xtr) var(--base-hue));
 	--color-base-80: oklch(42.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-90: oklch(28.75% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(23.00% var(--base-sat-low) var(--base-hue)); 
+	--color-base-90: oklch(29.00% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(23.75% var(--base-sat-low) var(--base-hue)); 
 
 	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
 	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.800);
@@ -615,7 +615,7 @@ body {
 	--trans-faint-20: oklch(0.000% 0 0 / 0.0600);
 	--trans-faint-25: oklch(0.000% 0 0 / 0.0700);
 	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
-	--trans-faint-40: oklch(0.000% 0 0 / 0.1000);
+	--trans-faint-40: oklch(0.000% 0 0 / 0.1125);
 	--trans-faint-50: oklch(0.000% 0 0 / 0.1450);
 	--trans-faint-60: oklch(0.000% 0 0 / 0.3200); 
 	
@@ -630,7 +630,7 @@ body {
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
 	--text-highlight-bg-search: var(--text-highlight-bg);
 	--text-highlight-bg-search-active: color-mix(in oklab, var(--color-highlight), transparent 37.5%);
-
+	
 	--link-unresolved-lch: 0.625;
 	
 	--modal-border-color: var(--color-base-40);
@@ -685,7 +685,7 @@ body {
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--text-muted);
 
-	--hr-color: var(--trans-faint-40);
+	--hr-color: var(--trans-faint-30);
 
 	--link-color-sidebar: var(--color-accent-1);
 
@@ -749,12 +749,18 @@ body {
 		inset 0 2px 0px 0px var(--trans-faint-05),
 		inset 0 -2px 2px 0px var(--trans-faint-20),
 		0px 2px 9px 0px var(--trans-faint-20);
+	--shadow-button-colored: 
+		inset 1px 1px 2px 0 var(--trans-strong-30),
+		inset -1px -1px 2px 0 var(--trans-strong-30),
+		var(--shadow-faint);
 	--shadow-checkbox:
 		inset 0 1px 2px 0.75px var(--trans-faint-20);
 	--shadow-checkbox-active:
 		0 0 0 0.375px var(--trans-faint-60);
 	--shadow-code: 
 		0 0.125px 0px 0.375px var(--trans-faint-50);
+	--shadow-faint: 
+		0px 3px 18px 0px var(--trans-faint-25);	
 	--shadow-input: 
 		0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 
@@ -765,8 +771,6 @@ body {
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
-	--shadow-themes: 
-		0px 8px 16px 0px var(--trans-faint-20);	
 	--shadow-track:
 		0 1px 0px 0.75px var(--trans-strong-30),
 		inset 0 0.5px 1px 0px var(--trans-faint-30),
@@ -1088,7 +1092,7 @@ body {
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-10),
 		-0.25px 1px 1.5px 0.5px var(--trans-strong-40);
-	--shadow-themes: 
+	--shadow-faint: 
 		0px 8px 16px 0px var(--trans-strong-10);	
 	--shadow-track:
 		0 0.75px 0px 0.25px var(--trans-faint-40),
@@ -1168,6 +1172,7 @@ body:not(.mod-windows, .mod-linux) {
 	--flair-padding: 2px;
 	/* -50 Windows weight */
 	--font-thin: 225;
+	--font-extralight: 250;
 	/* --font-extralight: 250;
 	--font-light: 300;
 	--font-normal: 400;
@@ -1176,7 +1181,7 @@ body:not(.mod-windows, .mod-linux) {
 	--font-bold: 700;
 	--font-extrabold: 800; */
 	--h1-weight-alt: 525;
-	--h1-weight: 250;
+	--h1-weight: 260;
 	--h2-weight: 500;
 	--h3-weight: 500;
 	--h4-weight: 600;
@@ -1196,8 +1201,8 @@ body:not(.mod-windows, .mod-linux) {
 /* Linux */
 .mod-linux {
 	/* -25 Windows weight */
-	--font-thin: 225;
-	--font-extralight: 250;
+	--font-thin: 235;
+	--font-extralight: 260;
 	--font-light: 325;
 	--font-normal: 425;
 	--font-medium: 525;
@@ -1205,13 +1210,13 @@ body:not(.mod-windows, .mod-linux) {
 	--font-bold: 725;
 	--font-extrabold: 825;
 	--h1-weight-alt: 525;
-	--h1-weight: 300;
+	--h1-weight: 310;
 	--h2-weight: 525;
 	--h3-weight: 525;
 	--h4-weight: 625;
 	--h5-weight: 625;
 	--h6-weight: 675;
-	--font-cta-button: 575;
+	--font-cta-button: 525;
 }
 /* Linux font weight tweak (WIP test if needed on macOS) */
 .mod-linux button[class*="mod-"]:not([class="mod-cancel"]),
@@ -1247,7 +1252,7 @@ body:not(.is-mobile) {
 
 /* Electron Corner-smoothing */
 body:not(.is-mobile) :is(
-	button,
+	button.mod-cta,
 	img,
 	select,
 	.clickable-icon,
@@ -1295,17 +1300,16 @@ button[class*="mod-"]:hover:active,
 }
 button.mod-cta,
 :is(.mod-root, .popover) .metadata-add-button {
-	background: var(--hotkey-gradient);
+	box-shadow: var(--shadow-button-colored);
 }
 button.mod-cta:hover,
 :is(.mod-root, .popover) .metadata-add-button:hover {
-    background: var(--hotkey-gradient);
+    background-color: var(--interactive-accent);
 	filter: brightness(1.05);
 }
 
 button.mod-warning {
 	color: var(--text-color);
-    background-image: var(--warning-gradient);
 	filter: brightness(1.05);
 }
 
@@ -1315,7 +1319,7 @@ button.mod-warning {
 	background-color: var(--background-button-hover);
 	filter: brightness(0.97);
 } 
-.modal button:not(.clickable-icon):focus,
+.modal button:not(.clickable-icon,.mod-cta):focus,
 :is(select,.dropdown):focus-within {
 	box-shadow: var(--input-shadow);
 } 
@@ -1456,7 +1460,7 @@ body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb:not(:hover)
 	border: none;
 	box-shadow: 
 	0 0 0 1px var(--trans-faint-10),
-	var(--shadow-themes);
+	var(--shadow-faint);
 }
 .notice {
 	font-weight: var(--font-semi-medium);
@@ -1553,28 +1557,28 @@ thead,
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
-	letter-spacing: -0.015em;
+	letter-spacing: -0.015625em;
 	text-indent: -0.0375em;
 	&::after {
 		content: '';
 		width: 100%;
 		position: relative;
-		height: 2px;
+		height: 0.125rem;
 		background-color: var(--hr-color);
 		display: block;
 		contain: content;
 		border-radius: var(--radius-xxl);
-		margin-block: 6px 0;
+		margin-block: 0.375rem 0;
 	}
 }
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
-	letter-spacing: -0.015em;
+	letter-spacing: -0.015625em;
 	text-indent: -0.01875em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-3, 
 .markdown-rendered h3 {
-	letter-spacing: -0.015em;
+	letter-spacing: -0.015625em;
 	text-indent: -0.0125em;
 }
 
@@ -1586,7 +1590,7 @@ body.prop-headings {
 		margin-block-start: 0;
 		}
 	& .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
-		margin-block-end: round(nearest, clamp(0px, var(--prop-margin-base), 1rem), 2px);
+		margin-block-end: round(nearest, clamp(0px, var(--prop-margin-base), 1.125rem), 2px);
 		--heading-spacing: round(nearest, calc(var(--prop-margin-base) * 4), 2px);
 		}
 }
@@ -1623,6 +1627,7 @@ body.prop-headings {
 		width: var(--blockquote-border-thickness);
 		background-color: var(--blockquote-border-color);
 		border-radius: var(--radius-m);
+		box-shadow: var(--shadow-faint);
 	}
 }
 
@@ -1861,7 +1866,7 @@ hr,
 	border: none;
 	border-radius: var(--radius-l);
 	contain: content;
-	height: 2px;
+	height: 0.125rem;
 }
 
 /*--> Images <--*/
@@ -3001,6 +3006,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 		z-index: -1;
 	}
 	.workspace-tab-header-inner-title {
+		contain: content;
 		padding-inline: 6px 10px;
 		transition: color var(--anim-super-swing);
 		text-align: center;
@@ -3923,7 +3929,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .community-item {
     border-radius: var(--radius-ml);
     border: none;
-	box-shadow: var(--shadow-themes);
+	box-shadow: var(--shadow-faint);
 	padding: 10px;
 }
 .mod-community-theme .community-item {
@@ -3933,9 +3939,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 body:not(.is-phone) .community-item.is-selected, 
 body:not(.is-phone) .community-item.is-selected:hover {
-    box-shadow: var(--input-shadow);
-	background-color: var(--background-secondary);
-    background-image: var(--hotkey-gradient);
+    box-shadow: var(--shadow-button-colored);
 }
 .community-item-name {
 	display: flex;
@@ -5595,6 +5599,9 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 	text-indent: -0.05em;
 	padding-block: 0.125em 0 !important;
 	--bold-modifier: 300;
+	&::after {
+		display: none;
+	}
 }
 .supertitle:not(.override, .style-override, .superheading) :is(
 	.markdown-source-view .HyperMD-header-1, 
