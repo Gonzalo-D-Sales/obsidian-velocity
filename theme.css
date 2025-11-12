@@ -267,7 +267,7 @@ body {
 	--bold-modifier: 250;
 
 	/* Buttons */
-	--button-radius: var(--radius-sm);
+	--button-radius: var(--radius-s);
 
 	/* Canvas */
 
@@ -450,14 +450,14 @@ body {
 	--prompt-input-height: 48px;
 
 	/* Radiuses */
-	--radius-xs: 4px;
-	--radius-s: 6px;
-	--radius-sm: 8px;
-	--radius-m: 10px;
-	--radius-ml: 12px;
-	--radius-l: 16px;
-	--radius-xl: 18px;
-	--radius-xxl: 20px;
+	--radius-xs: 5px;
+	--radius-s: 7px;
+	--radius-sm: 9px;
+	--radius-m: 11px;
+	--radius-ml: 13px;
+	--radius-l: 17px;
+	--radius-xl: 19px;
+	--radius-xxl: 21px;
 
 	/* Ribbon */
 	--ribbon-background: transparent;
