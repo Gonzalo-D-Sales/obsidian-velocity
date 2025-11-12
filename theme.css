@@ -500,7 +500,7 @@ body {
 	--tab-text-color-focused-active: var(--nav-text-color);
 	--tab-text-color-focused: var(--icon-color);
 	--tab-radius: var(--radius-s);
-	--tab-width: 220px;
+	--tab-width: 216px;
 
 	/* Mobile tab switcher */
 
@@ -597,11 +597,11 @@ body {
 	--color-base-40: oklch(75.25% var(--base-sat-str) var(--base-hue)); 
 	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-60: oklch(55.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(45.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(42.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-90: oklch(29.00% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(23.75% var(--base-sat-low) var(--base-hue)); 
+	--color-base-60: oklch(55.75% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(46.25% var(--base-sat-xtr) var(--base-hue));
+	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
+	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(23.50% var(--base-sat-low) var(--base-hue)); 
 
 	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
 	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.800);
@@ -646,11 +646,11 @@ body {
 		);
 	--background-gradient-menu: radial-gradient( at 64% 50%, 
 		var(--bg-menu-inner) 20%, 
-		var(--bg-menu-outer) 180%
+		var(--bg-menu-outer) 200%
 		); 
 	--background-gradient-community: radial-gradient( at 50% 50%, 
 		var(--bg-menu-inner) 20%, 
-		var(--bg-menu-outer) 180%
+		var(--bg-menu-outer) 200%
 		); 
 
 	--background-button-hover: var(--background-primary);
@@ -1219,7 +1219,7 @@ body:not(.mod-windows, .mod-linux) {
 	--h4-weight: 625;
 	--h5-weight: 625;
 	--h6-weight: 675;
-	--font-cta-button: 525;
+	--font-cta-button: var(--font-semi-medium);
 }
 /* Linux font weight tweak (WIP test if needed on macOS) */
 .mod-linux button[class*="mod-"]:not([class="mod-cancel"]),
@@ -1989,38 +1989,40 @@ input[type=checkbox][data-task="<"]:checked,
 
 /* Paragraph: active line highlighting feature */
 .active-line-highlight {
-	.cm-active::after {
+	.cm-active.cm-line::before {
 		content: '';
 		z-index: -1;
-		width: calc(100% + 0.5em);
-		top: 0;
-		bottom: 0;
-		right: -0.25em;
+		width: calc(100% + 1em);
+		top: -0.125em;
+		bottom: -0.125em;
+		right: -0.5em;
 		position: absolute;
 		pointer-events: none;
-		background-color: var(--trans-faint-10);
-		border-radius: 0.25rem;
+		background-color: var(--trans-strong-40);
+		border-radius: 0.5rem;
 	}
-	.cm-active.HyperMD-header:not(.HyperMD-header-1)::after {
-		top: var(--p-spacing);
+	.cm-active.HyperMD-header:not(.HyperMD-header-1)::before {
+		top: calc(var(--p-spacing) - 0.125em);
 	}
-	.cm-active.HyperMD-header.HyperMD-header-1::after {
-		top: -8px;
+	.cm-active.HyperMD-header.HyperMD-header-1::before {
+		top: calc(var(--p-spacing) - 0.875em);
 	}
-	.cm-active.HyperMD-list-line::after {
+	.cm-active.HyperMD-list-line::before {
 		width: 100%;
 		right: 0;
+		top: 0;
+		bottom: 0;
 	}
 	.cm-active
 	:is(.HyperMD-hr,
 		.HyperMD-codeblock,
 		.HyperMD-quote)
-		::after {
+		::before {
 		width: 100%;
 		right: 0;
 		border-radius: 0;
 	}
-	.table-editor .cm-active::after {
+	.table-editor .cm-active::before {
 		display: none;
 	}
 }
@@ -2276,20 +2278,20 @@ button.clickable-icon {
 }
 
 .workspace-drawer-vault-actions .clickable-icon {
-	--icon-color: var(--text-normal);
+	--icon-color: var(--color-base-100);
 }
 .workspace-tab-header-new-tab .clickable-icon {
 	height: 32px;
 	width: 32px;
 	margin-bottom: 2px;
-	--icon-color: var(--text-normal);
+	--icon-color: var(--color-base-100);
 }
 .mod-root .workspace-tab-header-tab-list,
 .sidebar-toggle-button {
 	contain: content;
 	margin-block-start: 1px;
 	padding-block: 8px;
-	--icon-color: var(--text-normal);
+	--icon-color: var(--color-base-100);
 }
 .workspace-tab-header-tab-list .clickable-icon {
 	height: 100%;
@@ -3120,7 +3122,7 @@ body.pinned-tabs-left .mod-root .workspace-tab-header-container-inner .workspace
 	z-index: var(--layer-popover);
 }
 .view-header > .view-header-left .clickable-icon {
-	--icon-color: var(--color-base-80);
+	--icon-color: var(--text-normal);
 }
 .view-header-title-container > *,
 .view-header > :is(
