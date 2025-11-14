@@ -486,11 +486,12 @@ body {
 	--sidebar-right-toggle-inner-width: 12%;
 
 	/* Sliders */
+	--slider-track-background: var(--trans-faint-50);
 	--slider-track-height: 20px;
-	--slider-thumb-height: 20px;
-	--slider-thumb-width: 20px;
+	--slider-thumb-height: 12px;
+	--slider-thumb-width: 12px;
 	--slider-thumb-border-width: 0;
-	--slider-thumb-y: -7px;
+	--slider-thumb-y: -3px;
 
 	/* Status bar */
 	--status-bar-border-width: 0;
@@ -539,6 +540,17 @@ body {
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
 
+	/* Toggles */
+	--toggle-width: 44px;
+	--toggle-border-width: 4px;
+	--toggle-thumb-color: var(--text-on-accent);
+	--toggle-thumb-width: 12px;
+	--toggle-thumb-height: 12px;
+	--toggle-s-border-width: 4px;
+	--toggle-s-width: 36px;
+	--toggle-s-thumb-height: 12px;
+	--toggle-s-thumb-width: 12px;
+	
 	/* Vault profile */
 	--vault-profile-color: var(--icon-color);
 	--vault-profile-color-hover: var(--text-muted);
@@ -663,11 +675,6 @@ body {
 	--background-modifier-cover: color-mix(in oklch, var(--color-base-80) 50%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
-	--hotkey-gradient: linear-gradient(to top, var(--color-accent) -30%, var(--color-accent-4) 180%);
-	--success-gradient: linear-gradient(to top, var(--text-success-bg) -25%, #FFF 250%);
-	--toggle-gradient: linear-gradient(to bottom, var(--color-accent) -30%, var(--color-accent-4) 180%);
-	--warning-gradient: linear-gradient(to top, var(--color-red) -30%, #FFF 210%);
-
 	--color-accent-1: color-mix(in oklch, var(--color-accent) 100%, transparent 10%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
 	--color-accent-3: color-mix(in oklch, var(--color-accent), transparent 5%);
@@ -700,8 +707,6 @@ body {
 
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
-	/* --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
-	--background-modifier-cover: rgba(220, 220, 220, 0.4); */
 	
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
@@ -714,9 +719,6 @@ body {
 
 	--setting-item-bg: var(--background-primary);
 	--setting-item-border-color: var(--hr-color);
-
-	--slider-track-background: var(--trans-faint-20);
-	--toggle-track-bg: var(--trans-faint-50);
 
 	--stacked-shadow-color: var(--trans-faint-10);
 
@@ -771,15 +773,9 @@ body {
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
-	--shadow-track:
-		0 1px 0px 0.75px var(--trans-strong-30),
-		inset 0 0.5px 1px 0px var(--trans-faint-30),
-		inset 0 4px 20px -4px var(--trans-faint-30);
-	--shadow-toggle:
-		inset 0 1px 2px 1px var(--trans-faint-30),
-		inset 0 6px 12px 0px var(--trans-faint-05);
 	--shadow-toggle-active:
-		inset 0 1.5px 3px 0px var(--trans-faint-50);
+		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
+		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
 
 	& .mod-root, .mod-sidedock {
 	--bases-cards-shadow: 
@@ -799,12 +795,6 @@ body {
 		0px 0.25px 0px 0.5px var(--text-selection),
 		inset 0px -0.25px 4px -1px var(--text-selection),
 		0px 1.5px 8px -1.5px var(--text-selection);
-	}
-	& .mod-settings, .graph-controls {
-	--shadow-track:
-		0 1px 0px 0.75px var(--color-base-00),
-		inset 0 0.5px 1px 0px var(--trans-faint-30),
-		inset 0 4px 20px -4px var(--trans-faint-30);
 	}
 	& .modal, .menu {
 	--shadow-setting-item: 
@@ -1263,6 +1253,7 @@ body:not(.is-mobile) :is(
 	img,
 	mark,
 	select,
+	.checkbox-container,
 	.clickable-icon,
 	.cm-highlight,
 	.community-item,
@@ -1308,7 +1299,7 @@ button[class*="mod-"]:active,
 button[class*="mod-"]:hover:active,
 :is(.mod-root, .popover) .metadata-add-button:active,
 :is(.mod-root, .popover) .metadata-add-button:hover:active {
-	filter: brightness(1.05) opacity(70%);
+	filter: brightness(1.0625) opacity(70%);
 }
 button.mod-cta,
 :is(.mod-root, .popover) .metadata-add-button {
@@ -1317,12 +1308,11 @@ button.mod-cta,
 button.mod-cta:hover,
 :is(.mod-root, .popover) .metadata-add-button:hover {
     background-color: var(--interactive-accent);
-	filter: brightness(1.05);
+	filter: brightness(1.0625);
 }
 
 button.mod-warning {
 	color: var(--text-color);
-	filter: brightness(1.05);
 }
 
 /*--> Dropdown <--*/
@@ -1419,21 +1409,17 @@ input[type="color"]:focus {
 
 input[type='range'],
 body:not(.is-mobile) input[type='range']:focus {
-	background-color: var(--slider-track-background);
-	box-shadow: var(--shadow-track);
+	box-shadow: none;
 	margin-inline-end: 0;
 }
 input[type='range']::-webkit-slider-thumb {
-	box-shadow: inset 0 -2px 4px -2px var(--color-base-25),
-	var(--shadow-tab), var(--shadow-s);
-	scale: 0.875;
+	box-shadow: none;
 }
 input[type='range']::-webkit-slider-thumb:hover,
 input[type='range']::-webkit-slider-thumb:active,
 body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb {
 	border-color: transparent;
-	box-shadow: inset 0 -2px 4px -2px var(--color-base-25),
-	var(--shadow-tab), var(--shadow-s), var(--shadow-l);
+	box-shadow: none;
 }
 body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb:not(:hover) {
 	box-shadow: inset 0 -2px 4px -2px var(--color-base-25),
@@ -1442,27 +1428,22 @@ body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb:not(:hover)
 
 /*--> Toggle <--*/
 
+.checkbox-container {
+	background-color: var(--color-base-30);
+	transition: 150ms ease-in-out;
+}
 .checkbox-container,
 .checkbox-container:hover {
-	background-color: var(--toggle-track-bg);
-	box-shadow: var(--shadow-toggle);
+	box-shadow: unset;
 }
 .checkbox-container:focus-within {
 	outline: none;
 }
 .checkbox-container.is-enabled {
-	background-color: transparent;
- 	background-image: var(--toggle-gradient);
 	box-shadow: var(--shadow-toggle-active);
 }
-.checkbox-container:after {
-	--shadow: var(--color-base-25);
-	--intensity: 4px;
-    box-shadow: inset 0 -2px var(--intensity) -2px var(--shadow), var(--shadow-tab);
-}
-.checkbox-container.is-enabled:after {
-	--shadow: var(--color-accent-4);
-	--intensity: 4px;
+.checkbox-container::after {
+	box-shadow: unset;
 }
 
 /*--> Tooltips / Notice / Drag ghost <--*/
@@ -2845,9 +2826,8 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color-hover: var(--nav-heading-color);
 }
 :is(.backlink-pane, .outgoing-link-pane) > .tree-item-self > .tree-item-inner {
+	font: var(--font-semi-medium) var(--font-ui-medium) var(--font-interface-theme);
 	font-variation-settings: 'opsz' 24;
-	font-weight: var(--font-semi-medium);
-	font-size: var(--font-ui-medium);
 }
 .search-empty-state {
 	--text-faint: var(--color-base-40);
@@ -3760,9 +3740,9 @@ body:not(.is-mobile)
 }
 /* Settings Sidebar */
 body:not(.is-phone) .vertical-tab-nav-item {
-	color: var(--color-base-80);
-	font-size: var(--font-ui-small);
-	font-weight: var(--font-medium);
+	color: var(--text-muted);
+	font: var(--font-medium) var(--font-ui-small) var(--font-interface-theme);
+
 	padding-block: var(--vl-layout-padding);
 	padding-inline-start: 20px;
 	--background-modifier-hover: var(--trans-faint-05);
@@ -3772,6 +3752,8 @@ body:not(.is-phone) .vertical-tab-nav-item.is-active {
     color: var(--color-base-100);
 }
 body:not(.is-phone) .vertical-tab-header-group-title {
+	font: var(--font-medium) var(--font-ui-medium) var(--font-interface-theme);
+	font-variation-settings: 'opsz' 24;
     padding-inline-start: 20px;
 }
 
@@ -3835,10 +3817,16 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		padding-top: calc(var(--vl-layout-padding) + 8px);
 	}
 	& .setting-item.setting-item-heading  {
-		background-color: transparent !important;
-		border: none !important;
-		box-shadow: none !important;
-		font-weight: var(--font-semibold);
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		padding-block: calc(var(--vl-layout-padding) + 4px);
+
+		> .setting-item-info > .setting-item-name {
+			color: var(--text-muted);
+			font: var(--font-medium) var(--font-ui-large) var(--font-interface-theme);
+			font-variation-settings: 'opsz' 28;
+		}
 	}
 	& .setting-item-description {
     	font-size: 11.5px;
@@ -3864,14 +3852,12 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .setting-filter-container {
 	font-family: var(--font-monospace);
-    margin-top: var(--size-4-2);
+    margin-block: 8px 24px;
 	margin-inline-start: 16px;
 }
 .flair.mod-pop,
 .hotkey-filter,
 .setting-hotkey.mod-active {
-	background-color: var(--trans-strong-00);
-    background-image: var(--hotkey-gradient);
     color: var(--text-on-accent);
 	font-weight: var(--font-cta-button);
 	gap: 4px;
@@ -3984,17 +3970,15 @@ body:not(.is-phone) .vertical-tab-header-group-title {
     border: none;
 	box-shadow: var(--shadow-faint);
 	padding: 10px;
-	&.mod-active {
-		background-color: var(--interactive-accent);
-		box-shadow: var(--shadow-button-colored);
-		color: var(--text-on-accent);
-		--text-muted: var(--text-on-accent);
-	}
 }
 .mod-community-theme .community-item {
 	display: grid;
 	grid-template-columns: 4fr 3fr;
 	background-color: var(--trans-strong-30);
+
+	&.is-selected .placeholder-icon > svg {
+		color: var(--trans-strong-20);
+	}
 }
 body:not(.is-phone) .community-item.is-selected, 
 body:not(.is-phone) .community-item.is-selected:hover {
@@ -4045,7 +4029,11 @@ body:not(.is-phone) .community-item.is-selected:hover {
 /* GPL-3.0 License */
 
 .modal.mod-community-modal .community-item .suggestion-highlight {
-	color: var(--color-highlight);
+	color: var(--interactive-accent);
+    display: contents;
+}
+.modal.mod-community-modal .community-item.is-selected .suggestion-highlight {
+	color: var(--trans-strong-20);
     display: contents;
 }
 
@@ -5460,9 +5448,6 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 .style-settings-heading[data-level="0"] + .style-settings-container {
     padding-left: 28px;
 	padding-top: 4px;
-}
-.setting-item + div > .setting-item-heading, .setting-item + .setting-item-heading {
-    margin-top: 8px;
 }
 
 /* Todoist Sync */
