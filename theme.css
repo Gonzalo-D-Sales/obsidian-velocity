@@ -191,6 +191,11 @@ settings:
 	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
 	type: class-toggle
 -
+	id: override-default-font
+	title: Override dedicated theme typeface
+	description: Velocity is best experienced with the font it is bundled with - Inter Variable. Enable this setting to allow custom font overrides via the Appearance settings.
+	type: class-toggle
+-	
 	id: prop-headings
 	title: Proportional heading margins
 	description: Decreases the margin sizes of smaller headings.
@@ -258,8 +263,8 @@ body {
 	--bases-cards-text-size: var(--font-small);
 
 	/* Blockquotes */
-	--blockquote-color: var(--icon-color);
-	--blockquote-border-color: var(--text-faint);
+	--blockquote-color: var(--text-muted);
+	--blockquote-border-color: var(--color-base-55);
 	--blockquote-border-thickness: 0.1875rem;
 
 	/* Bold */
@@ -275,11 +280,10 @@ body {
 
 	/* Checkboxes */
 	--checkbox-radius: 50%;
-	--checkbox-marker-color: #fff;
-	--checkbox-color: transparent;
-	--checkbox-color-hover: transparent;
-	--checklist-done-decoration: none;
-	--checklist-done-color: var(--color-base-55);
+	--checkbox-marker-color: var(--text-on-accent);
+	--checklist-done-color: var(--strikethrough-color);
+	--checkbox-size: 1.125rem;
+	--bg-checkbox: radial-gradient(transparent 53%, var(--color-base-40) 58% 60%, transparent 65%);
 
 	/* Code */
 	--code-radius: 5px;
@@ -303,6 +307,7 @@ body {
 	--dropdown-background-hover: var(--interactive-normal);
 
 	/* Blocks */
+	--embed-block-shadow-hover: none;
 
 	/* File layout */
 	--file-line-width: 43.75rem;
@@ -369,7 +374,7 @@ body {
 	--icon-color-focused: var(--icon-color-hover);
 
 	/* Indent size */
-	--indent-unit: .375em;
+	--indent-unit: 0.4375em;
 
 	/* Indentation guide */
 
@@ -379,6 +384,9 @@ body {
 	--input-height: 28px;
 	--input-radius: var(--radius-s);
 	--input-border-width: 0;
+
+	--interactive-normal: var(--trans-faint-25);
+	--interactive-hover: var(--trans-faint-30);
 	
 	/* Italic */
 	--italic-color: var(--text-normal);
@@ -550,10 +558,7 @@ body {
 	--color-highlight: rgb(var(--color-highlight-rgb));
 	--color-highlight-rgb: var(--color-yellow-rgb);
 
-	/* Inputs */
-
 	/* Text */
-    --interactive-hover: var(--background-secondary);
 
 	/* Extra theme layout variables */
 	--vl-layout-padding: 8px;
@@ -564,22 +569,22 @@ body {
 	--accent-s: 100%;	
 	--accent-l: 55%;
 	
-	--color-red-rgb: 240, 28, 28;
-	--color-red: rgb(240, 28, 28);
-	--color-orange-rgb: 255, 132, 0;
-	--color-orange: rgb(255, 132, 0);
-	--color-yellow-rgb: 231, 177, 0;
-	--color-yellow: rgb(231, 177, 0);
-	--color-green-rgb: 9, 180, 29;
-	--color-green: rgb(9, 180, 29);
-	--color-cyan-rgb: 4, 176, 167;
-	--color-cyan: rgb(4, 176, 167);
-	--color-blue-rgb: 0, 132, 255;
-	--color-blue: rgb(0, 132, 255);
-	--color-purple-rgb: 180, 68, 241;
-	--color-purple: rgb(178, 74, 236);
-	--color-pink-rgb: 225, 70, 147;
-	--color-pink: rgb(225, 70, 147);
+	--color-red-rgb: 229, 69, 51;
+	--color-red: rgb(229, 69, 51);
+	--color-orange-rgb: 236, 117, 0;
+	--color-orange: rgb(236, 117, 0);
+	--color-yellow-rgb: 229, 169, 37;
+	--color-yellow: rgb(229, 169, 37);
+	--color-green-rgb: 42, 185, 71;
+	--color-green: rgb(42, 185, 71);
+	--color-cyan-rgb: 5, 178, 197;
+	--color-cyan: rgb(5, 178, 197);
+	--color-blue-rgb: 42, 122, 241;
+	--color-blue: rgb(42, 122, 241);
+	--color-purple-rgb: 136, 75, 231;
+	--color-purple: rgb(136, 75, 231);
+	--color-pink-rgb: 215, 56, 123;
+	--color-pink: rgb(215, 56, 123);
 
 	--base-hue: 281;
 	--base-sat-xtr: 0.01050;
@@ -601,11 +606,11 @@ body {
 	--color-base-70: oklch(46.25% var(--base-sat-xtr) var(--base-hue));
 	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(23.50% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(23.00% var(--base-sat-low) var(--base-hue)); 
 
 	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
 	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.800);
-	--trans-strong-20: oklch(from var(--color-base-00) l c h / 0.750);
+	--trans-strong-20: oklch(from var(--color-base-00) l c h / 0.600);
 	--trans-strong-30: oklch(from var(--color-base-00) l c h / 0.400);
 	--trans-strong-40: oklch(from var(--color-base-50) l c h / 0.100);
 	
@@ -625,7 +630,7 @@ body {
 	--text-selection: hsla(var(--color-accent-hsl), 0.15);
 	--text-success-bg: oklch(from var(--color-green) 0.53125 0.4 h);
 	--text-success-faint: color-mix(in oklab, var(--color-green), transparent 0.375);
-    --text-highlight-bg: oklch(from var(--color-highlight) 0.875 c h / 0.2);
+    --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.3125);
 	--text-highlight-bg-rgb: var(--color-highlight-rgb);
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
 	--text-highlight-bg-search: var(--text-highlight-bg);
@@ -653,11 +658,9 @@ body {
 		var(--bg-menu-outer) 200%
 		); 
 
-	--background-button-hover: var(--background-primary);
-
 	--background-modifier-border: var(--trans-faint-20);
 	--background-modifier-border-focus: transparent;
-	--background-modifier-cover: color-mix(in oklch, var(--color-base-90) 50%, transparent 100%);
+	--background-modifier-cover: color-mix(in oklch, var(--color-base-80) 50%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
 	--hotkey-gradient: linear-gradient(to top, var(--color-accent) -30%, var(--color-accent-4) 180%);
@@ -707,7 +710,7 @@ body {
 
 	--prompt-item-color: var(--color-base-100);
 
-	--search-result-background: var(--trans-strong-30);
+	--search-result-background: var(--trans-strong-20);
 
 	--setting-item-bg: var(--background-primary);
 	--setting-item-border-color: var(--hr-color);
@@ -740,9 +743,7 @@ body {
 	--tag-shadow: 
 		inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
 	--input-shadow: 
-		0 0.125px 0 0.5px var(--trans-faint-30),
-		inset 0 -0.125px 1px 0px var(--trans-faint-30),
-		0 0.75px 2px 0.5px var(--trans-faint-20);
+		none;
 	--input-shadow-hover: var(--input-shadow);
 	--shadow-xs: 
 		0 0 0 1px var(--trans-faint-20),
@@ -756,10 +757,6 @@ body {
 		inset 1px 1px 2px 0 var(--trans-strong-30),
 		inset -1px -1px 2px 0 var(--trans-strong-30),
 		var(--shadow-faint);
-	--shadow-checkbox:
-		inset 0 1px 2px 0.75px var(--trans-faint-20);
-	--shadow-checkbox-active:
-		0 0 0 0.375px var(--trans-faint-60);
 	--shadow-code: 
 		0 0.125px 0px 0.375px var(--trans-faint-50);
 	--shadow-faint: 
@@ -818,7 +815,11 @@ body {
 		0 0.25px 0 0.75px var(--trans-faint-20),
 		0 1.5px 6px -3px var(--trans-faint-20);
 	--tab-container-shadow: 
-		inset 0 0 2.5px -0.25px var(--trans-faint-30);
+		inset 0.5px 0.5px 1px 0 var(--trans-strong-40),
+		inset -0.5px -0.5px 4px 0 var(--trans-strong-30),
+		0 0 1px 0 var(--trans-faint-20),
+		0 2px 6px 0px var(--trans-faint-05),
+		0 10px 20px 0px var(--trans-strong-40);
 	}
 }
 .theme-light.deflight {
@@ -982,8 +983,6 @@ body {
 		var(--color-base-20) 32%, 
 		var(--background-primary) 175%
 		); 
-
-	--background-button-hover: var(--color-base-35);
 
 	--background-modifier-border: var(--trans-faint-20);
 	--background-modifier-border-focus: transparent;
@@ -1151,6 +1150,11 @@ body {
 	--font-label: var(--font-interface-theme);
 }
 
+body:not(.override-default-font) {
+	 --font-interface-override: "Inter Variable" !important;
+	 --font-text-override: "Inter Variable" !important;
+}
+
 /*
 =========================== ===========================
 			1 - Foundations
@@ -1257,14 +1261,17 @@ body:not(.is-mobile) {
 body:not(.is-mobile) :is(
 	button.mod-cta,
 	img,
+	mark,
 	select,
 	.clickable-icon,
+	.cm-highlight,
 	.community-item,
 	.drag-ghost,
 	.dropdown,
 	.flair,
 	.metadata-add-button,
 	.menu,
+	.menu-item.selected,
 	.modal,
 	.nav-file-tag,
 	.prompt,
@@ -1283,18 +1290,19 @@ body:not(.is-mobile) :is(
 button,
 button:active,
 .metadata-add-button {
-	transition: filter var(--anim-super-swing);
+	transition: 
+	background-color var(--anim-super-smooth),
+	filter var(--anim-super-delay);
 }
-button:not(.clickable-icon):hover,
+/* button:not(.clickable-icon):hover,
 .metadata-add-button:hover {
-	background-color: var(--background-button-hover);
 	filter: brightness(0.97);
-}
+} */
 button:not(.clickable-icon):active,
 button:not(.clickable-icon):hover:active,
 .metadata-add-button:active,
 .metadata-add-button:hover:active {
-	filter: brightness(0.97) opacity(60%);
+	filter: opacity(60%);
 }
 button[class*="mod-"]:active,
 button[class*="mod-"]:hover:active,
@@ -1319,14 +1327,13 @@ button.mod-warning {
 
 /*--> Dropdown <--*/
 
-:is(select,.dropdown):hover {
-	background-color: var(--background-button-hover);
+/* :is(select,.dropdown):hover {
 	filter: brightness(0.97);
-} 
-.modal button:not(.clickable-icon,.mod-cta):focus,
+}  */
+/* .modal button:not(.clickable-icon,.mod-cta):focus,
 :is(select,.dropdown):focus-within {
 	box-shadow: var(--input-shadow);
-} 
+}  */
 
 /*--> Graph & Controls <--*/
 
@@ -1368,10 +1375,15 @@ textarea,
 	 .vertical-tab-header input):focus {
 	box-shadow: var(--shadow-input-active);
 }
+
 .mod-sidedock,
-.vertical-tab-header,
+.vertical-tab-header {
+	--background-modifier-form-field: var(--search-result-background);
+	--background-modifier-form-field-hover: var(--background-modifier-form-field);
+}
 .setting-item textarea {
-	--background-modifier-form-field: var(--search-result-background);--background-modifier-form-field-hover: var(--search-result-background);
+	--background-modifier-form-field: var(--trans-faint-00);
+	--background-modifier-form-field-hover: var(--background-modifier-form-field);
 }
 
 /* Search input */
@@ -1665,10 +1677,8 @@ body:not(.disable-callout-styling) {
 	.markdown-source-view .cm-content > .cm-callout[contenteditable=false] {
 		border-radius: var(--callout-radius);
 		contain: none !important;
+		overflow: visible;
 		transition: box-shadow var(--anim-fast-swing);
-		&:hover {
-			box-shadow: 0 0 0 2px var(--trans-faint-50);
-		}
 	}
 	.callout {
 		color: var(--color-base-80);
@@ -1847,7 +1857,7 @@ body:not(.disable-naked-embeds) {
 
 /* formatting markers */
 .cm-formatting {
-	color: var(--text-faint);
+	color: var(--icon-color);
 }
 .cm-formatting-strong {
 	font-weight: var(--font-normal);
@@ -1863,13 +1873,25 @@ body:not(.disable-naked-embeds) {
 .cm-s-obsidian span.cm-highlight,
 :is(.markdown-source-view, .markdown-preview-view) mark {
 	box-decoration-break: clone;
-	box-shadow: inset 0 -1.5px 0 var(--text-highlight-ul-color);
-	padding-block: 0.0625em 0;
-	--bold-color: var(--text-normal);
-	--italic-color: var(--text-normal);
+	padding-block: 0.125rem;
 }
 :is(.markdown-source-view, .markdown-preview-view) mark {
-	padding-inline: 0.1875em;
+	border-radius: var(--radius-xs);
+	padding-inline: 0.25rem;
+}
+
+.cm-line .cm-formatting:first-of-type,
+.cm-highlight:nth-child(1 of .cm-highlight) {
+	border-top-left-radius: var(--radius-xs);
+	border-bottom-left-radius: var(--radius-xs);
+	padding-inline-start: 0.25rem;
+}
+
+.cm-line .cm-formatting:last-of-type,
+.cm-highlight:nth-last-child(1 of .cm-highlight) {
+	border-top-right-radius: var(--radius-xs);
+	border-bottom-right-radius: var(--radius-xs);
+	padding-inline-end: 0.25rem;
 }
 
 /*--> HRs <--*/
@@ -1940,7 +1962,13 @@ body:not(.disable-list-styling) {
 
 /* Checkbox */
 input[type=checkbox] {
-	box-shadow: var(--shadow-checkbox);
+	border: none;
+	box-shadow: none !important;
+	background-image: var(--bg-checkbox); 
+	transition: 210ms var(--anim-motion-jumpy);
+}
+input[type=checkbox]:active {
+	transform: scale(0.75);
 }
 .HyperMD-task-line[data-task="x"],
 .HyperMD-task-line[data-task="f"],
@@ -1951,17 +1979,15 @@ input[type=checkbox] {
 	--text-normal: var(--trans-faint-60);
 }
 input[type=checkbox]:checked {
-    background-image: var(--success-gradient);
-	box-shadow: none !important;
+	background-image: unset;
+	box-shadow: var(--shadow-button-colored) !important;
 	border: none;
 }
 input[type=checkbox]:checked::after {
     top: -0.03125em;
     inset-inline-start: -0.03125em;
 }
-input[type=checkbox]:is(:focus,:hover) {
-	box-shadow: var(--shadow-checkbox); 
-}
+
 .task-list-item ul::before {
 	--indentation-guide-reading-indent: -1.03125em;
 }
@@ -2026,6 +2052,9 @@ input[type=checkbox][data-task="<"]:checked,
 		display: none;
 	}
 }
+.disable-title-h1 .cm-active.HyperMD-header.HyperMD-header-1::before {
+	top: calc(var(--p-spacing) - 0.75em);
+}
 
 /*--> Links <--*/
 
@@ -2081,7 +2110,6 @@ mjx-math {
 }
 .metadata-container .metadata-add-button {
 	background-color: var(--nav-item-background-active);
-	box-shadow: none;
 	height: 2em;
 	margin-block: 4px;
 	margin-inline-start: 4px;
@@ -2106,7 +2134,7 @@ mjx-math {
 		--icon-stroke: var(--icon-s-stroke-width);
 	}
 	& .metadata-container .metadata-add-button {
-		box-shadow: var(--input-shadow);
+		background-color: var(--interactive-accent);
 		color: var(--text-on-accent);
 		margin-block: 0.5em 0.3125em;
 		margin-inline-start: 0.25em;
@@ -2775,7 +2803,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	box-shadow: none;
 } */
 :is(.nav-file-title,.nav-folder-title).is-being-dragged {
-	box-shadow: var(--shadow-button-colored);
+	box-shadow: var(--shadow-button-colored) !important;
 }
 /*--> Workspace Sidebar leaves <--*/
 
@@ -2887,7 +2915,6 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 .mod-sidedock .search-results-info {
     margin-inline: 12px;
     padding: 6px 2px 8px;
-	--background-button-hover: var(--nav-item-background-hover);
 	--input-shadow: none;
 	--interactive-accent: var(--text-normal);
 	--text-muted: var(--icon-color);
@@ -2940,10 +2967,10 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 
 /* Tab Containers */
-.workspace-tab-header-container {
+/* .workspace-tab-header-container {
 	/* important: fixes top tab performance */
-	overflow: hidden;
-}
+	overflow-y: visible;
+} */
 .is-hidden-frameless .workspace-split.workspace-window .workspace-tabs .workspace-tab-header-container {
 	padding-inline-start: 1px;
 }
@@ -3651,7 +3678,14 @@ body:not(.is-mobile)
 }
 .menu-item {
 	border-radius: 7px;
-	padding: calc(var(--vl-layout-padding) - 2px) 4px;
+	padding-block: calc(var(--vl-layout-padding) - 2px);
+	padding-inline: 6px 8px;
+	--background-modifier-hover: var(--interactive-accent);
+}
+.menu-item:not(.is-disabled).selected {
+	box-shadow: var(--shadow-button-colored);
+	color: var(--text-on-accent) !important;
+	--icon-color: var(--text-on-accent);
 }
 .menu-separator {
 	border-color: var(--color-base-20);
@@ -3667,15 +3701,16 @@ body:not(.is-mobile)
 	cursor: not-allowed;
 }
 .menu-item:not(.is-disabled).selected .svg-icon {
-	color: var(--text-normal);
-	transition: color var(--anim-super-swing);
+	color: var(--text-on-accent);
 }
 .menu-item.is-warning:not(.is-disabled).selected .svg-icon {
-    filter: unset;
+	color: var(--text-on-accent);
 }
-.menu-item.is-warning:not(.is-disabled) .svg-icon {
-    color: var(--text-error);
-	filter: opacity(0.625);
+.menu-item.is-warning:not(.is-disabled, .selected) .svg-icon {
+	filter: opacity(0.875);
+}
+.menu-item.is-warning:not(.is-disabled).selected {
+	background-color: var(--text-error);
 }
 /* Menu label (graph mode) */
 .menu-item.is-label {
@@ -3944,11 +3979,17 @@ body:not(.is-phone) .vertical-tab-header-group-title {
     gap: 10px;
 	padding: 16px 24px;
 }
-.community-item {
+.community-item.tappable {
     border-radius: var(--radius-ml);
     border: none;
 	box-shadow: var(--shadow-faint);
 	padding: 10px;
+	&.mod-active {
+		background-color: var(--interactive-accent);
+		box-shadow: var(--shadow-button-colored);
+		color: var(--text-on-accent);
+		--text-muted: var(--text-on-accent);
+	}
 }
 .mod-community-theme .community-item {
 	display: grid;
@@ -3973,12 +4014,15 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	grid-column: 1/2;
 	padding-inline-start: 2px;
 	order: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
 }
 .mod-community-theme .community-item-downloads {
 	grid-row: 3;
 	grid-column: 2;
-	text-align: end;
 	padding-inline: 0 3px;
+	text-align: end;
 }
 .community-item-screenshot {
 	display: grid;
@@ -4019,7 +4063,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	display: block;
 	position: absolute;
 	background-color: var(--trans-strong-20);
-	backdrop-filter: blur(24px);
+	backdrop-filter: blur(20px) brightness(1.0625);
 	width: 100%;
 	height: 100%;
 	z-index: 0;
@@ -4131,6 +4175,11 @@ input.prompt-input:hover {
     margin-inline-end: 4px;
 }
 
+.is-loading::before {
+	margin-block-start: 2px;
+	border-radius: var(--radius-m);
+	background: linear-gradient(to right, var(--color-accent-4), var(--color-accent) 50%);
+}
 /*
 =========================== ===========================
 			5 - Mobile
