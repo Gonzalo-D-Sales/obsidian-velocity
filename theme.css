@@ -1425,6 +1425,10 @@ body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb:not(:hover)
 	box-shadow: inset 0 -2px 4px -2px var(--color-base-25),
 	var(--shadow-tab), var(--shadow-s);
 }
+/* padding for the thumb to nestle nicely */
+input[type='range']::-webkit-slider-runnable-track {
+	padding-inline: 4px;
+}
 
 /*--> Toggle <--*/
 
@@ -3963,7 +3967,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .community-modal-search-results {
     gap: 10px;
-	padding: 16px 24px;
+	padding: 16px 32px;
 }
 .community-item.tappable {
     border-radius: var(--radius-ml);
@@ -3988,8 +3992,8 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-    font-weight: 600;
-    line-height: var(--line-height-normal);
+	font: var(--font-medium) 17px/var(--line-height-normal) var(--font-interface-theme);
+	font-variation-settings: 'opsz' 26;
 	grid-column: 1/3;
 	grid-row: 2;
 	padding-inline-start: 2px;
