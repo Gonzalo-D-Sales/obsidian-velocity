@@ -113,6 +113,11 @@ settings:
 	type: info-text
 	markdown: true
 - 	
+	id: disable-performance-tweaks
+	title: Disable performance tweaks
+	description: Deactivates special CSS hacks which typically improve editor performance. 
+	type: class-toggle
+- 	
 	id: disable-hover-header
 	title: Disable Compact Panels in the sidebar   
 	type: class-toggle
@@ -169,11 +174,6 @@ settings:
 	id: hide-bases-header
 	title: Cleaner Bases display 
 	description: Hides the filter toolbar options for embedded Bases in Reading mode.
-	type: class-toggle
-- 	
-	id: enable-performance-tweaks
-	title: Experimental performance tweaks
-	description: Activates special CSS hacks which typically improve editor performance. 
 	type: class-toggle
 - 	
 	id: enable-dim-img
@@ -286,8 +286,8 @@ body {
 	--bg-checkbox: radial-gradient(transparent 53%, var(--color-base-40) 58% 60%, transparent 65%);
 
 	/* Code */
-	--code-radius: 5px;
-	--code-border-width: 1px;
+	--code-radius: var(--radius-xs);
+	--code-border-width: 0;
 	--code-normal: var(--text-normal);
 
 	/* Collapse icons */
@@ -319,6 +319,7 @@ body {
 	--font-small: 0.90625em;
 
 	/* UI font sizes */
+	--font-ui-larger: 26px;
 
 	/* Font weights */
 	--font-thin: 210;
@@ -687,7 +688,7 @@ body {
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-50);
 
-	--code-background: var(--trans-faint-05);
+	--code-background: var(--background-modifier-hover);
 	--code-background-alt: var(--trans-strong-20);
 	--code-border-color: var(--trans-faint-20);
 	--code-special: var(--color-red);
@@ -733,43 +734,36 @@ body {
 	--tab-right-fade: linear-gradient(to left, var(--color-base-20) 75%, transparent);
 	--tab-close-bg: oklch(from var(--color-base-30) l c h / 0.625);
 
-	--tab-sidebar-bg: var(--color-base-00);
-	--tab-sidebar-bg-top: var(--trans-strong-10);
-	--tab-sidebar-bg-top-left: var(--trans-strong-20);
-	--tab-sidebar-container-col: color-mix(in oklab, var(--trans-faint-00) 25%, var(--trans-faint-05) 75%);
-	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--tab-sidebar-container-col), var(--tab-sidebar-container-col));
+	--tab-sidebar-bg: var(--trans-strong-00);
+	--tab-sidebar-bg-top: color-mix(in oklab, var(--trans-strong-00), var(--trans-strong-10));
+	--tab-sidebar-bg-top-left: var(--trans-strong-10);
+	--tab-sidebar-container-bg: color-mix(in oklab, var(--trans-faint-05) 70%, var(--trans-faint-10) 30%);
 	--tag-background-image: linear-gradient(to top, var(--color-accent-5), var(--color-accent-6) 50%);
 
 	--workspace-border-color: var(--trans-faint-10);
 
 	--tag-shadow: 
 		inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
-	--input-shadow: 
-		none;
+	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
 	--shadow-xs: 
 		0 0 0 1px var(--trans-faint-20),
 		0 3px 6px -2px var(--trans-faint-10);
 	--shadow-tab:
-		var(--input-shadow),
-		inset 0 2px 0px 0px var(--trans-faint-05),
-		inset 0 -2px 2px 0px var(--trans-faint-20),
-		0px 2px 9px 0px var(--trans-faint-20);
+		inset 0 0 1px 0 var(--background-primary),
+		0 0 1px 0.5px var(--trans-faint-10),
+		var(--shadow-faint);
 	--shadow-button-colored: 
 		inset 1px 1px 2px 0 var(--trans-strong-30),
-		inset -1px -1px 2px 0 var(--trans-strong-30),
-		var(--shadow-faint);
+		inset -1px -1px 2px 0 var(--trans-strong-30);
 	--shadow-code: 
-		0 0.125px 0px 0.375px var(--trans-faint-50);
+		none;	
 	--shadow-faint: 
 		0px 3px 18px 0px var(--trans-faint-25);	
 	--shadow-input: 
 		0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 
-		0 0 0 2.25px var(--color-accent-4);
-	--shadow-search-active:
-		0 0 0 1px var(--color-accent-4), 
-		0 0 0 3.5px var(--text-selection);
+		0 0 0 2.5px var(--color-accent-4);
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
@@ -777,7 +771,7 @@ body {
 		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
 		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
 
-	& .mod-root, .mod-sidedock {
+	.mod-root, .mod-sidedock {
 	--bases-cards-shadow: 
 		var(--shadow-code);
 	--bases-cards-shadow-hover: 
@@ -796,20 +790,21 @@ body {
 		inset 0px -0.25px 4px -1px var(--text-selection),
 		0px 1.5px 8px -1.5px var(--text-selection);
 	}
-	& .modal, .menu {
+	.modal, .menu {
 	--shadow-setting-item: 
 		0px 4px 12px 0 var(--trans-strong-40);
 	}
-	& .mod-sidedock, .view-header, .document-search-container {
+	.mod-sidedock, .view-header, .document-search-container {
 	--shadow-sidebar: 
 		0 0.25px 0 0.75px var(--trans-faint-20),
 		0 1.5px 6px -3px var(--trans-faint-20);
 	--tab-container-shadow: 
-		inset 0.5px 0.5px 1px 0 var(--trans-strong-40),
+		/* inset 0.5px 0.5px 1px 0 var(--trans-strong-40),
 		inset -0.5px -0.5px 4px 0 var(--trans-strong-30),
 		0 0 1px 0 var(--trans-faint-20),
 		0 2px 6px 0px var(--trans-faint-05),
-		0 10px 20px 0px var(--trans-strong-40);
+		0 10px 20px 0px var(--trans-strong-40); */
+		none;
 	}
 }
 .theme-light.deflight {
@@ -1078,9 +1073,6 @@ body {
 		0px 0px 0px 0.5px var(--trans-faint-30);
 	--shadow-input-active: 
 		0 0 0 2.25px var(--color-accent-4);
-	--shadow-search-active:
-		0 0 0 1px var(--color-accent-4), 
-		0 0 0 3.5px var(--text-selection);
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-10),
 		-0.25px 1px 1.5px 0.5px var(--trans-strong-40);
@@ -1248,35 +1240,17 @@ body:not(.is-mobile) {
 /*--> Buttons <--*/
 
 /* Electron Corner-smoothing */
-body:not(.is-mobile) :is(
-	button.mod-cta,
-	img,
-	mark,
-	select,
-	.checkbox-container,
-	.clickable-icon,
-	.cm-highlight,
-	.community-item,
-	.drag-ghost,
-	.dropdown,
-	.flair,
-	.metadata-add-button,
-	.menu,
-	.menu-item.selected,
-	.modal,
-	.nav-file-tag,
-	.prompt,
-	.prompt-input,
-	.setting-item,
-	.suggestion-hotkey,
-	.suggestion-item,
-	.tag,
-	.text-icon-button,
-	.todoist-task-container,
-	.tree-item-self,
-	.workspace-tab-header-inner) {
+body * {
 	-electron-corner-smoothing: 60%;	
-	}
+}
+input[type='text'], 
+input[type='search'], 
+input[type='email'], 
+input[type='password'], 
+input[type='number'],
+textarea {
+	-electron-corner-smoothing: unset;
+}
 
 button,
 button:active,
@@ -1285,10 +1259,6 @@ button:active,
 	background-color var(--anim-super-smooth),
 	filter var(--anim-super-delay);
 }
-/* button:not(.clickable-icon):hover,
-.metadata-add-button:hover {
-	filter: brightness(0.97);
-} */
 button:not(.clickable-icon):active,
 button:not(.clickable-icon):hover:active,
 .metadata-add-button:active,
@@ -1302,6 +1272,7 @@ button[class*="mod-"]:hover:active,
 	filter: brightness(1.0625) opacity(70%);
 }
 button.mod-cta,
+button.mod-warning,
 :is(.mod-root, .popover) .metadata-add-button {
 	box-shadow: var(--shadow-button-colored);
 }
@@ -1376,11 +1347,6 @@ textarea,
 	--background-modifier-form-field-hover: var(--background-modifier-form-field);
 }
 
-/* Search input */
-body input[type='search'] {
-	--shadow-input-active: var(--shadow-search-active);
-}
-
 /* Sidebar input */
 .mod-sidedock :is(input, textarea) {
 	box-shadow: var(--shadow-sidebar);
@@ -1394,12 +1360,10 @@ body input[type='search'] {
 
 /* Placeholder text */
 input::placeholder {
-	font-weight: 500;
-}
-.prompt input::placeholder {
 	font-weight: var(--font-normal);
 }
 
+/* Remove extra shadow on color input */
 input[type="color"],
 input[type="color"]:focus {
 	box-shadow: initial;
@@ -1407,25 +1371,24 @@ input[type="color"]:focus {
 
 /*--> Range Slider <--*/
 
-input[type='range'],
-body:not(.is-mobile) input[type='range']:focus {
+input[type='range'] {
 	box-shadow: none;
-	margin-inline-end: 0;
+	margin-inline-end: unset;
+	transition: 150ms ease-in-out;
 }
-input[type='range']::-webkit-slider-thumb {
-	box-shadow: none;
+body:not(.is-mobile) input[type='range']:active {
+	background-color: var(--interactive-accent);
+	box-shadow: var(--shadow-toggle-active);
 }
+
+input[type='range']::-webkit-slider-thumb,
 input[type='range']::-webkit-slider-thumb:hover,
 input[type='range']::-webkit-slider-thumb:active,
 body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb {
 	border-color: transparent;
 	box-shadow: none;
 }
-body:not(.is-mobile) input[type='range']:focus::-webkit-slider-thumb:not(:hover) {
-	box-shadow: inset 0 -2px 4px -2px var(--color-base-25),
-	var(--shadow-tab), var(--shadow-s);
-}
-/* padding for the thumb to nestle nicely */
+/* padding for the slider thumb to nestle nicely */
 input[type='range']::-webkit-slider-runnable-track {
 	padding-inline: 4px;
 }
@@ -1448,14 +1411,31 @@ input[type='range']::-webkit-slider-runnable-track {
 }
 .checkbox-container::after {
 	box-shadow: unset;
+	transition: var(--anim-fast-swing);
+}
+.checkbox-container:active::after {
+	width: calc(var(--toggle-thumb-width) + 8px);
+	right: -8px;
+	--toggle-thumb-color: var(--trans-strong-10);
+}
+.checkbox-container.is-enabled:active::after {
+	left: -8px;
+}
+
+.checkbox-container.mod-small:active::after {
+	width: calc(var(--toggle-s-thumb-width) + 6px);
+	right: -6px;
+}
+.checkbox-container.mod-small.is-enabled:active::after {
+	left: -6px;
 }
 
 /*--> Tooltips / Notice / Drag ghost <--*/
 
-.tooltip .tooltip-arrow {
+.tooltip-arrow {
     display: none;
 }
-.notice, .tooltip {
+.tooltip, .notice {
 	font-weight: var(--font-semi-medium);
 	background-color: var(--background-primary);
 	border: none;
@@ -1472,7 +1452,6 @@ input[type='range']::-webkit-slider-runnable-track {
 	border-radius: var(--radius-ml);
 	padding: 12px 16px;
 }
-
 .drag-ghost {
     border-radius: var(--radius-m);
 	box-shadow: 
@@ -1493,10 +1472,10 @@ input[type='range']::-webkit-slider-runnable-track {
 }
 .mod-settings .vertical-tab-content::-webkit-scrollbar-track,
 .mod-dim .modal:not(.mod-settings, .prompt)::-webkit-scrollbar-track {
-	margin-block: 12px;
+	margin-block: 16px;
 }
 .modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
-	margin-block: 40px 12px;
+	margin-block: 44px 12px;
 }
 .prompt.theme-picker-modal > .prompt-results::-webkit-scrollbar-track {
 	margin-block: 0 8px;
@@ -1508,7 +1487,7 @@ input[type='range']::-webkit-slider-runnable-track {
 
 /* Special performance tweaks */
 
-body:not(.is-mobile).enable-performance-tweaks {
+body:not(.is-mobile):not(.disable-performance-tweaks) {
 	.markdown-preview-view {
 		will-change: scroll-position;
 	}
@@ -1599,11 +1578,13 @@ body.prop-headings {
 	& .markdown-preview-view :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + * > 
 	  :is(p,ul,ol) {
 		margin-block-start: 0;
-		}
+	}
 	& .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
-		margin-block-end: round(nearest, clamp(0px, var(--prop-margin-base), 1.125rem), 2px);
-		--heading-spacing: round(nearest, calc(var(--prop-margin-base) * 4), 2px);
-		}
+		margin-block-end: 
+			round(nearest, clamp(0px, var(--prop-margin-base), 1.125rem), 2px);
+		--heading-spacing: 
+			round(nearest, calc(var(--prop-margin-base) * 4), 2px);
+	}
 }
 
 .cm-line.HyperMD-header:first-child,
@@ -1622,7 +1603,7 @@ body.prop-headings {
 /*--> Blockquotes <--*/
 
 .el-blockquote blockquote,
-.callout-content blockquote {
+.markdown-rendered blockquote {
 	position: relative;
 	align-items: center;
 	border: none;
@@ -1788,10 +1769,9 @@ body.enable-special-code {
 
 .markdown-rendered :is(code, pre) {
 	border: unset;
-	box-shadow: var(--shadow-code);
 }
 .markdown-rendered code {
-    padding-inline: 0.375em;
+    padding-inline: 0.375rem;
 }
 .markdown-rendered pre {
 	--code-normal: var(--text-normal);
@@ -1881,8 +1861,9 @@ body:not(.disable-naked-embeds) {
 
 /*--> HRs <--*/
 
-hr,
-.markdown-rendered hr {
+.modal hr,
+.markdown-source-view hr,
+.markdown-preview-view hr {
 	background-color: var(--hr-color);
 	border: none;
 	border-radius: var(--radius-l);
@@ -2951,10 +2932,16 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 
 /* Tab Containers */
-/* .workspace-tab-header-container {
-	/* important: fixes top tab performance */
-	overflow-y: visible;
-} */
+
+/* unstable items */
+.mod-root .workspace-tab-header-container {
+	transition: 200ms;
+}
+.workspace-tab-header-container {
+	overflow: hidden;
+}
+/* unstable items end */
+
 .is-hidden-frameless .workspace-split.workspace-window .workspace-tabs .workspace-tab-header-container {
 	padding-inline-start: 1px;
 }
@@ -2965,9 +2952,6 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 .workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
 	padding-inline-start: 0;
 }
-.mod-root .workspace-tab-header-container {
-	transition: calc(var(--anim-duration-fast) * 1.25);
-}
 .mod-root .workspace-tab-header-container-inner {
 	height: var(--header-height);
 	padding-block: 0;
@@ -2976,7 +2960,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 .mod-sidedock .workspace-tab-header-container-inner {
 	height: 40px;
-	background-image: var(--tab-sidebar-container-bg);
+	background-color: var(--tab-sidebar-container-bg);
 	border-radius: 20px;
 	box-shadow: var(--tab-container-shadow);
 	padding: 2px;
@@ -3560,6 +3544,15 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 =========================== ===========================
 */
 
+/* Remove redundant exit buttons on PC */
+body:not(.is-mobile) 
+:is(.mod-settings::before,
+.modal-sidebar::before,
+.modal .modal-close-button,
+.prompt .search-input-clear-button) {
+	display: none;
+}
+
 .modal-bg {
 	background-color: var(--background-modifier-cover) !important;
 }
@@ -3572,18 +3565,20 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 	font-weight: var(--font-normal);
 }
 .modal-title {
-	color: var(--text-normal);
-	font-weight: calc(calc(var(--font-light) + var(--font-normal)) / 2);
-	font-size: 28px;
+	font-weight: var(--font-normal);
+	font-size: var(--font-ui-larger);
+	font-variation-settings: 'opsz' 32;
 	text-align: center;
-	padding-block: 4px;
 }
 .modal-button-container > button {
 	flex: 1;
 	height: 30px;
 }
-.modal-content > .setting-item:has(.mod-warning) {
-	padding-block-end: 0;
+.modal-header {
+	margin-block: 8px;
+}
+.modal:is(.mod-file-rename, .mod-bookmark) .modal-header {
+	margin-block-end: 16px;
 }
 .mod-confirmation .modal {
 	--background-modifier-form-field: var(--background-primary);
@@ -3592,9 +3587,6 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 	&.mod-lg {
 		background-color: var(--background-secondary);
 	}
-	&:not(.mod-file-rename, .mod-bookmark) .modal-header {
-		margin-bottom: 0.5em;
-		}
 	&::before {
 		content: '';
 		position: absolute;
@@ -3605,7 +3597,7 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 		margin: -16px;
 		z-index: -1;
 		}
-	> .modal-content > div {
+	> .modal-content > :is(div, p) {
 		color: var(--text-muted);
 		text-align: center;
 	}
@@ -3614,13 +3606,12 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 		text-align: start;
 	}
 }
-
-body:not(.is-mobile) 
-:is(.mod-settings::before,
-.modal-sidebar::before,
-.modal .modal-close-button,
-.prompt .search-input-clear-button) {
-	display: none;
+.modal-content > .setting-item:last-child {
+	padding-block-end: 0;
+}
+/* Minor fix for Trash Explorer plugin */
+.modal-content > .setting-item:has(.mod-warning) {
+	padding-block-end: 0;
 }
 
 .setting-font-list {
@@ -3717,21 +3708,24 @@ body:not(.is-mobile)
 
 .mod-settings {
 	background-image: var(--background-gradient-menu);
-	border-radius: 24px;
+	border-radius: 27px;
 }
 .modal-container.mod-dim .vertical-tabs-container {
 	--scrollbar-thumb-bg: var(--trans-strong-40);
 	--scrollbar-active-thumb-bg: var(--trans-faint-30);
 }
+.modal-container.mod-dim .vertical-tab-header-group {
+	padding-block-end: 20px;
+}
 .modal-container.mod-dim .vertical-tab-header {
 	background-color: transparent;
 	border-inline-end-color: transparent;
     max-width: 260px;
-	padding-inline: 10px 8px;
+	padding-inline: 16px 12px;
 }
 .modal-container.mod-dim .vertical-tab-content {
 	background-color: transparent;
-	padding-inline: 2.5vw;
+	padding-inline: 2.25vw;
 	padding-block-end: 32px;
 	overflow-x: hidden;
 	transform: translate3d(0px, 0px, 0px); 
@@ -3831,6 +3825,9 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 			font: var(--font-medium) var(--font-ui-large) var(--font-interface-theme);
 			font-variation-settings: 'opsz' 28;
 		}
+	}
+	& .setting-item + .setting-item-heading {
+		margin-block-start: 1em;
 	}
 	& .setting-item-description {
     	font-size: 11.5px;
@@ -4076,8 +4073,8 @@ input.prompt-input:active,
 input.prompt-input:focus,
 input.prompt-input:hover {
     padding: calc(var(--vl-layout-padding) + 8px);
-    background-color: var(--trans-strong-30);
-	box-shadow: var(--input-shadow);
+    background-color: var(--trans-faint-30);
+	box-shadow: unset;
     font-size: 18px;
     border-radius: var(--radius-m);
     border: none;
@@ -4098,16 +4095,30 @@ input.prompt-input:hover {
 .prompt .suggestion-item .suggestion-hotkey {
 	background-color: var(--trans-strong-20);
 	border-radius: var(--code-radius);
-    box-shadow: var(--shadow-code);
+    /* box-shadow: var(--shadow-code); */
 	color: var(--color-base-80);
 	font-weight: var(--font-semi-medium);
 	margin-inline-end: 1px;
 }
+.suggestion-prefix {
+	color: var(--text-muted);
+}
+
+.prompt .suggestion-item.is-selected {
+	background-color: var(--interactive-accent);
+	box-shadow: var(--shadow-button-colored);
+	color: var(--text-on-accent);
+}
+/* .prompt .suggestion-item.is-selected .suggestion-hotkey {
+	background-color: var(--trans-faint-00);
+	box-shadow: var(--shadow-button-colored);
+	color: var(--text-on-accent);
+} */
 .suggestion-item.mod-complex .suggestion-aux {
     gap: 2px;
 }
-.suggestion-prefix {
-	color: var(--icon-color);
+.suggestion-item.is-selected .suggestion-prefix {
+	color: var(--trans-strong-20);
 }
 
 /* Instructions */
