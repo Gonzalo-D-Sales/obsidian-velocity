@@ -295,6 +295,7 @@ body {
 	/* Cursor */
 
 	/* Dialogs - e.g. small modals, confirmations */
+	--dialog-width: 480px;
 
 	/* Dividers between panes */
  	--divider-color-hover: var(--color-accent-4);
@@ -468,6 +469,7 @@ body {
 	--radius-l: 17px;
 	--radius-xl: 19px;
 	--radius-xxl: 21px;
+	--radius-settings: 27px;
 
 	/* Ribbon */
 	--ribbon-background: transparent;
@@ -766,8 +768,8 @@ body {
 	--shadow-input-active: 
 		0 0 0 2.5px var(--color-accent-4);
 	--shadow-menu-glass: 
-		0 0 0 0.25px var(--prompt-border-color),
-		inset 0 0.5px 2px 1px var(--trans-strong-20);
+		inset 0.5px 0.5px 2px 1px var(--trans-strong-30),
+		inset -0.5px -0.5px 4px 0 var(--trans-strong-30);
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
@@ -3660,7 +3662,6 @@ body:not(.is-mobile)
 		box-shadow: var(--shadow-input);
 		cursor: not-allowed;
 		}
-	--dialog-width: 420px;
 }
 
 
@@ -3737,7 +3738,7 @@ body:not(.is-mobile)
 
 .mod-settings {
 	background-image: var(--background-gradient-menu);
-	border-radius: 27px;
+	border-radius: var(--radius-settings);
 }
 .modal-container.mod-dim .vertical-tabs-container {
 	--scrollbar-thumb-bg: var(--trans-strong-40);
@@ -3923,7 +3924,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .mod-community-modal,
 .modal-sidebar {
 	background-image: var(--background-gradient-community);
-	border-radius: 24px;
+	border-radius: var(--radius-settings);
 	padding-top: 8px;
 }
 .community-modal-empty-state.is-loading::before {
