@@ -750,7 +750,7 @@ body {
 	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
 	--shadow-xs: 
-		0px 6px 24px 0px var(--trans-faint-30);	
+		0px 3px 18px 0px var(--trans-faint-30);	
 	--shadow-tab:
 		inset 0 0 1px 0 var(--background-primary),
 		0 0 1px 0.5px var(--trans-faint-10),
@@ -774,7 +774,7 @@ body {
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
 	--shadow-suggestion-item: 
-		inset 0 16px 32px 0 oklch(1 0 0 / 0.1),
+		inset 0 16px 28px 0 oklch(1 0 0 / 0.1),
 		inset 1px 1px 2.5px 0 var(--trans-strong-20),
 		inset -1px -1px 2.5px 0 var(--trans-strong-20),
 		var(--shadow-xs);
@@ -1285,7 +1285,8 @@ button[class*="mod-"]:hover:active,
 }
 button.mod-cta,
 button.mod-warning,
-:is(.mod-root, .popover) .metadata-add-button {
+:is(.mod-root, .popover) .metadata-add-button,
+.file-recovery-list-item-header.is-active {
 	box-shadow: var(--shadow-button);
 }
 button.mod-cta:hover,
@@ -3922,7 +3923,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 /*--> Community Modal <--*/
 
 .mod-community-modal,
-.modal-sidebar {
+.mod-community-modal .modal-sidebar {
 	background-image: var(--background-gradient-community);
 	border-radius: var(--radius-settings);
 	padding-top: 8px;
@@ -4115,11 +4116,12 @@ input.prompt-input:hover {
 /* Results */
 .prompt-results {
     padding-block-start: 4px;
-	margin: 1px 1px 0 1px;
+	margin-inline: 1px;
 }
 .prompt .suggestion-item {
-	border-radius: var(--radius-sm);
+	border-radius: calc(var(--radius-s) + 1px);
 	color: var(--prompt-item-color);
+	contain: content;
     padding-block: calc(var(--vl-layout-padding) * 1.2);
     padding-inline: calc(var(--vl-layout-padding) + 6px) calc(var(--vl-layout-padding) * 1.2);
 }
@@ -4210,7 +4212,6 @@ input.prompt-input:hover {
 	padding-inline: 16px;
 }
 .suggestion-item {
-	contain: content;
 	color: var(--text-normal);
 	font-weight: var(--font-normal);
     padding-block: calc(var(--vl-layout-padding) - 2px);
