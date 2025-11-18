@@ -2862,11 +2862,12 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 
 .outgoing-link-item .tree-item-icon {
-	padding-block-start: 2px;
-}
-.outgoing-link-item .tree-item-icon:has( + .tree-item-inner > .tree-item-inner-subtext) {
 	padding-block-start: 4px;
 }
+.outgoing-link-item[aria-label] .tree-item-icon {
+	padding-block-start: 2px;
+}
+
 /* special code for uncreated outgoing links */
 .outgoing-link-item:not([draggable="true"]) {
 	--nav-item-background-hover: var(--color-accent-6); 
@@ -3325,10 +3326,10 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf-content .view-header {
 	max-height: 26px;
 	margin-bottom: 9px;
 	padding-inline: 12px;
-	transition: all var(--anim-super-smooth);
+	transition: var(--anim-super-smooth);
 }
 body:not(.disable-status-fade) {
-	& .status-bar:not(:hover) {
+	.status-bar:not(:hover) {
 		background-color: transparent;
 		box-shadow: none;
 		filter: var(--status-bar-filter);
