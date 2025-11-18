@@ -522,27 +522,27 @@ body {
 	--tab-stacked-shadow: -8px 0 8px 0 var(--stacked-shadow-color);
 
 	/* Tables */
-	--table-background: none;
+	--table-background: unset;
+	--table-row-background-hover: unset;
 	--table-row-alt-background: var(--table-row-bg);
-	--table-row-background-hover: none;
 	--table-row-alt-background-hover: var(--table-row-bg);
-	--table-column-alt-background: none;
 	--table-border-color: var(--trans-faint-30);
-	--table-header-size: 0.8175em;
-	--table-header-color: var(--text-normal);
+	--table-header-color: var(--color-base-55);
+	--table-header-weight: var(--font-medium);
 	--table-line-height: var(--line-height-normal);
 	--table-text-size: var(--font-small);
 	--table-text-weight: var(--font-normal);
 
 	/* Tags */
-	--tag-size: var(--font-smallest);
-	--tag-background: transparent;
-	--tag-background-hover: transparent;
-	--tag-border-color: hsla(var(--interactive-accent-hsl), 0.1);
-	--tag-border-color-hover: var(--tag-border-color);
-	--tag-border-width: 1px;
+	--tag-background: var(--interactive-accent);
+	--tag-background-hover: var(--interactive-accent);
+	--tag-color: var(--color-base-00);
+	--tag-color-hover: var(--tag-color);
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
+	--tag-weight: var(--font-medium);
+	--tag-size: var(--font-smallest);
+	--tag-shadow: var(--glass-base);
 
 	/* Toggles */
 	--toggle-width: 44px;
@@ -692,7 +692,7 @@ body {
 	--checkbox-border-color-hover: var(--color-base-50);
 
 	--code-background: var(--background-modifier-hover);
-	--code-background-alt: var(--trans-strong-20);
+	--code-background-alt: var(--trans-strong-10);
 	--code-border-color: var(--trans-faint-20);
 	--code-special: var(--color-red);
 
@@ -741,14 +741,15 @@ body {
 	--tab-sidebar-bg-top: color-mix(in oklab, var(--trans-strong-00), var(--trans-strong-10));
 	--tab-sidebar-bg-top-left: var(--trans-strong-10);
 	--tab-sidebar-container-bg: color-mix(in oklab, var(--trans-faint-05) 70%, var(--trans-faint-10) 30%);
-	--tag-background-image: linear-gradient(to top, var(--color-accent-5), var(--color-accent-6) 50%);
 
 	--workspace-border-color: var(--trans-faint-10);
 
-	--tag-shadow: 
-		inset 0px 0.75px 0px 0.75px var(--trans-strong-30);
 	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
+
+	--glass-base: 
+		inset 1px 1px 2px 0 var(--trans-strong-30),
+		inset -1px -1px 2px 0 var(--trans-strong-30);
 	--shadow-xs: 
 		0px 3px 18px 0px var(--trans-faint-30);	
 	--shadow-tab:
@@ -756,8 +757,7 @@ body {
 		0 0 1px 0.5px var(--trans-faint-10),
 		var(--shadow-faint);
 	--shadow-button: 
-		inset 1px 1px 2px 0 var(--trans-strong-30),
-		inset -1px -1px 2px 0 var(--trans-strong-30),
+		var(--glass-base),
 		var(--shadow-faint);
 	--shadow-code: 
 		none;	
@@ -1055,12 +1055,9 @@ body {
 	--tab-sidebar-bg-top-left: var(--trans-faint-40);
 	--tab-sidebar-container-bg: radial-gradient(at 50% 125%, var(--trans-faint-00), var(--trans-strong-10) 80%);
 	--tag-border-color: oklch(from var(--interactive-accent) l c h / 0.025);
-	--tag-background-image: linear-gradient(to top, var(--color-accent-6) -25%, var(--text-selection) 50%);
-	
+
 	--workspace-border-color: var(--trans-faint-25);
 
-	--tag-shadow: 
-		inset 0 0.5px 0px 0.25px var(--trans-faint-40);
 	--input-shadow: 
 		inset 0 1px 1px 0.5px var(--trans-faint-25),
 		inset 0 0.0625px 0 0.25px var(--trans-strong-40),
@@ -1837,16 +1834,30 @@ body:not(.disable-naked-embeds) {
 /*--> Formatting <--*/
 
 /* formatting markers */
-.cm-formatting {
-	color: var(--icon-color);
-}
+
 .cm-formatting-strong {
 	font-weight: var(--font-normal);
 }
 
+.cm-s-obsidian span.cm-formatting-quote {
+	padding-inline-start: 0.25rem;
+}
+
 /* Strikethrough / list crossed out */
-.cm-strikethrough, del, del > * {
+.cm-strikethrough, del {
     color: var(--strikethrough-color);
+	--bold-color: var(--strikethrough-color);
+	--italic-color: var(--strikethrough-color);
+}
+del {
+	--text-highlight-bg: var(--hr-color);
+}
+
+.markdown-rendered del mark {
+    color: var(--strikethrough-color);
+}
+.markdown-rendered mark del {
+    color: inherit;
 }
 
 /*--> Highlights <--*/
@@ -1861,14 +1872,13 @@ body:not(.disable-naked-embeds) {
 	padding-inline: 0.25rem;
 }
 
-.cm-line .cm-formatting:first-of-type,
+.cm-line .cm-formatting-highlight:first-of-type,
 .cm-highlight:nth-child(1 of .cm-highlight) {
 	border-top-left-radius: var(--radius-xs);
 	border-bottom-left-radius: var(--radius-xs);
 	padding-inline-start: 0.25rem;
 }
-
-.cm-line .cm-formatting:last-of-type,
+.cm-line .cm-formatting-highlight:last-of-type,
 .cm-highlight:nth-last-child(1 of .cm-highlight) {
 	border-top-right-radius: var(--radius-xs);
 	border-bottom-right-radius: var(--radius-xs);
@@ -2169,7 +2179,6 @@ mjx-math {
 	color: var(--text-on-accent);
 }
 .metadata-property[data-property-key="tags"] .multi-select-pill {
-	background: var(--tag-background-image);
 	font-size: var(--font-smaller);
 	font-weight: var(--font-medium);
 	line-height: 1.0625;
@@ -2232,9 +2241,8 @@ body .markdown-rendered table thead tr > th {
 	border: none;
 	border-bottom: 2px solid var(--table-header-border-color);
 	font-size: var(--table-header-size);
-	font-weight: var(--font-medium);
 	line-height: var(--table-line-height);
-	padding: 4px 12px 6px;
+	padding-inline: 12px;
 } 
 body .markdown-rendered table tr td {
 	border: none;
@@ -2249,19 +2257,12 @@ body .markdown-rendered table tr th:first-child {
 
 /*--> Tags <--*/
 
-.cm-hashtag-begin {
-	color: var(--color-accent);
-}
-.cm-hashtag,
 a.tag {
-	background: var(--tag-background-image);
 	box-shadow: var(--tag-shadow);
-	letter-spacing: 0.005em;
-	line-height: 2.25;
+	transition: var(--anim-super-delay);
 }
 a.tag:active {
 	filter: opacity(50%);
-	transition: var(--anim-fast-swing);
 }
 
 /*
@@ -2315,10 +2316,10 @@ button.clickable-icon {
 	--sidebar-left-toggle-inner-width: 24%;
 	--sidebar-right-toggle-inner-width: 24%;
 }
-.workspace.is-left-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+.is-left-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
 	--sidebar-left-toggle-inner-width-open: 12%;
 }
-.workspace.is-right-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+.is-right-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
 	--sidebar-right-toggle-inner-width-open: 12%;
 }
  .sidebar-toggle-icon-inner {
@@ -3040,9 +3041,6 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 		transition: color var(--anim-super-swing);
 		text-align: center;
 	}
-	/* .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title {
-		overflow: visible;
-	} */
 
 	.workspace-tab-header-new-tab {
 		margin-inline: -4px 8px;
@@ -4257,8 +4255,6 @@ input.prompt-input:hover {
 /*--> Obsidian Bases <--*/
 
 .bases-view {
-	--tag-padding-x: 0.625rem;
-	--tag-size: 0.8rem;
 	--tag-weight: var(--font-semi-medium);
 }
 /* fix for missing border radius visual bug */
@@ -4894,18 +4890,15 @@ body:not(.disable-list-styling) .lc-list-callout > .list-bullet::after {
 
 /*--> Dataview <--*/
 
-.dataview.small-text {
-	color: var(--table-header-color);
-	letter-spacing: 0.5px;
+.table-view-table > thead > tr > th {
+	font-weight: var(--table-header-weight);
+	--text-muted: var(--table-header-color);
 }
 div.dataview-error-box {
 	border: none;
-	cursor: not-allowed;
-	user-select: none;
 }
-div.dataview-error-box > p {
+.dataview-error-message {
     color: var(--text-faint);
-	font-weight: 400;
 }
 
 div[class*="el-h"] + * .dataview-container .contains-task-list {
