@@ -258,9 +258,7 @@ body {
 	--bases-table-row-border-width: 0;
 	--bases-table-text-size: var(--table-text-size);
 	--bases-table-row-height: 32px;
-	--bases-cards-label-size: 0.75rem;
-	--bases-cards-label-color: var(--color-base-55);
-	--bases-cards-text-size: var(--font-small);
+	--bases-cards-label-color: var(--icon-color);
 
 	/* Blockquotes */
 	--blockquote-color: var(--text-muted);
@@ -1514,6 +1512,7 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 .markdown-source-view,
 .markdown-preview-view,
 .bases-table-cell,
+.value-list-element > a,
 .bases-cards-property {
 	font-feature-settings: 'cv11';
 }
@@ -4289,7 +4288,6 @@ input.prompt-input:hover {
 	text-transform: capitalize;
 }
 .bases-td {
-	padding-inline: 6px;
 	--divider-color-hover: var(--color-base-30);
 }
 .bases-view .bases-thead .bases-td .bases-table-header-name {
@@ -4305,20 +4303,12 @@ input.prompt-input:hover {
 }
 
 /* Pills/Tags in Bases */
-.bases-td .value-list-container {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1px 2px;
+
+.bases-table-cell {
+	padding-block: 8px;
 }
-.bases-td .multi-select-container {
-	gap: 4px;
-	padding: 4px 2px;
-}
-.bases-table-container.mod-multiline .bases-td:focus-within {
-	height: var(--bases-table-row-height);
-}
-.bases-table-container.mod-multiline  .bases-table-cell {
-    align-items: center;
+.bases-metadata-value {
+	padding-block: 4px;
 }
 
 .bases-tbody {
@@ -4358,15 +4348,12 @@ input.prompt-input:hover {
 .bases-view[data-view-type="table"] {
     --bases-embed-border-width: 0;
 }
-.bases-embed .bases-cards-item {
-	font-size: var(--bases-cards-text-size);
-}
 
-body.hide-bases-header .mod-root.markdown-preview-view {
+body.hide-bases-header .mod-root .markdown-preview-view {
 	.bases-view {
 		margin-top: 1.5rem;
 	}
-	.bases-embed .bases-header {
+	.bases-header {
 		display: none;
 	}
 }
@@ -4416,25 +4403,17 @@ body.hide-bases-header .mod-root.markdown-preview-view {
 	padding: 8px 2px 4px;
 	font-weight: var(--font-normal);
 	transition: box-shadow var(--anim-super-smooth);
+	--tag-weight: var(--font-medium);
 }
 .bases-cards-property.mod-title {
-	> .bases-cards-line {
-		color: var(--color-base-100);
-		font-size: 1.125em;
-		font-weight: var(--font-medium);
-		line-height: 1.375;
-		padding-block: 0;
-	}
+	font-weight: var(--font-semibold);
+	font-variation-settings: 'opsz' 24;
 }
-.bases-cards-property {
-	> .bases-cards-label {
-		color: var(--bases-cards-label-color);
-		font-size: var(--bases-cards-label-size);
-	}
-	a.tag {
-		font-weight: var(--font-medium);
-		line-height: 1.25rem;
-	}
+.bases-cards-property > .bases-cards-label {
+	color: var(--bases-cards-label-color);
+	font-weight: var(--font-semi-medium);
+	padding-block-end: 2px;
+	letter-spacing: 0.00625em;
 }
 
 /* Obsidian Bases (modals) */
