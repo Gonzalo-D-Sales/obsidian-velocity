@@ -246,6 +246,7 @@ body {
 	--bases-embed-border-radius: 0;
 	--bases-header-border-width: 0;
 	--bases-header-padding-start: 0;
+	--bases-header-padding-end: 0;
 	--bases-table-cell-background-active: transparent;
 	--bases-table-cell-shadow-active: var(--shadow-input-active);
 	--bases-table-container-border-radius: 0;
@@ -435,7 +436,7 @@ body {
   	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 
 	/* Menus */
-	--menu-shadow: var(--shadow-faint);
+	--menu-shadow: var(--shadow-muted);
 	--menu-radius: var(--radius-ml);
 	--menu-background: color-mix(in oklab, var(--background-primary) 40%, var(--background-secondary) 60%);
 	--menu-border-color: var(--trans-faint-40);
@@ -532,15 +533,15 @@ body {
 	--table-text-weight: var(--font-normal);
 
 	/* Tags */
-	--tag-background: var(--interactive-accent);
-	--tag-background-hover: var(--interactive-accent);
-	--tag-color: var(--color-base-00);
-	--tag-color-hover: var(--tag-color);
+	/* --tag-background: var(--color-base-50); */
+	/* --tag-background-hover: var(--tag-background); */
+	/* --tag-color: var(--color-accent); */
+	/* --tag-color-hover: var(--tag-color); */
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
-	--tag-weight: var(--font-medium);
+	--tag-weight: calc(var(--font-cta-button) + 50);
 	--tag-size: var(--font-smallest);
-	--tag-shadow: var(--glass-base);
+	/* --tag-shadow: var(--shadow-faint); */
 
 	/* Toggles */
 	--toggle-width: 44px;
@@ -677,7 +678,7 @@ body {
 	--background-modifier-cover: color-mix(in oklch, var(--color-base-80) 50%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
-	--color-accent-1: color-mix(in oklch, var(--color-accent) 100%, transparent 10%);
+	--color-accent-1: color-mix(in oklch, var(--color-accent), transparent 10%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
 	--color-accent-3: color-mix(in oklch, var(--color-accent), transparent 5%);
 	--color-accent-4: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
@@ -742,54 +743,21 @@ body {
 
 	--workspace-border-color: var(--trans-faint-10);
 
+	/* Base shadows */
 	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
 
-	--glass-base: 
-		inset 1px 1px 2px 0 var(--trans-strong-30),
-		inset -1px -1px 2px 0 var(--trans-strong-30);
 	--shadow-xs: 
 		0px 3px 18px 0px var(--trans-faint-30);	
-	--shadow-tab:
-		inset 0 0 1px 0 var(--background-primary),
-		0 0 1px 0.5px var(--trans-faint-10),
-		var(--shadow-faint);
-	--shadow-button: 
-		var(--glass-base),
-		var(--shadow-faint);
-	--shadow-code: 
-		none;	
 	--shadow-faint: 
+		0px 3px 15px 0px var(--trans-faint-20);	
+	--shadow-muted: 
 		0px 3px 18px 0px var(--trans-faint-25);	
-	--shadow-input: 
-		0 0 0 0.5px var(--trans-faint-40);
-	--shadow-input-active: 
-		0 0 0 2.5px var(--color-accent-4);
-	--shadow-menu-glass: 
-		inset 0.5px 0.5px 2px 1px var(--trans-strong-30),
-		inset -0.5px -0.5px 4px 0 var(--trans-strong-30);
-	--shadow-status-bar:
-		inset -6px 0 8px -6px var(--trans-faint-40),
-		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);
-	--shadow-suggestion-item: 
-		inset 0 16px 28px 0 oklch(1 0 0 / 0.1),
-		inset 1px 1px 2.5px 0 var(--trans-strong-20),
-		inset -1px -1px 2.5px 0 var(--trans-strong-20),
-		var(--shadow-xs);
-	--shadow-toggle-active:
-		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
-		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
-
-	.mod-root, .mod-sidedock {
-	--bases-cards-shadow: 
-		var(--shadow-code);
-	--bases-cards-shadow-hover: 
-		0 0.125px 0px 0.375px var(--trans-faint-60);
-	--shadow-workspace: 
-		0 2px 3px 0px var(--trans-faint-30),
-		0px 15px 30px var(--trans-faint-25);	
-	--shadow-workspace-multi:
-		0px 2.5px 10px var(--trans-faint-10);	
+	--glass-base: 
+		inset 1px 1px 2px 0 var(--trans-strong-30),
+		inset -1px -1px 2px 0 var(--trans-strong-30);	
+	
+	/* Interface shadows */
 	--shadow-fab: 
 		0px 0.25px 0px 0.75px var(--trans-faint-30),
 		inset 0px -0.25px 2px 0px var(--trans-faint-05),
@@ -798,15 +766,21 @@ body {
 		0px 0.25px 0px 0.5px var(--text-selection),
 		inset 0px -0.25px 4px -1px var(--text-selection),
 		0px 1.5px 8px -1.5px var(--text-selection);
-	}
-	.modal, .menu {
-	--shadow-setting-item: 
-		0px 4px 12px 0 var(--trans-strong-40);
-	}
-	.mod-sidedock, .view-header, .document-search-container {
 	--shadow-sidebar: 
 		0 0.25px 0 0.75px var(--trans-faint-20),
 		0 1.5px 6px -3px var(--trans-faint-20);
+	--shadow-status-bar:
+		inset -6px 0 8px -6px var(--trans-faint-40),
+		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);	
+	--shadow-tab:
+		inset 0 0 1px 0 var(--background-primary),
+		0 0 1px 0.5px var(--trans-faint-10),
+		var(--shadow-muted);	
+	--shadow-workspace: 
+		0 2px 3px 0px var(--trans-faint-30),
+		0px 15px 30px var(--trans-faint-25);	
+	--shadow-workspace-multi:
+		0px 2.5px 10px var(--trans-faint-10);
 	--tab-container-shadow: 
 		/* inset 0.5px 0.5px 1px 0 var(--trans-strong-40),
 		inset -0.5px -0.5px 4px 0 var(--trans-strong-30),
@@ -814,8 +788,42 @@ body {
 		0 2px 6px 0px var(--trans-faint-05),
 		0 10px 20px 0px var(--trans-strong-40); */
 		none;
-	}
+		
+	/* Component shadows */
+	--shadow-button: 
+		var(--glass-base),
+		var(--shadow-muted);
+	--shadow-input: 
+		0 0 0 0.5px var(--trans-faint-40);
+	--shadow-input-active: 
+		0 0 0 2.5px var(--color-accent-4);
+	--shadow-toggle:
+		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
+		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
+
+
+	/* Markdown item shadows */
+	--shadow-code: 
+		none;
+
+	/* Modal interface shadows */
+	--shadow-menu-glass: 
+		inset 0.5px 0.5px 2px 1px var(--trans-strong-30),
+		inset -0.5px -0.5px 4px 0 var(--trans-strong-30);
+	--shadow-setting-item: 
+		0px 4px 12px 0 var(--trans-strong-40);
+	--shadow-suggestion-item: 
+		inset 0 16px 28px 0 oklch(1 0 0 / 0.1),
+		inset 1px 1px 2.5px 0 var(--trans-strong-20),
+		inset -1px -1px 2.5px 0 var(--trans-strong-20),
+		var(--shadow-xs);
+	
+	/* Other shadows */
+	--bases-cards-shadow: var(--shadow-code);
+	--bases-cards-shadow-hover: 
+		0 0.125px 0px 0.375px var(--trans-faint-60);	
 }
+
 .theme-light.deflight {
 	--accent-h: 258;	
 	--accent-s: 88%;	
@@ -1082,16 +1090,13 @@ body {
 	--shadow-status-bar:
 		inset -6px 0 8px -6px var(--trans-faint-10),
 		-0.25px 1px 1.5px 0.5px var(--trans-strong-40);
-	--shadow-faint: 
+	--shadow-muted: 
 		0px 8px 16px 0px var(--trans-strong-10);	
 	--shadow-track:
 		0 0.75px 0px 0.25px var(--trans-faint-40),
 		inset 0 0.75px 1px 0px var(--trans-dark-00),
 		inset 0 4px 20px -3px var(--trans-dark-10);
 	--shadow-toggle:
-		inset 0 1px 2px 1px var(--trans-dark-10),
-		inset 0 6px 12px 0px var(--trans-strong-10);
-	--shadow-toggle-active:
 		inset 0 1.5px 3px 0px var(--trans-dark-00);
 
 	& .mod-root, .mod-sidedock {
@@ -1387,7 +1392,7 @@ input[type='range'] {
 }
 body:not(.is-mobile) input[type='range']:active {
 	background-color: var(--interactive-accent);
-	box-shadow: var(--shadow-toggle-active);
+	box-shadow: var(--shadow-toggle);
 }
 
 input[type='range']::-webkit-slider-thumb {
@@ -1418,7 +1423,7 @@ input[type='range']::-webkit-slider-runnable-track {
 	outline: none;
 }
 .checkbox-container.is-enabled {
-	box-shadow: var(--shadow-toggle-active);
+	box-shadow: var(--shadow-toggle);
 }
 .checkbox-container::after {
 	box-shadow: unset;
@@ -1453,7 +1458,7 @@ input[type='range']::-webkit-slider-runnable-track {
 	border-radius: var(--radius-xl);
 	box-shadow: 
 	0 0 0 0.75px var(--trans-faint-10),
-	var(--shadow-faint);
+	var(--shadow-muted);
 	color: var(--text-muted);
 }
 .tooltip {
@@ -1467,7 +1472,7 @@ input[type='range']::-webkit-slider-runnable-track {
     border-radius: var(--radius-m);
 	box-shadow: 
 	0 0 0 0.75px var(--trans-faint-10),
-	var(--shadow-faint);
+	var(--shadow-muted);
 	padding: 8px 12px;
 }
 
@@ -1631,7 +1636,7 @@ body.prop-headings {
 		width: var(--blockquote-border-thickness);
 		background-color: var(--blockquote-border-color);
 		border-radius: var(--radius-m);
-		box-shadow: var(--shadow-faint);
+		box-shadow: var(--shadow-muted);
 	}
 }
 
@@ -2259,6 +2264,7 @@ body .markdown-rendered table tr th:first-child {
 a.tag {
 	box-shadow: var(--tag-shadow);
 	transition: var(--anim-super-delay);
+	letter-spacing: 0.00625em;
 }
 a.tag:active {
 	filter: opacity(50%);
@@ -3604,26 +3610,32 @@ body:not(.is-mobile)
 .modal:is(.mod-file-rename, .mod-bookmark) .modal-header {
 	margin-block-end: 16px;
 }
-.modal-container.mod-confirmation .modal {
-	--background-modifier-form-field: var(--background-primary);
-	--background-modifier-form-field-hover: var(--background-primary);
-	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
-	border: none;
+
+.modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal) {
 	background-color: 
-	color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
-	&.mod-lg {
-		background-color: var(--background-secondary);
-	}
+		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
+	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
+	border: unset;
 	&::before {
 		content: '';
 		position: absolute;
-		backdrop-filter: blur(20px);
+		backdrop-filter: blur(16px);
 		width: 100%;
 		height: 100%;
 		/* negative margin to counter padding */
 		margin: -16px;
 		z-index: -1;
-		}
+	}
+}
+.modal-container.mod-confirmation .modal {
+	--background-modifier-form-field: var(--background-primary);
+	--background-modifier-form-field-hover: var(--background-primary);
+	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
+	background-color: 
+	color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
+	&.mod-lg {
+		background-color: var(--background-secondary);
+	}
 	> .modal-content > :is(div, p) {
 		color: var(--text-muted);
 		text-align: center;
@@ -3687,7 +3699,7 @@ body:not(.is-mobile)
 	--background-modifier-hover: var(--interactive-accent);
 }
 .menu-item:not(.is-disabled).selected {
-	box-shadow: var(--shadow-button);
+	box-shadow: var(--glass-base), var(--shadow-faint);
 	color: var(--text-on-accent) !important;
 	--icon-color: var(--text-on-accent);
 }
@@ -3998,7 +4010,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .community-item.tappable {
     border-radius: var(--radius-ml);
     border: none;
-	box-shadow: var(--shadow-faint);
+	box-shadow: var(--shadow-muted);
 	padding: 10px;
 }
 .mod-community-theme .community-item {
@@ -4254,9 +4266,6 @@ input.prompt-input:hover {
 
 /*--> Obsidian Bases <--*/
 
-.bases-view {
-	--tag-weight: var(--font-semi-medium);
-}
 /* fix for missing border radius visual bug */
 .mod-root .workspace-leaf-content[data-type="bases"] {
 	border-radius: var(--radius-ml);
