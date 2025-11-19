@@ -748,7 +748,7 @@ body {
 	--input-shadow-hover: var(--input-shadow);
 
 	--shadow-xs: 
-		0px 3px 18px 0px var(--trans-faint-30);	
+		0px 5px 20px 0px var(--trans-faint-25);	
 	--shadow-faint: 
 		0px 3px 15px 0px var(--trans-faint-20);	
 	--shadow-muted: 
@@ -813,9 +813,9 @@ body {
 	--shadow-setting-item: 
 		0px 4px 12px 0 var(--trans-strong-40);
 	--shadow-suggestion-item: 
-		inset 0 16px 28px 0 oklch(1 0 0 / 0.1),
-		inset 1px 1px 2.5px 0 var(--trans-strong-20),
-		inset -1px -1px 2.5px 0 var(--trans-strong-20),
+		inset 0 0 1px 0 var(--trans-strong-20),
+		inset 1.75px 1.75px 2.5px 0 var(--trans-strong-30),
+		inset -1.75px -1.75px 2.5px 0 var(--trans-strong-30),
 		var(--shadow-xs);
 	
 	/* Other shadows */
@@ -4083,7 +4083,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 
 .prompt {
 	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
-	border-radius: var(--radius-xl);
+	border-radius: var(--radius-xxl);
 	background-color: transparent;
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
@@ -4114,7 +4114,7 @@ input.prompt-input:active,
 input.prompt-input:focus,
 input.prompt-input:hover {
     background-color: var(--trans-faint-10);
-	border-radius: var(--radius-m);
+	border-radius: var(--radius-ml);
     border: none;
 	contain: content;
 	box-shadow: unset;
@@ -4129,7 +4129,7 @@ input.prompt-input:hover {
 	margin-inline: 1px;
 }
 .prompt .suggestion-item {
-	border-radius: calc(var(--radius-s) + 1px);
+	border-radius: var(--radius-sm);
 	color: var(--prompt-item-color);
 	contain: content;
     padding-block: calc(var(--vl-layout-padding) * 1.2);
@@ -4147,9 +4147,9 @@ input.prompt-input:hover {
 	display: contents;
 }
 .prompt .suggestion-prefix {
-	color: var(--text-faint);
+	color: var(--color-base-40);
 	order: 1;
-	font-style: italic;
+	/* font-style: italic; */
 }
 .prompt .suggestion-prefix::after {
 	display: none;
@@ -4168,6 +4168,7 @@ input.prompt-input:hover {
 	background-color: var(--interactive-accent);
 	box-shadow: var(--shadow-suggestion-item);
 	color: var(--text-on-accent);
+	font-weight: var(--font-cta-button);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;
