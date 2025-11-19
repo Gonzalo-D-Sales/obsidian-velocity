@@ -436,10 +436,10 @@ body {
   	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 
 	/* Menus */
-	--menu-shadow: var(--shadow-muted);
+	--menu-shadow: var(--shadow-menu-glass), var(--shadow-xs);
 	--menu-radius: var(--radius-ml);
 	--menu-background: color-mix(in oklab, var(--background-primary) 40%, var(--background-secondary) 60%);
-	--menu-border-color: var(--trans-faint-40);
+	--menu-border-color: var(--trans-faint-30);
   
 	/* Modals - e.g. settings, community themes, community plugins */
 	--modal-radius: var(--radius-xxl);
@@ -455,8 +455,7 @@ body {
 	--pdf-thumbnail-shadow: var(--shadow-code), var(--shadow-s);
 
 	/* Prompts - e.g. quick switcher, command palette */
-	--prompt-border-color: var(--trans-faint-40);
-	--prompt-border-width: 0;
+	--prompt-border-color: transparent;
 	--prompt-input-height: 48px;
 
 	/* Radiuses */
@@ -716,8 +715,6 @@ body {
 	--nav-text-color: var(--text-normal);
 	--nav-folder-color: var(--color-base-80);
 
-	--prompt-item-color: var(--color-base-100);
-
 	--search-result-background: var(--trans-strong-20);
 
 	--setting-item-bg: var(--background-primary);
@@ -747,12 +744,13 @@ body {
 	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
 
-	--shadow-xs: 
-		0px 5px 20px 0px var(--trans-faint-25);	
 	--shadow-faint: 
 		0px 3px 15px 0px var(--trans-faint-20);	
 	--shadow-muted: 
 		0px 3px 18px 0px var(--trans-faint-25);	
+	--shadow-xs: 
+		0px 0px 5px 0px var(--trans-faint-05),
+		0px 10px 20px 0px var(--trans-faint-25);		
 	--glass-base: 
 		inset 1px 1px 2px 0 var(--trans-strong-30),
 		inset -1px -1px 2px 0 var(--trans-strong-30);	
@@ -808,14 +806,14 @@ body {
 
 	/* Modal interface shadows */
 	--shadow-menu-glass: 
-		inset 0.5px 0.5px 2px 1px var(--trans-strong-30),
-		inset -0.5px -0.5px 4px 0 var(--trans-strong-30);
+		inset 1.5px 1.5px 3px 1px var(--trans-strong-30),
+		inset -1.5px -1.5px 3px 1px var(--trans-strong-30);
 	--shadow-setting-item: 
 		0px 4px 12px 0 var(--trans-strong-40);
 	--shadow-suggestion-item: 
 		inset 0 0 1px 0 var(--trans-strong-20),
-		inset 1.75px 1.75px 2.5px 0 var(--trans-strong-30),
-		inset -1.75px -1.75px 2.5px 0 var(--trans-strong-30),
+		inset 1.5px 1.5px 3px 0 var(--trans-strong-30),
+		inset -1.5px -1.5px 3px 0 var(--trans-strong-30),
 		var(--shadow-xs);
 	
 	/* Other shadows */
@@ -1029,8 +1027,6 @@ body {
 	--nav-header-bg: var(--divider-color);
 	--nav-text-color: var(--text-normal);
 	--nav-folder-color: var(--color-base-80);
-
-	--prompt-item-color: var(--color-base-90);
 
 	--scrollbar-thumb-bg: var(--color-base-25);
 	--scrollbar-active-thumb-bg: var(--color-base-35);
@@ -2209,7 +2205,7 @@ mjx-math {
 	font-weight: var(--font-semi-medium);
 	padding: 0 4px;
 }
-@container (width < 400px) {
+@container (width < 300px) {
 	.mod-sidedock {
 	.metadata-property {
 		flex-direction: column;
@@ -3581,7 +3577,6 @@ body:not(.is-mobile)
 	--background-modifier-form-field-hover: var(--background-primary);
 }
 .modal {
-	background-color: var(--background-secondary);
 	font-weight: var(--font-normal);
 }
 .modal-title {
@@ -3619,7 +3614,7 @@ body:not(.is-mobile)
 	&::before {
 		content: '';
 		position: absolute;
-		backdrop-filter: blur(16px);
+		backdrop-filter: blur(12px);
 		width: 100%;
 		height: 100%;
 		/* negative margin to counter padding */
@@ -3630,7 +3625,6 @@ body:not(.is-mobile)
 .modal-container.mod-confirmation .modal {
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
-	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
 	background-color: 
 	color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
 	&.mod-lg {
@@ -3693,7 +3687,6 @@ body:not(.is-mobile)
 	font-weight: var(--font-semi-medium);
 }
 .menu-item {
-	border-radius: 7px;
 	padding-block: calc(var(--vl-layout-padding) - 2px);
 	padding-inline: 6px 8px;
 	--background-modifier-hover: var(--interactive-accent);
@@ -3704,17 +3697,12 @@ body:not(.is-mobile)
 	--icon-color: var(--text-on-accent);
 }
 .menu-separator {
-	border-color: var(--color-base-20);
-	margin-block: 4px;
-	margin-inline: 28px 0;
+	margin: 4px 6px;
 }
 /* Menu icons */
 .menu-item-icon {
-	color: var(--color-base-40);
+	color: var(--text-faint);
 	transform: translate3d(1px, 0, 0);
-}
-.menu-item.is-disabled.selected {
-	cursor: not-allowed;
 }
 .menu-item:not(.is-disabled).selected .svg-icon {
 	color: var(--text-on-accent);
@@ -4084,20 +4072,13 @@ body:not(.is-phone) .community-item.is-selected:hover {
 .prompt {
 	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
 	border-radius: var(--radius-xxl);
-	background-color: transparent;
+	background-color: var(--trans-strong-20);
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
+	backdrop-filter: blur(16px);
 	top: 0;
 }
-.prompt::before {
-	content: '';
-	display: block;
-	position: absolute;
-	background-color: color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
-	backdrop-filter: blur(20px);
-	width: 100%;
-	height: 100%;
-}
+
 .prompt-results, .prompt-input-container, .prompt-instructions {
 	background-color: transparent;
 	border: none;
@@ -4106,53 +4087,51 @@ body:not(.is-phone) .community-item.is-selected:hover {
 
 /* Prompt Input */
 .prompt-input-container {
-    --search-clear-button-size: 16px;
-	padding: 8px 8px 0 8px;
+	padding: 6px 16px 0 16px;
+	justify-content: center;
+	contain: content;
+	&::after {
+		content: '';
+		width: calc(100% - 36px);
+		position: absolute;
+		bottom: 0;
+		height: 2px;
+		background-color: var(--background-modifier-hover);
+		display: flex;
+		border-radius: var(--radius-xxl);
+		margin-block: 0.375rem 0;
+	}
 }
 input.prompt-input, 
 input.prompt-input:active, 
 input.prompt-input:focus,
 input.prompt-input:hover {
-    background-color: var(--trans-faint-10);
-	border-radius: var(--radius-ml);
-    border: none;
-	contain: content;
+    background-color: transparent;
+	border-bottom: 3px solid transparent;
 	box-shadow: unset;
     font-size: 18px;
-	text-indent: 1px;
-	padding: calc(var(--vl-layout-padding) + 8px);
+	padding-inline: calc(var(--vl-layout-padding) + 2px);
 }
 
 /* Results */
 .prompt-results {
-    padding-block-start: 4px;
-	margin-inline: 1px;
+    padding-block-start: calc(var(--vl-layout-padding) + 2px);
 }
 .prompt .suggestion-item {
 	border-radius: var(--radius-sm);
-	color: var(--prompt-item-color);
+	color: var(--color-base-100);
 	contain: content;
-    padding-block: calc(var(--vl-layout-padding) * 1.2);
-    padding-inline: calc(var(--vl-layout-padding) + 6px) calc(var(--vl-layout-padding) * 1.2);
+    padding-block: calc(var(--vl-layout-padding) * 1.25);
+    padding-inline: calc(var(--vl-layout-padding) + 8px) calc(var(--vl-layout-padding) * 1.25);
 }
 .prompt .suggestion-item .suggestion-content {
 	width: 100%;
-}
-.prompt .suggestion-item .suggestion-title {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
 }
 .prompt .suggestion-item .suggestion-title > .suggestion-highlight {
 	display: contents;
 }
 .prompt .suggestion-prefix {
-	color: var(--color-base-40);
-	order: 1;
-	/* font-style: italic; */
-}
-.prompt .suggestion-prefix::after {
-	display: none;
+	color: var(--text-muted);
 }
 .prompt .suggestion-aux {
 	margin-inline-start: 6px;
@@ -4175,19 +4154,18 @@ input.prompt-input:hover {
 	color: var(--text-on-accent);
 }
 .prompt .suggestion-item.is-selected .suggestion-note {
-	color: var(--trans-strong-20);
+	color: var(--trans-strong-10);
 }
 
 .suggestion-item.mod-complex .suggestion-aux {
     gap: 4px;
 }
 .suggestion-item.mod-complex.is-selected .suggestion-prefix {
-	color: var(--trans-strong-20);
+	color: var(--trans-strong-10);
 }
 
 /* Instructions */
 .prompt-instructions {
-    border-top: 1px solid var(--trans-faint-05);
     color: var(--text-faint);
 }
 
