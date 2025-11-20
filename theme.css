@@ -186,7 +186,7 @@ settings:
 	description: Displays the icon of the current editing mode instead of the next mode.
 	type: class-toggle
 -	
-	id: pinned-tabs-left
+	id: improve-pinned-tabs
 	title: Improved pinned tabs appearance
 	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
 	type: class-toggle
@@ -771,8 +771,8 @@ body {
 		inset -6px 0 8px -6px var(--trans-faint-40),
 		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);	
 	--shadow-tab:
-		inset 0 0 1px 0 var(--background-primary),
-		0 0 1px 0.5px var(--trans-faint-10),
+		inset 0 0 1.5px 0.75px var(--background-primary),
+		0 0 0 1px var(--trans-faint-10),
 		var(--shadow-muted);	
 	--shadow-workspace: 
 		0 2px 3px 0px var(--trans-faint-30),
@@ -3041,6 +3041,12 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	.workspace-tab-header-new-tab {
 		margin-inline: -4px 8px;
 	}
+	.workspace-tab-header-status-container {
+		margin-inline: -32px 6px;
+	}
+	.workspace-tab-header-status-icon {
+		padding: 4px;
+	}
 }
 
 body.prevent-exit 
@@ -3106,8 +3112,7 @@ body.prevent-exit
 /* FROM Willemstad */
 /* By tingmelvin */
 
-body.pinned-tabs-left .mod-root .workspace-tab-header-container-inner .workspace-tab-header:has(.mod-pinned) {
-    order: -1;
+body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .workspace-tab-header:has(.mod-pinned) {
 	max-width: 60px;
 	> .workspace-tab-header-inner {
 		background-color: var(--trans-faint-05);
@@ -3115,8 +3120,13 @@ body.pinned-tabs-left .mod-root .workspace-tab-header-container-inner .workspace
 	&.is-active > .workspace-tab-header-inner {
 		background-color: var(--color-accent-6);
 	}
-	.workspace-tab-header-inner-title {
+	.workspace-tab-header-inner-title,
+	.workspace-tab-header-inner-icon {
 		display: none;
+	}
+	.workspace-tab-header-status-container {
+		margin-inline: unset;
+		--background-modifier-active-hover: var(--color-accent-6);
 	}
 }
 
@@ -3639,10 +3649,6 @@ body:not(.is-mobile)
 .modal-content > .setting-item:last-child {
 	padding-block-end: 0;
 }
-/* Minor fix for Trash Explorer plugin */
-.modal-content > .setting-item:has(.mod-warning) {
-	padding-block-end: 0;
-}
 
 .setting-font-list {
     margin: 1em 0 0.75em 0;
@@ -3798,9 +3804,6 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		padding-block: calc(var(--vl-layout-padding) + 4px);
 		padding-inline: 22px 20px;
 		row-gap: 10px;
-		& .setting-item-info {
-			contain: content;
-		}
 		&:not(.style-settings-info-text) .setting-item-control {
 			--icon-color: var(--text-muted);
 		}
@@ -5400,10 +5403,6 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 }
 
 /*--> Style Settings <--*/
-
-.setting-item:has(.style-settings-export) > .setting-item-info {
-	contain: unset !important;
-}
 
 .style-settings-collapse-indicator {
     color: var(--icon-color);
