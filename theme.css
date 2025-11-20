@@ -436,7 +436,7 @@ body {
   	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 
 	/* Menus */
-	--menu-shadow: var(--shadow-menu-glass), var(--shadow-xs);
+	--menu-shadow: var(--glass-menu), var(--shadow-xs);
 	--menu-radius: var(--radius-ml);
 	--menu-background: color-mix(in oklab, var(--background-primary) 40%, var(--background-secondary) 60%);
 	--menu-border-color: var(--trans-faint-30);
@@ -709,7 +709,12 @@ body {
 
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
-	
+
+	--modal-background: 
+		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
+	--prompt-background: 
+		color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20) 75%);
+
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
 	--nav-text-color: var(--text-normal);
@@ -754,6 +759,10 @@ body {
 	--glass-base: 
 		inset 1px 1px 2px 0 var(--trans-strong-30),
 		inset -1px -1px 2px 0 var(--trans-strong-30);	
+	--glass-base-l: 
+		inset 0 0 1px 0 var(--trans-strong-20),
+		inset 1.5px 1.5px 3px 0 var(--trans-strong-30),
+		inset -1.5px -1.5px 3px 0 var(--trans-strong-30);
 	
 	/* Interface shadows */
 	--shadow-fab: 
@@ -805,16 +814,17 @@ body {
 		none;
 
 	/* Modal interface shadows */
-	--shadow-menu-glass: 
-		inset 1.5px 1.5px 3px 1px var(--trans-strong-30),
-		inset -1.5px -1.5px 3px 1px var(--trans-strong-30);
+	--glass-modal: 
+		inset 1.5px 1.5px 4px 0 var(--trans-strong-20),
+		inset -1.5px -1.5px 4px 0 var(--trans-strong-20);
+	--glass-menu: 
+		inset 1px 1px 2px 0 var(--trans-strong-00),
+		inset -1px -1px 2px 0 var(--trans-strong-00);
 	--shadow-setting-item: 
 		0px 4px 12px 0 var(--trans-strong-40);
 	--shadow-suggestion-item: 
-		inset 0 0 1px 0 var(--trans-strong-20),
-		inset 1.5px 1.5px 3px 0 var(--trans-strong-30),
-		inset -1.5px -1.5px 3px 0 var(--trans-strong-30),
-		var(--shadow-xs);
+		var(--glass-base-l),
+		var(--shadow-muted);
 	
 	/* Other shadows */
 	--bases-cards-shadow: var(--shadow-code);
@@ -3611,9 +3621,8 @@ body:not(.is-mobile)
 }
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal) {
-	background-color: 
-		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
-	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
+	background-color: var(--modal-background);
+	box-shadow: var(--glass-modal), var(--shadow-l);
 	border: unset;
 	&::before {
 		content: '';
@@ -3629,8 +3638,7 @@ body:not(.is-mobile)
 .modal-container.mod-confirmation .modal {
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
-	background-color: 
-	color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
+	background-color: var(--modal-background);
 	&.mod-lg {
 		background-color: var(--background-secondary);
 	}
@@ -4067,9 +4075,9 @@ body:not(.is-phone) .community-item.is-selected:hover {
 /*--> Prompt Modal <--*/
 
 .prompt {
-	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
+	box-shadow: var(--glass-base-l), var(--shadow-l);
 	border-radius: 23px;
-	background-color: var(--trans-strong-20);
+	background-color: var(--prompt-background);
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
 	backdrop-filter: blur(16px);
@@ -4130,6 +4138,7 @@ input.prompt-input:hover {
 }
 .prompt .suggestion-prefix {
 	color: var(--text-muted);
+	z-index: -1;
 }
 .prompt .suggestion-aux {
 	margin-inline-start: 6px;
@@ -4146,20 +4155,15 @@ input.prompt-input:hover {
 	box-shadow: var(--shadow-suggestion-item);
 	color: var(--text-on-accent);
 	font-weight: var(--font-normal-linux);
+	--text-muted: var(--trans-strong-10);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;
 	color: var(--text-on-accent);
 }
-.prompt .suggestion-item.is-selected .suggestion-note {
-	color: var(--trans-strong-10);
-}
 
 .suggestion-item.mod-complex .suggestion-aux {
     gap: 4px;
-}
-.suggestion-item.mod-complex.is-selected .suggestion-prefix {
-	color: var(--trans-strong-10);
 }
 
 /* Instructions */
@@ -4192,7 +4196,7 @@ input.prompt-input:hover {
 .modal-container.mod-dim + .suggestion-container {
 	background-color: var(--trans-strong-10);
 	backdrop-filter: blur(20px);
-	box-shadow: var(--shadow-menu-glass), var(--shadow-s);
+	box-shadow: var(--menu-shadow);
 	border-radius: var(--radius-ml);
 }
 
