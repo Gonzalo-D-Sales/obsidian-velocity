@@ -282,7 +282,7 @@ body {
 	--checkbox-marker-color: var(--text-on-accent);
 	--checklist-done-color: var(--strikethrough-color);
 	--checkbox-size: 1.125rem;
-	--bg-checkbox: radial-gradient(transparent 53%, var(--color-base-40) 58% 60%, transparent 65%);
+	--bg-checkbox: radial-gradient(transparent 50%, var(--color-base-30) 55% 60%, transparent 65%);
 
 	/* Code */
 	--code-radius: var(--radius-xs);
@@ -333,7 +333,7 @@ body {
 	--font-black: 900;
 
 	--font-semi-medium: calc(var(--font-normal) + 50);
-	--font-cta-button: var(--font-normal);
+	--font-normal-linux: var(--font-normal);
 
 	/* Footnotes */
 
@@ -375,7 +375,7 @@ body {
 	--icon-color-focused: var(--icon-color-hover);
 
 	/* Indent size */
-	--indent-unit: 0.4375em;
+	--indent-unit: 0.5em;
 
 	/* Indentation guide */
 
@@ -406,7 +406,7 @@ body {
 		oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
 
 	/* Lists */
-	--list-spacing: 0.15em;
+	--list-spacing: 0.175em;
 	--list-marker-color: var(--color-base-50);
 
 	/* Math */
@@ -538,7 +538,7 @@ body {
 	/* --tag-color-hover: var(--tag-color); */
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
-	--tag-weight: calc(var(--font-cta-button) + 50);
+	--tag-weight: calc(var(--font-normal-linux) + 50);
 	--tag-size: var(--font-smallest);
 	/* --tag-shadow: var(--shadow-faint); */
 
@@ -1212,12 +1212,12 @@ body:not(.mod-windows, .mod-linux) {
 	--h4-weight: 625;
 	--h5-weight: 625;
 	--h6-weight: 675;
-	--font-cta-button: var(--font-semi-medium);
+	--font-normal-linux: var(--font-semi-medium);
 }
 /* Linux font weight tweak (WIP test if needed on macOS) */
 .mod-linux button[class*="mod-"]:not([class="mod-cancel"]),
 :is(.mod-root, .popover) .metadata-add-button {
-	font-weight: var(--font-cta-button);
+	font-weight: var(--font-normal-linux);
 }
 
 /* Windows */
@@ -1594,9 +1594,9 @@ body.prop-headings {
 	}
 	& .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
 		margin-block-end: 
-			round(nearest, clamp(0px, var(--prop-margin-base), 1.125rem), 2px);
+			round(nearest, clamp(0px, var(--prop-margin-base), 1.25rem), 2px);
 		--heading-spacing: 
-			round(nearest, calc(var(--prop-margin-base) * 4), 2px);
+			round(nearest, calc(var(--prop-margin-base) * 3.5), 2px);
 	}
 }
 
@@ -1620,7 +1620,7 @@ body.prop-headings {
 	position: relative;
 	align-items: center;
 	border: none;
-	padding-inline: 1.75em;
+	padding-inline: 1.625em 0;
 	--bold-color: var(--blockquote-color);	
 	--italic-color: var(--blockquote-color);
 	--math-color: var(--blockquote-color);
@@ -1808,20 +1808,11 @@ body:not(.disable-naked-embeds) {
 	color: var(--text-faint);
 }
 
-.markdown-embed:has(.el-h5:is(:only-of-type,:last-child)) {
-	background-color: var(--background-primary-alt);
-	border-radius: var(--radius-sm);
-	border: none;
-	padding: 8px;
+.markdown-embed > .markdown-embed-content > .markdown-preview-view {
+	padding-inline-end: unset;
+	scrollbar-gutter: unset;
 }
-.markdown-embed .el-h5:is(:only-of-type,:last-child) {
-	text-align: center;
-	h5 {
-		color: var(--color-base-50);
-		font-size: 0.875em;
-		font-weight: var(--font-medium);
-	}
-}
+
 .file-embed.mod-generic {
 	border-radius: var(--radius-sm);
 	font-weight: var(--font-medium);
@@ -1831,14 +1822,13 @@ body:not(.disable-naked-embeds) {
 .file-embed-title {
 	padding-top: 0.125rem;
 }
+
 /*--> Formatting <--*/
 
 /* formatting markers */
-
 .cm-formatting-strong {
 	font-weight: var(--font-normal);
 }
-
 .cm-s-obsidian span.cm-formatting-quote {
 	padding-inline-start: 0.25rem;
 }
@@ -1914,7 +1904,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 
 @container style(--line-height-normal: 1.5) {
 	.markdown-rendered {
-		--list-spacing: 0.075em;
+		--list-spacing: 0.0875em;
 		--prop-margin-base: 0.375em;
 	}
 }
@@ -1923,17 +1913,21 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 		--prop-margin-base: 0.5em;
 	}
 	.markdown-rendered .el-p + .el-p > p {
-		margin-block-start: 1.125rem;
+		margin-block-start: 1.25rem;
 	}
 }
 .markdown-rendered :is(ol, ul) > li {
-	margin-inline-start: 1.75em;
+	margin-inline-start: 1.625em;
 	--list-marker-color: var(--list-dash-color);
 }
 .list-bullet,
 .markdown-rendered ul > li  {
 	--list-marker-color: var(--list-bullet-color);
 }
+.markdown-rendered li > :is(ul,ol) {
+	padding-block: var(--list-spacing);
+}
+
 /* Lists: special styling */
 body:not(.disable-list-styling) {
 	.list-bullet::after,
@@ -3889,7 +3883,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .hotkey-filter,
 .setting-hotkey.mod-active {
     color: var(--text-on-accent);
-	font-weight: var(--font-cta-button);
+	font-weight: var(--font-normal-linux);
 	gap: 4px;
 }
 .hotkey-filter {
@@ -4071,7 +4065,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 
 .prompt {
 	box-shadow: var(--shadow-menu-glass), var(--shadow-l);
-	border-radius: var(--radius-xxl);
+	border-radius: 23px;
 	background-color: var(--trans-strong-20);
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
@@ -4096,7 +4090,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 		position: absolute;
 		bottom: 0;
 		height: 2px;
-		background-color: var(--background-modifier-hover);
+		background-color: var(--trans-faint-20);
 		display: flex;
 		border-radius: var(--radius-xxl);
 		margin-block: 0.375rem 0;
@@ -4116,13 +4110,14 @@ input.prompt-input:hover {
 /* Results */
 .prompt-results {
     padding-block-start: calc(var(--vl-layout-padding) + 2px);
+	padding-inline: 14px 12px;
 }
 .prompt .suggestion-item {
 	border-radius: var(--radius-sm);
 	color: var(--color-base-100);
 	contain: content;
     padding-block: calc(var(--vl-layout-padding) * 1.25);
-    padding-inline: calc(var(--vl-layout-padding) + 8px) calc(var(--vl-layout-padding) * 1.25);
+    padding-inline: calc(var(--vl-layout-padding) + 6px) calc(var(--vl-layout-padding) * 1.25);
 }
 .prompt .suggestion-item .suggestion-content {
 	width: 100%;
@@ -4147,7 +4142,7 @@ input.prompt-input:hover {
 	background-color: var(--interactive-accent);
 	box-shadow: var(--shadow-suggestion-item);
 	color: var(--text-on-accent);
-	font-weight: var(--font-cta-button);
+	font-weight: var(--font-normal-linux);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;
@@ -4168,6 +4163,7 @@ input.prompt-input:hover {
 .prompt-instructions {
     color: var(--text-faint);
 }
+
 
 /*--> Workspaces Modal <--*/
 
@@ -4255,15 +4251,26 @@ input.prompt-input:hover {
 	--bases-table-header-background: transparent;
 }
 .mod-sidedock .workspace-leaf-content[data-type="bases"] .view-content {
-	padding-block: 6px 0;
-	--bases-table-header-background: transparent;
+	padding-block: 5px 0;
 }
 .mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-thead {
 	position: relative;
 }
-.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-view {
-	margin: 4px 8px 0;
+/* .mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-view {
+	margin-inline: 0;
+} */
+.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-view[data-view-type="cards"] {
+	--bases-view-padding: 8px;
 }
+.mod-sidedock .workspace-leaf-content[data-type="bases"] .bases-header {
+	--bases-header-padding-start: 6px;
+	--bases-header-padding-end: 6px;
+}
+
+/* Compact sidebar bases header display */
+/* @container (width < 300px) {
+	
+} */
 
 .bases-thead {
 	border-block-end: var(--bases-table-row-border-width) solid var(--bases-table-border-color);
@@ -4386,6 +4393,9 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 /* Obsidian Bases (cards) */
+.bases-view[data-view-type="cards"] {
+	scrollbar-gutter: unset;
+}
 .bases-cards-item {
 	border-radius: var(--radius-s);
 	padding: 8px 2px 4px;
@@ -4705,11 +4715,9 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	--shadow-input-active: var(--shadow-input), var(--shadow-s);
 }
 
-.suggestion-container:has(.webviewer-addressbar-suggestion) {
-	max-height: none;
-}
+
 .suggestion-container .webviewer-addressbar-suggestion {
-	padding-block: 12px;
+	padding-block: 8px;
 }
 .suggestion-container .webviewer-addressbar-suggestion:last-of-type {
 	margin-block-end: 0;
@@ -4754,7 +4762,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 
 .markdown-rendered .lc-list-callout {
 	padding-block: var(--list-spacing-default);
-	--list-spacing-default: 0.075em;
+	--list-spacing-default: 0.0625em;
 }
 /* does nothing if list spacing is default (i.e., when line height is Compact) */
 .lc-list-callout > .list-bullet {
@@ -4771,9 +4779,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 .lc-list-callout :is(strong,.cm-strong) {
 	color: rgb(var(--lc-callout-color), 0.8);
 }
-body:not(.disable-list-styling) .lc-list-callout > .list-bullet::after {
-	content: ">";
-}
+
 /* List Callout Default colors */
 .lc-list-callout[data-callout="!"] {
 	--lc-callout-color: var(--color-red-rgb) !important;
@@ -5029,20 +5035,15 @@ div[class*="el-h"] + * .dataview-container .contains-task-list {
 	margin-top: 0;
 }
 
-.modal-header:has( + .process-single-image-modal) {
-	margin: 2px 8px 0;
-}
-.process-single-image-modal {
-	margin-inline: 8px;
-}
 .process-single-image-modal .preview-image-container {
 	background-color: var(--background-primary);
 	border: none !important;
 	border-radius: var(--radius-sm);
-	box-shadow: var(--shadow-s);
+	box-shadow: var(--shadow-setting-item);
+	margin-block-start: 8px !important;
 }
 .process-single-image-modal-buttons .setting-item {
-	padding-bottom: 6px;
+	padding-bottom: unset;
 }
 
 /*--> Editing Toolbar <--*/
@@ -5400,9 +5401,6 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 
 /*--> Style Settings <--*/
 
-.setting-item:has(.style-settings-export) {
-	margin-bottom: 24px;
-}
 .setting-item:has(.style-settings-export) > .setting-item-info {
 	contain: unset !important;
 }
@@ -5417,11 +5415,14 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 .style-settings-info-text .setting-item-info + .setting-item-control {
 	display: none;
 }
-.style-settings-heading {
+.setting-item.style-settings-heading {
     cursor: default;
     margin-bottom: unset;
     padding-bottom: 6px;
     border-bottom: 1px solid var(--background-modifier-border);
+	&:first-child {
+		margin-block-start: 24px;
+	}
 }
 .style-settings-heading[data-id="ss-section-heading-top"] {
 	margin-block: unset !important;
@@ -5432,9 +5433,9 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 }
 
 .setting-item-heading[data-id="obsidian-velocity"] + .style-settings-container {
-	.setting-item-description:has( > div) {
+	/* .setting-item-description:has( > div) {
 		display: none;
-	}
+	} */
 	.setting-item[data-id="file-line-width"] .setting-item-description {
 		display: initial;
 		> div {
