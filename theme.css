@@ -390,7 +390,7 @@ body {
 	--interactive-hover: var(--trans-faint-30);
 	
 	/* Italic */
-	--italic-color: var(--text-normal);
+	/* --italic-color: var(--text-normal); */
 	/* --italic-weight: var(--font-semi-medium); */
 
 	/* Z-index */
@@ -4143,11 +4143,14 @@ input.prompt-input:hover {
 .prompt .suggestion-aux {
 	margin-inline-start: 6px;
 }
+.suggestion-item.mod-complex .suggestion-action {
+    color: var(--text-on-accent);
+	padding-inline-end: 4px;
+}
 .prompt .suggestion-item .suggestion-hotkey {
 	border-radius: var(--code-radius);
 	color: var(--color-base-80);
 	font-weight: var(--font-medium);
-	margin-inline-end: 1px;
 }
 
 .prompt .suggestion-item.is-selected {
