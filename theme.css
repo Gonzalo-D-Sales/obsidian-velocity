@@ -4174,6 +4174,7 @@ input.prompt-input:hover {
 	color: var(--text-on-accent);
 	font-weight: var(--font-normal-linux);
 	--text-muted: var(--trans-strong-10);
+	--text-accent: var(--trans-strong-10);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;
@@ -4769,6 +4770,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 .webviewer-content .error-notice {
+	margin: auto;
     text-align: center;
 }
 
