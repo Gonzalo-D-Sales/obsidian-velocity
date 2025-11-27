@@ -234,7 +234,10 @@ settings:
 /*--> Theme CSS Variables <--*/
 
 body {
+	/* Animation curve */
+	--vl-ease-out: cubic-bezier(0.25, 0.75, 0, 1);
 	/* Animation timing */
+
 	--anim-fast-delay: var(--anim-duration-fast) var(--anim-motion-delay);
 	--anim-fast-swing: var(--anim-duration-fast) var(--anim-motion-swing);
 	--anim-fast-smooth: var(--anim-duration-fast) var(--anim-motion-smooth);
@@ -674,7 +677,7 @@ body {
 
 	--background-modifier-border: var(--trans-faint-20);
 	--background-modifier-border-focus: transparent;
-	--background-modifier-cover: color-mix(in oklch, var(--color-base-80) 50%, transparent 100%);
+	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
 	--color-accent-1: color-mix(in oklch, var(--color-accent), transparent 10%);
@@ -723,7 +726,7 @@ body {
 	--search-result-background: var(--trans-strong-20);
 
 	--setting-item-bg: var(--background-primary);
-	--setting-item-border-color: var(--hr-color);
+	--setting-item-border-color: oklch(0.000% 0 0 / 0.1);
 
 	--stacked-shadow-color: var(--trans-faint-10);
 
@@ -753,16 +756,23 @@ body {
 		0px 3px 15px 0px var(--trans-faint-20);	
 	--shadow-muted: 
 		0px 3px 18px 0px var(--trans-faint-25);	
+	--shadow-strong:
+		0px 1.25px 6.25px rgba(0, 0, 0, 0.08),
+	 	0px 3px 12px rgba(0, 0, 0, 0.06), 
+		0px 16px 32px rgba(0, 0, 0, 0.12);
 	--shadow-xs: 
 		0px 0px 5px 0px var(--trans-faint-05),
 		0px 10px 20px 0px var(--trans-faint-25);		
 	--glass-base: 
 		inset 1px 1px 2px 0 var(--trans-strong-30),
 		inset -1px -1px 2px 0 var(--trans-strong-30);	
-	--glass-base-l: 
+	--glass-base-m: 
 		inset 0 0 1px 0 var(--trans-strong-20),
 		inset 1.5px 1.5px 3px 0 var(--trans-strong-30),
 		inset -1.5px -1.5px 3px 0 var(--trans-strong-30);
+	--glass-base-l: 
+		inset 1.5px 1.5px 4px 0 var(--trans-strong-20),
+		inset -1.5px -1.5px 4px 0 var(--trans-strong-20);
 	
 	/* Interface shadows */
 	--shadow-fab: 
@@ -814,17 +824,18 @@ body {
 		none;
 
 	/* Modal interface shadows */
-	--glass-modal: 
-		inset 1.5px 1.5px 4px 0 var(--trans-strong-20),
-		inset -1.5px -1.5px 4px 0 var(--trans-strong-20);
 	--glass-menu: 
 		inset 1px 1px 2px 0 var(--trans-strong-00),
 		inset -1px -1px 2px 0 var(--trans-strong-00);
 	--shadow-setting-item: 
-		0px 4px 12px 0 var(--trans-strong-40);
+		0px 3px 9px var(--trans-strong-40);
 	--shadow-suggestion-item: 
-		var(--glass-base-l),
+		var(--glass-base-m),
 		var(--shadow-muted);
+	
+	--shadow-l: 
+		var(--glass-base-l),
+		var(--shadow-strong);
 	
 	/* Other shadows */
 	--bases-cards-shadow: var(--shadow-code);
@@ -1237,17 +1248,16 @@ body:not(.mod-windows, .mod-linux) {
 
 /*--> Animations <--*/
 
-@keyframes popover {
+@keyframes anim-suggestion {
 	0% {
-	filter: opacity(0%);
 	scale: 0.95;
+	opacity: 0;
 	}
-	75% {
-	filter: opacity(75%);
-	scale: 1;
-	}
-	100% {
-	filter: opacity(100%);
+}
+@keyframes anim-settings {
+	0% {
+	scale: 0.975;
+	opacity: 0;
 	}
 }
 body:not(.is-mobile) {
@@ -1273,6 +1283,7 @@ textarea,
 button,
 button:active,
 .metadata-add-button {
+	contain: content;
 	transition: 
 	background-color var(--anim-super-smooth),
 	filter var(--anim-super-delay);
@@ -1307,9 +1318,9 @@ button.mod-warning {
 
 /*--> Dropdown <--*/
 
-/* :is(select,.dropdown):hover {
-	filter: brightness(0.97);
-}  */
+:is(select,.dropdown) {
+	contain: content;
+} 
 /* .modal button:not(.clickable-icon,.mod-cta):focus,
 :is(select,.dropdown):focus-within {
 	box-shadow: var(--input-shadow);
@@ -1469,6 +1480,9 @@ input[type='range']::-webkit-slider-runnable-track {
 }
 .tooltip {
 	padding: 6px 12px;
+}
+.tooltip.mod-error {
+	box-shadow: var(--glass-base), var(--shadow-strong);
 }
 .notice {
 	border-radius: var(--radius-ml);
@@ -2790,8 +2804,9 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 /* .tree-item.nav-file .tree-item-self.nav-file-title.is-active {
 	box-shadow: none;
 } */
-:is(.nav-file-title,.nav-folder-title).is-being-dragged {
-	box-shadow: var(--shadow-button) !important;
+.tree-item-self.is-clickable.is-being-dragged {
+	box-shadow: var(--shadow-button);
+	transition-duration: 0ms;
 }
 .nav-file-tag {
 	font-variation-settings: 'opsz' 28;
@@ -3627,18 +3642,9 @@ body:not(.is-mobile)
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal) {
 	background-color: var(--modal-background);
-	box-shadow: var(--glass-modal), var(--shadow-l);
+	backdrop-filter: blur(12px);
 	border: unset;
-	&::before {
-		content: '';
-		position: absolute;
-		backdrop-filter: blur(12px);
-		width: 100%;
-		height: 100%;
-		/* negative margin to counter padding */
-		margin: -16px;
-		z-index: -1;
-	}
+
 }
 .modal-container.mod-confirmation .modal {
 	--background-modifier-form-field: var(--background-primary);
@@ -3748,8 +3754,9 @@ body:not(.is-mobile)
 
 /*--> Settings Modal <--*/
 
-.mod-settings {
-	background-image: var(--background-gradient-menu);
+.modal-container > .modal.mod-settings {
+	contain: content;
+	background-color: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
 	border-radius: var(--radius-settings);
 }
 .modal-container.mod-dim .vertical-tabs-container {
@@ -3802,7 +3809,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	border-top-color: var(--trans-strong-40);
 }
 .modal:not(.mod-community-modal) .setting-item-heading {
-	text-indent: 1px;
+	text-indent: 0.5px;
 }
 .mod-settings,
 .mod-narrow,
@@ -3825,8 +3832,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	.setting-item:has( + .setting-item.setting-item-heading),
 	.setting-item:not(.setting-item-heading):has( + :not(.setting-item)) {
 		box-shadow: 
-		var(--shadow-setting-item), 
-		0px 0.25px 0px 0.125px var(--trans-faint-25);
+		var(--shadow-setting-item);
 		border-bottom: 1px solid var(--setting-item-border-color);
 		border-radius: 0 0 var(--radius-ml) var(--radius-ml);
 		clip-path: inset(0px -24px -24px -24px);
@@ -3843,7 +3849,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		border: 1px solid var(--setting-item-border-color);
 		border-radius: var(--radius-ml) !important; 
 		clip-path: none !important;
-		padding-block: calc(var(--vl-layout-padding) + 6px);
+		padding-block: calc(var(--vl-layout-padding) + 8px);
 	}
 	& .setting-item:not(.setting-item-heading):first-of-type,
 	.setting-item.setting-item-heading + .setting-item,
@@ -3860,7 +3866,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 		padding-block: calc(var(--vl-layout-padding) + 4px);
 
 		> .setting-item-info > .setting-item-name {
-			color: var(--text-muted);
+			color: var(--color-base-60);
 			font: var(--font-medium) var(--font-ui-large) var(--font-interface-theme);
 			font-variation-settings: 'opsz' 28;
 		}
@@ -3932,8 +3938,10 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 
 .mod-community-modal,
 .mod-community-modal .modal-sidebar {
-	background-image: var(--background-gradient-community);
+	animation: var(--anim-duration-fast) anim-settings var(--vl-ease-out);
+	background-color: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
 	border-radius: var(--radius-settings);
+	contain: content;
 	padding-top: 8px;
 }
 .community-modal-empty-state.is-loading::before {
@@ -3962,11 +3970,12 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .community-modal-controls {
 	background-color: var(--trans-strong-10);
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(16px);
 	border-radius: var(--radius-ml); 
-	box-shadow: inset 0 0 0 0.75px var(--hr-color), var(--shadow-setting-item);
-	padding: 6px 12px;
-	margin: 6px 14px -40px 14px;
+	box-shadow: var(--glass-menu), var(--shadow-faint);
+	contain: content;
+	padding: 0 20px;
+	margin: 6px 14px -38px 14px;
 	min-height: 56px;
 	overflow: visible;
 	display: flex;
@@ -4006,15 +4015,16 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	padding: 16px 32px;
 }
 .community-item.tappable {
+	contain: content;
+	background-color: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
     border-radius: var(--radius-ml);
     border: none;
-	box-shadow: var(--shadow-muted);
+	box-shadow: var(--shadow-faint);
 	padding: 10px;
 }
 .mod-community-theme .community-item {
 	display: grid;
 	grid-template-columns: 4fr 3fr;
-	background-color: var(--trans-strong-30);
 
 	&.is-selected .placeholder-icon > svg {
 		color: var(--trans-strong-20);
@@ -4022,7 +4032,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 body:not(.is-phone) .community-item.is-selected, 
 body:not(.is-phone) .community-item.is-selected:hover {
-    box-shadow: var(--shadow-button);
+    box-shadow: var(--glass-base-m), var(--shadow-faint);
 }
 .community-item-name {
 	display: flex;
@@ -4080,7 +4090,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 /*--> Prompt Modal <--*/
 
 .prompt {
-	box-shadow: var(--glass-base-l), var(--shadow-l);
+	box-shadow: var(--glass-base-m), var(--shadow-strong);
 	border-radius: 23px;
 	background-color: var(--prompt-background);
 	font-weight: var(--font-normal);
@@ -4189,8 +4199,7 @@ input.prompt-input:hover {
 /*--> Popovers <--*/
 
 .popover {
-	animation: var(--anim-duration-fast) popover var(--anim-motion-swing);
-	border-radius: var(--radius-ml);
+	animation: var(--anim-duration-fast) anim-suggestion  var(--vl-ease-out);
 	--background-primary: var(--background-secondary);
 	--bases-table-header-background: var(--background-secondary);
 }
@@ -4199,11 +4208,11 @@ input.prompt-input:hover {
 
 .suggestion-container,
 .query-toolbar-menu {
-	animation: var(--anim-duration-superfast) popover var(--anim-motion-swing);
+	animation: var(--anim-duration-fast) anim-suggestion var(--vl-ease-out);
 }
 .modal-container.mod-dim + .suggestion-container {
 	background-color: var(--trans-strong-10);
-	backdrop-filter: blur(20px);
+	backdrop-filter: blur(16px);
 	box-shadow: var(--menu-shadow);
 	border-radius: var(--radius-ml);
 }
@@ -4744,7 +4753,6 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 
 /* Page content Search */
 .webviewer-content .document-search-container {
-	box-shadow: var(--shadow-workspace-multi), var(--shadow-l);
 	top: 52px;
 	right: 16px;
 }
