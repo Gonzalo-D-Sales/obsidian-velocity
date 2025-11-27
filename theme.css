@@ -4122,6 +4122,7 @@ input.prompt-input,
 input.prompt-input:active, 
 input.prompt-input:focus,
 input.prompt-input:hover {
+	text-indent: 1px;
     background-color: transparent;
 	border-bottom: 3px solid transparent;
 	box-shadow: unset;
@@ -4133,7 +4134,7 @@ input.prompt-input:hover {
 .prompt-results {
 	contain: content;
     padding-block-start: calc(var(--vl-layout-padding) + 2px);
-	padding-inline: 14px 12px;
+	padding-inline: 14px;
 	will-change: scroll-position;
 }
 .prompt .suggestion-item {
