@@ -2793,6 +2793,10 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 :is(.nav-file-title,.nav-folder-title).is-being-dragged {
 	box-shadow: var(--shadow-button) !important;
 }
+.nav-file-tag {
+	font-variation-settings: 'opsz' 28;
+	letter-spacing: 0.075em;
+}
 /*--> Workspace Sidebar leaves <--*/
 
 .mod-sidedock .workspace-leaf-content > .view-content {
@@ -3409,6 +3413,7 @@ body:not(.is-mobile)
 		--shadow-workspace-multi: none;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace .mod-root .workspace-tab-container {
+		outline-color: transparent;
 		border-radius: 0 !important;
 		margin: 0 !important;
 	} 
