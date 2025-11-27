@@ -458,7 +458,7 @@ body {
 	--pdf-thumbnail-shadow: var(--shadow-code), var(--shadow-s);
 
 	/* Prompts - e.g. quick switcher, command palette */
-	--prompt-border-color: transparent;
+	--prompt-border-color: var(--menu-border-color);
 	--prompt-input-height: 48px;
 
 	/* Radiuses */
@@ -714,9 +714,7 @@ body {
 	--background-secondary: var(--color-base-10);
 
 	--modal-background: 
-		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
-	--prompt-background: 
-		color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20) 75%);
+		color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20));
 
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
@@ -1248,7 +1246,7 @@ body:not(.mod-windows, .mod-linux) {
 
 /*--> Animations <--*/
 
-@keyframes anim-suggestion {
+@keyframes popover {
 	0% {
 	scale: 0.95;
 	opacity: 0;
@@ -1387,6 +1385,9 @@ textarea,
 }
 .mod-sidedock textarea {
 	text-indent: 2px;
+}
+.mod-sidedock .search-input-container {
+	--search-icon-color: var(--text-normal);
 }
 
 /* Placeholder text */
@@ -1962,7 +1963,7 @@ body:not(.disable-list-styling) {
 		box-shadow: none !important;
 		height: fit-content;
 		width: fit-content;
-		font-family: var(--font-text-theme);
+		font-family: var(--font-text);
 	}
 	& .is-collapsed ~ .cm-formatting-list .list-bullet::after,
 	  .is-collapsed .list-bullet::after {
@@ -3642,7 +3643,7 @@ body:not(.is-mobile)
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal) {
 	background-color: var(--modal-background);
-	backdrop-filter: blur(12px);
+	backdrop-filter: blur(8px);
 	border: unset;
 
 }
@@ -3788,7 +3789,7 @@ body:not(.is-mobile)
 /* Settings Sidebar */
 body:not(.is-phone) .vertical-tab-nav-item {
 	color: var(--text-muted);
-	font: var(--font-medium) var(--font-ui-small) var(--font-interface-theme);
+	font: var(--font-medium) var(--font-ui-small) var(--font-interface);
 
 	padding-block: var(--vl-layout-padding);
 	padding-inline-start: 20px;
@@ -3799,7 +3800,7 @@ body:not(.is-phone) .vertical-tab-nav-item.is-active {
     color: var(--color-base-100);
 }
 body:not(.is-phone) .vertical-tab-header-group-title {
-	font: var(--font-medium) var(--font-ui-medium) var(--font-interface-theme);
+	font: var(--font-medium) var(--font-ui-medium) var(--font-interface);
 	font-variation-settings: 'opsz' 24;
     padding-inline-start: 20px;
 }
@@ -3970,7 +3971,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .community-modal-controls {
 	background-color: var(--trans-strong-10);
-	backdrop-filter: blur(16px);
+	backdrop-filter: blur(12px);
 	border-radius: var(--radius-ml); 
 	box-shadow: var(--glass-menu), var(--shadow-faint);
 	contain: content;
@@ -4090,26 +4091,21 @@ body:not(.is-phone) .community-item.is-selected:hover {
 /*--> Prompt Modal <--*/
 
 .prompt {
-	box-shadow: var(--glass-base-m), var(--shadow-strong);
+	box-shadow: var(--glass-base-l), var(--shadow-strong);
+	background-color: var(--modal-background);
+	backdrop-filter: blur(12px);
 	border-radius: 23px;
-	background-color: var(--prompt-background);
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
-	backdrop-filter: blur(16px);
 	top: 0;
-}
-
-.prompt-results, .prompt-input-container, .prompt-instructions {
-	background-color: transparent;
-	border: none;
-	z-index: 1;
+	--prompt-border-width: 0;
 }
 
 /* Prompt Input */
 .prompt-input-container {
-	padding: 6px 16px 0 16px;
-	justify-content: center;
 	contain: content;
+	padding: 7px 16px 0 16px;
+	justify-content: center;
 	&::after {
 		content: '';
 		width: calc(100% - 36px);
@@ -4135,15 +4131,18 @@ input.prompt-input:hover {
 
 /* Results */
 .prompt-results {
+	contain: content;
     padding-block-start: calc(var(--vl-layout-padding) + 2px);
 	padding-inline: 14px 12px;
+	will-change: scroll-position;
 }
 .prompt .suggestion-item {
+	contain: content;
 	border-radius: var(--radius-sm);
 	color: var(--color-base-100);
-	contain: content;
     padding-block: calc(var(--vl-layout-padding) * 1.25);
     padding-inline: calc(var(--vl-layout-padding) + 6px) calc(var(--vl-layout-padding) * 1.25);
+	
 }
 .prompt .suggestion-item .suggestion-content {
 	width: 100%;
@@ -4186,6 +4185,7 @@ input.prompt-input:hover {
 
 /* Instructions */
 .prompt-instructions {
+	border-top: unset;
     color: var(--text-faint);
 }
 
@@ -4199,22 +4199,22 @@ input.prompt-input:hover {
 /*--> Popovers <--*/
 
 .popover {
-	animation: var(--anim-duration-fast) anim-suggestion  var(--vl-ease-out);
+	animation: var(--anim-duration-fast) var(--vl-ease-out) popover;
 	--background-primary: var(--background-secondary);
 	--bases-table-header-background: var(--background-secondary);
 }
 
 /*--> Suggestion Item <--*/
 
-.suggestion-container,
-.query-toolbar-menu {
-	animation: var(--anim-duration-fast) anim-suggestion var(--vl-ease-out);
-}
-.modal-container.mod-dim + .suggestion-container {
-	background-color: var(--trans-strong-10);
-	backdrop-filter: blur(16px);
+.suggestion-container {
+	background-color: var(--modal-background);
+	backdrop-filter: blur(8px);
 	box-shadow: var(--menu-shadow);
-	border-radius: var(--radius-ml);
+	border: 1px solid var(--menu-border-color);
+	border-radius: var(--radius-m);
+}
+.mod-dim + .suggestion-container {
+	backdrop-filter: blur(12px);
 }
 
 .mod-search-suggestion .suggestion {
