@@ -2753,7 +2753,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	padding-block: var(--vl-layout-padding);
 	--nav-item-background-hover: var(--trans-faint-05);
 }
-.workspace-leaf-content .tree-item-self.mod-collapsible {
+.tree-item-self.mod-collapsible {
 	--nav-item-color: var(--color-base-80);
 	--nav-item-color-hover: var(--nav-item-color);
 	--nav-item-color-active: var(--nav-item-color);
