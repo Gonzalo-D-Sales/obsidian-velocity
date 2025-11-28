@@ -436,6 +436,7 @@ body {
   
 	/* Modals - e.g. settings, community themes, community plugins */
 	--modal-radius: var(--radius-xxl);
+	--modal-border-width: 0;
 
 	/* Multi-select pills */
 	--pill-background: var(--background-primary);
@@ -646,8 +647,6 @@ body {
 	--text-highlight-bg-search-active: color-mix(in oklab, var(--color-highlight), transparent 37.5%);
 	
 	--link-unresolved-lch: 0.625;
-	
-	--modal-border-color: var(--color-base-40);
 
 	--bg-main-inner: var(--color-base-05);
 	--bg-main-outer: var(--color-base-50);
@@ -968,8 +967,6 @@ body {
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.75 0.2 h);
 	--text-highlight-bg-search: var(--text-highlight-bg);
 	--text-highlight-bg-search-active: oklch(from var(--color-highlight) 0.875 0.375 h / 0.55);
-
-	--modal-border-color: var(--color-base-30);
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
 		var(--color-base-20) 18%, 
@@ -3611,8 +3608,11 @@ body:not(.is-mobile)
 	display: none;
 }
 
-.modal-bg {
+body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	background-color: var(--background-modifier-cover) !important;
+}
+.modal-bg {
+	background-color: oklab(from var(--background-modifier-cover) l a b / 0.2) !important;
 }
 .modal, .menu {
 	--background-modifier-form-field: var(--background-primary);
@@ -3980,7 +3980,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	background-color: var(--trans-strong-10);
 	backdrop-filter: blur(12px);
 	border-radius: var(--radius-ml); 
-	box-shadow: var(--glass-menu), var(--shadow-faint);
+	box-shadow: var(--glass-base-m), var(--shadow-muted);
 	contain: content;
 	padding: 0 20px;
 	margin: 6px 14px -38px 14px;
@@ -4050,7 +4050,11 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	font-variation-settings: 'opsz' 26;
 	grid-column: 1/3;
 	grid-row: 2;
-	padding-inline-start: 2px;
+	margin-block: -2px 2px;
+}
+.mod-community-theme .community-item-name {
+	margin-block: unset;
+	padding-inline: 2px 0;
 }
 .mod-community-theme .community-item-author {
 	grid-column: 1/2;
@@ -4079,7 +4083,6 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	padding-block: var(--flair-padding);
 	contain: content;
 	text-indent: 1px;
-	--tag-background: var(--color-accent-5);
 }
 
 /* FROM: Willemstad */
