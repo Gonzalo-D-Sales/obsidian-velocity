@@ -293,30 +293,29 @@ body {
 	--code-normal: var(--text-normal);
 
 	/* Collapse icons */
+  	--collapse-icon-color-collapsed: var(--text-normal);
 
 	/* Cursor */
 
 	/* Dialogs - e.g. small modals, confirmations */
-	--dialog-width: 480px;
+	--dialog-width: 500px;
 
 	/* Dividers between panes */
  	--divider-color-hover: var(--color-accent-4);
 	--divider-width: 0;
 
 	/* Dragging */
+	--drag-ghost-background: var(--color-base-00);
+	--drag-ghost-text-color: var(--color-base-90);
 
-	/* Dropdowns */
-	--dropdown-background: var(--interactive-normal);
-	--dropdown-background-hover: var(--interactive-normal);
-
-	/* Blocks */
+	/* Embeds */
 	--embed-block-shadow-hover: none;
 
 	/* File layout */
 	--file-line-width: 43.75rem;
 	--file-margin-y: 28px;
 	--file-margins: var(--file-margin-y) 5%;
-	--file-header-font-weight: var(--font-normal);
+	--file-header-font-weight: var(--font-semi-medium);
 
 	/* Relative font sizes */
 	--font-small: 0.90625em;
@@ -417,17 +416,9 @@ body {
 	--math-color: var(--text-normal);
 
 	/* File navigator */
-	--nav-indentation-guide-color: var(--trans-faint-10);
-	--nav-indentation-guide-width: 2px;
-    --nav-item-parent-padding: 8px 8px 8px 24px; 
-	--nav-item-weight: var(--font-normal);
-	--nav-item-weight-active: var(--font-normal);
-	--nav-item-color: var(--text-muted);
-	--nav-item-color-hover: var(--nav-text-color);
-	--nav-item-color-active: var(--nav-text-color);
-	--nav-item-color-selected: var(--nav-text-color);
+	--nav-indentation-guide-width: 0;
 	--nav-file-weight: var(--font-medium);	
-	--collapse-icon-color: var(--trans-faint-60);
+	--nav-collapse-icon-color: var(--trans-faint-60);
 
 	/* Metadata */
 	--metadata-background: var(--code-background);
@@ -439,10 +430,9 @@ body {
   	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 
 	/* Menus */
-	--menu-shadow: var(--glass-menu), var(--shadow-xs);
+	--menu-background: var(--background-primary-alt);
 	--menu-radius: var(--radius-ml);
-	--menu-background: color-mix(in oklab, var(--background-primary) 40%, var(--background-secondary) 60%);
-	--menu-border-color: var(--trans-faint-30);
+	--menu-border-color: var(--trans-faint-40);
   
 	/* Modals - e.g. settings, community themes, community plugins */
 	--modal-radius: var(--radius-xxl);
@@ -455,7 +445,7 @@ body {
 	/* PDF view */
 	--pdf-shadow: none !important;
 	--pdf-spread-shadow: none;
-	--pdf-thumbnail-shadow: var(--shadow-code), var(--shadow-s);
+	--pdf-thumbnail-shadow: var(--shadow-s);
 
 	/* Prompts - e.g. quick switcher, command palette */
 	--prompt-border-color: var(--menu-border-color);
@@ -571,6 +561,8 @@ body {
 	/* Backgrounds */ 
 	--background-modifier-form-field: transparent;
 	--background-modifier-form-field-hover: transparent;
+	--background-primary-alt: 
+	color-mix(in oklab, var(--background-primary), var(--background-secondary));
 
 	--color-highlight: rgb(var(--color-highlight-rgb));
 	--color-highlight-rgb: var(--color-yellow-rgb);
@@ -664,19 +656,11 @@ body {
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
 		var(--bg-main-inner) 30%, 
-		var(--bg-main-outer) 300%
+		var(--bg-main-outer) 330%
 		);
-	--background-gradient-menu: radial-gradient( at 64% 50%, 
-		var(--bg-menu-inner) 20%, 
-		var(--bg-menu-outer) 200%
-		); 
-	--background-gradient-community: radial-gradient( at 50% 50%, 
-		var(--bg-menu-inner) 20%, 
-		var(--bg-menu-outer) 200%
-		); 
-
+		
 	--background-modifier-border: var(--trans-faint-20);
-	--background-modifier-border-focus: transparent;
+	/* --background-modifier-border-focus: transparent; */
 	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
@@ -696,9 +680,6 @@ body {
 	--code-background-alt: var(--trans-strong-10);
 	--code-border-color: var(--trans-faint-20);
 	--code-special: var(--color-red);
-
-	--drag-ghost-background: var(--color-base-00);
-	--drag-ghost-text-color: var(--text-normal);
 
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--text-muted);
@@ -753,14 +734,14 @@ body {
 	--shadow-faint: 
 		0px 3px 15px 0px var(--trans-faint-20);	
 	--shadow-muted: 
-		0px 3px 18px 0px var(--trans-faint-25);	
+		0px 3px 18px 0px var(--trans-faint-25);
+	--shadow-normal: 
+		0px 0px 5px 0px var(--trans-faint-05),
+		0px 10px 20px 0px var(--trans-faint-25);	
 	--shadow-strong:
 		0px 1.25px 6.25px rgba(0, 0, 0, 0.08),
 	 	0px 3px 12px rgba(0, 0, 0, 0.06), 
-		0px 16px 32px rgba(0, 0, 0, 0.12);
-	--shadow-xs: 
-		0px 0px 5px 0px var(--trans-faint-05),
-		0px 10px 20px 0px var(--trans-faint-25);		
+		0px 16px 32px rgba(0, 0, 0, 0.12);		
 	--glass-base: 
 		inset 1px 1px 2px 0 var(--trans-strong-30),
 		inset -1px -1px 2px 0 var(--trans-strong-30);	
@@ -771,6 +752,13 @@ body {
 	--glass-base-l: 
 		inset 1.5px 1.5px 4px 0 var(--trans-strong-20),
 		inset -1.5px -1.5px 4px 0 var(--trans-strong-20);
+
+	--shadow-s: 
+		var(--glass-base),
+		var(--shadow-normal);
+	--shadow-l: 
+		var(--glass-base-l),
+		var(--shadow-strong);
 	
 	/* Interface shadows */
 	--shadow-fab: 
@@ -822,18 +810,11 @@ body {
 		none;
 
 	/* Modal interface shadows */
-	--glass-menu: 
-		inset 1px 1px 2px 0 var(--trans-strong-00),
-		inset -1px -1px 2px 0 var(--trans-strong-00);
 	--shadow-setting-item: 
 		0px 3px 9px var(--trans-strong-40);
 	--shadow-suggestion-item: 
 		var(--glass-base-m),
 		var(--shadow-muted);
-	
-	--shadow-l: 
-		var(--glass-base-l),
-		var(--shadow-strong);
 	
 	/* Other shadows */
 	--bases-cards-shadow: var(--shadow-code);
@@ -1084,7 +1065,7 @@ body {
 		inset 0 0.0625px 0 0.25px var(--trans-strong-40),
 		0px 1.25px 2.5px 0px var(--trans-dark-10);
 	--input-shadow-hover: var(--input-shadow);
-	--shadow-xs: 
+	--shadow-normal: 
 		0 -0.25px 0px 1px var(--trans-faint-25),
 		0 0.75px 7px -2px var(--trans-dark-00);
 	--shadow-tab:
@@ -1585,7 +1566,7 @@ thead,
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
-	letter-spacing: -0.015625em;
+	letter-spacing: -0.0125em;
 	text-indent: -0.0375em;
 	&::after {
 		content: '';
@@ -1601,12 +1582,12 @@ thead,
 }
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
-	letter-spacing: -0.015625em;
+	letter-spacing: -0.0125em;
 	text-indent: -0.01875em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-3, 
 .markdown-rendered h3 {
-	letter-spacing: -0.015625em;
+	letter-spacing: -0.0125em;
 	text-indent: -0.0125em;
 }
 
@@ -2623,8 +2604,7 @@ body:not(.is-mobile) .workspace-split.mod-root {
     padding-bottom: 8px;
 }
 .workspace-split.mod-root,
-.workspace-tabs .workspace-leaf,
-.mod-sidedock .view-header {
+.workspace-tabs .workspace-leaf {
 	background-color: transparent;
 }
 body:not(.is-mobile) .mod-root .workspace-tabs {
@@ -2775,44 +2755,70 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 }
 .workspace-leaf-content .tree-item-self.mod-collapsible {
 	--nav-item-color: var(--color-base-80);
-	--nav-item-background-selected: var(--color-accent-6);
+	--nav-item-color-hover: var(--nav-item-color);
+	--nav-item-color-active: var(--nav-item-color);
+	--nav-item-background-hover: transparent;
 	--nav-item-weight: var(--nav-file-weight);
 	--nav-item-weight-hover: var(--nav-file-weight);
 	--nav-item-weight-active: var(--nav-file-weight);
 }
 
 /* Folders */
-.nav-files-container .tree-item-self.mod-collapsible {
-	transition: background-color var(--anim-fast-swing);
-	--nav-item-background-hover: transparent;
-	--nav-item-color: unset;
-	--nav-item-color-hover: var(--nav-item-color);
+:is([data-type="bookmarks"],
+	[data-type="outline"],
+	[data-type="file-explorer"]) {
+	--nav-collapse-icon-color: var(--nav-item-color);
 }
-.nav-files-container .tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible:not(.is-being-dragged) {
-	color: var(--link-color);
-	background-color: var(--nav-item-background-selected);
-}
-.nav-files-container .tree-item-children .tree-item.is-collapsed .tree-item-self.mod-collapsible:not(.is-being-dragged) {
-	color: var(--nav-item-color);
-	--nav-item-background-selected: transparent;
-}
-.nav-files-container .tree-item-children {
-	border-left-color: transparent;
-	border-image: linear-gradient(to bottom, var(--background-modifier-active-hover), var(--trans-faint-05)) 1;
+
+:is([data-type="bookmarks"],
+	[data-type="file-explorer"]) {
+	.tree-item-self.mod-collapsible {
+		--nav-item-color: var(--text-muted);
+		--nav-item-background-active: var(--color-accent-6);
+	}
+	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible {
+		background-color: var(--nav-item-background-active);
+		--nav-item-color: var(--text-accent);
+		--nav-collapse-icon-color: var(--color-accent-1);
+	}
+	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible.has-focus {
+		background-color: var(--text-selection);
+	}
+	.tree-item-children > .tree-item.is-collapsed .tree-item-self.mod-collapsible {
+		--nav-item-background-active: transparent;
+		--text-selection: var(--background-modifier-hover);
+		--nav-item-color: var(--text-muted);
+		--nav-collapse-icon-color: var(--nav-folder-color);
+	}
 }
 
 /* Files */
-/* .tree-item.nav-file .tree-item-self.nav-file-title.is-active {
-	box-shadow: none;
-} */
-.tree-item-self.is-clickable.is-being-dragged {
-	box-shadow: var(--shadow-button);
-	transition-duration: 0ms;
+.tree-item-self.has-focus,
+.tree-item-self.is-selected {
+	box-shadow: none !important;
 }
+.tree-item-self.has-focus {
+	background-color: var(--background-modifier-hover);
+	--nav-item-background-hover: var(--background-modifier-hover);
+}
+.tree-item-self.is-selected {
+	background-color: var(--nav-item-background-selected) !important;
+	--nav-item-color-selected: var(--text-accent);
+}
+.tree-item-self.is-being-dragged {
+	background-color: var(--interactive-accent) !important;
+	box-shadow: var(--shadow-s) !important;
+	--nav-collapse-icon-color: var(--trans-strong-10) !important;
+}
+
 .nav-file-tag {
 	font-variation-settings: 'opsz' 28;
 	letter-spacing: 0.075em;
 }
+.tree-item-self.is-being-dragged > .nav-file-tag {
+	color: var(--trans-strong-10);
+}
+
 /*--> Workspace Sidebar leaves <--*/
 
 .mod-sidedock .workspace-leaf-content > .view-content {
@@ -3181,14 +3187,15 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 }
 /* View header Title */
 .view-header-title-container {
+	font-variation-settings: 'opsz' 20;
+	letter-spacing: 0.0125em;
 	margin-inline-end: 4px;
 }
 .workspace-leaf-content > .view-header > .view-header-title-container > .view-header-title {
 	color: var(--color-base-80);
-	font-weight: var(--font-semi-medium);
 }
 .view-header-title-parent {
-	color: var(--color-base-55);
+	color: var(--text-faint);
 }
 /* View header FAB */
 .workspace-leaf-content[data-type="markdown"] {
@@ -4484,7 +4491,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 /* Bases menu search input */
 .bases-toolbar-menu-container .search-input-container {
 	background-color: var(--background-modifier-form-field);
-	box-shadow: var(--shadow-xs);
+	box-shadow: var(--shadow-normal);
     border-radius: var(--radius-sm);
 	border: none;
 	margin: 2px 2px 8px;
@@ -4527,8 +4534,8 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	--metadata-input-background-hover: var(--color-base-00);
 	--metadata-property-background: var(--background-primary);
 	--metadata-property-background-hover: var(--background-primary);
-    --metadata-property-box-shadow: var(--shadow-xs);
-	--metadata-property-box-shadow-hover: var(--shadow-xs);
+    --metadata-property-box-shadow: var(--shadow-normal);
+	--metadata-property-box-shadow-hover: var(--shadow-normal);
 	--metadata-property-box-shadow-focus: var(--shadow-input-active);
 	--metadata-label-background: var(--color-base-00);
 	--dropdown-background: transparent;
@@ -5176,7 +5183,7 @@ button:not(.mod-cta):not(.mod-warning).editingToolbarSettingsIcon {
     row-gap: 3px;
 }
 .kanban-plugin__item {
-    box-shadow: var(--shadow-xs);
+    box-shadow: var(--shadow-normal);
     border: none;
 	border-radius: var(--radius-sm);
 }
