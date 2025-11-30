@@ -414,7 +414,6 @@ body {
 
 	/* File navigator */
 	--nav-indentation-guide-width: 0;
-	--nav-file-weight: var(--font-medium);	
 	--nav-collapse-icon-color: var(--trans-faint-60);
 
 	/* Metadata */
@@ -2220,7 +2219,7 @@ mjx-math {
 		padding-inline: 16px 0;
 	}
 	.metadata-property-key > input {
-		font-weight: var(--nav-file-weight);
+		font-weight: var(--font-semi-medium);
 		padding-inline-start: 6px;
 	}
 	.metadata-property-value > * {
@@ -2287,20 +2286,23 @@ button.clickable-icon {
 }
 
 .workspace-drawer-vault-actions .clickable-icon {
-	--icon-color: var(--color-base-100);
+	--icon-color: var(--color-base-90);
+	--icon-opacity: 1;
 }
 .workspace-tab-header-new-tab .clickable-icon {
 	height: 32px;
 	width: 32px;
 	margin-bottom: 2px;
-	--icon-color: var(--color-base-100);
+	--icon-color: var(--color-base-90);
+	--icon-opacity: 1;
 }
 .mod-root .workspace-tab-header-tab-list,
 .sidebar-toggle-button {
 	contain: content;
 	margin-block-start: 1px;
 	padding-block: 8px;
-	--icon-color: var(--color-base-100);
+	--icon-color: var(--color-base-90);
+	--icon-opacity: 1;
 }
 .workspace-tab-header-tab-list .clickable-icon {
 	height: 100%;
@@ -2755,22 +2757,22 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color-hover: var(--nav-item-color);
 	--nav-item-color-active: var(--nav-item-color);
 	--nav-item-background-hover: transparent;
-	--nav-item-weight: var(--nav-file-weight);
-	--nav-item-weight-hover: var(--nav-file-weight);
-	--nav-item-weight-active: var(--nav-file-weight);
+	--nav-item-weight: var(--font-semi-medium);
+	--nav-item-weight-hover: var(--font-semi-medium);
+	--nav-item-weight-active: var(--font-semi-medium);
+	--icon-opacity: 1;
 }
 
 /* Folders */
 :is([data-type="bookmarks"],
 	[data-type="outline"],
 	[data-type="file-explorer"]) {
-	--nav-collapse-icon-color: var(--nav-item-color);
+	--nav-collapse-icon-color: var(--color-base-80);
 }
 
 :is([data-type="bookmarks"],
 	[data-type="file-explorer"]) {
 	.tree-item-self.mod-collapsible {
-		--nav-item-color: var(--text-muted);
 		--nav-item-background-active: var(--color-accent-6);
 	}
 	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible {
@@ -2784,7 +2786,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	.tree-item-children > .tree-item.is-collapsed .tree-item-self.mod-collapsible {
 		--nav-item-background-active: transparent;
 		--text-selection: var(--background-modifier-hover);
-		--nav-item-color: var(--text-muted);
+		--nav-item-color: var(--color-base-80);
 		--nav-collapse-icon-color: var(--nav-folder-color);
 	}
 }
@@ -5249,7 +5251,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
     --nn-theme-file-parent-font-weight: var(--font-normal);
     --nn-theme-file-tag-font-weight: var(--font-semi-medium);
 	--nn-theme-list-header-breadcrumb-font-weight: var(--font-semibold);
-    --nn-theme-list-group-header-font-weight: var(--nav-file-weight);
+    --nn-theme-list-group-header-font-weight: var(--font-semi-medium);
 	--nn-theme-navitem-name-font-weight: var(--font-normal);
     --nn-theme-navitem-count-font-weight: var(--font-normal);
 	/* dimensions */
