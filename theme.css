@@ -377,6 +377,8 @@ body {
 	/* Indentation guide */
 
 	/* Inline title */
+	--inline-title-margin-bottom: 
+		round(nearest, clamp(0px, 0.5em, 1.5rem), 2px);
 
 	/* Inputs */
 	--input-height: 28px;
@@ -1189,8 +1191,8 @@ body:not(.mod-windows, .mod-linux) {
 /* Linux */
 .mod-linux {
 	/* -25 Windows weight */
-	--font-thin: 235;
-	--font-extralight: 260;
+	--font-thin: 275;
+	--font-extralight: 300;
 	--font-light: 325;
 	--font-normal: 425;
 	--font-medium: 525;
@@ -1539,6 +1541,10 @@ thead,
 	:is(p,ul,ol) {
 	margin-block-start: 0;
 }
+.cm-line.HyperMD-header:first-child,
+.metadata-container + * > .cm-content > div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
+    padding-top: 0;
+}
 .markdown-rendered :is(.el-div, .el-blockquote) + div > :is(h1,h2,h3,h4,h5,h6) {
   	margin-block-start: var(--heading-spacing);
 }
@@ -1551,7 +1557,7 @@ thead,
 }
 .markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
 	margin-block-start: round(nearest, 1em, 2px);
-	margin-block-end: round(nearest, clamp(0px, 1em, 1rem), 2px);
+	margin-block-end: round(nearest, 1rem, 2px);
 }
 
 /*--> Headings H1-H6 <--*/
@@ -1565,6 +1571,7 @@ thead,
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
+	margin-block-end: var(--inline-title-margin-bottom);
 	text-indent: -0.0375em;
 	&::after {
 		content: '';
@@ -1577,6 +1584,21 @@ thead,
 		margin-block: 0.375rem 0;
 	}
 }
+.disable-title-h1 .cm-line.HyperMD-header-1, 
+.disable-title-h1 .markdown-rendered h1 {
+	font-size: var(--h1-size-alt);
+	font-weight: var(--h1-weight-alt);
+	&::after {
+		display: none;
+	}
+}
+/* Below H1/inline-title, larger margin-top for smaller headings */
+:not(.disable-title-h1) .el-h1 + div > :is(h2,h3,h4,h5,h6),
+.markdown-reading-view > .markdown-preview-view.markdown-rendered .mod-header.mod-ui + div > :is(h2,h3,h4,h5,h6),
+.markdown-reading-view > .show-properties.hide-metadata .mod-header.mod-ui + .mod-frontmatter + div > :is(h2,h3,h4,h5,h6) {
+	margin-block-start: round(nearest,calc(2.125rem - 0.5em), 2px);
+}
+
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
 	text-indent: -0.0125em;
@@ -1588,19 +1610,6 @@ thead,
 .cm-s-obsidian .cm-line.HyperMD-header-4, 
 .markdown-rendered h4 {
 	text-indent: -0.0075em;
-}
-
-.cm-line.HyperMD-header:first-child,
-.metadata-container + * > .cm-content > div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
-    padding-top: 0;
-}
-.disable-title-h1 .cm-line.HyperMD-header-1, 
-.disable-title-h1 .markdown-rendered h1 {
-	font-size: var(--h1-size-alt);
-	font-weight: var(--h1-weight-alt);
-	&::after {
-		display: none;
-	}
 }
 
 /*--> Blockquotes <--*/
@@ -5697,37 +5706,25 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 }
 
 /* (superheading) - Turns editor H1 into a large Swiss Design heading. */
-.superheading:not(.override, .style-override) :is(
+:is(.large-heading,.super-heading):not(.override, .style-override) :is(
 	.markdown-source-view .HyperMD-header-1, 
 	.markdown-rendered h1) {
-	font-feature-settings: 'ss07', 'calt';
-	font-size: 2.5em;
-	font-weight: var(--font-extralight);
+	padding-block-end: 0.0625em !important;	
 	letter-spacing: -0.05rem;
-	text-indent: -0.04375em;
-	padding-block: 0.125em !important;
-	--bold-modifier: 250;
+	text-indent: -0.03em;
+	--h1-size: 2.25em;
+	--h1-weight: var(--font-extralight);
 }
-/* (supertitle) - Turns editor H1 into a very large Swiss Design heading. */
-.supertitle:not(.override, .style-override, .superheading) :is(
+.super-heading:not(.override, .style-override) :is(
 	.markdown-source-view .HyperMD-header-1, 
 	.markdown-rendered h1) {
-	font-feature-settings: 'ss07', 'ss08', 'calt';
-	font-size: 2.75em;
-	font-weight: var(--font-thin);
-	letter-spacing: -0.0625rem;
-	text-indent: -0.05em;
-	padding-block: 0.125em 0 !important;
-	--bold-modifier: 300;
+	padding-block-end: 0.0625em !important;	
+	--h1-weight: var(--font-semibold);
 	&::after {
 		display: none;
 	}
 }
-.supertitle:not(.override, .style-override, .superheading) :is(
-	.markdown-source-view .HyperMD-header-1, 
-	.markdown-rendered h1) > :is(strong, .cm-strong) {
-	letter-spacing: -0.075rem;
-}
+
 /* (simple-title) - Gives inline title the standard heading style. */
 .simple-title:not(.override, .style-override, .superheading) .inline-title:not([data-level]) {
 	font-size: var(--h1-size-alt);
