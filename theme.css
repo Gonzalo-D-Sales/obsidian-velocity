@@ -1810,6 +1810,11 @@ pre[class*="language-"] code,
 	box-shadow: unset;
 }
 
+.HyperMD-codeblock-begin,
+.HyperMD-codeblock-end {
+	--code-radius: var(--radius-sm);
+}
+
 /*--> Embeds <--*/
 
 body:not(.disable-naked-embeds) {
@@ -2016,45 +2021,28 @@ input[type=checkbox][data-task="<"]:checked,
 
 /* Paragraph: active line highlighting feature */
 .active-line-highlight {
-	.cm-active.cm-line::before {
-		content: '';
-		z-index: -1;
-		width: calc(100% + 1em);
-		top: -0.125em;
-		bottom: -0.125em;
-		right: -0.5em;
-		position: absolute;
-		pointer-events: none;
-		background-color: var(--trans-strong-40);
-		border-radius: 0.5rem;
-	}
-	.cm-active.HyperMD-header:not(.HyperMD-header-1)::before {
-		top: calc(var(--p-spacing) - 0.125em);
-	}
-	.cm-active.HyperMD-header.HyperMD-header-1::before {
-		top: calc(var(--p-spacing) - 0.875em);
-	}
-	.cm-active.HyperMD-list-line::before {
-		width: 100%;
-		right: 0;
-		top: 0;
-		bottom: 0;
-	}
-	.cm-active
-	:is(.HyperMD-hr,
+	.cm-active.HyperMD-header-1::before,
+	.cm-active:not(
+		.HyperMD-header-1,
 		.HyperMD-codeblock,
-		.HyperMD-quote)
-		::before {
-		width: 100%;
-		right: 0;
-		border-radius: 0;
+		.HyperMD-quote)::after {
+		content: '';
+		z-index: -2;
+		inset: -2px -6px;
+		position: absolute;
+		background-color: var(--trans-faint-10);
+		border-radius: var(--radius-s);
 	}
-	.table-editor .cm-active::before {
+
+	.cm-active.cm-line.HyperMD-codeblock {
+		background-color: var(--trans-faint-30);
+	}
+	.cm-active.cm-line.HyperMD-quote {
+		background-color: var(--trans-faint-10);	
+	}
+	.table-cell-wrapper .cm-active::after {
 		display: none;
 	}
-}
-.disable-title-h1 .cm-active.HyperMD-header.HyperMD-header-1::before {
-	top: calc(var(--p-spacing) - 0.75em);
 }
 
 /*--> Links <--*/
