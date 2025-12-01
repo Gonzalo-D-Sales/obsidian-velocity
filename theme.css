@@ -1514,11 +1514,6 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		will-change: margin-bottom;
 	}
 }
-/* smooth scrolling */
-.cm-scroller,
-.markdown-preview-view {
-	scroll-behavior: smooth;
-}
 
 /*--> Typography variation settings <--*/
 
@@ -1886,7 +1881,7 @@ del {
 
 /* highlight flash */
 .view-content .is-flashing {
-	outline: 4px solid var(--text-highlight-bg);
+	box-shadow: 0 0 0 6px var(--text-highlight-bg);
 }
 
 /*--> Highlights <--*/
