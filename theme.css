@@ -171,6 +171,11 @@ settings:
 	description: Highlights the active line with slight backdrop for easier text navigation.  
 	type: class-toggle
 - 	
+	id: alt-font-set
+	title: Alternative font glyphs
+	description: Enables character variants such as a single-storey "a".  
+	type: class-toggle
+- 	
 	id: hide-bases-header
 	title: Cleaner Bases display 
 	description: Hides the filter toolbar options for embedded Bases in Reading mode.
@@ -263,6 +268,10 @@ body {
 	--blockquote-color: var(--text-muted);
 	--blockquote-border-color: var(--color-base-55);
 	--blockquote-border-thickness: 0.1875rem;
+
+	/* Blur values */
+	--blur-s: blur(8px);
+	--blur-m: blur(12px);
 
 	/* Bold */
 	--bold-color: var(--color-base-100);
@@ -372,9 +381,11 @@ body {
 	--icon-color-focused: var(--icon-color-hover);
 
 	/* Indent size */
-	--indent-unit: 0.5em;
+	--indent-unit: 0.375em;
 
 	/* Indentation guide */
+	--indentation-guide-width: 0;
+	--nav-indentation-guide-width: 0;
 
 	/* Inline title */
 	--inline-title-margin-bottom: 
@@ -413,7 +424,6 @@ body {
 	--math-color: var(--text-normal);
 
 	/* File navigator */
-	--nav-indentation-guide-width: 0;
 	--nav-collapse-icon-color: var(--trans-faint-60);
 
 	/* Metadata */
@@ -442,7 +452,7 @@ body {
 	/* PDF view */
 	--pdf-shadow: none !important;
 	--pdf-spread-shadow: none;
-	--pdf-thumbnail-shadow: var(--shadow-s);
+	--pdf-thumbnail-shadow: var(--shadow-input);
 
 	/* Prompts - e.g. quick switcher, command palette */
 	--prompt-border-color: var(--menu-border-color);
@@ -535,7 +545,7 @@ body {
 	/* Toggles */
 	--toggle-width: 44px;
 	--toggle-border-width: 4px;
-	--toggle-thumb-color: var(--text-on-accent);
+	--toggle-thumb-color: white;
 	--toggle-thumb-width: 12px;
 	--toggle-thumb-height: 12px;
 	--toggle-s-border-width: 4px;
@@ -634,8 +644,6 @@ body {
 	--text-muted: var(--color-base-70);
 	--text-faint: var(--color-base-50);
 	--text-selection: hsla(var(--color-accent-hsl), 0.15);
-	--text-success-bg: oklch(from var(--color-green) 0.53125 0.4 h);
-	--text-success-faint: color-mix(in oklab, var(--color-green), transparent 0.375);
     --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.3125);
 	--text-highlight-bg-rgb: var(--color-highlight-rgb);
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
@@ -646,8 +654,6 @@ body {
 
 	--bg-main-inner: var(--color-base-05);
 	--bg-main-outer: var(--color-base-50);
-	--bg-menu-inner: var(--color-base-10);
-	--bg-menu-outer: var(--color-base-30);
 	
 	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
 		var(--bg-main-inner) 30%, 
@@ -659,7 +665,7 @@ body {
 	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-10);
 
-	--color-accent-1: color-mix(in oklch, var(--color-accent), transparent 10%);
+	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
 	--color-accent-3: color-mix(in oklch, var(--color-accent), transparent 5%);
 	--color-accent-4: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
@@ -955,8 +961,6 @@ body {
 	
 	--text-normal: var(--color-base-90);
 	--text-selection: hsla(var(--color-accent-hsl), 0.15);
-	--text-success-bg: oklch(from var(--color-green) 0.53125 0.4 h);
-	--text-success-faint: color-mix(in oklab, var(--color-green), transparent 37.5%);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.75 0.25 h / 0.25);
 	--text-highlight-bg-rgb: var(--color-highlight-rgb);
@@ -983,7 +987,6 @@ body {
 	--background-modifier-hover: var(--trans-faint-10);
 
 	--hotkey-gradient: linear-gradient(to top, var(--color-accent) -10%, var(--color-accent-4) 210%);
-	--success-gradient: linear-gradient(to top, var(--text-success-bg) -20%, #FFF 220%);
 	--toggle-gradient: linear-gradient(to bottom, var(--color-accent) -30%, var(--color-accent-4) 180%);
 	--warning-gradient: linear-gradient(to top, var(--color-red) -30%, var(--trans-strong-20) 180%);
 	
@@ -1053,11 +1056,9 @@ body {
 
 	--workspace-border-color: var(--trans-faint-25);
 
-	--input-shadow: 
-		inset 0 1px 1px 0.5px var(--trans-faint-25),
-		inset 0 0.0625px 0 0.25px var(--trans-strong-40),
-		0px 1.25px 2.5px 0px var(--trans-dark-10);
+	--input-shadow: none;
 	--input-shadow-hover: var(--input-shadow);
+
 	--shadow-normal: 
 		0 -0.25px 0px 1px var(--trans-faint-25),
 		0 0.75px 7px -2px var(--trans-dark-00);
@@ -1081,14 +1082,8 @@ body {
 		-0.25px 1px 1.5px 0.5px var(--trans-strong-40);
 	--shadow-muted: 
 		0px 8px 16px 0px var(--trans-strong-10);	
-	--shadow-track:
-		0 0.75px 0px 0.25px var(--trans-faint-40),
-		inset 0 0.75px 1px 0px var(--trans-dark-00),
-		inset 0 4px 20px -3px var(--trans-dark-10);
-	--shadow-toggle:
-		inset 0 1.5px 3px 0px var(--trans-dark-00);
 
-	& .mod-root, .mod-sidedock {
+
 	--bases-cards-shadow: 
 		var(--shadow-code);
 	--bases-cards-shadow-hover: 
@@ -1107,19 +1102,15 @@ body {
 		inset 0 -1px 2.5px 0px var(--trans-strong-00),
 		0 5px 15px -1.5px var(--color-accent-5),
 		0 5px 15px -3px var(--trans-dark-00);
-	}
-	& .modal, .menu {
 	--shadow-setting-item: 
 		0 4px 12px 0 var(--trans-strong-10);
-	}
-	& .mod-sidedock, .view-header {
+	
 	--shadow-sidebar: 
 		0 -1px 0 0.25px var(--trans-faint-00),
 		0 1px 0 -0.125px var(--color-base-05);
 	--tab-container-shadow: 
 		inset 0 -0.625px 1px 0 var(--trans-faint-20),
 		inset 0 0.375px 1.375px 0px var(--trans-dark-00);
-	}
 }
 
 /*--> Theme Default Typeface <--*/
@@ -1260,20 +1251,31 @@ button:active,
 	background-color var(--anim-super-smooth),
 	filter var(--anim-super-delay);
 }
-button:not(.clickable-icon):active,
-button:not(.clickable-icon):hover:active,
+button:not(.clickable-icon,[class*="mod-"]):active,
+button:not(.clickable-icon,[class*="mod-"]):hover:active,
 .metadata-add-button:active,
 .metadata-add-button:hover:active {
+	background-color: var(--interactive-hover);
 	filter: opacity(60%);
 }
+button:not([class*="mod-"]):focus-visible {
+	background-color: var(--interactive-hover);
+}
+
 button[class*="mod-"]:active,
 button[class*="mod-"]:hover:active,
 :is(.mod-root, .popover) .metadata-add-button:active,
 :is(.mod-root, .popover) .metadata-add-button:hover:active {
 	filter: brightness(1.0625) opacity(70%);
 }
+button[class*="mod-"]:focus-visible {
+	filter: brightness(1.0625) opacity(81.25%);
+}
+
 button.mod-cta,
 button.mod-warning,
+button.mod-cta:focus,
+button.mod-warning:focus,
 :is(.mod-root, .popover) .metadata-add-button,
 .file-recovery-list-item-header.is-active {
 	box-shadow: var(--shadow-button);
@@ -1284,6 +1286,7 @@ button.mod-cta:hover,
 	filter: brightness(1.0625);
 }
 
+
 button.mod-warning {
 	color: var(--text-color);
 }
@@ -1292,6 +1295,9 @@ button.mod-warning {
 
 :is(select,.dropdown) {
 	contain: content;
+} 
+:is(select,.dropdown):focus {
+	background-color: var(--dropdown-background-hover);
 } 
 /* .modal button:not(.clickable-icon,.mod-cta):focus,
 :is(select,.dropdown):focus-within {
@@ -1509,24 +1515,26 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 
 /*--> Typography variation settings <--*/
 
-/* .markdown-source-view,
-.markdown-preview-view,
-.bases-table-cell,
-.value-list-element > a,
-.bases-cards-property {
-	font-feature-settings: 'cv11';
+.alt-font-set {
+	.markdown-source-view,
+	.markdown-preview-view,
+	.bases-table-cell,
+	.value-list-element > a,
+	.bases-cards-property {
+		font-feature-settings: 'cv11';
+	}
+	thead,
+	.bases-header,
+	.bases-thead,
+	.bases-cards-property.mod-title,
+	.tag,
+	.todoist-callout,
+	.todoist-group,
+	.metadata-content,
+	#calendar-container {
+		font-feature-settings: 'cv11' off, 'calt';
+	}
 }
-thead,
-.bases-header,
-.bases-thead,
-.bases-cards-property.mod-title,
-.tag,
-.todoist-callout,
-.todoist-group,
-.metadata-content,
-#calendar-container {
-	font-feature-settings: 'cv11' off, 'calt';
-} */
 
 /*
 =========================== ===========================
@@ -3185,13 +3193,11 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	}
 }
 /* View header Title */
-.view-header-title-container {
-	font-variation-settings: 'opsz' 20;
-	letter-spacing: 0.0125em;
+.view-header-title-container { 
 	margin-inline-end: 4px;
 }
-.workspace-leaf-content > .view-header > .view-header-title-container > .view-header-title {
-	color: var(--color-base-80);
+.view-header-title {
+	color: var(--text-normal);
 }
 .view-header-title-parent {
 	color: var(--text-faint);
@@ -3254,9 +3260,9 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	}
 	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
 		box-shadow: var(--shadow-fab-active);
-		--icon-color: var(--color-accent-3);
-		--icon-color-hover: var(--color-accent-3);
-		--icon-color-focused: var(--color-accent-3);
+		--icon-color: var(--interactive-accent);
+		--icon-color-hover: var(--icon-color);
+		--icon-color-focused: var(--icon-color);
 		& .svg-icon {
 			filter: opacity(100%);
 			transition: inherit;
@@ -3529,66 +3535,35 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
 
 /*--> PDF viewer <--*/
 
-.pdfViewer .page {
-    border: 0;
+.pdfViewer > .page {
+    border: unset;
 }
 
-.pdf-toolbar {
-    padding: 12px 16px 4px;
-}
 .pdf-toolbar-left {
-	.clickable-icon {
-		padding: 6px 12px;
+	> .clickable-icon {
+		padding: 8px;
 		--icon-stroke: var(--icon-m-stroke-width);
 		--icon-color: var(--text-muted);
 	}
-	> :is(.pdf-toolbar-spacer, .pdf-toolbar-divider)
-	+ .clickable-icon {
-		contain: content;
-		background-color: var(--fab-bg);
-		box-shadow: var(--shadow-fab);
-		padding: 8px 12px;
-		> * {
-			transition: var(--anim-fast-swing);
-		}
-			&:active > * {
-			transform: scale(0.8125);
-		}
-	}
-	.pdf-toolbar-divider {
-		visibility: hidden;
-		margin-inline: -4.5px;
-	}
-	.pdf-toolbar-spacer + .clickable-icon {
-		border-radius: 40px 0 0 40px;
-		padding-inline-end: 10px;
-		transform-origin: right;
-		clip-path: inset(-8px 0 -8px -8px);
-	}
-	.pdf-toolbar-divider + .clickable-icon {
-		border-radius: 0 40px 40px 0;
-		padding-inline-start: 10px;
-		margin-inline-end: 4px;
-		transform-origin: left;
-		clip-path: inset(-8px -8px -8px 0);
-	}	
-	.pdf-page-input {
+	> .pdf-page-input {
 		margin-inline-end: 2px;
-		width: 7.5ch;
 		--input-height: 26px;
-		--input-radius: var(--radius-s);
 	}
 }
-.pdf-sidebar-container .thumbnail {
-	border-radius: var(--radius-ml);
+.pdf-sidebar-container {
+	--divider-width: 1px;
 }
-.pdf-sidebar-container .thumbnail > img,
-.pdf-sidebar-container .thumbnail::before  {
-	border-radius: var(--radius-s);
+.pdf-sidebar-container {
+	.thumbnail {
+		border-radius: var(--radius-m);
+	}
+	.thumbnail > img,
+	.thumbnail::before  {
+		border-radius: var(--radius-xs);
+	}
 }
-/* Sidebar PDF viewer */
 .mod-sidedock .pdf-toolbar {
-    padding: 8px 10px;
+    padding: 8px;
 }
 
 /*--> Empty State <--*/
@@ -3652,7 +3627,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal) {
 	background-color: var(--modal-background);
-	backdrop-filter: blur(8px);
+	backdrop-filter: var(--blur-s);
 	border: unset;
 
 }
@@ -3980,7 +3955,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .community-modal-controls {
 	background-color: var(--trans-strong-10);
-	backdrop-filter: blur(12px);
+	backdrop-filter: var(--blur-m);
 	border-radius: calc(var(--modal-radius) - 7px); 
 	box-shadow: var(--glass-base-m), var(--shadow-muted);
 	contain: content;
@@ -4082,12 +4057,25 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	border-radius: calc(var(--radius-xs) + 1px);
 }
 .community-item .flair {
+	contain: content;
 	font-weight: var(--font-semibold);
 	border-radius: var(--radius-l);
 	padding-inline: 6px;
 	padding-block: var(--flair-padding);
-	contain: content;
 	text-indent: 1px;
+}
+.community-item-badge.mod-update {
+	contain: content;
+	color: var(--text-success);
+	background-color: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
+	border-radius: 0 var(--radius-sm) 0 var(--radius-sm);
+	margin: -9px;
+	padding: 7px 7px 4px 8px;
+	--icon-size: var(--icon-s);
+}
+.community-item.is-selected .community-item-badge.mod-update {
+	color: white;
+	background-color: var(--interactive-accent);
 }
 
 /* FROM: Willemstad */
@@ -4108,7 +4096,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 .prompt {
 	box-shadow: var(--glass-base-l), var(--shadow-strong);
 	background-color: var(--modal-background);
-	backdrop-filter: blur(12px);
+	backdrop-filter: var(--blur-m);
 	border-radius: 23px;
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
@@ -4225,13 +4213,13 @@ input.prompt-input:hover {
 
 .suggestion-container {
 	background-color: var(--modal-background);
-	backdrop-filter: blur(8px);
+	backdrop-filter: var(--blur-s);
 	box-shadow: var(--menu-shadow);
 	border: 1px solid var(--menu-border-color);
 	border-radius: var(--radius-m);
 }
 .mod-dim + .suggestion-container {
-	backdrop-filter: blur(12px);
+	backdrop-filter: var(--blur-m);
 }
 
 .mod-search-suggestion .suggestion {
@@ -5069,21 +5057,14 @@ div[class*="el-h"] + * .dataview-container .contains-task-list {
     background-color: var(--nav-item-background-active);
 	margin-top: 16px;
 }
-.image-convert-modal .settings-container > * {
-	border-radius: var(--radius-sm);
-}
-.image-convert-modal h2 {
-	margin-top: 0;
-}
-
-.process-single-image-modal .preview-image-container {
+.process-single-image-modal > .preview-image-container {
 	background-color: var(--background-primary);
 	border: none !important;
 	border-radius: var(--radius-sm);
 	box-shadow: var(--shadow-setting-item);
 	margin-block-start: 8px !important;
 }
-.process-single-image-modal-buttons .setting-item {
+.process-single-image-modal-buttons > .setting-item {
 	padding-bottom: unset;
 }
 
@@ -5174,7 +5155,7 @@ button:not(.mod-cta):not(.mod-warning).editingToolbarSettingsIcon {
 }
 
 /*--> Kanban <--*/
-
+/* 
 .kanban-plugin__scroll-container {
     will-change: unset;
 }
@@ -5209,7 +5190,7 @@ button.kanban-plugin__new-item-button {
 }
 .kanban-plugin__item-button-plus {
 	display: none;
-}
+} */
 
 /*--> Notebook Navigator <--*/
 
