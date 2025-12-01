@@ -385,6 +385,7 @@ body {
 
 	/* Indentation guide */
 	--indentation-guide-width: 0;
+	--indentation-guide-width-active: 0;
 	--nav-indentation-guide-width: 0;
 
 	/* Inline title */
@@ -705,6 +706,7 @@ body {
 
 	--search-result-background: var(--trans-strong-20);
 
+	--settings-background: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
 	--setting-item-bg: var(--background-primary);
 	--setting-item-border-color: oklch(0.000% 0 0 / 0.1);
 
@@ -1512,6 +1514,11 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		will-change: margin-bottom;
 	}
 }
+/* smooth scrolling */
+.cm-scroller,
+.markdown-preview-view {
+	scroll-behavior: smooth;
+}
 
 /*--> Typography variation settings <--*/
 
@@ -1877,6 +1884,11 @@ del {
     color: inherit;
 }
 
+/* highlight flash */
+.view-content .is-flashing {
+	outline: 4px solid var(--text-highlight-bg);
+}
+
 /*--> Highlights <--*/
 
 .cm-s-obsidian span.cm-highlight,
@@ -1916,6 +1928,9 @@ del {
 
 /*--> Images <--*/
 
+audio, img, video {
+    border-radius: var(--radius-s);
+}
 .image-embed img, .markdown-rendered img {
     border-radius: var(--radius-sm);
 }
@@ -1940,7 +1955,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 		--heading-spacing: round(nearest, clamp(0px, 2em, 3rem), 2px);
 	}
 	.markdown-rendered .el-p + .el-p > p {
-		margin-block-start: 1.1875rem;
+		margin-block-start: 1.125rem;
 	}
 }
 .markdown-rendered :is(ol, ul) > li {
@@ -2899,11 +2914,11 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	line-height: var(--line-height-normal);
 }
 
-.outgoing-link-item .tree-item-icon {
-	padding-block-start: 4px;
+.outgoing-link-item > .tree-item-icon {
+	margin-block-start: 3px;
 }
-.outgoing-link-item[aria-label] .tree-item-icon {
-	padding-block-start: 2px;
+.outgoing-link-item[aria-label] > .tree-item-icon {
+	margin-block-start: 1px;
 }
 
 /* special code for uncreated outgoing links */
@@ -3741,8 +3756,8 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 
 .modal-container > .modal.mod-settings {
 	contain: content;
-	background-color: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
-	border-radius: var(--radius-settings);
+	background-color: var(--settings-background);
+	--modal-radius: var(--radius-settings);
 }
 .modal-container.mod-dim .vertical-tabs-container {
 	--scrollbar-thumb-bg: var(--trans-strong-40);
@@ -3923,11 +3938,11 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 
 .mod-community-modal,
 .mod-community-modal .modal-sidebar {
-	animation: var(--anim-duration-fast) anim-settings var(--vl-ease-out);
-	background-color: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
-	border-radius: var(--radius-settings);
 	contain: content;
-	padding-top: 8px;
+	background-color: var(--settings-background);
+	padding-block-start: 8px;
+	animation: var(--anim-duration-fast) anim-settings var(--vl-ease-out);
+	--modal-radius: var(--radius-settings);
 }
 .community-modal-empty-state.is-loading::before {
     top: 12px;
@@ -3942,7 +3957,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	.setting-item:first-child {
 		position: initial;
 		padding-inline: 0;
-		margin-bottom: 4px;
+		margin-block-end: 4px;
 	}	
 	& .community-modal-controls 
 	.setting-item.mod-toggle {
@@ -3956,7 +3971,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .community-modal-controls {
 	background-color: var(--trans-strong-10);
 	backdrop-filter: var(--blur-m);
-	border-radius: calc(var(--modal-radius) - 7px); 
+	border-radius: calc(var(--radius-settings) - 14px); 
 	box-shadow: var(--glass-base-m), var(--shadow-muted);
 	contain: content;
 	padding: 0 20px;
@@ -4246,10 +4261,13 @@ input.prompt-input:hover {
 }
 
 .is-loading::before {
-	margin-block-start: 2px;
 	border-radius: var(--radius-m);
 	background: linear-gradient(to right, var(--color-accent-4), var(--color-accent) 50%);
 }
+.modal-content .is-loading::before {
+	margin-block-start: 2px;
+}
+
 /*
 =========================== ===========================
 			5 - Mobile
