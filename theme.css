@@ -297,7 +297,7 @@ body {
 	--code-normal: var(--text-normal);
 
 	/* Collapse icons */
-  	--collapse-icon-color-collapsed: var(--text-normal);
+  	--collapse-icon-color-collapsed: var(--color-base-100);
 
 	/* Cursor */
 
@@ -327,15 +327,14 @@ body {
 	--font-ui-larger: 26px;
 
 	/* Font weights */
-	--font-thin: 210;
-	--font-extralight: 260;
-	--font-light: 300;
-	--font-normal: 400;
-	--font-medium: 500;
-	--font-semibold: 600;
-	--font-bold: 700;
-	--font-extrabold: 800;
-	--font-black: 900;
+	--font-thin: 275;
+	--font-extralight: 300;
+	--font-light: 325;
+	--font-normal: 425;
+	--font-medium: 525;
+	--font-semibold: 625;
+	--font-bold: 725;
+	--font-extrabold: 825;
 
 	--font-semi-medium: calc(var(--font-normal) + 50);
 	--font-normal-linux: var(--font-normal);
@@ -353,20 +352,20 @@ body {
 	--h4-color: var(--color-base-90);
 	--h5-color: var(--color-base-80);
 	--h6-color: var(--color-base-70);
-	--h1-weight-alt: 600;
-	--h1-size-alt: 1.875em;
+	--h1-size-alt: 1.625em;
 	--h1-size: 2em;
 	--h2-size: 1.5em;
 	--h3-size: 1.375em;
 	--h4-size: 1.25em;
 	--h5-size: 1.125em;
 	--h6-size: 1em;
-	--h1-weight: 335;
+	--h1-weight-alt: 625;
+	--h1-weight: 350;
 	--h2-weight: 550;
 	--h3-weight: 550;
 	--h4-weight: 550;
 	--h5-weight: 600;
-	--h6-weight: 700;
+	--h6-weight: 650;
 	
 	--header-height: 52px;
 	
@@ -416,7 +415,7 @@ body {
 		oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
 
 	/* Lists */
-	--list-spacing: 0.175em;
+	--list-spacing: 0.15em;
 	--list-marker-color: var(--color-base-50);
 
 	/* Math */
@@ -1151,27 +1150,29 @@ body:not(.override-default-font) {
 /* macOS */
 .mod-macos,
 body:not(.mod-windows, .mod-linux) {
-	--flair-padding: 2px;
-	/* -50 Windows weight */
-	--font-thin: 225;
-	--font-extralight: 250;
-	/* --font-extralight: 250;
+	/* font weights (-25 Linux weight) */
+	--font-thin: 250;
+	--font-extralight: 275;
 	--font-light: 300;
 	--font-normal: 400;
 	--font-medium: 500;
 	--font-semibold: 600;
 	--font-bold: 700;
-	--font-extrabold: 800; */
-	--h1-weight-alt: 525;
-	--h1-weight: 260;
-	--h2-weight: 500;
-	--h3-weight: 500;
-	--h4-weight: 500;
-	--h5-weight: 600;
-	--h6-weight: 650;
+	--font-extrabold: 800;
+	/* heading weights */
+	--h1-weight-alt: 600;
+	--h1-weight: 325;
+	--h2-weight: 525;
+	--h3-weight: 525;
+	--h4-weight: 525;
+	--h5-weight: 575;
+	--h6-weight: 575;
+
 	/* frame spacing and autohide override */
 	--frame-right-space-override: 36px;
 	--frame-left-space-override: 80px;
+
+	--flair-padding: 2px;
 }
 .mod-macos.is-hidden-frameless .workspace .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container {
   padding-right: 36px;
@@ -1182,31 +1183,16 @@ body:not(.mod-windows, .mod-linux) {
 
 /* Linux */
 .mod-linux {
-	/* -25 Windows weight */
-	--font-thin: 275;
-	--font-extralight: 300;
-	--font-light: 325;
-	--font-normal: 425;
-	--font-medium: 525;
-	--font-semibold: 625;
-	--font-bold: 725;
-	--font-extrabold: 825;
-	--h1-weight-alt: 525;
-	--h1-weight: 350;
-	--h2-weight: 550;
-	--h3-weight: 550;
-	--h4-weight: 550;
-	--h5-weight: 600;
-	--h6-weight: 650;
+	/* counteracts unusually light weight text on top of accents */
 	--font-normal-linux: var(--font-semi-medium);
-}
-/* Linux font weight tweak (WIP test if needed on macOS) */
-.mod-linux button[class*="mod-"]:not([class="mod-cancel"]),
-:is(.mod-root, .popover) .metadata-add-button {
-	font-weight: var(--font-normal-linux);
 }
 
 /* Windows */
+
+.mod-windows {
+	/* NEEDS TESTING; FOR NOW EQUAL TO LINUX */
+}
+
 .mod-windows .mod-sidedock .workspace-tab-header {
 	transform: translateY(-0.5px); 
 }
@@ -1281,6 +1267,7 @@ button.mod-warning:focus,
 :is(.mod-root, .popover) .metadata-add-button,
 .file-recovery-list-item-header.is-active {
 	box-shadow: var(--shadow-button);
+	font-weight: var(--font-normal-linux);
 }
 button.mod-cta:hover,
 :is(.mod-root, .popover) .metadata-add-button:hover {
