@@ -317,8 +317,7 @@ body {
 
 	/* File layout */
 	--file-line-width: 43.75rem;
-	--file-margin-y: 28px;
-	--file-margins: var(--file-margin-y) 5%;
+	--file-margins: 32px 5%;
 	--file-header-font-weight: var(--font-semi-medium);
 
 	/* Relative font sizes */
@@ -351,22 +350,22 @@ body {
 	--h1-color: var(--color-base-90);
 	--h2-color: var(--color-base-90);
 	--h3-color: var(--color-base-90);
-	--h4-color: var(--color-base-80);
-	--h5-color: var(--color-base-70);
-	--h6-color: var(--color-base-60);
+	--h4-color: var(--color-base-90);
+	--h5-color: var(--color-base-80);
+	--h6-color: var(--color-base-70);
 	--h1-weight-alt: 600;
 	--h1-size-alt: 1.875em;
-	--h1-size: 2.125em;
-	--h2-size: 1.5625em;
-	--h3-size: 1.4125em;
-	--h4-size: 1.2125em;
-	--h5-size: 1.0875em;
+	--h1-size: 2em;
+	--h2-size: 1.5em;
+	--h3-size: 1.375em;
+	--h4-size: 1.25em;
+	--h5-size: 1.125em;
 	--h6-size: 1em;
 	--h1-weight: 335;
 	--h2-weight: 550;
 	--h3-weight: 550;
-	--h4-weight: 650;
-	--h5-weight: 650;
+	--h4-weight: 550;
+	--h5-weight: 600;
 	--h6-weight: 700;
 	
 	--header-height: 52px;
@@ -610,7 +609,7 @@ body {
 	--base-sat-low: 0.00050;
 
 	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(98.80% var(--base-sat-med) var(--base-hue));
+	--color-base-05: oklch(99.40% var(--base-sat-low) var(--base-hue));
 	--color-base-10: oklch(96.20% var(--base-sat-str) var(--base-hue));
 	--color-base-20: oklch(92.00% var(--base-sat-str) var(--base-hue));
 	--color-base-25: oklch(88.25% var(--base-sat-str) var(--base-hue)); 
@@ -620,15 +619,15 @@ body {
 	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-60: oklch(55.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(46.25% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(46.50% var(--base-sat-xtr) var(--base-hue));
 	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(23.00% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
 
-	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.950);
-	--trans-strong-10: oklch(from var(--color-base-00) l c h / 0.750);
-	--trans-strong-20: oklch(from var(--color-base-00) l c h / 0.625);
-	--trans-strong-30: oklch(from var(--color-base-00) l c h / 0.400);
+	--trans-strong-00: oklch(100% 0 0 / 0.950);
+	--trans-strong-10: oklch(100% 0 0 / 0.750);
+	--trans-strong-20: oklch(100% 0 0 / 0.625);
+	--trans-strong-30: oklch(100% 0 0 / 0.400);
 	--trans-strong-40: oklch(from var(--color-base-50) l c h / 0.100);
 	
 	--trans-faint-00: oklch(62.50% 0 0 / 0.0300);
@@ -653,12 +652,12 @@ body {
 	
 	--link-unresolved-lch: 0.625;
 
-	--bg-main-inner: var(--color-base-05);
-	--bg-main-outer: var(--color-base-50);
+	--bg-main-inner: oklch(99.50% 0.001 var(--base-hue));
+	--bg-main-outer: oklch(88.50% 0.005 var(--base-hue)); 
 	
-	--background-gradient: radial-gradient( at 50% calc(50% + 22px), 
-		var(--bg-main-inner) 30%, 
-		var(--bg-main-outer) 330%
+	--background-gradient: radial-gradient( at 50% 50%, 
+		var(--bg-main-inner) 15%, 
+		var(--bg-main-outer) 175%
 		);
 		
 	--background-modifier-border: var(--trans-faint-20);
@@ -706,7 +705,7 @@ body {
 
 	--search-result-background: var(--trans-strong-20);
 
-	--settings-background: color-mix(in oklab, var(--background-secondary) 66%, var(--color-base-20));
+	--settings-background: color-mix(in oklab, var(--background-secondary) 70%, var(--color-base-20));
 	--setting-item-bg: var(--background-primary);
 	--setting-item-border-color: oklch(0.000% 0 0 / 0.1);
 
@@ -853,7 +852,8 @@ body {
 	--base-sat-med: 0;
 	--base-sat-low: 0;
 
-	--bg-main-outer: var(--color-base-40);
+	--bg-main-inner: oklch(99.50% 0 0);
+	--bg-main-outer: oklch(77.50% 0 0);
 
 	--color-base-70: oklch(47.50% var(--base-sat-xtr) var(--base-hue));
 	--color-base-80: oklch(45.00% var(--base-sat-str) var(--base-hue)); 
@@ -888,8 +888,8 @@ body {
 	--base-sat-med: 0.00125;
 	--base-sat-low: 0.00000;
 
-	--bg-main-inner: oklch(98.75% var(--base-sat-str) var(--base-hue));
-	--bg-main-outer: oklch(75.75% var(--base-sat-xtr) var(--base-hue)); 
+	--bg-main-inner: oklch(99.50% 0.003 var(--base-hue));
+	--bg-main-outer: oklch(77.50% 0.012 var(--base-hue));
 
 	--color-base-05: oklch(98.80% var(--base-sat-low) var(--base-hue));
 
@@ -1166,7 +1166,7 @@ body:not(.mod-windows, .mod-linux) {
 	--h1-weight: 260;
 	--h2-weight: 500;
 	--h3-weight: 500;
-	--h4-weight: 600;
+	--h4-weight: 500;
 	--h5-weight: 600;
 	--h6-weight: 650;
 	/* frame spacing and autohide override */
@@ -1192,12 +1192,12 @@ body:not(.mod-windows, .mod-linux) {
 	--font-bold: 725;
 	--font-extrabold: 825;
 	--h1-weight-alt: 525;
-	--h1-weight: 310;
-	--h2-weight: 525;
-	--h3-weight: 525;
-	--h4-weight: 625;
-	--h5-weight: 625;
-	--h6-weight: 675;
+	--h1-weight: 350;
+	--h2-weight: 550;
+	--h3-weight: 550;
+	--h4-weight: 550;
+	--h5-weight: 600;
+	--h6-weight: 650;
 	--font-normal-linux: var(--font-semi-medium);
 }
 /* Linux font weight tweak (WIP test if needed on macOS) */
@@ -1546,15 +1546,11 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 
 /*--> Heading and Paragraph spacing/margins <--*/
 
-.markdown-preview-view :is(.el-h1,.el-h2,.el-h3,.el-h4,.el-h5,.el-h6) + * > 
-	:is(p,ul,ol) {
-	margin-block-start: 0;
-}
 .cm-line.HyperMD-header:first-child,
-.metadata-container + * > .cm-content > div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
-    padding-top: 0;
+:not(.show-properties) div[contenteditable="false"] + .cm-line.HyperMD-header {
+    padding-block-start: unset;
 }
-.markdown-rendered :is(.el-div, .el-blockquote) + div > :is(h1,h2,h3,h4,h5,h6) {
+.markdown-rendered :is(.el-div, .el-blockquote) + div[class*="el-h"] > * {
   	margin-block-start: var(--heading-spacing);
 }
 .markdown-rendered .el-div + .el-p > p,
@@ -1580,8 +1576,9 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
+	letter-spacing: -0.0125em;
 	margin-block-end: var(--inline-title-margin-bottom);
-	text-indent: -0.0375em;
+	text-indent: -0.025em;
 	&::after {
 		content: '';
 		contain: content;
@@ -1601,19 +1598,15 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		display: none;
 	}
 }
-/* Below H1/inline-title, larger margin-top for smaller headings */
-:not(.disable-title-h1) .el-h1 + div > :is(h2,h3,h4,h5,h6),
-.markdown-reading-view > .markdown-preview-view.markdown-rendered .mod-header.mod-ui + div > :is(h2,h3,h4,h5,h6),
-.markdown-reading-view > .show-properties.hide-metadata .mod-header.mod-ui + .mod-frontmatter + div > :is(h2,h3,h4,h5,h6) {
-	margin-block-start: round(nearest,calc(2.125rem - 0.5em), 2px);
-}
 
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
+	letter-spacing: -0.00625em;
 	text-indent: -0.0125em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-3, 
 .markdown-rendered h3 {
+	letter-spacing: -0.00625em;
 	text-indent: -0.01em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-4, 
@@ -2585,7 +2578,7 @@ body:not(.is-mobile) .mod-root .workspace-tab-container {
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
-	--file-margins: var(--file-margin-y) 32px;
+	--file-margins: 32px;
 }
 body:not(.is-mobile) .workspace, .workspace-tab-container, .mod-root {
     transition: 
@@ -2595,7 +2588,7 @@ body:not(.is-mobile) .workspace, .workspace-tab-container, .mod-root {
 }
 /* margin adjustment when there is no view header */
 body:not(.is-mobile):not(.show-view-header) {
-    --file-margin-y: 56px;
+    --file-margins: 72px 32px;
 }
 
 /* FROM: Cupertino */
