@@ -317,7 +317,7 @@ body {
 
 	/* File layout */
 	--file-line-width: 43.75rem;
-	--file-margins: 32px 5%;
+	--file-margins: 28px 5%;
 	--file-header-font-weight: var(--font-semi-medium);
 
 	/* Relative font sizes */
@@ -336,7 +336,7 @@ body {
 	--font-bold: 725;
 	--font-extrabold: 825;
 
-	--font-semi-medium: calc(var(--font-normal) + 50);
+	--font-semi-medium: calc(var(--font-normal) + 75);
 	--font-normal-linux: var(--font-normal);
 
 	/* Footnotes */
@@ -367,7 +367,7 @@ body {
 	--h5-weight: 600;
 	--h6-weight: 650;
 	
-	--header-height: 52px;
+	--header-height: 56px;
 	
 	/* Icons */ 
 	--icon-stroke-thick: 2.25px;
@@ -619,7 +619,7 @@ body {
 	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
 	--color-base-60: oklch(55.75% var(--base-sat-xtr) var(--base-hue));
 	--color-base-70: oklch(46.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(42.00% var(--base-sat-str) var(--base-hue)); 
+	--color-base-80: oklch(40.00% var(--base-sat-str) var(--base-hue)); 
 	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
    --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
 
@@ -632,7 +632,7 @@ body {
 	--trans-faint-00: oklch(62.50% 0 0 / 0.0300);
 	--trans-faint-05: oklch(20.00% 0 0 / 0.0275);
 	--trans-faint-10: oklch(05.00% 0 0 / 0.0550);
-	--trans-faint-20: oklch(0.000% 0 0 / 0.0600);
+	--trans-faint-20: oklch(0.000% 0 0 / 0.0625);
 	--trans-faint-25: oklch(0.000% 0 0 / 0.0700);
 	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
 	--trans-faint-40: oklch(0.000% 0 0 / 0.1125);
@@ -643,7 +643,7 @@ body {
 	--text-muted: var(--color-base-70);
 	--text-faint: var(--color-base-50);
 	--text-selection: hsla(var(--color-accent-hsl), 0.15);
-    --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.3125);
+    --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
 	--text-highlight-bg-rgb: var(--color-highlight-rgb);
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
 	--text-highlight-bg-search: var(--text-highlight-bg);
@@ -651,18 +651,18 @@ body {
 	
 	--link-unresolved-lch: 0.625;
 
-	--bg-main-inner: oklch(99.50% 0.001 var(--base-hue));
-	--bg-main-outer: oklch(88.50% 0.005 var(--base-hue)); 
+	--bg-main-inner: oklch(99.00% 0.00125 281);
+	--bg-main-outer: oklch(93.75% 0.005 281); 
 	
 	--background-gradient: radial-gradient( at 50% 50%, 
-		var(--bg-main-inner) 15%, 
-		var(--bg-main-outer) 175%
+		var(--bg-main-inner) 25%, 
+		var(--bg-main-outer) 100%
 		);
 		
 	--background-modifier-border: var(--trans-faint-20);
 	--background-modifier-border-focus: transparent;
 	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
-	--background-modifier-hover: var(--trans-faint-10);
+	--background-modifier-hover: var(--trans-faint-20);
 
 	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
@@ -689,7 +689,7 @@ body {
 	--link-color-sidebar: var(--color-accent-1);
 
 	--list-bullet-color: var(--text-muted);
-	--list-dash-color: var(--text-faint);
+	--list-dash-color: oklch(0.00% 0 0 / 0.25);
 
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
@@ -726,7 +726,7 @@ body {
 	--tab-sidebar-bg-top-left: var(--trans-strong-10);
 	--tab-sidebar-container-bg: color-mix(in oklab, var(--trans-faint-05) 70%, var(--trans-faint-10) 30%);
 
-	--workspace-border-color: var(--trans-faint-10);
+	--workspace-border-color: var(--trans-faint-00);
 
 	/* Base shadows */
 	--input-shadow: none;
@@ -781,8 +781,8 @@ body {
 		0 0 0 1px var(--trans-faint-10),
 		var(--shadow-muted);	
 	--shadow-workspace: 
-		0 2px 3px 0px var(--trans-faint-30),
-		0px 15px 30px var(--trans-faint-25);	
+		0 1px 4px 0px var(--trans-faint-40),
+		0px 0px 48px var(--trans-faint-10);	
 	--shadow-workspace-multi:
 		0px 2.5px 10px var(--trans-faint-10);
 	--tab-container-shadow: 
@@ -1557,7 +1557,7 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 .cm-s-obsidian .cm-line.HyperMD-header,
 .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
 	font-feature-settings: 'cv11' off, 'calt';
-	--bold-modifier: 150;
+	--bold-modifier: 200;
 }
 
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
@@ -1935,7 +1935,6 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 }
 .markdown-rendered :is(ol, ul) > li {
 	margin-inline-start: 1.625em;
-	--list-marker-color: var(--list-dash-color);
 }
 .list-bullet,
 .markdown-rendered ul > li  {
@@ -1949,13 +1948,15 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 body:not(.disable-list-styling) {
 	.list-bullet::after,
 	.modal-content li::marker {
-		content: "— ";
-		color: var(--list-dash-color);
-		background-color: transparent !important;
-		box-shadow: none !important;
-		height: fit-content;
-		width: fit-content;
-		font-family: var(--font-text);
+		contain: content;
+		height: 2px;
+		width: 16px;
+		--list-bullet-radius: 4px;
+		--list-bullet-transform: translateX(-2px);
+		--list-marker-color: var(--list-dash-color);
+	}
+	.cm-formatting-list-ul {
+		margin-inline-end: 2px;
 	}
 	& .is-collapsed ~ .cm-formatting-list .list-bullet::after,
 	  .is-collapsed .list-bullet::after {
@@ -2556,12 +2557,11 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 
 body:not(.is-mobile) .mod-root > .mod-horizontal > .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf),
 body:not(.is-mobile) .mod-root .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
-    border-radius: var(--radius-ml);	
+    border-radius: var(--radius-m);	
 	-electron-corner-smoothing: 60%;	
 }
 body:not(.is-mobile) .mod-root .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
-	outline: 1px solid var(--workspace-border-color);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
@@ -2569,10 +2569,16 @@ body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab
 }
 body:not(.is-mobile) .workspace, .workspace-tab-container, .mod-root {
     transition: 
-	all var(--anim-duration-fast) ease-in-out,
-	padding 0ms,
-	box-shadow 0ms;
+	all 200ms var(--anim-motion-delay);
 }
+
+/* heal corners of main workspace panel */
+.mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf,
+.mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf > .workspace-leaf-content {
+	background-color: transparent;
+	border-radius: var(--radius-m);
+}
+
 /* margin adjustment when there is no view header */
 body:not(.is-mobile):not(.show-view-header) {
     --file-margins: 72px 32px;
@@ -2644,7 +2650,7 @@ body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-op
     margin-inline: unset;
 }
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) {
-	background-image: unset;
+	background-image: linear-gradient(var(--background-primary), var(--background-primary));
 }
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) 
 .workspace-split.mod-vertical.mod-root {
@@ -2748,7 +2754,7 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 
 .workspace-leaf-content .tree-item-self {
 	padding-block: var(--vl-layout-padding);
-	--nav-item-background-hover: var(--trans-faint-05);
+	--nav-item-background-hover: oklab(from var(--trans-faint-20) l a b /0.025);
 }
 .tree-item-self.mod-collapsible {
 	--nav-item-color: var(--color-base-80);
@@ -2988,8 +2994,9 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 /* unstable items end */
 
-.is-hidden-frameless .workspace-split.workspace-window .workspace-tabs .workspace-tab-header-container {
-	padding-inline-start: 1px;
+/* Separate window padding adjustment for tabs */
+.is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
+	padding-inline-start: 2px;
 }
 
 .workspace .mod-root .workspace-tab-header-container-inner {
@@ -3006,11 +3013,11 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 .mod-sidedock .workspace-tab-header-container-inner {
 	height: 40px;
-	background-color: var(--tab-sidebar-container-bg);
+	/* background-color: var(--tab-sidebar-container-bg); */
 	border-radius: 20px;
 	box-shadow: var(--tab-container-shadow);
 	padding: 2px;
-	margin: 6px 0 0 0;
+	margin: 8px 0 0 0;
 	contain: content;
 }
 
@@ -3115,15 +3122,15 @@ body.prevent-exit
 .mod-sidedock .workspace-tab-header.is-active,
 .mod-sidedock .workspace-tab-header.is-active:hover {
 	--icon-color-focused: var(--color-base-100);
-	background-color: var(--tab-sidebar-bg);
-	box-shadow: var(--shadow-tab);
+	background-color: transparent;
+	/* box-shadow: var(--shadow-tab); */
 }
-.mod-sidedock .mod-top .workspace-tab-header.is-active {
+/* .mod-sidedock .mod-top .workspace-tab-header.is-active {
 	background-color: var(--tab-sidebar-bg-top);
 }
 .mod-left-split .mod-top .workspace-tab-header.is-active {
 	background-color: var(--tab-sidebar-bg-top-left);
-}
+} */
 
 /* Tab Icons */
 .workspace-tab-header:not(.is-active) .workspace-tab-header-inner .workspace-tab-header-inner-icon {
@@ -3166,8 +3173,8 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 /*--> View Header <--*/
 
 .view-header {
-	padding-inline: 8px;
-	z-index: var(--layer-popover);
+	padding-inline: 8px;	
+	flex-shrink: 0;
 }
 .view-header > .view-header-left .clickable-icon {
 	--icon-color: var(--text-normal);
@@ -3177,7 +3184,6 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	.view-header-left,
 	.view-header-reload-button, 
 	.view-actions) {
-	padding-block-start: 2px;
 	& .clickable-icon {
 		padding: 9px 10px;
 	}
@@ -3188,9 +3194,13 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 }
 .view-header-title {
 	color: var(--text-normal);
+	padding-inline: 2px;
 }
 .view-header-title-parent {
 	color: var(--text-faint);
+}
+.view-header-title-parent .view-header-breadcrumb {
+	padding-inline: 6px;
 }
 /* View header FAB */
 .workspace-leaf-content[data-type="markdown"] {
@@ -3200,7 +3210,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		padding-inline-end: 4px;
 		padding-block-end: 24px;
 		margin-block-end: -24px;
-		transform: translateX(-8px) translateY(14px);
+		transform: translateX(-8px) translateY(12px);
 	}
 	& .view-actions .clickable-icon.view-action:last-child {
 		border-radius: var(--radius-xs);
@@ -3579,7 +3589,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	background-color: var(--background-modifier-cover) !important;
 }
 .modal-bg {
-	background-color: oklab(from var(--background-modifier-cover) l a b / 0.2) !important;
+	background-color: oklab(from var(--background-modifier-cover) l a b / 0.25) !important;
 }
 .modal, .menu {
 	--background-modifier-form-field: var(--background-primary);
@@ -3589,7 +3599,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	font-weight: var(--font-normal);
 }
 .modal-title {
-	font-weight: var(--font-normal);
+	font-weight: calc(var(--font-normal) + 25);
 	font-size: var(--font-ui-larger);
 	font-variation-settings: 'opsz' 32;
 	text-align: center;
