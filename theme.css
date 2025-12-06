@@ -266,7 +266,7 @@ body {
 
 	/* Blockquotes */
 	--blockquote-color: var(--text-muted);
-	--blockquote-border-color: var(--color-base-55);
+	--blockquote-border-color: var(--color-base-50);
 	--blockquote-border-thickness: 0.1875rem;
 
 	/* Blur values */
@@ -652,10 +652,10 @@ body {
 	--link-unresolved-lch: 0.625;
 
 	--bg-main-inner: oklch(99.00% 0.00125 281);
-	--bg-main-outer: oklch(93.75% 0.005 281); 
+	--bg-main-outer: oklch(94.00% 0.00625 281); 
 	
 	--background-gradient: radial-gradient( at 50% 50%, 
-		var(--bg-main-inner) 25%, 
+		var(--bg-main-inner) 20%, 
 		var(--bg-main-outer) 100%
 		);
 		
@@ -781,8 +781,8 @@ body {
 		0 0 0 1px var(--trans-faint-10),
 		var(--shadow-muted);	
 	--shadow-workspace: 
-		0 1px 4px 0px var(--trans-faint-40),
-		0px 0px 48px var(--trans-faint-10);	
+		0 0.75px 3.75px 0px var(--color-base-30),
+		0px 0px 40px var(--color-base-20);	
 	--shadow-workspace-multi:
 		0px 2.5px 10px var(--trans-faint-10);
 	--tab-container-shadow: 
@@ -1534,14 +1534,13 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 /*--> Heading and Paragraph spacing/margins <--*/
 
 .cm-line.HyperMD-header:first-child,
-:not(.show-properties) div[contenteditable="false"] + .cm-line.HyperMD-header {
+:not(.show-properties) div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
     padding-block-start: unset;
 }
 .markdown-rendered :is(.el-div, .el-blockquote) + div[class*="el-h"] > * {
   	margin-block-start: var(--heading-spacing);
 }
-.markdown-rendered .el-div + .el-p > p,
-.markdown-rendered :is(.el-ul, .el-ol) + .el-div > .callout {
+.markdown-rendered .el-div + .el-p > p {
   	margin-block-start: 1.5rem;
 }
 .markdown-rendered div[class*="el-h"] + .el-table > table {
@@ -1607,7 +1606,7 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 	position: relative;
 	align-items: center;
 	border: none;
-	padding-inline: 1.625em 0;
+	padding-inline: 1.75em 0;
 	--bold-color: var(--blockquote-color);	
 	--italic-color: var(--blockquote-color);
 	--math-color: var(--blockquote-color);
@@ -1636,7 +1635,7 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		margin-block: -2px;
 	}
 }
-.HyperMD-quote-lazy {
+.cm-line:not(.HyperMD-callout) + .HyperMD-quote-lazy {
 	padding-inline-start: 16px !important;
 }
 
@@ -1650,8 +1649,8 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 body:not(.disable-callout-styling) {
 	--callout-border-opacity: 0.2;
 	--callout-radius: var(--radius-sm);
-	--callout-padding: 16px 16px 8px 16px;
-	--callout-title-padding: 0 0 0 2px;
+	--callout-padding: 16px;
+	/* --callout-title-padding: 0px; */
 	/* Callout colors */
 	--callout-bug: var(--color-pink-rgb);
 	--callout-warning: var(--color-yellow-rgb);
@@ -1676,9 +1675,9 @@ body:not(.disable-callout-styling) {
 		--bold-color: var(--color-base-80);
 		--italic-color: var(--color-base-80);
 	}
-	.callout.is-collapsible {
+	/* .callout.is-collapsible {
 		padding-bottom: 16px;
-	}
+	} */
 	.callout .callout {
 		margin-inline: 0.125em;
 		outline-color: var(--trans-strong-20);
@@ -1688,26 +1687,36 @@ body:not(.disable-callout-styling) {
 		align-items: center;
 	}
 	.callout-title-inner {
+		font-size: 1.125rem;
+		font-weight: var(--font-semibold);
+		padding-inline-start: 0.125rem;
 		--bold-color: var(--callout-title-color);
 		--italic-color: var(--callout-title-color);
 	}
-	.callout .callout-title:last-child {
-		padding-bottom: 0.5em;
+	.callout-title-inner > :is(h1,h2,h3,h4,h5,h6) {
+		margin-block: 0 !important;
+		color: var(--callout-title-color);
 	}
-	.callout .callout-title-inner {
-		padding-inline-start: 0.125em;
-		&:not(h1,h2,h3,h4,h5,h6) {
-			padding-block-start: 0.03125em;
-		}
+	.callout-title-inner > h1::after {
+		display: none !important;
 	}
-	.callout .callout-content {
-		padding-inline: 0.125em;
-		margin-block: -0.25rem -0.5rem;
+
+	.callout-icon {
+		margin-inline: -0.125rem 0.125rem;
 	}
-	.callout.is-collapsible .callout-content {
-		margin-bottom: -1rem;
+	
+	.callout > .callout-content {
+		padding-inline-start: 1.5rem;
 	}
+	.callout > .callout-content > p:first-child {
+		margin-block-start: 0.5rem;
+	}
+	.callout > .callout-content > :last-child {
+		margin-block-end: 0;
+	}
+
 	.callout-fold {
+		padding-inline-end: 0;
 		margin-left: auto;
 		--icon-stroke: var(--icon-stroke-thick);
 	}
@@ -1716,19 +1725,9 @@ body:not(.disable-callout-styling) {
 	.callout table {
 		--table-border-color: var(--hr-color);
 	}
-	.callout-title-inner :is(h1,h2,h3,h4,h5,h6) {
-		margin-block: 0px !important;
-		padding-block: 0 !important;
-		padding-inline-start: 0.25em;
-		border: none !important;
-		color: var(--callout-title-color);
-	}
 	:is(.callout[data-callout="quote"], .callout[data-callout="cite"]) .callout-content {
 		color: var(--blockquote-color);
 	}
-}
-body.disable-callout-styling {
-	--callout-title-padding: 0;
 }
 
 /* Math Callouts */
@@ -1737,17 +1736,24 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 	background-image: unset;
 	box-shadow: 0 0 0 1.5px rgb(var(--callout-color), 0.375);
 	outline: unset;
-	font-family: MJXZERO, MJXTEX;
 	--callout-color: var(--color-blue-rgb);
 
-	& .callout-title-inner {
-		font-size: 1.25em;
+	> .callout-title > .callout-title-inner {
+		font-family: MJXZERO, MJXTEX;
+		font-size: 1.25rem;
 		font-weight: var(--font-medium);
+		margin-block-start: 0.5rem;
 		padding-inline-start: unset;
-		transform: translateY(0.5rem);
 	}
-	& .callout-icon {
+	> .callout-title > .callout-icon {
 		display: none;
+	}
+	> .callout-content {
+		font-weight: calc(var(--font-light) + 50);
+		padding-inline-start: unset;
+	}
+	> .callout-content > p:first-child {
+		margin-block-start: 0.25rem;
 	}
 }
 /* other colors */
@@ -1934,7 +1940,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 	}
 }
 .markdown-rendered :is(ol, ul) > li {
-	margin-inline-start: 1.625em;
+	margin-inline-start: 1.75em;
 }
 .list-bullet,
 .markdown-rendered ul > li  {
@@ -2852,10 +2858,10 @@ body:not(.is-mobile) :not(.view-content,.workspace-leaf-content) > .nav-header >
 	--nav-item-color: var(--link-color-sidebar);
 	--nav-item-color-hover: var(--link-color-sidebar);
 	--nav-item-color-active: var(--link-color-sidebar);
-	--nav-item-weight: var(--font-semi-medium);
-	--nav-item-weight-hover: var(--font-semi-medium);
+	> .tree-item-inner {
+		font-weight: var(--font-semi-medium);
+	}
 }
-
 :is(.backlink-pane, .outgoing-link-pane) > .tree-item-self {
 	--nav-heading-color: var(--icon-color);
 	--nav-heading-color-collapsed-hover: var(--nav-heading-color);
@@ -3013,7 +3019,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 .mod-sidedock .workspace-tab-header-container-inner {
 	height: 40px;
-	/* background-color: var(--tab-sidebar-container-bg); */
+	background-color: var(--tab-sidebar-container-bg);
 	border-radius: 20px;
 	box-shadow: var(--tab-container-shadow);
 	padding: 2px;
@@ -3103,16 +3109,16 @@ body.prevent-exit
 
 /* Sidebar Tabs */
 .mod-sidedock .workspace-tab-header {
-	border-radius: var(--radius-xxl);
+	border-radius: var(--tab-radius);
 	min-height: 36px;
 	min-width: 36px;
+	--tab-radius: 50%;
 }
 .mod-sidedock .workspace-tab-header:hover {
 	--background-modifier-hover: transparent;
 	--icon-color-hover: var(--nav-item-color);
 }
 .mod-sidedock .workspace-tab-header-inner {
-	border-radius: 50%;
 	width: 99%;
 	transition: inherit;
 	& > * {
@@ -3121,16 +3127,16 @@ body.prevent-exit
 }
 .mod-sidedock .workspace-tab-header.is-active,
 .mod-sidedock .workspace-tab-header.is-active:hover {
+	background-color: var(--tab-sidebar-bg);
+	box-shadow: var(--shadow-tab);
 	--icon-color-focused: var(--color-base-100);
-	background-color: transparent;
-	/* box-shadow: var(--shadow-tab); */
 }
-/* .mod-sidedock .mod-top .workspace-tab-header.is-active {
+.mod-sidedock .mod-top .workspace-tab-header.is-active {
 	background-color: var(--tab-sidebar-bg-top);
 }
 .mod-left-split .mod-top .workspace-tab-header.is-active {
 	background-color: var(--tab-sidebar-bg-top-left);
-} */
+}
 
 /* Tab Icons */
 .workspace-tab-header:not(.is-active) .workspace-tab-header-inner .workspace-tab-header-inner-icon {
@@ -3588,6 +3594,7 @@ body:not(.is-mobile)
 body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	background-color: var(--background-modifier-cover) !important;
 }
+
 .modal-bg {
 	background-color: oklab(from var(--background-modifier-cover) l a b / 0.25) !important;
 }
@@ -5682,7 +5689,7 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 /* (superheading) - Turns editor H1 into a large Swiss Design heading. */
 :is(.large-heading,.super-heading):not(.override, .style-override) :is(
 	.markdown-source-view .HyperMD-header-1, 
-	.markdown-rendered h1) {
+	.markdown-rendered > .markdown-preview-sizer >.el-h1 > h1) {
 	padding-block-end: 0.0625em !important;	
 	letter-spacing: -0.05rem;
 	text-indent: -0.03em;
@@ -5691,7 +5698,7 @@ body:not(.is-mobile) .workspace-leaf-content .pomodoro-tasks-header .pomodoro-ta
 }
 .super-heading:not(.override, .style-override) :is(
 	.markdown-source-view .HyperMD-header-1, 
-	.markdown-rendered h1) {
+	.markdown-rendered > .markdown-preview-sizer >.el-h1 > h1) {
 	padding-block-end: 0.0625em !important;	
 	--h1-weight: var(--font-semibold);
 	&::after {
