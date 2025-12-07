@@ -608,7 +608,7 @@ body {
 	--base-sat-low: 0.00050;
 
 	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(99.40% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(99.00% var(--base-sat-low) var(--base-hue));
 	--color-base-10: oklch(96.20% var(--base-sat-str) var(--base-hue));
 	--color-base-20: oklch(92.00% var(--base-sat-str) var(--base-hue));
 	--color-base-25: oklch(88.25% var(--base-sat-str) var(--base-hue)); 
@@ -651,12 +651,12 @@ body {
 	
 	--link-unresolved-lch: 0.625;
 
-	--bg-main-inner: oklch(99.00% 0.00125 281);
-	--bg-main-outer: oklch(94.00% 0.00625 281); 
+	--bg-main-inner: oklch(98.75% 0.00125 var(--base-hue));
+	--bg-main-outer: oklch(93.75% 0.00625 var(--base-hue)); 
 	
 	--background-gradient: radial-gradient( at 50% 50%, 
-		var(--bg-main-inner) 20%, 
-		var(--bg-main-outer) 100%
+		var(--bg-main-inner) 25%, 
+		var(--bg-main-outer) 110%
 		);
 		
 	--background-modifier-border: var(--trans-faint-20);
@@ -851,13 +851,13 @@ body {
 	--base-sat-med: 0;
 	--base-sat-low: 0;
 
-	--bg-main-inner: oklch(99.50% 0 0);
-	--bg-main-outer: oklch(77.50% 0 0);
+	--bg-main-inner: oklch(99.00% 0 0);
+	--bg-main-outer: oklch(94.00% 0 0); 
 
-	--color-base-70: oklch(47.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(45.00% var(--base-sat-str) var(--base-hue)); 
-	--color-base-90: oklch(31.25% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
+	--color-base-70: oklch(47.50% 0 0);
+	--color-base-80: oklch(45.00% 0 0); 
+	--color-base-90: oklch(31.25% 0 0); 
+   --color-base-100: oklch(24.00% 0 0); 
 }
 .theme-light.utopia {
 	--accent-h: 125;	
@@ -887,10 +887,7 @@ body {
 	--base-sat-med: 0.00125;
 	--base-sat-low: 0.00000;
 
-	--bg-main-inner: oklch(99.50% 0.003 var(--base-hue));
-	--bg-main-outer: oklch(77.50% 0.012 var(--base-hue));
-
-	--color-base-05: oklch(98.80% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(98.875% var(--base-sat-low) var(--base-hue));
 
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
@@ -1504,25 +1501,11 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 
 /*--> Typography variation settings <--*/
 
-.alt-font-set {
+.alt-font-set :is(
 	.markdown-source-view,
 	.markdown-preview-view,
-	.bases-table-cell,
-	.value-list-element > a,
-	.bases-cards-property {
-		font-feature-settings: 'cv11';
-	}
-	thead,
-	.bases-header,
-	.bases-thead,
-	.bases-cards-property.mod-title,
-	.tag,
-	.todoist-callout,
-	.todoist-group,
-	.metadata-content,
-	#calendar-container {
-		font-feature-settings: 'cv11' off, 'calt';
-	}
+	.bases-view) {
+		font-feature-settings: 'cv05', 'cv06', 'cv11';
 }
 
 /*
@@ -1555,7 +1538,6 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 
 .cm-s-obsidian .cm-line.HyperMD-header,
 .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
-	font-feature-settings: 'cv11' off, 'calt';
 	--bold-modifier: 200;
 }
 
@@ -1575,6 +1557,10 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		border-radius: var(--radius-xxl);
 		margin-block: 0.375rem 0;
 	}
+}
+/* Disable H1 special styling */
+body:not(.disable-title-h1) :is(.HyperMD-header-1, h1) {
+	font-feature-settings: 'cv05' off, 'cv06' inherit, 'cv11' off;
 }
 .disable-title-h1 .cm-line.HyperMD-header-1, 
 .disable-title-h1 .markdown-rendered h1 {
@@ -1706,7 +1692,7 @@ body:not(.disable-callout-styling) {
 	}
 	
 	.callout > .callout-content {
-		padding-inline-start: 1.5rem;
+		padding-inline: 1.5rem 0.75rem;
 	}
 	.callout > .callout-content > p:first-child {
 		margin-block-start: 0.5rem;
@@ -2034,7 +2020,7 @@ input[type=checkbox][data-task="<"]:checked,
 		z-index: -2;
 		inset: -2px -6px;
 		position: absolute;
-		background-color: var(--trans-faint-10);
+		background-color: oklch(from var(--color-base-100) l c h / 0.05);
 		border-radius: var(--radius-s);
 	}
 
@@ -2042,7 +2028,7 @@ input[type=checkbox][data-task="<"]:checked,
 		background-color: var(--trans-faint-30);
 	}
 	.cm-active.cm-line.HyperMD-quote {
-		background-color: var(--trans-faint-10);	
+		background-color: oklch(from var(--color-base-100) l c h / 0.05);
 	}
 	.table-cell-wrapper .cm-active::after {
 		display: none;
@@ -4116,6 +4102,7 @@ body:not(.is-phone) .community-item.is-selected:hover {
 	contain: content;
 	padding: 7px 16px 0 16px;
 	justify-content: center;
+	z-index: 1;
 	&::after {
 		content: '';
 		width: calc(100% - 36px);
