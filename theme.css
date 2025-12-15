@@ -514,6 +514,7 @@ body {
 	--slider-thumb-y: -3px;
 
 	/* Status bar */
+	--status-bar-background: transparent;
 	--status-bar-border-width: 0;
 	--status-bar-radius: var(--radius-l) 0 0 var(--radius-l);
 
@@ -725,8 +726,7 @@ body {
 
 	--stacked-shadow-color: var(--trans-faint-10);
 
-	--status-bar-background: var(--trans-strong-00);
-	--status-bar-filter: opacity(0.25) blur(0.375px);
+	--status-bar-filter: opacity(0.25);
 	
 	--strikethrough-color: var(--text-faint);
 
@@ -794,8 +794,7 @@ body {
 		0 0.25px 0 0.75px var(--trans-faint-20),
 		0 1.5px 6px -3px var(--trans-faint-20);
 	--shadow-status-bar:
-		inset -6px 0 8px -6px var(--trans-faint-40),
-		-0.25px 1px 1.5px 0.5px var(--trans-faint-40);	
+		0 0.25px 1.5px 0px oklch(0.00% 0 0 / 0.25);	
 	--shadow-tab:
 		0px 0px 4px 0px var(--trans-faint-30);	
 	--shadow-workspace: 
@@ -1074,9 +1073,7 @@ body {
 
 	--stacked-shadow-color: var(--trans-dark-10);
 
-
-	--status-bar-background: var(--trans-strong-00);
-	--status-bar-filter: opacity(0.375) blur(0.25px);
+	--status-bar-filter: opacity(0.375);
 
 	--strikethrough-color: var(--text-faint);
 
@@ -2742,7 +2739,7 @@ body:not(.is-mobile) {
 	.mod-sidedock .nav-header {
 		margin-block: calc(var(--vl-layout-padding) - 6px);
 		align-self: center;
-		width: calc(100% - 56px);
+		width: calc(100% - 60px);
 	}
 	.nav-header {
 		display: flex;
@@ -2755,8 +2752,8 @@ body:not(.is-mobile) {
 		contain: content;
 		flex-wrap: nowrap;
 		height: 0;
-		width: 56px;
-		max-width: calc(100% + 56px);
+		width: 48px;
+		max-width: calc(100% + 60px);
 		background-color: var(--trans-faint-20);
 		border-radius: var(--radius-xxl);
 		padding: 2px;
@@ -2870,8 +2867,8 @@ body.disable-hover-header .nav-buttons-container {
 	padding-block-start: 8px;
 }
 /* make room for status bar */
-.mod-right-split .workspace-tabs:last-of-type .workspace-leaf-content {
-	padding-block-end: 44px;
+.mod-right-split .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
+	padding-block-end: 40px;
 }
 
 .mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
@@ -3412,19 +3409,30 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 /*--> Status Bar <--*/
 
 .status-bar {
-	box-shadow: var(--shadow-status-bar);
+	outline: 1px solid transparent;
+	filter: var(--status-bar-filter);
 	font-weight: var(--font-normal);
-	max-height: 26px;
-	margin-bottom: 9px;
-	padding-inline: 12px;
-	transition: var(--anim-super-smooth);
+	max-height: 28px;
+	margin-block-end: 8px;
+	padding-inline: 4px;
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
-body:not(.disable-status-fade) {
-	.status-bar:not(:hover) {
-		background-color: transparent;
-		box-shadow: none;
-		filter: var(--status-bar-filter);
-	}
+.status-bar:hover,
+body.disable-status-fade .status-bar {
+	outline-color: var(--status-bar-border-color);
+	filter: unset;
+	backdrop-filter: brightness(1.0625) var(--blur-s);
+	box-shadow: var(--menu-shadow);
+}
+
+.status-bar-item {
+	contain: content;
+	padding: 4px;
+}
+.status-bar-item.mod-clickable {
+	border-radius: var(--radius-l);
+	padding-inline: 6px;
+	--background-modifier-hover: var(--hr-color);
 }
 
 /*--> Vault Profile <--*/
@@ -3514,15 +3522,13 @@ body:not(.is-mobile)
 		padding-inline: 0px 6px !important;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after {
-		position: absolute;
-		padding: 4px 8px;
-		left: -128px;
-		bottom: 1px;
-		border-radius: var(--radius-l);
-		font-weight: var(--font-normal);
 		content: 'auto-hide is active';
+		border-radius: var(--radius-l);
 		color: var(--text-error);
-		overflow: visible;
+		position: absolute;
+		left: -128px;
+		bottom: 0px;
+		padding: 6px 8px;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after,
 	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar:hover::after {
@@ -3668,7 +3674,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	margin-block: 8px;
 }
 .modal:is(.mod-file-rename, .mod-bookmark) .modal-header {
-	margin-block-end: 12px;
+	margin-block-end: 16px;
 }
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal),
