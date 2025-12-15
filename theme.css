@@ -806,8 +806,7 @@ body {
 		inset 0px -0.25px 4px -1px var(--text-selection),
 		0px 1.5px 8px -1.5px var(--text-selection);
 	--shadow-sidebar: 
-		0 0.25px 0 0.75px var(--trans-faint-20),
-		0 1.5px 6px -3px var(--trans-faint-20);
+		0px 0px 8px 0px var(--trans-faint-00);
 	--shadow-tab:
 		0px 0px 4px 0px var(--trans-faint-30);	
 	--shadow-workspace: 
@@ -1075,7 +1074,7 @@ body {
 	--scrollbar-thumb-bg: var(--color-base-25);
 	--scrollbar-active-thumb-bg: var(--color-base-35);
 
-	--search-result-background: var(--trans-strong-05);
+	--search-result-background: var(--trans-strong-10);
 
 	--settings-background: color-mix(in oklab, var(--background-secondary), var(--color-base-05));
 	--setting-item-bg: var(--background-primary);
@@ -1143,8 +1142,7 @@ body {
 		0 4px 12px 0 var(--trans-strong-10);
 	
 	--shadow-sidebar: 
-		0 -1px 0 0.25px var(--trans-faint-00),
-		0 1px 0 -0.125px var(--color-base-05);
+		0px 0px 12px 0px var(--trans-strong-20);
 }
 
 /*--> Theme Default Typeface <--*/
@@ -1383,8 +1381,12 @@ textarea,
 }
 
 /* Sidebar input */
-.mod-sidedock :is(input, textarea) {
+.mod-sidedock :is(input[type="search"], textarea) {
+	outline: 1px solid var(--trans-faint-20);
 	--shadow-input: var(--shadow-sidebar);
+}
+.mod-sidedock input[type="search"] {
+	border-radius: var(--radius-xl);
 }
 .mod-sidedock textarea {
 	text-indent: 2px;
@@ -2880,8 +2882,9 @@ body.disable-hover-header .nav-buttons-container {
 	--text-faint: var(--color-base-40);
 }
 
-.mod-sidedock .search-result-file-matches {
-	color: var(--icon-color);
+.search-result-file-matches {
+	color: var(--text-muted);
+	outline: 1px solid var(--trans-faint-20);
     box-shadow: var(--shadow-sidebar);
 	font-weight: var(--font-semi-medium);
 	margin-block-start: 0;
