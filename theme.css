@@ -2610,6 +2610,7 @@ body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .w
 /* Main workspace tab(s) shadow */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
+	transition: box-shadow var(--anim-duration-moderate) var(--vl-ease-out);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
@@ -2618,10 +2619,7 @@ body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) {
     --shadow-workspace: var(--shadow-workspace-multi);
 }
-body:not(.is-mobile) .workspace, .workspace-tab-container, .mod-root {
-    transition: 
-	all 200ms var(--anim-motion-delay);
-}
+
 /* allow shadow to overflow to sidebars */
 body:not(.is-mobile) .mod-root .workspace-tabs {
 	overflow: visible;
@@ -2641,12 +2639,14 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 }
 
 /* Sidedock / workspace-split */
-.mod-sidedock .node-insert-event {
-	padding-inline: 16px;
-}
+.mod-sidedock .node-insert-event,
 .workspace-leaf-content > .view-content {
 	padding-inline: 16px;
 }
+.workspace-leaf-content[data-type=bookmarks] > .view-content {
+	padding-inline: 16px;
+}
+
 body:not(.is-mobile) .mod-sidedock .workspace-leaf {
     animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 }
@@ -3870,10 +3870,6 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 
 /* Hotkeys Settings page */
 
-.setting-filter-container {
-	font-family: var(--font-monospace);
-	margin-inline-start: 16px;
-}
 .flair.mod-pop,
 .hotkey-filter,
 .setting-hotkey.mod-active {
@@ -3895,13 +3891,17 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	font-family: var(--font-interface-theme);
 	font-weight: var(--font-normal-linux);
 }
+.setting-hotkey.has-conflict,
+.hotkey-filter {
+	box-shadow: var(--shadow-button);
+}
 .setting-hotkey.mod-empty {
 	color: var(--text-faint);
 }
 .hotkey-filter {
 	background-color: var(--interactive-accent);
 	border-radius: var(--radius-l);
-	margin-block-start: 8px;
+	margin-block-start: 12px;
 	padding-inline: 10px 4px;
 }
 .hotkey-filter-remove-button {
