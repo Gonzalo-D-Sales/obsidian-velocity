@@ -2610,7 +2610,7 @@ body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .w
 /* Main workspace tab(s) shadow */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
-	transition: box-shadow var(--anim-duration-moderate) var(--vl-ease-out);
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
@@ -2654,7 +2654,7 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf {
 /* divider reveal on hover */
 .mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
 	border-block: 1px solid transparent;
-	transition: border var(--anim-fast-smooth);
+	transition: border var(--anim-duration-moderate) var(--vl-ease-out);
 	&:hover {
 		border-top-color: var(--trans-faint-20);
 	}
@@ -2710,6 +2710,13 @@ body:not(.is-mobile) {
 	}
 	.mod-sidedock .nav-header + * {
 		padding-top: 0;
+	}
+	/* Git plugin compatibility */
+	[data-type="git-view"] .nav-header {
+		width: 100%;
+	}
+	[data-type="git-view"] .nav-buttons-container {
+		max-width:  100%;
 	}
 }
 body:not(.is-mobile) .nav-header:hover > .nav-buttons-container,
