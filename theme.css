@@ -2566,61 +2566,63 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 
 /*--> Workspace Layout <--*/
 
-body:not(.is-mobile) .mod-root > .mod-horizontal > .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf),
-body:not(.is-mobile) .mod-root .workspace-tabs > :is(.workspace-tab-container, .workspace-tabs:not(.mod-stacked) .workspace-leaf) {
-    border-radius: var(--radius-ml);	
-	-electron-corner-smoothing: 60%;	
+body:not(.is-mobile) {
+	background-image: var(--background-gradient);
 }
-body:not(.is-mobile) .mod-root .workspace-tab-container {
+/* margin adjustment when there is no view header */
+body:not(.is-mobile):not(.show-view-header) {
+    --file-margins: 72px 32px;
+}
+
+/* Main workspace tab */
+body:not(.is-mobile) .mod-root {
+    padding-block-end: 8px;
+}
+.workspace-split.mod-root,
+.workspace-tabs .workspace-leaf {
+	background-color: transparent;
+}
+
+/* Main tab(s) margins */
+body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspace-tab-container {
+    margin-inline-end: 8px;
+}
+body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .workspace-tab-container {
+    margin-inline-start: 8px;
+}
+/* gap between multiple root tabs  */
+body:not(
+	.is-mobile, 
+	.is-popout-window) 
+	:is(
+		.workspace.is-left-sidedock-open.is-right-sidedock-open .mod-vertical) {
+    gap: 8px;
+}
+
+/* Main workspace tab(s) radius */
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container,
+body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf,
+body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf > .workspace-leaf-content {
+	background-color: transparent;
+	border-radius: var(--radius-ml);
+}
+
+/* Main workspace tab(s) shadow */
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
 	--file-margins: 32px;
 }
+body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) {
+    --shadow-workspace: var(--shadow-workspace-multi);
+}
 body:not(.is-mobile) .workspace, .workspace-tab-container, .mod-root {
     transition: 
 	all 200ms var(--anim-motion-delay);
 }
-
-/* heal corners of main workspace panel */
-.mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf,
-.mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf > .workspace-leaf-content {
-	background-color: transparent;
-	border-radius: var(--radius-ml);
-}
-
-/* margin adjustment when there is no view header */
-body:not(.is-mobile):not(.show-view-header) {
-    --file-margins: 72px 32px;
-}
-
-/* FROM: Cupertino */
-/* By Alexis C */
-/* MIT License */
-
-/* Gap between multiple root tabs  */
-body:not(
-	.is-mobile, 
-	.is-popout-window) 
-	:is(
-		.workspace.is-left-sidedock-open .mod-root .mod-vertical, 
-		.workspace.is-left-sidedock-open .mod-root.mod-vertical, 
-		.workspace.is-right-sidedock-open .mod-root .mod-vertical, 
-		.workspace.is-right-sidedock-open .mod-root.mod-vertical) {
-    gap: 8px;
-}
-body:not(.is-mobile),
-body:not(.is-mobile) .workspace {
-	background-image: var(--background-gradient);
-}
-body:not(.is-mobile) .workspace-split.mod-root {
-    padding-bottom: 8px;
-}
-.workspace-split.mod-root,
-.workspace-tabs .workspace-leaf {
-	background-color: transparent;
-}
+/* allow shadow to overflow to sidebars */
 body:not(.is-mobile) .mod-root .workspace-tabs {
 	overflow: visible;
 }
@@ -2639,69 +2641,32 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 }
 
 /* Sidedock / workspace-split */
-body:not(.is-mobile) .mod-sidedock .workspace-leaf-content {
-	padding-inline: 4px;
+.mod-sidedock .node-insert-event {
+	padding-inline: 16px;
+}
+.workspace-leaf-content > .view-content {
+	padding-inline: 16px;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-leaf {
+    animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 }
 
+/* divider reveal on hover */
+.mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
+	border-block: 1px solid transparent;
+	transition: border var(--anim-fast-smooth);
+	&:hover {
+		border-top-color: var(--trans-faint-20);
+	}
+}
+
+/* make room for status bar */
+.mod-right-split .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
+	padding-block-end: 40px;
+}
 /* empty sidedock */
 .workspace-sidedock-empty-state {
 	padding-block: var(--header-height);
-}
-
-/* FROM: Cupertino */
-/* By Alexis C */
-/* MIT License */
-
-/* Main tab margins */
-body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root > .workspace-tabs:last-of-type > .workspace-tab-container,
-body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .mod-horizontal:last-of-type > .workspace-tabs > .workspace-tab-container,
-body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .mod-horizontal > .workspace-split .workspace-tabs:last-of-type > .workspace-tab-container {
-    margin-inline-end: 8px;
-}
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root > .workspace-tabs:first-of-type > .workspace-tab-container, 
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .mod-horizontal:first-of-type > .workspace-tabs .workspace-tab-container, 
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .mod-horizontal > .workspace-split .workspace-tabs:first-of-type > .workspace-tab-container {
-    margin-inline-start: 8px;
-}
-/* Margin OFF when sidebars closed */
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) .mod-root > .workspace-tabs:last-of-type > .workspace-tab-container,
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) .mod-root > .workspace-split.mod-horizontal .workspace-tabs > .workspace-tab-container {
-    margin-inline: unset;
-}
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) {
-	background-image: linear-gradient(var(--background-primary), var(--background-primary));
-}
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) 
-.workspace-split.mod-vertical.mod-root {
-	padding-bottom: unset;
-	& .workspace-tabs {
-		--divider-width: 1px;
-	}
-	& .workspace-tabs > .workspace-tab-container {
-		box-shadow: unset;
-		outline-color: transparent;
-	}
-	& .workspace-tabs.mod-stacked > .workspace-tab-container {
-		border-radius: unset;
-		box-shadow: 0 -0.5px 0 0px var(--trans-faint-40);
-	}
-	.mod-horizontal:not(.last-child) {
-		border-right: 1px solid var(--divider-color);
-	}
-	.empty-state {
-		padding-block-end: 8px;
-	}
-}
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) .side-dock-ribbon {
-	opacity: 0.625;
-	transition: var(--anim-duration-fast) ease-in-out;
-}
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) .side-dock-ribbon:hover {
-	opacity: 1;
-}
-
-body:not(.is-mobile) .mod-sidedock .workspace-leaf {
-    animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 }
 
 /*--> Nav Header <--*/
@@ -2717,7 +2682,7 @@ body:not(.is-mobile) {
 		flex-direction: column;
 		align-items: center;
 		padding: 6px;
-		transition: var(--anim-fast-delay);
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
 	}
 	.nav-buttons-container {
 		contain: content;
@@ -2749,8 +2714,8 @@ body:not(.is-mobile) {
 }
 body:not(.is-mobile) .nav-header:hover > .nav-buttons-container,
 body.disable-hover-header .nav-buttons-container {
-	width: fit-content;
 	height: fit-content;
+	width: fit-content;
 	--background-modifier-active-hover: var(--color-accent-5);
 	& > * {
 		filter: unset;
@@ -2833,24 +2798,6 @@ body.disable-hover-header .nav-buttons-container {
 }
 .tree-item-self.is-being-dragged > .nav-file-tag {
 	color: var(--trans-strong-10);
-}
-
-/*--> Workspace Sidebar leaves <--*/
-
-.mod-sidedock .workspace-leaf-content > .view-content {
-	padding-block-start: 8px;
-}
-/* make room for status bar */
-.mod-right-split .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
-	padding-block-end: 40px;
-}
-
-.mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
-	border-block: 1px solid transparent;
-	transition: border var(--anim-fast-smooth);
-	&:hover {
-		border-top-color: var(--trans-faint-20);
-	}
 }
 
 /* Backlinks */
@@ -3396,7 +3343,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 body.disable-status-fade .status-bar {
 	outline-width: 1px;
 	filter: opacity(1);
-	backdrop-filter: brightness(1.0625) var(--blur-s);
+	backdrop-filter: brightness(1.125) var(--blur-m);
 	box-shadow: var(--menu-shadow);
 }
 
@@ -3453,9 +3400,10 @@ body:not(.is-mobile)
 		.sidebar-toggle-button.mod-left) {
 		display: none;
 	}
-
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) {
+		background: var(--background-primary);
+	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace {
-		background-image: none !important;
 		--frame-right-space: 0px;
 		--frame-left-space: 0px;
 	}
