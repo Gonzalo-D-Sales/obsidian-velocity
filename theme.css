@@ -2055,8 +2055,7 @@ input[type=checkbox]:active {
 	--text-normal: var(--trans-faint-60);
 }
 input[type=checkbox]:checked {
-	background-image: unset;
-	box-shadow: var(--shadow-button) !important;
+	background-image: radial-gradient(transparent 54%, #fff 90%);
 	border: none;
 }
 input[type=checkbox]:checked::after {
