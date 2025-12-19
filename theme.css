@@ -548,7 +548,7 @@ body {
 	--tab-text-color-focused-active: var(--color-base-100);
 	--tab-text-color-focused: var(--icon-color);
 	--tab-radius: var(--radius-s);
-	--tab-width: 216px;
+	--tab-width: 220px;
 
 	/* Mobile tab switcher */
 
@@ -1260,7 +1260,6 @@ body:not(.is-mobile) {
 
 /* Electron Corner-smoothing */
 
-img,
 .checkbox-container,
 .flair,
 .graph-controls,
@@ -1269,6 +1268,8 @@ img,
 .nav-buttons-container,
 .notice,
 .popover,
+.search-result-file-matches,
+.suggestion,
 .suggestion-item,
 .suggestion-container,
 .tooltip {
@@ -1976,6 +1977,7 @@ del {
 
 audio, img, video {
     border-radius: var(--radius-s);
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 .image-embed img, .markdown-rendered img {
     border-radius: var(--radius-sm);
@@ -2741,7 +2743,6 @@ body:not(.is-mobile) .nav-header:hover > .nav-buttons-container,
 body.disable-hover-header .nav-buttons-container {
 	height: fit-content;
 	width: fit-content;
-	--background-modifier-active-hover: var(--color-accent-5);
 	& > * {
 		filter: unset;
 	}
@@ -3020,7 +3021,6 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	padding-inline-start: 0;
 }
 .mod-root .workspace-tab-header-container-inner {
-	height: var(--header-height);
 	padding-block: 0;
 	align-items: center;
 	column-gap: 4px;
@@ -3040,10 +3040,12 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 /* Root Tabs */
 .mod-root .workspace-tabs:not(.mod-stacked) {
 	.workspace-tab-header {
+		contain: content;
+		align-items: center;
 		border-radius: var(--tab-radius);
-		height: 34px;
-		margin-block-start: 1px;
-		padding: 0;
+		min-height: 36px;
+		margin-block-start: unset;
+		padding: unset;
 	}
 	.workspace-tab-header.is-active {
 		background-color: transparent;
@@ -3053,6 +3055,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 		--text-accent: var(--icon-color);
 	}
 	.workspace-tab-header-inner {
+		min-height: 34px;
 		background-color: var(--trans-faint-05);
 		padding-inline: 0;
 	}
@@ -3124,7 +3127,7 @@ body.prevent-exit
 	border-radius: var(--tab-radius);
 	min-height: 36px;
 	min-width: 36px;
-	--tab-radius: 50%;
+	--tab-radius: var(--radius-xxl);
 }
 .mod-sidedock .workspace-tab-header:hover {
 	--background-modifier-hover: transparent;
