@@ -1147,6 +1147,10 @@ body {
 
 /*--> Theme Default Typeface <--*/
 
+body, .modal {
+	font-weight: var(--font-normal);
+}
+
 body {
 	--font-interface-theme: "Inter Variable", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	--font-text-theme: "Inter Variable", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
@@ -1950,7 +1954,8 @@ del {
 
 .modal hr,
 .markdown-source-view hr,
-.markdown-preview-view hr {
+.markdown-preview-view hr,
+.embedded-backlinks > .nav-header {
 	background-color: var(--hr-color);
 	border: none;
 	border-radius: var(--radius-l);
@@ -2640,11 +2645,14 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 
 /* Sidedock / workspace-split */
 .mod-sidedock .node-insert-event,
-.workspace-leaf-content > .view-content {
+.mod-sidedock .workspace-leaf-content > .view-content {
 	padding-inline: 16px;
 }
-.workspace-leaf-content[data-type=bookmarks] > .view-content {
+.workspace-leaf-content[data-type="bookmarks"] > .view-content {
 	padding-inline: 16px;
+}
+.mod-sidedock .node-insert-event:is(.backlink-pane,.outgoing-link-pane) {
+	padding-inline: 0;
 }
 
 body:not(.is-mobile) .mod-sidedock .workspace-leaf {
@@ -2819,6 +2827,7 @@ body.disable-hover-header .nav-buttons-container {
 	--nav-item-color: var(--link-color-sidebar);
 	--nav-item-color-hover: var(--link-color-sidebar);
 	--nav-item-color-active: var(--link-color-sidebar);
+	--nav-collapse-icon-color: var(--icon-color);
 	> .tree-item-inner {
 		font-weight: var(--font-semi-medium);
 	}
@@ -2856,6 +2865,27 @@ body.disable-hover-header .nav-buttons-container {
 .search-result-file-match:hover .search-result-file-matched-text,
 .tree-item-self.is-clickable:hover .search-result-file-matched-text {
 	background-color: var(--trans-faint-40);
+}
+
+/* Embedded backlinks */
+.embedded-backlinks {
+	border: unset;
+	--search-result-background: var(--trans-faint-05);
+}
+body:not(.is-mobile) .embedded-backlinks > .nav-header {
+	margin-block-end: 2rem;
+	padding: unset;
+}
+.embedded-backlinks .search-result-container .tree-item-flair-outer {
+	display: none;
+}
+.embedded-backlinks .tree-item-self.is-clickable {
+	contain: content;
+	width: auto;
+}
+.embedded-backlinks .backlink-pane > .tree-item-self > .tree-item-inner {
+	color: var(--text-muted);
+	margin-inline-end: unset;
 }
 
 /* Outgoing links */
@@ -3155,7 +3185,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	.view-header-reload-button, 
 	.view-actions) {
 	& .clickable-icon {
-		padding: 9px 10px;
+		padding: 10px;
 	}
 }
 /* View header Title */
@@ -3211,7 +3241,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		opacity: 1;
 		filter: opacity(100%);
 		background-color: var(--fab-bg);
-		box-shadow: var(--shadow-fab);
+		box-shadow: var(--shadow-input), var(--shadow-faint);
 		cursor: var(--cursor-link);
 		transition-property: transform, filter;
 		transition-duration: var(--anim-duration-fast);
@@ -3575,9 +3605,6 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 .modal, .menu {
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
-}
-.modal {
-	font-weight: var(--font-normal);
 }
 .modal-title {
 	font-weight: calc(var(--font-normal) + 50);
