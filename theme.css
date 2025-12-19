@@ -310,6 +310,9 @@ body {
 	/* Collapse icons */
   	--collapse-icon-color-collapsed: var(--color-base-100);
 
+	/* Corner smoothing */
+	--corner-smoothing: 60%;
+
 	/* Cursor */
 
 	/* Dialogs - e.g. small modals, confirmations */
@@ -1256,18 +1259,20 @@ body:not(.is-mobile) {
 /*--> Buttons <--*/
 
 /* Electron Corner-smoothing */
-body * {
-	-electron-corner-smoothing: 60% !important;	
-}
-input[type='text'], 
-input[type='search'], 
-input[type='email'], 
-input[type='password'], 
-input[type='number'],
-textarea,
-.callout,
-.metadata-property {
-	-electron-corner-smoothing: unset !important;
+
+img,
+.checkbox-container,
+.flair,
+.graph-controls,
+.menu,
+.menu-item,
+.nav-buttons-container,
+.notice,
+.popover,
+.suggestion-item,
+.suggestion-container,
+.tooltip {
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 button,
@@ -1628,6 +1633,7 @@ body:not(.is-mobile):not(.disable-performance-tweaks) {
 		display: block;
 		border-radius: var(--radius-xxl);
 		margin-block: 0.375rem 0;
+		-electron-corner-smoothing: var(--corner-smoothing);
 	}
 }
 /* Disable H1 special styling */
@@ -1681,6 +1687,7 @@ body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 		width: var(--blockquote-border-thickness);
 		background-color: var(--blockquote-border-color);
 		border-radius: var(--radius-m);
+		-electron-corner-smoothing: var(--corner-smoothing);
 	}
 }
 .HyperMD-quote > .cm-blockquote-border::before {
@@ -1850,6 +1857,7 @@ body.enable-special-code {
 
 .markdown-rendered :is(code, pre) {
 	border: unset;
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 .markdown-rendered code {
     padding-inline: 0.375rem;
@@ -1961,6 +1969,7 @@ del {
 	border-radius: var(--radius-l);
 	contain: content;
 	height: 0.125rem;
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 /*--> Images <--*/
@@ -2013,6 +2022,7 @@ body:not(.disable-list-styling) {
 		contain: content;
 		height: 0.125rem;
 		width: 1rem;
+		-electron-corner-smoothing: var(--corner-smoothing);
 		--list-bullet-radius: 0.25rem;
 		--list-bullet-transform: translateX(-0.125rem);
 		--list-marker-color: var(--list-dash-color);
@@ -2092,6 +2102,7 @@ input[type=checkbox][data-task="<"]:checked,
 		position: absolute;
 		background-color: oklch(from var(--color-base-100) l c h / 0.05);
 		border-radius: var(--radius-s);
+		-electron-corner-smoothing: var(--corner-smoothing);
 	}
 
 	.cm-active.cm-line.HyperMD-codeblock {
@@ -2990,8 +3001,8 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 /* Tab Containers */
 
 /* unstable items */
-.mod-root .workspace-tab-header-container {
-	transition: 200ms;
+.workspace-tab-header-container {
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
 .workspace-tab-header-container {
 	overflow: hidden;
@@ -3024,6 +3035,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	padding: unset;
 	overflow: visible;
 	outline: 3px solid var(--tab-sidebar-container-bg);
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 /* Root Tabs */
@@ -3375,6 +3387,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	margin-block-end: 8px;
 	padding-inline: 4px;
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 .status-bar:hover,
 body.disable-status-fade .status-bar {
@@ -3391,6 +3404,7 @@ body.disable-status-fade .status-bar {
 .status-bar-item.mod-clickable {
 	border-radius: var(--radius-l);
 	padding-inline: 6px;
+	-electron-corner-smoothing: var(--corner-smoothing);
 	--background-modifier-hover: var(--hr-color);
 }
 
@@ -3974,6 +3988,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	display: flex;
 	justify-content: flex-end;
 	z-index: 1;
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 @container (width < 500px) {
@@ -4043,6 +4058,7 @@ body:not(.is-mobile) .mod-community-modal .community-modal-controls > .setting-i
     border-radius: var(--radius-ml);
     border: none;
 	box-shadow: var(--shadow-faint);
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 .mod-community-theme .community-item {
 	display: grid;
