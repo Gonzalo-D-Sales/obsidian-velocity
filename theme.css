@@ -296,7 +296,6 @@ body {
 	--checkbox-marker-color: var(--text-on-accent);
 	--checklist-done-color: var(--strikethrough-color);
 	--checkbox-size: 1.125rem;
-	--bg-checkbox: radial-gradient(transparent 50%, var(--color-base-30) 55% 60%, transparent 65%);
 
 	/* Code */
 	--code-border-width: 0;
@@ -548,7 +547,8 @@ body {
 	--tab-text-color-focused-active: var(--color-base-100);
 	--tab-text-color-focused: var(--icon-color);
 	--tab-radius: var(--radius-s);
-	--tab-width: 220px;
+	--tab-width: 240px;
+	--tab-max-width: 240px;
 
 	/* Mobile tab switcher */
 
@@ -681,9 +681,8 @@ body {
 	--trans-faint-60: oklch(0.000% 0 0 / 0.3200); 
 	
 	--text-normal: var(--color-base-90);
-	--text-muted: var(--color-base-70);
-	--text-faint: var(--color-base-50);
 	--text-selection: hsla(var(--color-accent-hsl), 0.15);
+
     --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
 	--text-highlight-bg-rgb: var(--color-highlight-rgb);
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
@@ -694,8 +693,7 @@ body {
 
 	--bg-main-inner: oklch(97.50% 0.00125 var(--base-hue));
 	--bg-main-outer: oklch(94.50% 0.00625 var(--base-hue)); 
-	
-	--background-gradient: radial-gradient( at 50% 50%, 
+	--bg-main-workspace: radial-gradient( at 50% 50%, 
 		var(--bg-main-inner) 20%, 
 		var(--bg-main-outer) 100%
 		);
@@ -704,6 +702,10 @@ body {
 	--background-modifier-border-focus: transparent;
 	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-20);
+
+	--bg-checkbox: radial-gradient(transparent 50%, var(--color-base-30) 55% 60%, transparent 65%);
+	--bg-checkbox-active: radial-gradient(transparent 56%, #ffffffdd 76%);
+
 
 	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
@@ -763,7 +765,7 @@ body {
 
 	/* Base shadows */
 	--input-shadow: none;
-	--input-shadow-hover: var(--input-shadow);
+	--input-shadow-hover: none;
 
 	--shadow-faint: 
 		0px 3px 15px 0px var(--trans-faint-20);	
@@ -959,33 +961,32 @@ body {
 	
 	--accent-h: 215;	
 	--accent-s: 100%;	
-	--accent-l: 55%;
+	--accent-l: 53%;
 
-	--color-red-rgb: 251, 72, 79;
-	--color-red: rgb(251, 72, 79);
+	--color-red: #fb464c;
 	--color-orange-rgb: 233, 151, 63;
-	--color-orange: rgb(228, 144, 55);
-	--color-yellow-rgb: 224, 218, 113;
-	--color-yellow: rgb(224, 218, 113);
-	--color-green-rgb: 91, 208, 109;
-	--color-green: rgb(91, 208, 109);
-	--color-cyan-rgb: 89, 208, 196;
-	--color-cyan: rgb(89, 208, 196);
-	--color-blue-rgb: 40, 165, 238;
-	--color-blue: rgb(40, 165, 238);
-	--color-purple-rgb: 194, 126, 233;
-	--color-purple: rgb(194, 126, 233);
-	--color-pink-rgb: 245, 141, 179;
-	--color-pink: rgb(245, 141, 179);
+	--color-orange: #e9973f;
+	--color-yellow-rgb: 224, 222, 113;
+	--color-yellow: #e0de71;
+	--color-green-rgb: 68, 207, 110;
+	--color-green: #44cf6e;
+	--color-cyan-rgb: 83, 223, 221;
+	--color-cyan: #53dfdd;
+	--color-blue-rgb: 2, 122, 255;
+	--color-blue: #027aff;
+	--color-purple-rgb: 168, 130, 255;
+	--color-purple: #a882ff;
+	--color-pink-rgb: 250, 153, 205;
+	--color-pink: #fa99cd;
 
 	--callout-quote: 150, 150, 160;
 
 	--base-hue: 281;
-	--base-hue-text: 281;
 	--base-sat-xtr: 0.010000;
 	--base-sat-str: 0.005000;
 	--base-sat-med: 0.003750;
 	--base-sat-low: 0.003125;
+	
 	--color-base-00: oklch(23.75% var(--base-sat-low) var(--base-hue));
 	--color-base-05: oklch(25.75% var(--base-sat-med) var(--base-hue));
 	--color-base-10: oklch(27.50% var(--base-sat-str) var(--base-hue));
@@ -994,13 +995,13 @@ body {
   	--color-base-30: oklch(34.50% var(--base-sat-str) var(--base-hue));
 	--color-base-35: oklch(36.25% var(--base-sat-str) var(--base-hue));
 	--color-base-40: oklch(43.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-50: oklch(52.50% var(--base-sat-xtr) var(--base-hue-text));
-	--color-base-55: oklch(57.50% var(--base-sat-xtr) var(--base-hue-text));
-	--color-base-60: oklch(63.75% var(--base-sat-xtr) var(--base-hue-text));
-	--color-base-70: oklch(71.25% var(--base-sat-str) var(--base-hue-text));
-	--color-base-80: oklch(77.50% var(--base-sat-str) var(--base-hue-text));
-	--color-base-90: oklch(86.25% var(--base-sat-str) var(--base-hue-text));
-   --color-base-100: oklch(93.75% var(--base-sat-low) var(--base-hue-text));
+	--color-base-50: oklch(52.50% var(--base-sat-xtr) var(--base-hue));
+	--color-base-55: oklch(57.50% var(--base-sat-xtr) var(--base-hue));
+	--color-base-60: oklch(63.75% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(71.25% var(--base-sat-str) var(--base-hue));
+	--color-base-80: oklch(77.50% var(--base-sat-str) var(--base-hue));
+	--color-base-90: oklch(86.25% var(--base-sat-str) var(--base-hue));
+   --color-base-100: oklch(93.75% var(--base-sat-low) var(--base-hue));
 
     --trans-dark-00: oklch(from black l c h / 0.375);
 	--trans-dark-10: oklch(from black l c h / 0.1875);
@@ -1029,10 +1030,12 @@ body {
 	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.75 0.2 h);
 	--text-highlight-bg-search: var(--text-highlight-bg);
 	--text-highlight-bg-search-active: oklch(from var(--color-highlight) 0.875 0.375 h / 0.55);
-	
-	--background-gradient: radial-gradient( at 50% 50%, 
-		var(--color-base-20) 18%, 
-		var(--background-primary) 218%
+
+	--bg-main-inner: var(--color-base-20);
+	--bg-main-outer: var(--background-primary); 
+	--bg-main-workspace: radial-gradient( at 50% 50%, 
+		var(--bg-main-inner) 18%, 
+		var(--bg-main-outer) 218%
 		);
 
 	--background-modifier-border: var(--trans-faint-20);
@@ -1056,7 +1059,7 @@ body {
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-40);
 
-	--fab-bg: var(--color-base-10);
+	--fab-bg: var(--background-primary);
 	--fab-color: var(--color-base-80);
 
 	--hr-color: var(--trans-faint-30);
@@ -1069,6 +1072,11 @@ body {
 	--list-bullet-color: var(--color-base-80);
 	--list-dash-color: var(--trans-faint-60);
 
+	--modal-background: 
+		color-mix(in oklab, var(--trans-strong-00), var(--trans-strong-30));
+	--modal-small-background: 
+		color-mix(in oklab, var(--trans-strong-10) 25%, var(--trans-strong-20));
+
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--divider-color);
 	--nav-text-color: var(--text-normal);
@@ -1079,9 +1087,7 @@ body {
 
 	--search-result-background: var(--trans-strong-10);
 
-	--settings-background: color-mix(in oklab, var(--background-secondary), var(--color-base-05));
-	--setting-item-bg: var(--background-primary);
-	--setting-item-border-color: var(--trans-faint-20);
+	--settings-background: color-mix(in oklab, var(--color-base-10), var(--color-base-20));
 
 	--slider-track-background: var(--trans-faint-40);
 	--toggle-track-bg: var(--trans-faint-50);
@@ -1095,28 +1101,47 @@ body {
 	--tab-right-fade: linear-gradient(to left, var(--color-base-25) 75%, transparent);
 	--tab-close-bg: oklch(from var(--color-base-35) l c h / 0.875);
 	
-	--tab-sidebar-bg: var(--trans-faint-30);
-	--tab-sidebar-bg-top: var(--trans-faint-30);
-	--tab-sidebar-bg-top-left: var(--trans-faint-40);
-	--tab-sidebar-container-bg: var(--trans-faint-05);
+	--tab-sidebar-bg: var(--trans-faint-25);
+	--tab-sidebar-container-bg: var(--trans-strong-40);
 	--tag-border-color: oklch(from var(--interactive-accent) l c h / 0.025);
 
 	--workspace-border-color: var(--trans-faint-25);
 
+	/* Base shadows */
 	--input-shadow: none;
-	--input-shadow-hover: var(--input-shadow);
+	--input-shadow-hover: none;
 
+	--shadow-faint: 
+		0px 3px 15px 0px var(--trans-dark-00);	
+	--shadow-muted: 
+		0px 3px 18px 0px var(--trans-dark-00);
 	--shadow-normal: 
-		0 -0.25px 0px 1px var(--trans-faint-25),
-		0 0.75px 7px -2px var(--trans-dark-00);
-	/* --shadow-tab:
-		inset 0 1.5px 2.5px 0px var(--trans-faint-40),
-		inset 0 -1.25px 2.75px 0px var(--trans-strong-05),
-		0 0.625px 3.5px 0px var(--trans-dark-10); */
-	--shadow-checkbox:
-		0 0 0 0.375px var(--trans-faint-60);
-	--shadow-checkbox-active:
-		none;
+		0px 3px 18px 0px var(--color-base-00);
+	--shadow-strong: 
+		0px 0px 24px 0px var(--trans-dark-00);
+	
+	--glass-base: 
+		inset 1.125px 1.75px 2px -1.25px rgba(255, 255, 255, 0.25), 
+		inset -1.125px -1.75px 2px -1.25px rgba(255, 255, 255, 0.175), 
+		inset 0 8px 16px rgba(255, 255, 255, 0.025);	
+	--glass-base-m: 
+		inset 3px 4px 2px -1.5px rgba(255, 255, 255, 0.2), 
+		inset -3px -4px 2px -1.5px rgba(255, 255, 255, 0.15), 
+		inset 0 8px 18px rgba(255, 255, 255, 0.05);
+	--glass-base-l: 
+		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.15), 
+		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.1), 
+		inset 0 8px 16px rgba(255, 255, 255, 0.015);
+
+	--shadow-s: 
+		var(--glass-base),
+		var(--shadow-normal);
+	--shadow-l: 
+		var(--glass-base-l),
+		var(--shadow-strong);
+
+	/* Interface shadows */
+
 	--shadow-input: 
 		0px 0px 0px 0.5px var(--trans-faint-30);
 	--shadow-input-active: 
@@ -1141,11 +1166,39 @@ body {
 		inset 0 -1px 2.5px 0px var(--trans-strong-00),
 		0 5px 15px -1.5px var(--color-accent-5),
 		0 5px 15px -3px var(--trans-dark-00);
-	--shadow-setting-items: 
-		0 4px 12px 0 var(--trans-strong-10);
-	
 	--shadow-sidebar: 
 		0px 0px 12px 0px var(--trans-strong-20);
+	--shadow-tab:
+		var(--glass-base);
+
+	--menu-shadow: var(--shadow-normal);
+
+	/* Component shadows */
+	--shadow-button: 
+		var(--glass-base-m),
+		var(--shadow-muted);
+	--shadow-input: 
+		0 0 0 0.5px var(--trans-faint-40);
+	--shadow-input-active: 
+		0 0 0 2.5px var(--color-accent-4);
+	--shadow-toggle:
+		inset 2px 2px 2px -0.5px var(--trans-faint-40),
+		inset -2px -2px 2px -0.5px var(--trans-faint-40);
+	/* Markdown item shadows */
+
+	/* Modal interface shadows */
+	--shadow-setting-items: 
+		0 4px 12px 0 var(--trans-strong-10);
+	--shadow-setting-items-top: 
+		inset 1px 2px 2px 0 var(--trans-strong-10),
+		0px 1px 9px var(--trans-faint-05);
+	--shadow-suggestion-item: 
+		var(--glass-base-m),
+		var(--shadow-muted);
+	
+	/* Other shadows */
+	--bases-cards-shadow-hover: 
+		0 0.125px 0px 0.375px var(--trans-faint-60);	
 }
 
 /*--> Theme Default Typeface <--*/
@@ -2057,7 +2110,7 @@ input[type=checkbox]:active {
 	--text-normal: var(--trans-faint-60);
 }
 input[type=checkbox]:checked {
-	background-image: radial-gradient(transparent 54%, #fff 90%);
+	background-image: var(--bg-checkbox-active);
 	border: none;
 }
 input[type=checkbox]:checked::after {
@@ -2584,7 +2637,7 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 /*--> Workspace Layout <--*/
 
 body:not(.is-mobile) {
-	background-image: var(--background-gradient);
+	background-image: var(--bg-main-workspace);
 }
 /* margin adjustment when there is no view header */
 body:not(.is-mobile):not(.show-view-header) {
@@ -2622,6 +2675,7 @@ body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .w
 body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf > .workspace-leaf-content {
 	background-color: transparent;
 	border-radius: var(--radius-ml);
+	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 /* Main workspace tab(s) shadow */
@@ -2863,11 +2917,8 @@ body.disable-hover-header .nav-buttons-container {
 	font-weight: var(--font-semi-medium);
 	margin-block-start: 0;
 }
-.search-result-file-title {
-	padding-block-end: 4px;
-}
-:is(.backlink-pane, .outgoing-link-pane) .search-result-file-title {
-	padding-inline: 24px 7px;
+.search-result-file-title > .tree-item-flair-outer {
+	display: none;
 }
 .search-result-file-matched-text {
 	background-color: var(--text-highlight-bg-search);
@@ -2886,9 +2937,6 @@ body.disable-hover-header .nav-buttons-container {
 body:not(.is-mobile) .embedded-backlinks > .nav-header {
 	margin-block-end: 2rem;
 	padding: unset;
-}
-.embedded-backlinks .search-result-container .tree-item-flair-outer {
-	display: none;
 }
 .embedded-backlinks .tree-item-self.is-clickable {
 	contain: content;
@@ -3736,7 +3784,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	--background-modifier-hover: var(--interactive-accent);
 }
 .menu-item:not(.is-disabled).selected {
-	box-shadow: var(--glass-base), var(--shadow-faint);
+	box-shadow: var(--shadow-button);
 	color: var(--text-on-accent) !important;
 	--icon-color: var(--text-on-accent);
 }
