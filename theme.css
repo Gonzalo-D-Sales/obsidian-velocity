@@ -981,16 +981,16 @@ body {
 
 	--callout-quote: 150, 150, 160;
 
-	--base-hue: 281;
-	--base-sat-xtr: 0.010000;
-	--base-sat-str: 0.005000;
-	--base-sat-med: 0.003750;
-	--base-sat-low: 0.003125;
+	--base-hue: 284;
+	--base-sat-xtr: 0.007500;
+	--base-sat-str: 0.003750;
+	--base-sat-med: 0.001250;
+	--base-sat-low: 0.000000;
 	
-	--color-base-00: oklch(23.75% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(25.75% var(--base-sat-med) var(--base-hue));
-	--color-base-10: oklch(27.50% var(--base-sat-str) var(--base-hue));
-  	--color-base-20: oklch(28.75% var(--base-sat-str) var(--base-hue));
+	--color-base-00: oklch(23.50% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(24.00% var(--base-sat-low) var(--base-hue));
+	--color-base-10: oklch(26.25% var(--base-sat-str) var(--base-hue));
+  	--color-base-20: oklch(27.50% var(--base-sat-str) var(--base-hue));
 	--color-base-25: oklch(31.25% var(--base-sat-str) var(--base-hue));
   	--color-base-30: oklch(34.50% var(--base-sat-str) var(--base-hue));
 	--color-base-35: oklch(36.25% var(--base-sat-str) var(--base-hue));
@@ -1017,7 +1017,7 @@ body {
 	--trans-faint-10: oklch(100% 0.050 283 / 0.0500);
 	--trans-faint-20: oklch(100% 0.050 283 / 0.0625);
 	--trans-faint-25: oklch(100% 0.050 283 / 0.0750);
-	--trans-faint-30: oklch(100% 0.040 283 / 0.1000);
+	--trans-faint-30: oklch(100% 0.075 283 / 0.1000);
 	--trans-faint-40: oklch(100% 0.040 283 / 0.1250);
 	--trans-faint-50: oklch(100% 0.020 283 / 0.2000);
 	--trans-faint-60: oklch(100% 0.020 283 / 0.3500);
@@ -1032,10 +1032,10 @@ body {
 	--text-highlight-bg-search-active: oklch(from var(--color-highlight) 0.875 0.375 h / 0.55);
 
 	--bg-main-inner: var(--color-base-20);
-	--bg-main-outer: var(--background-primary); 
+	--bg-main-outer: var(--color-base-10); 
 	--bg-main-workspace: radial-gradient( at 50% 50%, 
-		var(--bg-main-inner) 18%, 
-		var(--bg-main-outer) 218%
+		var(--bg-main-inner) 15%, 
+		var(--bg-main-outer) 150%
 		);
 
 	--background-modifier-border: var(--trans-faint-20);
@@ -1112,7 +1112,7 @@ body {
 	--input-shadow-hover: none;
 
 	--shadow-faint: 
-		0px 3px 15px 0px var(--trans-dark-00);	
+		0px 3px 21px 0px var(--trans-dark-10);	
 	--shadow-muted: 
 		0px 3px 18px 0px var(--trans-dark-00);
 	--shadow-normal: 
@@ -1125,9 +1125,9 @@ body {
 		inset -1.125px -1.75px 2px -1.25px rgba(255, 255, 255, 0.175), 
 		inset 0 8px 16px rgba(255, 255, 255, 0.025);	
 	--glass-base-m: 
-		inset 3px 4px 2px -1.5px rgba(255, 255, 255, 0.2), 
-		inset -3px -4px 2px -1.5px rgba(255, 255, 255, 0.15), 
-		inset 0 8px 18px rgba(255, 255, 255, 0.05);
+		inset 1.125px 1.75px 2px -1.25px rgba(255, 255, 255, 0.25), 
+		inset -1.125px -1.75px 2px -1.25px rgba(255, 255, 255, 0.175), 
+		inset 0 8px 16px rgba(255, 255, 255, 0.025);
 	--glass-base-l: 
 		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.15), 
 		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.1), 
@@ -1153,8 +1153,8 @@ body {
 	--bases-cards-shadow-hover: 
 		0 0 0 0.375px var(--trans-faint-60);
 	--shadow-workspace: 
-		0 10px 30px var(--color-base-00),
-		0 2px 4px 0 var(--trans-strong-00);
+		0 -0.25px 1.75px -1px var(--trans-faint-60),
+		0 0 16px var(--trans-strong-00);
 	--shadow-workspace-multi: none;
 	--shadow-fab: 
 		inset 0 1.25px 2px 0px var(--trans-faint-10),
@@ -1299,7 +1299,7 @@ body:not(.mod-windows, .mod-linux) {
 	opacity: 0;
 	}
 }
-@keyframes anim-main {
+@keyframes opacity {
 	0% {
 	opacity: 0;
 	}
@@ -2186,6 +2186,14 @@ mjx-math {
 	font-size: var(--h5-size);
     font-weight: var(--font-semi-medium);
 	font-variation-settings: 'opsz' 26;
+	transition: color var(--anim-duration-fast) ease-in-out;
+}
+.metadata-properties,
+.metadata-add-button {
+	transition: var(--anim-fast-swing);
+}
+.metadata-container.is-collapsed .metadata-content {
+	filter: opacity(0);
 }
 .metadata-container.is-collapsed .metadata-properties-title {
 	color: var(--icon-color);
