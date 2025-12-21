@@ -354,7 +354,7 @@ body {
 	/* Footnotes */
 
 	/* Graphs */
-	--graph-controls-width: 220px;
+	--graph-controls-width: 232px;
 	--graph-node-focused: transparent;
 
 	/* Headings */
@@ -1100,8 +1100,8 @@ body {
 	--tab-right-fade: linear-gradient(to left, var(--color-base-25) 75%, transparent);
 	--tab-close-bg: oklch(from var(--color-base-35) l c h / 0.875);
 	
-	--tab-sidebar-bg: var(--trans-faint-25);
-	--tab-sidebar-container-bg: var(--trans-strong-40);
+	--tab-sidebar-bg: var(--trans-faint-20);
+	--tab-sidebar-container-bg: var(--trans-faint-05);
 	--tag-border-color: oklch(from var(--interactive-accent) l c h / 0.025);
 
 	--workspace-border-color: var(--trans-faint-25);
@@ -1397,29 +1397,25 @@ button.mod-warning {
 /*--> Graph & Controls <--*/
 
 .graph-controls {
-	inset: 6px 8px auto auto;
-}
-.graph-controls.is-close {
-	border: none;
-	inset: 8px 2px auto auto;
+	inset: 8px 4px auto auto;
 }
 .graph-controls > .mod-reset {
 	margin-inline-end: 8px;
 }
+.graph-controls > .mod-close {
+	margin-inline-end: -1px;
+}
 .graph-control-section  {
 	padding-block: 8px;
-	.setting-item.mod-slider > .setting-item-control {
-		padding-block: 2px 6px;
+	.tree-item-self {
+		margin-block-end: unset;
 	}
 	.tree-item-children:last-child {
 		padding-block-end: unset;
 	}
-	.tree-item-self {
-		margin-block-end: unset;
+	.setting-item.mod-slider > .setting-item-control {
+		padding-block: 0px 4px;
 	}
-}
-.graph-color-button-container {
-    margin-block-end: 2px;
 }
 
 /*--> Inputs <--*/
@@ -2404,7 +2400,7 @@ button.clickable-icon {
 	--icon-opacity: 1;
 }
 
-:is(.workspace-ribbon,
+body:not(.is-mobile) :is(.workspace-ribbon,
 	.workspace-sidedock-vault-profile,
 	.workspace-tab-header-tab-list,
 	.sidebar-toggle-button) .clickable-icon {
@@ -2422,7 +2418,17 @@ button.clickable-icon {
 		box-shadow: 
 		var(--shadow-faint);
 	}
-	/* icon click */
+}
+/* icon click */
+body:not(.is-mobile) 
+	:is(.workspace-ribbon,
+		.workspace-sidedock-vault-profile,
+		.workspace-tab-header-new-tab,
+		.workspace-tab-header-tab-list,
+		.nav-buttons-container,
+		.sidebar-toggle-button,
+		.view-header-left,
+		.view-actions) .clickable-icon {
 	> .svg-icon {
 		transition: var(--anim-duration-moderate) var(--vl-ease-out);
 	}
@@ -2430,6 +2436,7 @@ button.clickable-icon {
 		transform: scale3d(0.8, 0.8, 0.8);
 	}
 }
+
 .workspace .sidebar-toggle-button > .clickable-icon:hover {
 	--sidebar-left-toggle-inner-width: 24%;
 	--sidebar-right-toggle-inner-width: 24%;
@@ -3361,15 +3368,11 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		background-color: var(--fab-bg);
 		box-shadow: var(--shadow-input), 0px 3px 15px 0px var(--trans-faint-20);
 		cursor: var(--cursor-link);
-		transition-property: transform, filter;
-		transition-duration: var(--anim-duration-fast);
-		transition-timing-function: var(--fab-easing-curve);
+
 		& .svg-icon {
 			filter: opacity(75%);
-			transition: inherit;
 		}
 		&:active {
-			transform: scale(0.875);
 			filter: opacity(75%);
 		}
 		&:hover .svg-icon {
@@ -3383,7 +3386,6 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		--icon-color-focused: var(--icon-color);
 		& .svg-icon {
 			filter: opacity(100%);
-			transition: inherit;
 		}
 		&:hover .svg-icon {
 			filter: opacity(75%);
