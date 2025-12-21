@@ -497,7 +497,8 @@ body {
 	/* Ribbon */
 	--ribbon-background: transparent;
 	--ribbon-background-collapsed: transparent;
-	--ribbon-padding: 6px 4px 12px 8px;
+	--ribbon-padding: 8px 0px 12px 8px;
+	--ribbon-width: 56px;
 
 	/* Scrollbars */
 	--scrollbar-thumb-bg: var(--trans-faint-30);
@@ -757,9 +758,7 @@ body {
 	--tab-close-bg: oklch(from var(--color-base-30) l c h / 0.625);
 
 	--tab-sidebar-bg: var(--trans-strong-00);
-	--tab-sidebar-bg-top: color-mix(in oklab, var(--trans-strong-00), var(--trans-strong-10));
-	--tab-sidebar-bg-top-left: var(--trans-strong-10);
-	--tab-sidebar-container-bg: oklch(00.00% 0 0 / 0.03125);
+	--tab-sidebar-container-bg: oklch(00.00% 0 0 / 0.0375);
 
 	--workspace-border-color: var(--trans-faint-00);
 
@@ -768,7 +767,7 @@ body {
 	--input-shadow-hover: none;
 
 	--shadow-faint: 
-		0px 3px 15px 0px var(--trans-faint-20);	
+		0px 0 12px 0px var(--trans-faint-10);	
 	--shadow-muted: 
 		0px 3px 18px 0px var(--trans-faint-25);
 	--shadow-normal: 
@@ -957,6 +956,7 @@ body {
 
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
+
 .theme-dark {
 	
 	--accent-h: 215;	
@@ -1132,6 +1132,12 @@ body {
 		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.15), 
 		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.1), 
 		inset 0 8px 16px rgba(255, 255, 255, 0.015);
+	--glass-button: 
+		inset 2px 2px 2.5px -0.5px oklab(from var(--interactive-accent) calc(l + 0.15) a b / 0.75), 
+		inset -2px -2px 2.5px -0.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75);
+	--glass-button-l: 
+		inset 3px 3px 3px -1px oklab(from var(--interactive-accent) calc(l + 0.15) a b / 0.75), 
+		inset -3px -3px 3px -1px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75);
 
 	--shadow-s: 
 		var(--glass-base),
@@ -1175,15 +1181,15 @@ body {
 
 	/* Component shadows */
 	--shadow-button: 
-		var(--glass-base-m),
+		var(--glass-button), 
 		var(--shadow-muted);
 	--shadow-input: 
 		0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 
 		0 0 0 2.5px var(--color-accent-4);
 	--shadow-toggle:
-		inset 2px 2px 2px -0.5px var(--trans-faint-40),
-		inset -2px -2px 2px -0.5px var(--trans-faint-40);
+		inset 1.25px 1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.125) a b / 0.75), 
+		inset -1.25px -1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75);
 	/* Markdown item shadows */
 
 	/* Modal interface shadows */
@@ -1193,7 +1199,7 @@ body {
 		inset 1px 2px 2px 0 var(--trans-strong-10),
 		0px 1px 9px var(--trans-faint-05);
 	--shadow-suggestion-item: 
-		var(--glass-base-m),
+		var(--glass-button-l),
 		var(--shadow-muted);
 	
 	/* Other shadows */
@@ -1299,11 +1305,6 @@ body:not(.mod-windows, .mod-linux) {
 	opacity: 0;
 	}
 }
-@keyframes opacity {
-	0% {
-	opacity: 0;
-	}
-}
 
 body:not(.is-mobile) {
 	--fab-easing-curve: cubic-bezier(.55,2,.5,.97);
@@ -1359,12 +1360,15 @@ button[class*="mod-"]:focus-visible {
 }
 
 button.mod-cta,
-button.mod-warning,
 button.mod-cta:focus,
-button.mod-warning:focus,
 :is(.mod-root, .popover) .metadata-add-button,
 .file-recovery-list-item-header.is-active {
 	box-shadow: var(--shadow-button);
+	font-weight: var(--font-normal-linux);
+}
+button.mod-warning,
+button.mod-warning:focus {
+	box-shadow: var(--glass-base), var(--shadow-muted);
 	font-weight: var(--font-normal-linux);
 }
 button.mod-cta:hover,
@@ -2181,20 +2185,21 @@ mjx-math {
 
 /*--> Metadata <--*/
 
+.metadata-container.is-collapsed .metadata-content {
+	filter: opacity(0);
+}
+
 /* Properties title */
+.metadata-properties-heading {
+	display: block;
+}
 .metadata-properties-title {
 	font-size: var(--h5-size);
     font-weight: var(--font-semi-medium);
 	font-variation-settings: 'opsz' 26;
 	transition: color var(--anim-duration-fast) ease-in-out;
 }
-.metadata-properties,
-.metadata-add-button {
-	transition: var(--anim-fast-swing);
-}
-.metadata-container.is-collapsed .metadata-content {
-	filter: opacity(0);
-}
+
 .metadata-container.is-collapsed .metadata-properties-title {
 	color: var(--icon-color);
 }
@@ -2371,7 +2376,7 @@ button.clickable-icon {
 }
 .clickable-icon[aria-disabled='true'] {
     opacity: unset;
-	filter: opacity(0.3);
+	filter: opacity(0.3125);
 }
 :is(.workspace-sidedock-vault-profile, 
 	.view-header, 
@@ -2386,27 +2391,37 @@ button.clickable-icon {
 	--icon-opacity: 1;
 }
 .workspace-tab-header-new-tab .clickable-icon {
-	height: 32px;
-	width: 32px;
-	margin-bottom: 2px;
+	height: 34px;
+	width: 34px;
+	margin-bottom: 1px;
 	--icon-color: var(--color-base-90);
 	--icon-opacity: 1;
 }
-.mod-root .workspace-tab-header-tab-list,
+.workspace-tab-header-tab-list,
 .sidebar-toggle-button {
-	contain: content;
-	margin-block-start: 1px;
-	padding-block: 8px;
+	margin-inline: 0;
+	overflow: visible;
 	--icon-color: var(--color-base-90);
 	--icon-opacity: 1;
 }
-.workspace-tab-header-tab-list .clickable-icon {
-	height: 100%;
-	padding: 8px;
-}
-.sidebar-toggle-button .clickable-icon {
-	height: 100%;
-	padding: 8px;
+
+:is(.workspace-ribbon,
+	.workspace-sidedock-vault-profile,
+	.workspace-tab-header-tab-list,
+	.sidebar-toggle-button) .clickable-icon {
+	contain: content;
+	align-self: center;
+	height: fit-content;
+	min-height: 34px;
+	border-radius: var(--radius-xxl);
+	padding: 8px 12px;
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	--background-modifier-hover: var(--background-primary);
+	&:hover,
+	&:active {
+		box-shadow: 
+		var(--shadow-faint);
+	}
 }
 .workspace .sidebar-toggle-button > .clickable-icon:hover {
 	--sidebar-left-toggle-inner-width: 24%;
@@ -2419,23 +2434,14 @@ button.clickable-icon {
 	--sidebar-right-toggle-inner-width-open: 12%;
 }
  .sidebar-toggle-icon-inner {
-	transition: var(--anim-fast-delay);
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
 
 .menu-item-icon svg {
 	padding: 0;
 }
 /* Wider workspace icons */
-body:not(.is-mobile) 
-	.workspace-split.mod-left-split 
-	.workspace-sidedock-vault-profile 
-	.workspace-drawer-vault-actions > .clickable-icon,
-body:not(.is-mobile) 
-	.view-header-left > .view-header-nav-buttons > .clickable-icon,
-body:not(.is-mobile) .view-actions > .view-action:last-child,
-body:not(.is-mobile) .graph-controls-button {
-	padding-inline: 10px;
-}
+
 
 /*--> Custom Icons <--*/
 
@@ -2938,7 +2944,9 @@ body.disable-hover-header .nav-buttons-container {
 }
 
 /* Embedded backlinks */
-.embedded-backlinks {
+.embedded-backlinks,
+.mod-root .workspace-leaf-content[data-type="backlink"],
+.mod-root .workspace-leaf-content[data-type="outgoing-link"] {
 	border: unset;
 	--search-result-background: var(--trans-faint-05);
 }
@@ -2949,6 +2957,10 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 .embedded-backlinks .tree-item-self.is-clickable {
 	contain: content;
 	width: auto;
+	user-select: none;
+}
+.embedded-backlinks .search-empty-state {
+	user-select: none;
 }
 .embedded-backlinks .backlink-pane > .tree-item-self > .tree-item-inner {
 	color: var(--text-muted);
@@ -3070,16 +3082,14 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	padding-inline-start: 2px;
 }
 
-.workspace .mod-root .workspace-tab-header-container-inner {
+.workspace > .mod-root .workspace-tab-header-container-inner {
+	align-items: center;
+	column-gap: 4px;
     padding-inline: 8px;
+	padding-block: 0;
 }
 .workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
 	padding-inline-start: 0;
-}
-.mod-root .workspace-tab-header-container-inner {
-	padding-block: 0;
-	align-items: center;
-	column-gap: 4px;
 }
 
 .mod-sidedock .workspace-tab-header-container-inner {
@@ -3311,7 +3321,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		opacity: 1;
 		filter: opacity(100%);
 		background-color: var(--fab-bg);
-		box-shadow: var(--shadow-input), var(--shadow-faint);
+		box-shadow: var(--shadow-input), 0px 3px 15px 0px var(--trans-faint-20);
 		cursor: var(--cursor-link);
 		transition-property: transform, filter;
 		transition-duration: var(--anim-duration-fast);
@@ -3818,6 +3828,7 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	filter: opacity(0.875);
 }
 .menu-item.is-warning:not(.is-disabled).selected {
+	box-shadow: var(--glass-base), var(--shadow-muted);
 	background-color: var(--text-error);
 }
 /* Menu label (graph mode) */
@@ -3962,11 +3973,6 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	filter: opacity(0.4);
 }
 
-.mod-confirmation .mobile-option-setting-item {
-	background-color: var(--trans-faint-05);
-	border-radius: var(--radius-s);
-    padding-inline: 12px 4px;
-}
 .installed-plugins-container {
     padding-top: 0;
     border-top: none;
