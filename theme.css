@@ -2653,6 +2653,14 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 body:not(.is-mobile) {
 	background-image: var(--bg-main-workspace);
 }
+
+/* general */
+.workspace-tab-container,
+.workspace-tab-header-container {
+	overflow: hidden;
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+}
+
 /* margin adjustment when there is no view header */
 body:not(.is-mobile):not(.show-view-header) {
     --file-margins: 72px 32px;
@@ -2685,8 +2693,7 @@ body:not(
 
 /* Main workspace tab(s) radius */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container,
-body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf,
-body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf > .workspace-leaf-content {
+body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .workspace-leaf {
 	background-color: transparent;
 	border-radius: var(--radius-ml);
 	-electron-corner-smoothing: var(--corner-smoothing);
@@ -2695,18 +2702,18 @@ body:not(.is-mobile) .mod-root > .workspace-tabs > .workspace-tab-container > .w
 /* Main workspace tab(s) shadow */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
-	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) .workspace-tab-container {
     box-shadow: var(--shadow-workspace-multi);
 	--file-margins: 32px;
 }
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) {
-    --shadow-workspace: var(--shadow-workspace-multi);
+body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) > .mod-root > .workspace-tabs > .workspace-tab-container {
+    box-shadow: var(--shadow-workspace-multi);
 }
 
 /* allow shadow to overflow to sidebars */
 body:not(.is-mobile) .mod-root .workspace-tabs {
+	contain: layout;
 	overflow: visible;
 }
 
@@ -2742,19 +2749,18 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf {
 /* divider reveal on hover */
 .mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
 	border-block: 1px solid transparent;
-	transition: border var(--anim-duration-moderate) var(--vl-ease-out);
 	&:hover {
 		border-top-color: var(--trans-faint-20);
 	}
 }
 
 /* make room for status bar */
-.mod-right-split .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
+/* .mod-right-split .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
 	padding-block-end: 40px;
-}
+} */
 /* empty sidedock */
 .workspace-sidedock-empty-state {
-	padding-block: var(--header-height);
+	padding-block-start: var(--header-height);
 }
 
 /*--> Nav Header <--*/
@@ -3067,15 +3073,6 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 }
 
 /* Tab Containers */
-
-/* unstable items */
-.workspace-tab-header-container {
-	transition: var(--anim-duration-moderate) var(--vl-ease-out);
-}
-.workspace-tab-header-container {
-	overflow: hidden;
-}
-/* unstable items end */
 
 /* Separate window padding adjustment for tabs */
 .is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
