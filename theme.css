@@ -307,7 +307,6 @@ body {
 	--code-special: var(--color-red);
 
 	/* Collapse icons */
-  	--collapse-icon-color-collapsed: var(--color-base-100);
 
 	/* Corner smoothing */
 	--corner-smoothing: 60%;
@@ -1336,7 +1335,7 @@ button:active,
 	contain: content;
 	transition: 
 	background-color var(--anim-super-smooth),
-	filter var(--anim-super-delay);
+	filter var(--anim-duration-moderate) var(--vl-ease-out);
 }
 button:not(.clickable-icon,[class*="mod-"]):active,
 button:not(.clickable-icon,[class*="mod-"]):hover:active,
@@ -2417,10 +2416,18 @@ button.clickable-icon {
 	padding: 8px 12px;
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 	--background-modifier-hover: var(--background-primary);
+	/* shadow on hover */
 	&:hover,
 	&:active {
 		box-shadow: 
 		var(--shadow-faint);
+	}
+	/* icon click */
+	> .svg-icon {
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	}
+	&:active > .svg-icon {
+		transform: scale3d(0.8, 0.8, 0.8);
 	}
 }
 .workspace .sidebar-toggle-button > .clickable-icon:hover {
@@ -3031,10 +3038,14 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 .search-row {
     column-gap: 6px;
 }
-.search-row >.clickable-icon {
+.search-row > .clickable-icon {
 	contain: content;
     border-radius: var(--radius-xl);
 	padding: 8px;
+}
+.global-search-input-container > .input-right-decorator.clickable-icon {
+	border-radius: var(--radius-xl);
+	padding-inline: 6px;
 }
 .mod-sidedock .search-info-container {
     color: var(--text-accent);
@@ -3467,9 +3478,6 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 .clickable-icon.side-dock-ribbon-action {
 	--icon-color: var(--text-muted);
 	--icon-color-hover: var(--color-base-100);
-}
-.clickable-icon.side-dock-ribbon-action:active {
-	transform: scale(0.875);
 }
 
 /*--> Status Bar <--*/
