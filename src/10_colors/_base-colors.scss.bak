@@ -141,7 +141,7 @@
 
 	--workspace-border-color: var(--trans-faint-00);
 
-		// Base shadows 
+	/* Base shadows */
 	--input-shadow: none;
 	--input-shadow-hover: none;
 
@@ -174,7 +174,7 @@
 		var(--glass-base-l),
 		var(--shadow-strong);
 	
-		// Interface shadows 
+	/* Interface shadows */
 
 	--menu-shadow: 
 		inset 1px 1px 2px 0 var(--trans-strong-10),
@@ -198,7 +198,7 @@
 	--shadow-workspace-multi:
 		0px 2.5px 10px var(--trans-faint-10);
 		
-		// Component shadows 
+	/* Component shadows */
 	--shadow-button: 
 		var(--glass-base),
 		var(--shadow-muted);
@@ -210,9 +210,9 @@
 		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
 		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
 
-		// Markdown item shadows 
+	/* Markdown item shadows */
 
-		// Modal interface shadows 
+	/* Modal interface shadows */
 	--shadow-setting-items: 
 		inset 1px 1px 2px 0 var(--trans-strong-10),
 		inset -1px -1px 2px 0 var(--trans-strong-10),
@@ -224,7 +224,7 @@
 		var(--glass-base-m),
 		var(--shadow-muted);
 	
-		// Other shadows 
+	/* Other shadows */
 	--bases-cards-shadow-hover: 
 		0 0.125px 0px 0.375px var(--trans-faint-60);	
 }
@@ -298,9 +298,9 @@
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
 .theme-light.classic {
-		// --accent-h: 218;	
-	// --accent-s: 62%;	
-	// --accent-l: 52%; 
+	/* --accent-h: 218;	
+	--accent-s: 62%;	
+	--accent-l: 52%; */
 	--accent-h: 0;	
 	--accent-s: 60%;	
 	--accent-l: 60%;
@@ -486,7 +486,7 @@
 
 	--workspace-border-color: var(--trans-faint-25);
 
-		// Base shadows 
+	/* Base shadows */
 	--input-shadow: none;
 	--input-shadow-hover: none;
 
@@ -525,7 +525,7 @@
 		var(--glass-base-l),
 		var(--shadow-strong);
 
-		// Interface shadows 
+	/* Interface shadows */
 
 	--shadow-input: 
 		0px 0px 0px 0.5px var(--trans-faint-30);
@@ -558,7 +558,7 @@
 
 	--menu-shadow: var(--shadow-normal);
 
-		// Component shadows 
+	/* Component shadows */
 	--shadow-button: 
 		var(--glass-button), 
 		var(--shadow-muted);
@@ -569,9 +569,9 @@
 	--shadow-toggle:
 		inset 1.25px 1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.125) a b / 0.75), 
 		inset -1.25px -1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75);
-		// Markdown item shadows 
+	/* Markdown item shadows */
 
-		// Modal interface shadows 
+	/* Modal interface shadows */
 	--shadow-setting-items: 
 		0 4px 12px 0 var(--trans-strong-10);
 	--shadow-setting-items-top: 
@@ -581,7 +581,7 @@
 		var(--glass-button-l),
 		var(--shadow-muted);
 	
-		// Other shadows 
+	/* Other shadows */
 	--bases-cards-shadow-hover: 
 		0 0.125px 0px 0.375px var(--trans-faint-60);	
 }

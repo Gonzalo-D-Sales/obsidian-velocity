@@ -1,9 +1,10 @@
-//
-// =========================== ===========================
-// 2 - Markdown
-// =========================== ===========================
+/*
+=========================== ===========================
+			2 - Markdown
+=========================== ===========================
+*/
 
-// --> Heading and Paragraph spacing/margins <--
+/*--> Heading and Paragraph spacing/margins <--*/
 
 .cm-line.HyperMD-header:first-child,
 :not(.show-properties) div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
@@ -26,7 +27,7 @@
 	margin-block: 2rem;
 }
 
-// --> Headings H1-H6 <--
+/*--> Headings H1-H6 <--*/
 
 .cm-s-obsidian .cm-line.HyperMD-header,
 .markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
@@ -51,7 +52,7 @@
 		-electron-corner-smoothing: var(--corner-smoothing);
 	}
 }
-// Disable H1 special styling 
+/* Disable H1 special styling */
 body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 	font-feature-settings: 'cv05' off, 'cv06', 'cv11' off;
 }
@@ -79,7 +80,7 @@ body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 	text-indent: -0.0075em;
 }
 
-// --> Blockquotes <--
+/*--> Blockquotes <--*/
 .el-blockquote blockquote,
 .markdown-rendered blockquote {
 	position: relative;
@@ -119,7 +120,7 @@ body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 	padding-inline-start: 16px !important;
 }
 
-// --> Callouts <--
+/*--> Callouts <--*/
 .callout .callout-content {
 	--code-background: var(--code-background-alt);
 	--blockquote-color: var(--color-base-80);
@@ -130,12 +131,12 @@ body:not(.disable-callout-styling) {
 	--callout-border-opacity: 0.2;
 	--callout-radius: var(--radius-sm);
 	--callout-padding: 16px;
-		// --callout-title-padding: 0px; 
-		// Callout colors 
+	/* --callout-title-padding: 0px; */
+	/* Callout colors */
 	--callout-bug: var(--color-pink-rgb);
 	--callout-warning: var(--color-yellow-rgb);
 
-		// Styling 
+	/* Styling */
 	.markdown-source-view .cm-content > .cm-callout[contenteditable=false] {
 		border-radius: var(--callout-radius);
 		contain: none !important;
@@ -155,9 +156,9 @@ body:not(.disable-callout-styling) {
 		--bold-color: var(--color-base-80);
 		--italic-color: var(--color-base-80);
 	}
-		// .callout.is-collapsible {
-	// padding-bottom: 16px;
-	// } 
+	/* .callout.is-collapsible {
+		padding-bottom: 16px;
+	} */
 	.callout .callout {
 		margin-inline: 0.125em;
 		outline-color: var(--trans-strong-20);
@@ -201,7 +202,7 @@ body:not(.disable-callout-styling) {
 		--icon-stroke: var(--icon-stroke-thick);
 	}
 
-		// Things inside Callouts 
+	/* Things inside Callouts */
 	.callout table {
 		--table-border-color: var(--hr-color);
 	}
@@ -210,7 +211,7 @@ body:not(.disable-callout-styling) {
 	}
 }
 
-// Math Callouts 
+/* Math Callouts */
 body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 	color: var(--color-base-100);
 	background-image: unset;
@@ -236,7 +237,7 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 		margin-block-start: 0.25rem;
 	}
 }
-// other colors 
+/* other colors */
 body:not(.disable-callout-styling) .callout[data-callout="math-red"] {
 	--callout-color: var(--color-red-rgb);
 }
@@ -264,7 +265,7 @@ body:not(.disable-callout-styling)
 	--callout-color: 100, 100, 100;
 }
 
-// --> Code <--
+/*--> Code <--*/
 
 body.enable-special-code {
 	--code-normal: var(--code-special);
@@ -288,7 +289,7 @@ body.enable-special-code {
 	--code-radius: var(--radius-sm);
 }
 
-// --> Embeds <--
+/*--> Embeds <--*/
 
 body:not(.disable-naked-embeds) {
 	--embed-border-start: none;
@@ -316,9 +317,9 @@ body:not(.disable-naked-embeds) {
 	padding-top: 0.125rem;
 }
 
-// --> Formatting <--
+/*--> Formatting <--*/
 
-// formatting markers 
+/* formatting markers */
 .cm-formatting-strong {
 	font-weight: var(--font-normal);
 }
@@ -326,7 +327,7 @@ body:not(.disable-naked-embeds) {
 	padding-inline-start: 0.25rem;
 }
 
-// Strikethrough / list crossed out 
+/* Strikethrough / list crossed out */
 .cm-strikethrough, del {
     color: var(--strikethrough-color);
 	--bold-color: var(--strikethrough-color);
@@ -343,12 +344,12 @@ del {
     color: inherit;
 }
 
-// highlight flash 
+/* highlight flash */
 .view-content .is-flashing {
 	box-shadow: 0 0 0 6px var(--text-highlight-bg);
 }
 
-// --> Highlights <--
+/*--> Highlights <--*/
 
 .cm-s-obsidian span.cm-highlight,
 :is(.markdown-source-view, .markdown-preview-view) mark {
@@ -373,7 +374,7 @@ del {
 	padding-inline-end: 0.25rem;
 }
 
-// --> HRs <--
+/*--> HRs <--*/
 
 .modal hr,
 .markdown-source-view hr,
@@ -387,7 +388,7 @@ del {
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
-// --> Images <--
+/*--> Images <--*/
 
 audio, img, video {
     border-radius: var(--radius-s);
@@ -404,7 +405,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 	filter: unset;
 }
 
-// --> Lists + paragraphs <--
+/*--> Lists + paragraphs <--*/
 
 @container style(--line-height-normal: 1.5) {
 	.markdown-rendered {
@@ -431,7 +432,7 @@ body.enable-dim-img.theme-dark :is(.image-embed img, .markdown-rendered img):hov
 	padding-block: var(--list-spacing);
 }
 
-// Lists: special styling 
+/* Lists: special styling */
 body:not(.disable-list-styling) {
 	.list-bullet::after,
 	.modal-content li::marker {
@@ -452,7 +453,7 @@ body:not(.disable-list-styling) {
 	}
 }
 
-// Checkbox 
+/* Checkbox */
 input[type=checkbox] {
 	border: none;
 	box-shadow: none !important;
@@ -483,7 +484,7 @@ input[type=checkbox]:checked::after {
 	--indentation-guide-reading-indent: -1.03125em;
 }
 
-// Alternative Checkboxes 
+/* Alternative Checkboxes */
 
 input[type=checkbox][data-task="/"]:checked,
 .task-list-item.is-checked[data-task="/"] input[type=checkbox]:checked {
@@ -494,7 +495,7 @@ input[type=checkbox][data-task="/"]:checked,
 	--checkbox-marker-color: transparent;	
 }
 
-// Alternative Checkboxes (unique shapes) 
+/* Alternative Checkboxes (unique shapes) */
 input[type=checkbox][data-task="<"]:checked,
 .task-list-item.is-checked[data-task="<"] input[type=checkbox]:checked {
 	border-radius: unset;
@@ -504,7 +505,7 @@ input[type=checkbox][data-task="<"]:checked,
 	--checkbox-marker-color: transparent;	
 }
 
-// Paragraph: active line highlighting feature 
+/* Paragraph: active line highlighting feature */
 .active-line-highlight {
 	.cm-active.HyperMD-header-1::before,
 	.cm-active:not(
@@ -531,22 +532,22 @@ input[type=checkbox][data-task="<"]:checked,
 	}
 }
 
-// --> Links <--
+/*--> Links <--*/
 
 
-// MathJax 
+/* MathJax */
 
 mjx-math {
 	color: var(--math-color);
 }
 
-// --> Metadata <--
+/*--> Metadata <--*/
 
 .metadata-container.is-collapsed .metadata-content {
 	filter: opacity(0);
 }
 
-// Properties title 
+/* Properties title */
 .metadata-properties-heading {
 	display: block;
 }
@@ -566,7 +567,7 @@ mjx-math {
 	--collapse-icon-color-collapsed: var(--icon-color);
 }
 
-// Properties content 
+/* Properties content */
 .metadata-property {
 	contain: content;
 	font-weight: var(--font-normal);
@@ -590,7 +591,7 @@ input.metadata-property-key-input {
 	padding-inline: 6px 8px;
 }
 
-// Properties in main workspace 
+/* Properties in main workspace */
 .mod-root .workspace-leaf-content[data-type="file-properties"],
 .markdown-source-view, .markdown-preview-view { 
 	.metadata-property-icon {
@@ -608,7 +609,7 @@ input.metadata-property-key-input {
 	}
 }
 
-// Multi-select pills (not tags) 
+/* Multi-select pills (not tags) */
 .multi-select-container {
 	padding-inline-start: 6px;
 	gap: 4px; 
@@ -634,7 +635,7 @@ input.metadata-property-key-input {
 	background-color: var(--text-error);
 }
 
-// Multi-select pill (tags) 
+/* Multi-select pill (tags) */
 .metadata-property[data-property-key="tags"] .multi-select-pill {
 	--pill-color: var(--tag-color);
 	--pill-color-remove: var(--color-accent-4);
@@ -644,7 +645,7 @@ input.metadata-property-key-input {
 	background-color: var(--interactive-accent);
 }
 
-// --> Metadata (sidebars) <--
+/*--> Metadata (sidebars) <--*/
 
 .workspace > .workspace-split.mod-sidedock .metadata-container {
 	margin-block-end: 0;
@@ -685,7 +686,7 @@ input.metadata-property-key-input {
 }
 }
 
-// --> Tables <--
+/*--> Tables <--*/
 
 .markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, 
 :is(.markdown-rendered, .markdown-source-view.is-live-preview) table {
@@ -709,7 +710,7 @@ body .markdown-rendered table tr th:first-child {
 	border-left: none;
 }
 
-// --> Tags <--
+/*--> Tags <--*/
 
 a.tag {
 	box-shadow: var(--tag-shadow);

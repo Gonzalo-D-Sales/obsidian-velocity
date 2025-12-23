@@ -1,20 +1,21 @@
 
-//
-// =========================== ===========================
-// 0 - Base
-// =========================== ===========================
+/*
+=========================== ===========================
+			0 - Base
+=========================== ===========================
+*/
 
-// --> Theme CSS Variables <--
+/*--> Theme CSS Variables <--*/
 
 body {
-		// Animation curve 
+	/* Animation curve */
 
 	--anim-duration-superfast: 75ms;
 	--anim-duration-fast: 150ms;
 
 	--vl-ease-out: cubic-bezier(0.25, 0.75, 0, 1);
 	--nav-header-timing: var(--vl-ease-out);
-		// Animation timing 
+	/* Animation timing */
 
 	--anim-fast-delay: var(--anim-duration-fast) var(--anim-motion-delay);
 	--anim-fast-swing: var(--anim-duration-fast) var(--anim-motion-swing);
@@ -23,7 +24,7 @@ body {
 	--anim-super-swing: var(--anim-duration-superfast) var(--anim-motion-swing);
 	--anim-super-smooth: var(--anim-duration-superfast) var(--anim-motion-smooth);
 
-		// Bases 
+	/* Bases */
 	--bases-embed-border-radius: 0;
 	--bases-header-border-width: 0;
 	--bases-header-padding-start: 0;
@@ -42,32 +43,32 @@ body {
 	--bases-table-row-height: 32px;
 	--bases-cards-label-color: var(--icon-color);
 
-		// Blockquotes 
+	/* Blockquotes */
 	--blockquote-color: var(--text-muted);
 	--blockquote-border-color: var(--color-base-50);
 	--blockquote-border-thickness: 0.1875rem;
 
-		// Blur values 
+	/* Blur values */
 	--blur-s: blur(8px);
 	--blur-m: blur(12px);
 
-		// Bold 
+	/* Bold */
 	--bold-color: var(--color-base-100);
 	--bold-modifier: 250;
 
-		// Buttons 
+	/* Buttons */
 
-		// Canvas 
+	/* Canvas */
 
-		// Caret (text entry cursor) 
+	/* Caret (text entry cursor) */
 
-		// Checkboxes 
+	/* Checkboxes */
 	--checkbox-radius: 50%;
 	--checkbox-marker-color: var(--text-on-accent);
 	--checklist-done-color: var(--strikethrough-color);
 	--checkbox-size: 1.125rem;
 
-		// Code 
+	/* Code */
 	--code-border-width: 0;
 	--code-radius: var(--radius-xs);
 	--code-background: var(--trans-faint-20);
@@ -76,40 +77,40 @@ body {
 	--code-normal: var(--text-normal);
 	--code-special: var(--color-red);
 
-		// Collapse icons 
+	/* Collapse icons */
 
-		// Corner smoothing 
+	/* Corner smoothing */
 	--corner-smoothing: 60%;
 
-		// Cursor 
+	/* Cursor */
 
-		// Dialogs - e.g. small modals, confirmations 
+	/* Dialogs - e.g. small modals, confirmations */
 	--dialog-width: 500px;
 
-		// Dividers between panes 
+	/* Dividers between panes */
  	--divider-color-hover: var(--color-accent-4);
 	--divider-width: 0;
 
-		// Dragging 
+	/* Dragging */
 	--drag-ghost-background: var(--color-base-00);
 	--drag-ghost-text-color: var(--color-base-90);
 
-		// Embeds 
+	/* Embeds */
 	--embed-block-shadow-hover: none;
 
-		// File layout 
+	/* File layout */
 	--file-line-width: 43.75rem;
 	--file-margins-y: 28px;
 	--file-margins-x: 5%;
 	--file-header-font-weight: var(--font-semi-medium);
 
-		// Relative font sizes 
+	/* Relative font sizes */
 	--font-small: 0.90625em;
 
-		// UI font sizes 
+	/* UI font sizes */
 	--font-ui-larger: 24px;
 
-		// Font weights 
+	/* Font weights */
 	--font-thin: 275;
 	--font-extralight: 300;
 	--font-light: 325;
@@ -122,13 +123,13 @@ body {
 	--font-semi-medium: calc(var(--font-normal) + 75);
 	--font-normal-linux: var(--font-normal);
 
-		// Footnotes 
+	/* Footnotes */
 
-		// Graphs 
+	/* Graphs */
 	--graph-controls-width: 232px;
 	--graph-node-focused: transparent;
 
-		// Headings 
+	/* Headings */
 	--h1-color: var(--color-base-90);
 	--h2-color: var(--color-base-90);
 	--h3-color: var(--color-base-90);
@@ -152,7 +153,7 @@ body {
 	
 	--header-height: 56px;
 	
-		// Icons  
+	/* Icons */ 
 	--icon-stroke-thick: 2.25px;
 	--icon-xs-stroke-width: 2.125px;
 	--icon-m-stroke-width: 1.875px;
@@ -161,19 +162,19 @@ body {
 	--icon-color-hover: var(--text-normal);
 	--icon-color-focused: var(--icon-color-hover);
 
-		// Indent size 
+	/* Indent size */
 	--indent-unit: 0.375em;
 
-		// Indentation guide 
+	/* Indentation guide */
 	--indentation-guide-width: 0;
 	--indentation-guide-width-active: 0;
 	--nav-indentation-guide-width: 0;
 
-		// Inline title 
+	/* Inline title */
 	--inline-title-margin-bottom: 
 		round(nearest, clamp(0px, 0.5em, 1.5rem), 2px);
 
-		// Inputs 
+	/* Inputs */
 	--input-height: 28px;
 	--input-radius: var(--radius-s);
 	--input-border-width: 0;
@@ -181,34 +182,34 @@ body {
 	--interactive-normal: var(--trans-faint-25);
 	--interactive-hover: var(--trans-faint-30);
 	
-		// Italic 
-		// --italic-color: var(--text-normal); 
-		// --italic-weight: var(--font-semi-medium); 
+	/* Italic */
+	/* --italic-color: var(--text-normal); */
+	/* --italic-weight: var(--font-semi-medium); */
 
-		// Z-index 
+	/* Z-index */
 
-		// Line heights 
+	/* Line heights */
 	--line-height-normal: 1.6;
 
-		// Links 
+	/* Links */
 	--link-decoration: none;
 	--link-decoration-hover: none;
 	--link-unresolved-opacity: 1;
 	--link-unresolved-color: 
 		oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
 
-		// Lists 
+	/* Lists */
 	--list-spacing: 0.15em;
 	--list-marker-color: var(--color-base-50);
 
-		// Math 
+	/* Math */
 
 	--math-color: var(--text-normal);
 
-		// File navigator 
+	/* File navigator */
 	--nav-collapse-icon-color: var(--trans-faint-60);
 
-		// Metadata 
+	/* Metadata */
 	--metadata-border-radius: var(--radius-m);
 	--metadata-gap: 2px;
 	--metadata-property-box-shadow-hover: 0 0 0 2.5px var(--background-modifier-hover);
@@ -222,17 +223,17 @@ body {
 	--metadata-input-height: 2.125rem;
 	--metadata-input-padding: 6px 8px;
 
-		// Menus 
+	/* Menus */
 	--menu-background: var(--background-primary-alt);
 	--menu-radius: var(--radius-ml);
 	--menu-border-color: var(--trans-faint-40);
   
-		// Modals - e.g. settings, community themes, community plugins 
+	/* Modals - e.g. settings, community themes, community plugins */
 	--modal-radius: var(--radius-xxl);
 	--modal-border-width: 0;
-		// --modal-community-sidebar-width: 300px; 
+	/* --modal-community-sidebar-width: 300px; */
 
-		// Multi-select pills 
+	/* Multi-select pills */
 	--pill-background: var(--code-background);
   	--pill-background-hover: var(--code-background);
 	--pill-color: var(--text-muted);
@@ -241,18 +242,18 @@ body {
 	--pill-radius: var(--radius-l);
 	--pill-weight: var(--font-semi-medium);
 
-		// PDF view 
+	/* PDF view */
 	--pdf-shadow: none !important;
 	--pdf-spread-shadow: none;
 	--pdf-thumbnail-shadow: var(--shadow-input);
 
-		// Prompts - e.g. quick switcher, command palette 
+	/* Prompts - e.g. quick switcher, command palette */
 	--prompt-background: var(--modal-background);
 	--prompt-backdrop-filter: var(--blur-m);
 	--prompt-border-color: var(--menu-border-color);
 	--prompt-input-height: 48px;
 
-		// Radiuses 
+	/* Radiuses */
 	--radius-xs: 5px;
 	--radius-s: 7px;
 	--radius-sm: 9px;
@@ -264,22 +265,22 @@ body {
 	--radius-prompt: 24px;
 	--radius-settings: 27px;
 
-		// Ribbon 
+	/* Ribbon */
 	--ribbon-background: transparent;
 	--ribbon-background-collapsed: transparent;
 	--ribbon-padding: 8px 0px 12px 8px;
 	--ribbon-width: 56px;
 
-		// Scrollbars 
+	/* Scrollbars */
 	--scrollbar-thumb-bg: var(--trans-faint-30);
 	--scrollbar-active-thumb-bg: var(--trans-faint-50);
 
-		// Search 
+	/* Search */
 	--search-clear-button-color: var(--color-base-50);
 	--search-icon-color: var(--color-base-50);
 	--search-icon-size: 17px;
 
-		// Settings 
+	/* Settings */
 	--setting-group-heading-color: var(--icon-color);
     --setting-group-heading-size: var(--font-ui-large);
     --setting-group-heading-weight: var(--font-medium);
@@ -289,11 +290,11 @@ body {
     --setting-items-radius: calc(var(--radius-ml) + 2px);
     --setting-items-border-width: 0;
 
-		// Sidebar toggles 
+	/* Sidebar toggles */
 	--sidebar-left-toggle-inner-width: 12%;
 	--sidebar-right-toggle-inner-width: 12%;
 
-		// Sliders 
+	/* Sliders */
 	--slider-track-background: var(--trans-faint-50);
 	--slider-track-height: 20px;
 	--slider-thumb-height: 12px;
@@ -301,14 +302,14 @@ body {
 	--slider-thumb-border-width: 0;
 	--slider-thumb-y: -3px;
 
-		// Status bar 
+	/* Status bar */
 	--status-bar-background: transparent;
 	--status-bar-border-width: 0;
 	--status-bar-radius: var(--radius-l) 0 0 var(--radius-l);
 
-		// Swatch for color inputs 
+	/* Swatch for color inputs */
 
-		// Tabs 
+	/* Tabs */
 	--tab-container-background: transparent;
 	--tab-font-weight: var(--font-normal);
 	--tab-outline-width: 0;
@@ -321,13 +322,13 @@ body {
 	--tab-width: 240px;
 	--tab-max-width: 240px;
 
-		// Mobile tab switcher 
+	/* Mobile tab switcher */
 
-		// Stacked tabs 
+	/* Stacked tabs */
 	--tab-stacked-font-weight: var(--font-medium);
 	--tab-stacked-shadow: -8px 0 8px 0 var(--stacked-shadow-color);
 
-		// Tables 
+	/* Tables */
 	--table-background: unset;
 	--table-row-background-hover: unset;
 	--table-row-alt-background: var(--table-row-bg);
@@ -339,18 +340,18 @@ body {
 	--table-text-size: var(--font-small);
 	--table-text-weight: var(--font-normal);
 
-		// Tags 
-		// --tag-background: var(--color-base-50); 
-		// --tag-background-hover: var(--tag-background); 
-		// --tag-color: var(--color-accent); 
-		// --tag-color-hover: var(--tag-color); 
+	/* Tags */
+	/* --tag-background: var(--color-base-50); */
+	/* --tag-background-hover: var(--tag-background); */
+	/* --tag-color: var(--color-accent); */
+	/* --tag-color-hover: var(--tag-color); */
 	--tag-padding-x: 0.6875em;
 	--tag-padding-y: 0.3125em;
 	--tag-weight: var(--font-semi-medium);
 	--tag-size: var(--font-smallest);
-		// --tag-shadow: var(--shadow-faint); 
+	/* --tag-shadow: var(--shadow-faint); */
 
-		// Toggles 
+	/* Toggles */
 	--toggle-width: 44px;
 	--toggle-border-width: 4px;
 	--toggle-thumb-color: white;
@@ -361,13 +362,13 @@ body {
 	--toggle-s-thumb-height: 12px;
 	--toggle-s-thumb-width: 12px;
 	
-		// Vault profile 
+	/* Vault profile */
 	--vault-profile-color: var(--icon-color);
 	--vault-profile-color-hover: var(--text-muted);
 	--vault-profile-font-size: 18px;
 	--vault-profile-font-weight: var(--font-normal);
 
-		// Window frame 
+	/* Window frame */
 	--titlebar-background: transparent;
 	--titlebar-background-focused: transparent;
 	--titlebar-height: 36px;
@@ -375,7 +376,7 @@ body {
 	--titlebar-text-color-focused: var(--text-muted);
 	--titlebar-text-weight: var(--font-semibold);
 
-		// Backgrounds  
+	/* Backgrounds */ 
 	--background-modifier-form-field: transparent;
 	--background-modifier-form-field-hover: transparent;
 	--background-primary-alt: 
@@ -384,13 +385,13 @@ body {
 	--color-highlight: rgb(var(--color-highlight-rgb));
 	--color-highlight-rgb: var(--color-yellow-rgb);
 
-		// Text 
+	/* Text */
 
-		// Extra theme layout variables 
+	/* Extra theme layout variables */
 	--vl-layout-padding: 8px;
 }
 
-// --> Theme Default Typeface <--
+/*--> Theme Default Typeface <--*/
 
 body, .modal {
 	font-weight: var(--font-normal);
@@ -400,7 +401,7 @@ body {
 	--font-interface-theme: "Raveo", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	--font-text-theme: "Raveo", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 	
-		// alt font for corsa override 
+	/* alt font for corsa override */
 	--font-label: var(--font-interface-theme);
 }
 
@@ -409,27 +410,28 @@ body:not(.override-default-font) {
 	 --font-text-override: "Raveo" !important;
 }
 
-//
-// =========================== ===========================
-// 1 - Foundations
-// =========================== ===========================
+/*
+=========================== ===========================
+			1 - Foundations
+=========================== ===========================
+*/
 
-// --> OS Settings <--
+/*--> OS Settings <--*/
 
-// Windows & Linux 
+/* Windows & Linux */
 .mod-windows,
 .mod-linux {
 	--callout-blend-mode: normal;
 	--flair-padding: 3px 1px;
 	--frame-right-space: 160px;
-		// frame spacing and autohide override 
+	/* frame spacing and autohide override */
   	--frame-right-space-override: 164px;
 }
 
-// macOS 
+/* macOS */
 .mod-macos,
 body:not(.mod-windows, .mod-linux) {
-		// font weights (-25 Linux weight) 
+	/* font weights (-25 Linux weight) */
 	--font-thin: 250;
 	--font-extralight: 275;
 	--font-light: 300;
@@ -438,7 +440,7 @@ body:not(.mod-windows, .mod-linux) {
 	--font-semibold: 600;
 	--font-bold: 700;
 	--font-extrabold: 800;
-		// heading weights 
+	/* heading weights */
 	--h1-weight-alt: 600;
 	--h1-weight: 325;
 	--h2-weight: 525;
@@ -447,7 +449,7 @@ body:not(.mod-windows, .mod-linux) {
 	--h5-weight: 575;
 	--h6-weight: 575;
 
-		// frame spacing and autohide override 
+	/* frame spacing and autohide override */
 	--frame-right-space-override: 0px;
 
 	--flair-padding: 2px;
@@ -459,19 +461,19 @@ body:not(.mod-windows, .mod-linux) {
   transform: none;
 }
 
-// Linux 
+/* Linux */
 .mod-linux {
-		// counteracts unusually light weight text on top of accents 
+	/* counteracts unusually light weight text on top of accents */
 	--font-normal-linux: var(--font-semi-medium);
 }
 
-// Windows 
+/* Windows */
 
 .mod-windows {
-		// NEEDS TESTING; FOR NOW EQUAL TO LINUX 
+	/* NEEDS TESTING; FOR NOW EQUAL TO LINUX */
 }
 
-// --> Animations <--
+/*--> Animations <--*/
 
 @keyframes popover {
 	0% {
@@ -490,9 +492,9 @@ body:not(.is-mobile) {
 	--fab-easing-curve: cubic-bezier(.55,2,.5,.97);
 }
 
-// --> Buttons <--
+/*--> Buttons <--*/
 
-// Electron Corner-smoothing 
+/* Electron Corner-smoothing */
 
 .checkbox-container,
 .flair,
@@ -564,7 +566,7 @@ button.mod-warning {
 	color: var(--text-color);
 }
 
-// --> Dropdown <--
+/*--> Dropdown <--*/
 
 :is(select,.dropdown) {
 	contain: content;
@@ -572,12 +574,12 @@ button.mod-warning {
 :is(select,.dropdown):focus {
 	background-color: var(--dropdown-background-hover);
 } 
-// .modal button:not(.clickable-icon,.mod-cta):focus,
-// :is(select,.dropdown):focus-within {
-// box-shadow: var(--input-shadow);
-// }  
+/* .modal button:not(.clickable-icon,.mod-cta):focus,
+:is(select,.dropdown):focus-within {
+	box-shadow: var(--input-shadow);
+}  */
 
-// --> Graph & Controls <--
+/*--> Graph & Controls <--*/
 
 .graph-controls {
 	inset: 8px 4px auto auto;
@@ -601,7 +603,7 @@ button.mod-warning {
 	}
 }
 
-// --> Inputs <--
+/*--> Inputs <--*/
 
 input,
 textarea,
@@ -625,7 +627,7 @@ textarea,
 	--background-modifier-form-field-hover: var(--background-modifier-form-field);
 }
 
-// Sidebar input 
+/* Sidebar input */
 .mod-sidedock :is(input[type="search"], textarea) {
 	outline: 1px solid var(--trans-faint-20);
 	--shadow-input: var(--shadow-sidebar);
@@ -640,12 +642,12 @@ textarea,
 	--search-icon-color: var(--text-normal);
 }
 
-// Placeholder text 
+/* Placeholder text */
 input::placeholder {
 	font-weight: var(--font-normal);
 }
 
-// Remove extra shadow on color input 
+/* Remove extra shadow on color input */
 input[type="color"] {
 	width: unset;
 }
@@ -654,7 +656,7 @@ input[type="color"]:focus {
 	box-shadow: initial;
 }
 
-// --> Loader <--
+/*--> Loader <--*/
 
 .is-loading::before {
 	border-radius: var(--radius-m);
@@ -670,7 +672,7 @@ button.is-loading::before {
 	margin-block-start: unset;
 }
 
-// --> Range Slider <--
+/*--> Range Slider <--*/
 
 input[type='range'] {
 	box-shadow: none;
@@ -691,12 +693,12 @@ input[type='range']::-webkit-slider-thumb:active {
 	background-color: var(--trans-strong-10);
 }
 
-// padding for the slider thumb to nestle nicely 
+/* padding for the slider thumb to nestle nicely */
 input[type='range']::-webkit-slider-runnable-track {
 	padding-inline: 4px;
 }
 
-// --> Toggle <--
+/*--> Toggle <--*/
 
 .checkbox-container {
 	background-color: oklab(from var(--slider-track-background) l a b / 0.175);
@@ -735,7 +737,7 @@ input[type='range']::-webkit-slider-runnable-track {
 	left: -6px;
 }
 
-// --> Tooltips / Notice / Drag ghost <--
+/*--> Tooltips / Notice / Drag ghost <--*/
 
 .tooltip-arrow {
     display: none;
@@ -768,7 +770,7 @@ input[type='range']::-webkit-slider-runnable-track {
 	padding: 8px 12px;
 }
 
-// --> Scrollbar / scrollbar padding <--
+/*--> Scrollbar / scrollbar padding <--*/
 
 .mod-sidedock .workspace-leaf-content ::-webkit-scrollbar,
 .workspace-drawer-tab-container .workspace-leaf-content ::-webkit-scrollbar {
@@ -799,7 +801,7 @@ body.show-view-header .bases-view::-webkit-scrollbar-track {
 	margin-block: 4px;
 }
 
-// Special performance tweaks 
+/* Special performance tweaks */
 
 body:not(.is-mobile):not(.disable-performance-tweaks) {
 	.markdown-preview-view {

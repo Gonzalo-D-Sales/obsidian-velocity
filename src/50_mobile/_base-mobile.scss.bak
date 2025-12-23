@@ -1,36 +1,37 @@
-//
-// =========================== ===========================
-// 5 - Mobile
-// =========================== ===========================
+/*
+=========================== ===========================
+			5 - Mobile
+=========================== ===========================
+*/
 .is-mobile {
 	--radius-l: 19px;
 	--radius-xl: 21px;
 	--radius-xxl: 24px;
 	--radius-settings: 36px;
 
-		// sliders 
+	/* sliders */
 	--slider-track-height: 32px;
 	--slider-thumb-height: 20px;
 	--slider-thumb-width: 20px;
 	--slider-thumb-y: -7px;
 
-		// toggles 
+	/* toggles */
 	--toggle-width: 60px;
 	--toggle-border-width: 6px;
 	--toggle-thumb-height: 20px;
 	--toggle-thumb-width: 20px;
 	--toggle-thumb-padding: 10px;
 
-		// view header 
+	/* view header */
 
-		// vault profile 
+	/* vault profile */
 	--vault-profile-font-weight: var(--font-medium);
 }
 .is-phone {
-		// file margins 
+	/* file margins */
 	--file-margins-x: 24px;
 
-		// smaller headings 
+	/* smaller headings */
 	--h1-size-alt: 1.5em;
 	--h1-size: 1.875em;
 	--h2-size: 1.375em;
@@ -39,10 +40,10 @@
 	--h5-size: 1em;
 	--h6-size: 0.875em;
 
-		// settings 
+	/* settings */
 	--setting-items-radius: calc(var(--touch-radius-xs) + 4px);
 
-		// view header 
+	/* view header */
 	--file-header-justify: start;
 }
 .is-tablet {
@@ -52,12 +53,12 @@
 	--modal-radius: var(--radius-settings);
 }
 
-// Sliders and Toggles 
+/* Sliders and Toggles */
 .is-mobile input[type='range']::-webkit-slider-runnable-track {
 	padding-inline: 6px;
 }
 
-// Menu 
+/* Menu */
 .is-phone .menu-scroll {
 	margin-block: 2px;
 	margin-inline: 16px;
@@ -66,7 +67,7 @@
 	clip-path: stroke-box;
 }
 
-// Modal 
+/* Modal */
 .is-phone .modal-title {
 	font-size: 20px;
 }
@@ -78,12 +79,12 @@
 	inset-block-end: 8px;
 }
 
-// Navbar 
+/* Navbar */
 .mobile-navbar.mod-raised {
 	padding: 4px;
 }
 
-// Prompt 
+/* Prompt */
 .is-mobile:not(.is-phone) .prompt {
 	height: auto;
 	inset-block: 12vh;
@@ -108,7 +109,7 @@
 	border-radius: var(--touch-radius-xxs);
 }
 
-// Settings 
+/* Settings */
 .is-mobile .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 0;
 }
@@ -119,7 +120,7 @@
 	padding-inline-start: 4px;
 }
 
-// View header 
+/* View header */
 .is-tablet .workspace-tab-header-tab-list > .clickable-icon {
 	--icon-size: var(--icon-l);
 }
@@ -130,7 +131,7 @@
 	padding-inline-start: 12px;
 }
 
-// Vault profile/Drawer 
+/* Vault profile/Drawer */
 .workspace-drawer-header-name-text {
 	font-variation-settings: 'opsz' 28;
 	font-weight: var(--vault-profile-font-weight);

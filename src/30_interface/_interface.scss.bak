@@ -1,9 +1,10 @@
-//
-// =========================== ===========================
-// 3 - Interface
-// =========================== ===========================
+/*
+=========================== ===========================
+			3 - Interface
+=========================== ===========================
+*/
 
-// --> Icons <--
+/*--> Icons <--*/
 
 button.clickable-icon {
 	transition: filter var(--anim-fast-swing);
@@ -32,9 +33,9 @@ button.clickable-icon {
 	width: 34px;
 	margin-bottom: 1px;
 }
-// .sidebar-toggle-button {
-// margin-inline: 0;
-// } 
+/* .sidebar-toggle-button {
+	margin-inline: 0;
+} */
 
 body:not(.is-mobile) :is(.workspace-ribbon,
 	.workspace-sidedock-vault-profile,
@@ -48,7 +49,7 @@ body:not(.is-mobile) :is(.workspace-ribbon,
 	padding: 8px 12px;
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 	--background-modifier-hover: var(--background-primary);
-		// shadow on hover 
+	/* shadow on hover */
 	&:hover,
 	&:active,
 	&.has-active-menu {
@@ -56,7 +57,7 @@ body:not(.is-mobile) :is(.workspace-ribbon,
 		var(--shadow-faint);
 	}
 }
-// icon click 
+/* icon click */
 body:not(.is-mobile) 
 	:is(.workspace-ribbon,
 		.workspace-sidedock-vault-profile,
@@ -91,10 +92,10 @@ body:not(.is-mobile)
 .menu-item-icon svg {
 	padding: 0;
 }
-// Wider workspace icons 
+/* Wider workspace icons */
 
 
-// --> Custom Icons <--
+/*--> Custom Icons <--*/
 
 body:not(.disable-custom-icons) :where(
 	svg.lucide-book-open,
@@ -130,7 +131,7 @@ body.disable-custom-icons svg.svg-icon {
 	padding: initial;
 }
 
-// Lucide Icons 
+/* Lucide Icons */
 svg.lucide-book-open,
 body:not(.disable-custom-icons).switch-edit-icons .view-actions svg.lucide-edit-3 {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWdsYXNzZXMtaWNvbiBsdWNpZGUtZ2xhc3NlcyI+PGNpcmNsZSBjeD0iNiIgY3k9IjE1IiByPSI0Ii8+PGNpcmNsZSBjeD0iMTgiIGN5PSIxNSIgcj0iNCIvPjxwYXRoIGQ9Ik0xNCAxNWEyIDIgMCAwIDAtMi0yIDIgMiAwIDAgMC0yIDIiLz48cGF0aCBkPSJNMi41IDEzIDUgN2MuNy0xLjMgMS40LTIgMy0yIi8+PHBhdGggZD0iTTIxLjUgMTMgMTkgN2MtLjctMS4zLTEuNS0yLTMtMiIvPjwvc3ZnPg==");
@@ -144,12 +145,12 @@ body:not(.disable-custom-icons).switch-edit-icons .view-actions svg.lucide-book-
 	-webkit-mask-position: 25% 25%;	
 	-webkit-mask-size: 87.5%;
 }
-// Extra sizing tweak 
+/* Extra sizing tweak */
 body:not(.disable-custom-icons) .status-bar-item svg.lucide-edit-3 {
 	-webkit-mask-size: 87.5%;
 }
 
-// used Ionicons 
+/* used Ionicons */
 svg.lucide-arrow-left {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpb25pY29uIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI0OCIgZD0iTTMyOCAxMTJMMTg0IDI1NmwxNDQgMTQ0Ii8+PC9zdmc+");
 	-webkit-mask-position: 100% 50%;
@@ -160,7 +161,7 @@ svg.lucide-arrow-right {
 	-webkit-mask-size: 110%;
 	-webkit-mask-position: 0% 50%;	
 }
-// used Lucide icons 
+/* used Lucide icons */
 svg.lucide-archive {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWxpYnJhcnktYmlnLWljb24gbHVjaWRlLWxpYnJhcnktYmlnIj48cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjEiLz48cGF0aCBkPSJNNyAzdjE4Ii8+PHBhdGggZD0iTTIwLjQgMTguOWMuMi41LS4xIDEuMS0uNiAxLjNsLTEuOS43Yy0uNS4yLTEuMS0uMS0xLjMtLjZMMTEuMSA1LjFjLS4yLS41LjEtMS4xLjYtMS4zbDEuOS0uN2MuNS0uMiAxLjEuMSAxLjMuNloiLz48L3N2Zz4=");
 }
@@ -193,7 +194,7 @@ svg.lucide-trello {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNxdWFyZS1rYW5iYW4taWNvbiBsdWNpZGUtc3F1YXJlLWthbmJhbiI+PHJlY3Qgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB4PSIzIiB5PSIzIiByeD0iMiIvPjxwYXRoIGQ9Ik04IDd2NyIvPjxwYXRoIGQ9Ik0xMiA3djQiLz48cGF0aCBkPSJNMTYgN3Y5Ii8+PC9zdmc+");
 }
 
-// not Lucide 
+/* not Lucide */
 svg.BratIcon {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNtaWxlLWljb24gbHVjaWRlLXNtaWxlIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjxwYXRoIGQ9Ik04IDE0czEuNSAyIDQgMiA0LTIgNC0yIi8+PGxpbmUgeDE9IjkiIHgyPSI5LjAxIiB5MT0iOSIgeTI9IjkiLz48bGluZSB4MT0iMTUiIHgyPSIxNS4wMSIgeTE9IjkiIHkyPSI5Ii8+PC9zdmc+");
 }
@@ -206,7 +207,7 @@ svg.uppercase-lowercase-a {
 	padding-inline: 10px;
 }
 
-// --> Custom Icons (special scope) <--
+/*--> Custom Icons (special scope) <--*/
 
 .workspace-tab-header .lucide-pin,
 .workspace-tab-header .mod-pinned:hover .lucide-pin {
@@ -217,7 +218,7 @@ svg.uppercase-lowercase-a {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXBpbi1zYWZldHktaWNvbiBsdWNpZGUtcGluLXNhZmV0eSI+PHBhdGggZD0iTTIwLjggMy4yYy0xLjYtMS42LTQuMS0xLjYtNS43IDBMMTIuMyA2UzE1IDkgMTggNmMtMyAzIDAgNS43IDAgNS43bDIuOC0yLjhjMS42LTEuNiAxLjYtNC4yIDAtNS43Ii8+PHBhdGggZD0ibTcuMSAyMS4xIDEwLjMtMTAuMiIvPjxjaXJjbGUgY3g9IjUiIGN5PSIxOSIgcj0iMyIvPjxwYXRoIGQ9Ik0yLjkgMTYuOSAxMy4xIDYuNiIvPjwvc3ZnPg==");
 }
 
-// --> Custom Icons (callouts) <--
+/*--> Custom Icons (callouts) <--*/
 
 body:not(.disable-custom-icons, .disable-callout-styling) :where(
 	.callout-icon .lucide-bug,
@@ -247,7 +248,7 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 	padding: initial; 
 }
 
-// used Ionicons 
+/* used Ionicons */
 .callout-icon .lucide-alert-triangle {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpb25pY29uIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZD0iTTQ0MC4wOCAzNDEuMzFjLTEuNjYtMi0zLjI5LTQtNC44OS01LjkzLTIyLTI2LjYxLTM1LjMxLTQyLjY3LTM1LjMxLTExOCAwLTM5LTkuMzMtNzEtMjcuNzItOTUtMTMuNTYtMTcuNzMtMzEuODktMzEuMTgtNTYuMDUtNDEuMTJhMyAzIDAgMDEtLjgyLS42N0MzMDYuNiA1MS40OSAyODIuODIgMzIgMjU2IDMycy01MC41OSAxOS40OS01OS4yOCA0OC41NmEzLjEzIDMuMTMgMCAwMS0uODEuNjVjLTU2LjM4IDIzLjIxLTgzLjc4IDY3Ljc0LTgzLjc4IDEzNi4xNCAwIDc1LjM2LTEzLjI5IDkxLjQyLTM1LjMxIDExOC0xLjYgMS45My0zLjIzIDMuODktNC44OSA1LjkzYTM1LjE2IDM1LjE2IDAgMDAtNC42NSAzNy42MmM2LjE3IDEzIDE5LjMyIDIxLjA3IDM0LjMzIDIxLjA3SDQxMC41YzE0Ljk0IDAgMjgtOC4wNiAzNC4xOS0yMWEzNS4xNyAzNS4xNyAwIDAwLTQuNjEtMzcuNjZ6TTI1NiA0ODBhODAuMDYgODAuMDYgMCAwMDcwLjQ0LTQyLjEzIDQgNCAwIDAwLTMuNTQtNS44N0gxODkuMTJhNCA0IDAgMDAtMy41NSA1Ljg3QTgwLjA2IDgwLjA2IDAgMDAyNTYgNDgweiIvPjwvc3ZnPg==");
 }
@@ -296,13 +297,13 @@ body:is(.disable-custom-icons, .disable-callout-styling) .callout-icon svg {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJpb25pY29uIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHBhdGggZD0iTTQ0OS4wNyAzOTkuMDhMMjc4LjY0IDgyLjU4Yy0xMi4wOC0yMi40NC00NC4yNi0yMi40NC01Ni4zNSAwTDUxLjg3IDM5OS4wOEEzMiAzMiAwIDAwODAgNDQ2LjI1aDM0MC44OWEzMiAzMiAwIDAwMjguMTgtNDcuMTd6bS0xOTguNi0xLjgzYTIwIDIwIDAgMTEyMC0yMCAyMCAyMCAwIDAxLTIwIDIwem0yMS43Mi0yMDEuMTVsLTUuNzQgMTIyYTE2IDE2IDAgMDEtMzIgMGwtNS43NC0xMjEuOTVhMjEuNzMgMjEuNzMgMCAwMTIxLjUtMjIuNjloLjIxYTIxLjc0IDIxLjc0IDAgMDEyMS43MyAyMi43eiIvPjwvc3ZnPg==");
 }
 
-// --> Workspace Layout <--
+/*--> Workspace Layout <--*/
 
 body:not(.is-mobile) {
 	background-image: var(--bg-main-workspace);
 }
 
-// general 
+/* general */
 .workspace-tab-container,
 .workspace-tab-header-container {
 	overflow: hidden;
@@ -312,7 +313,7 @@ body:not(.is-mobile) {
 	transition-timing-function: var(--vl-ease-out);
 }
 
-// Main workspace tab 
+/* Main workspace tab */
 body:not(.is-mobile) .mod-root {
     padding-block-end: 8px;
 }
@@ -321,35 +322,35 @@ body:not(.is-mobile) .mod-root {
 	background-color: transparent;
 }
 
-// Main tab(s) margins 
+/* Main tab(s) margins */
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .workspace-tab-container {
     margin-inline-start: 8px;
 }
 body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspace-tab-container {
     margin-inline-end: 8px;
 }
-// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy
-// effect to the sidebar reveal animation that matches the sidebar close animation. 
+/* this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy
+effect to the sidebar reveal animation that matches the sidebar close animation. */
 body:not(.is-mobile) .workspace:is(.is-left-sidedock-open, .is-right-sidedock-open) .mod-root .workspace-tab-container {
 	transition-delay: var(--anim-duration-fast);
 }
 
-// padding adjustment when there is no view header 
+/* padding adjustment when there is no view header */
 body:not(.is-mobile):not(.show-view-header) {
     --file-margins-y: 72px;
 }
-// padding adjustment for multiple tabs layout 
+/* padding adjustment for multiple tabs layout */
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) {
 	--file-margins-x: 32px;
 }
-// gap between multiple root tabs 
+/* gap between multiple root tabs */
 body:not(
 	.is-mobile, 
 	.is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical {
     gap: 8px;
 }
 
-// Main workspace tab(s) radius 
+/* Main workspace tab(s) radius */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container,
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .workspace-leaf {
 	background-color: transparent;
@@ -357,7 +358,7 @@ body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .wor
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
-// Main workspace tab(s) shadow 
+/* Main workspace tab(s) shadow */
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
     box-shadow: var(--shadow-workspace);
 }
@@ -368,12 +369,12 @@ body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-op
     box-shadow: var(--shadow-workspace-multi);
 }
 
-// allow shadow to overflow to sidebars 
+/* allow shadow to overflow to sidebars */
 body:not(.is-mobile) .mod-root .workspace-tabs {
 	overflow: visible;
 }
 
-// Titlebar 
+/* Titlebar */
 .titlebar-button-container.mod-right > .titlebar-button::after {
     content: '';
     background-color: var(--titlebar-text-color);
@@ -416,7 +417,7 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNxdWFyZS1pY29uIGx1Y2lkZS1zcXVhcmUiPjxyZWN0IHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgeD0iMyIgeT0iMyIgcng9IjIiLz48L3N2Zz4=");
 }
 
-// Sidedock / workspace-split 
+/* Sidedock / workspace-split */
 .mod-sidedock .node-insert-event,
 .mod-sidedock .workspace-leaf-content > .view-content {
 	padding-inline: 16px;
@@ -432,7 +433,7 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf {
     animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 }
 
-// divider reveal on hover 
+/* divider reveal on hover */
 .mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
 	border-block: 1px solid transparent;
 	&:hover {
@@ -440,12 +441,12 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf {
 	}
 }
 
-// empty sidedock 
+/* empty sidedock */
 .workspace-sidedock-empty-state {
 	padding-block-start: var(--header-height);
 }
 
-// --> Nav Header <--
+/*--> Nav Header <--*/
 
 body:not(.is-mobile) {
 	.mod-sidedock .nav-header {
@@ -487,7 +488,7 @@ body:not(.is-mobile) {
 	.mod-sidedock .nav-header + * {
 		padding-top: 0;
 	}
-		// Git plugin compatibility 
+	/* Git plugin compatibility */
 	[data-type="git-view"] .nav-header {
 		width: 100%;
 	}
@@ -507,7 +508,7 @@ body.disable-hover-header .nav-buttons-container {
 	--trans-faint-20: var(--trans-strong-40);
 }
 
-// --> Navigation / File Tree <--
+/*--> Navigation / File Tree <--*/
 
 .workspace-leaf-content .tree-item-self {
 	padding-block: var(--vl-layout-padding);
@@ -524,7 +525,7 @@ body.disable-hover-header .nav-buttons-container {
 	--icon-opacity: 1;
 }
 
-// Folders 
+/* Folders */
 :is([data-type="bookmarks"],
 	[data-type="outline"],
 	[data-type="file-explorer"]) {
@@ -552,7 +553,7 @@ body.disable-hover-header .nav-buttons-container {
 	}
 }
 
-// Files 
+/* Files */
 .tree-item-self.has-focus,
 .tree-item-self.is-selected {
 	box-shadow: none !important;
@@ -582,7 +583,7 @@ body.disable-hover-header .nav-buttons-container {
 	color: var(--trans-strong-10);
 }
 
-// Backlinks 
+/* Backlinks */
 
 .workspace-leaf-content[data-type="backlink"] > .view-content,
 .workspace-leaf-content[data-type="outgoing-link"] > .view-content {
@@ -631,7 +632,7 @@ body.disable-hover-header .nav-buttons-container {
 	background-color: var(--trans-faint-40);
 }
 
-// Embedded backlinks 
+/* Embedded backlinks */
 .embedded-backlinks,
 .mod-root .workspace-leaf-content[data-type="backlink"],
 .mod-root .workspace-leaf-content[data-type="outgoing-link"] {
@@ -655,7 +656,7 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 	margin-inline-end: unset;
 }
 
-// Outgoing links 
+/* Outgoing links */
 .outgoing-link-pane .tree-item-inner-text {
 	line-height: var(--line-height-normal);
 }
@@ -667,7 +668,7 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 	margin-block-start: 1px;
 }
 
-// special code for uncreated outgoing links 
+/* special code for uncreated outgoing links */
 .outgoing-link-item:not([draggable="true"]) {
 	--nav-item-background-hover: var(--color-accent-6); 
 }
@@ -679,7 +680,7 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 	filter: opacity(60%);
 }
 
-// Search View 
+/* Search View */
 .search-row {
     column-gap: 6px;
 }
@@ -712,7 +713,7 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 	--text-muted: var(--icon-color);
 }
 
-// --> Sidebar Leaves with special content <--
+/*--> Sidebar Leaves with special content <--*/
 
 body:not(.is-mobile) .mod-sidedock .workspace-leaf-content:is(
 	[data-type="canvas"],
@@ -749,18 +750,18 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	margin-block-end: 44px;
 }
 
-// --> Workspace Tabs <--
+/*--> Workspace Tabs <--*/
 
-// Remove tab gutter curves 
+/* Remove tab gutter curves */
 .workspace-split.mod-root .workspace-tab-header::before, 
 .workspace-split.mod-root .workspace-tab-header::after,
 .workspace-split.mod-root .workspace-tab-header-inner::after {
     display: none;
 }
 
-// Tab Containers 
+/* Tab Containers */
 
-// Separate window padding adjustment for tabs 
+/* Separate window padding adjustment for tabs */
 .is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
 	padding-inline-start: 2px;
 }
@@ -786,7 +787,7 @@ body:not(.is-mobile) .mod-sidedock.mod-right-split .workspace-tabs:last-child .w
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
-// Root Tabs 
+/* Root Tabs */
 .mod-root .workspace-tabs:not(.mod-stacked) {
 	.workspace-tab-header {
 		contain: content;
@@ -870,7 +871,7 @@ body.prevent-exit
 	--icon-stroke: var(--icon-s-stroke-width);
 }
 
-// Sidebar Tabs 
+/* Sidebar Tabs */
 .mod-sidedock .workspace-tab-header {
 	contain: content;
 	border-radius: var(--tab-radius);
@@ -895,7 +896,7 @@ body.prevent-exit
 	--icon-color-focused: var(--color-base-100);
 }
 
-// Tab Icons 
+/* Tab Icons */
 .workspace-tab-header:not(.is-active) .workspace-tab-header-inner .workspace-tab-header-inner-icon {
     --icon-opacity: 0.8;
 }
@@ -912,8 +913,8 @@ body.prevent-exit
 	--icon-color: var(--link-color-hover);
 }
 
-// FROM Willemstad 
-// By tingmelvin 
+/* FROM Willemstad */
+/* By tingmelvin */
 
 body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .workspace-tab-header:has(.mod-pinned) {
 	max-width: 60px;
@@ -933,7 +934,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 	}
 }
 
-// --> View Header <--
+/*--> View Header <--*/
 
 .view-header {
 	padding-inline: 8px;	
@@ -951,7 +952,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 		padding: 10px;
 	}
 }
-// View header Title 
+/* View header Title */
 .view-header-title-container { 
 	margin-inline-end: 4px;
 }
@@ -965,7 +966,7 @@ body.improve-pinned-tabs .mod-root .workspace-tab-header-container-inner .worksp
 .view-header-title-parent .view-header-breadcrumb {
 	padding-inline: 6px;
 }
-// View header FAB 
+/* View header FAB */
 body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 	& .view-actions {
 		contain: content;
@@ -1043,7 +1044,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="empty"] > .view-header >
 	visibility: hidden;
 }
 
-// --> Document Search <--
+/*--> Document Search <--*/
 
 body:not(.is-phone) {
 	.document-search-container {
@@ -1103,7 +1104,7 @@ body:not(.is-phone) {
 	}
 }
 
-// Search highlights 
+/* Search highlights */
 .markdown-rendered .search-highlight > div,
 .markdown-rendered .search-highlight > div.is-active,
 .cm-s-obsidian span.obsidian-search-match-highlight {
@@ -1115,7 +1116,7 @@ body:not(.is-phone) {
 	background-color: var(--text-highlight-bg-search-active);
 }
 
-// --> Ribbon <--
+/*--> Ribbon <--*/
 
 .workspace-ribbon > .side-dock-actions {
 	gap: 4px;
@@ -1128,7 +1129,7 @@ body:not(.is-phone) {
 	--icon-color-hover: var(--color-base-100);
 }
 
-// --> Vault Profile <--
+/*--> Vault Profile <--*/
 
 body:not(.is-mobile)
 	.workspace-split.mod-left-split
@@ -1157,11 +1158,11 @@ body:not(.is-mobile)
 		display: none;
 	} 
 
-// ADAPTED FROM: Micro Mike 
-// By ThisTheThe 
-// MIT License 
+/* ADAPTED FROM: Micro Mike */
+/* By ThisTheThe */
+/* MIT License */
 
-// --> Sidebar Auto-Hide <--
+/*--> Sidebar Auto-Hide <--*/
 
 @media only screen and (max-width: 800px) {
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) :is(
@@ -1222,7 +1223,7 @@ body:not(.is-mobile)
 	}
 }
 
-// --> Stacked Tabs <--
+/*--> Stacked Tabs <--*/
 
 .workspace-tabs.mod-stacked .workspace-tab-container {
 	background-color: var(--background-primary);
@@ -1266,7 +1267,7 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
     padding: 0 0 0 4px;
 }
 
-// --> PDF viewer <--
+/*--> PDF viewer <--*/
 
 .pdfViewer > .page {
     border: unset;
@@ -1299,6 +1300,6 @@ body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked
     padding: 8px;
 }
 
-// --> Empty State <--
+/*--> Empty State <--*/
 
-// REMOVED FOR NOW 
+/* REMOVED FOR NOW */

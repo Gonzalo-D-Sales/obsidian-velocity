@@ -1,4 +1,4 @@
-// --> Status Bar <--
+/*--> Status Bar <--*/
 
 .status-bar {
 	outline: 0px solid var(--status-bar-border-color);
@@ -29,7 +29,7 @@ body.disable-status-fade .status-bar {
 	--background-modifier-hover: var(--hr-color);
 }
 
-// make room for status bar 
+/* make room for status bar */
 .mod-right-split > .workspace-tabs:last-of-type > .workspace-tab-container > .workspace-leaf {
 	padding-block-end: 40px;
 }
