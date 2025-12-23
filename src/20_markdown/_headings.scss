@@ -1,0 +1,78 @@
+// Heading Margins and Spacing
+
+.cm-line.HyperMD-header:first-child,
+:not(.show-properties) div[contenteditable="false"]:first-child + .cm-line.HyperMD-header {
+    padding-block-start: unset;
+}
+.markdown-rendered :is(.el-div, .el-blockquote) + div[class*="el-h"] > * {
+  	margin-block-start: var(--heading-spacing);
+}
+.markdown-rendered .el-div + .el-p > p {
+  	margin-block-start: 1.5rem;
+}
+.markdown-rendered div[class*="el-h"] + .el-table > table {
+  	margin-block-start: 0.5rem;
+}
+.markdown-rendered div[class*="el-h"] > * {
+	margin-block-start: round(nearest, 1em, 2px);
+	margin-block-end: round(nearest, 1rem, 2px);
+}
+.markdown-rendered div[class*="el-hr"] > * {
+	margin-block: 2rem;
+}
+
+// Headings
+
+.cm-s-obsidian .cm-line.HyperMD-header,
+.markdown-rendered :is(h1,h2,h3,h4,h5,h6) {
+	--bold-modifier: 200;
+}
+
+// H1 Headings
+.cm-s-obsidian .cm-line.HyperMD-header-1, 
+.markdown-rendered h1,
+.inline-title {
+	letter-spacing: -0.0125em;
+	margin-block-end: var(--inline-title-margin-bottom);
+	text-indent: -0.025em;
+	&::after {
+		content: '';
+		contain: content;
+		width: 100%;
+		height: 0.125rem;
+		background-color: var(--hr-color);
+		display: block;
+		border-radius: var(--radius-xxl);
+		margin-block: 0.375rem 0;
+		-electron-corner-smoothing: var(--corner-smoothing);
+	}
+}
+// Disable H1 special styling 
+body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
+	font-feature-settings: 'cv05' off, 'cv06', 'cv11' off;
+}
+.disable-title-h1 .cm-line.HyperMD-header-1, 
+.disable-title-h1 .markdown-rendered h1 {
+	font-size: var(--h1-size-alt);
+	font-weight: var(--h1-weight-alt);
+	&::after {
+		display: none;
+	}
+}
+
+// H2-6 Headings
+
+.cm-s-obsidian .cm-line.HyperMD-header-2, 
+.markdown-rendered h2 {
+	letter-spacing: -0.00625em;
+	text-indent: -0.0125em;
+}
+.cm-s-obsidian .cm-line.HyperMD-header-3, 
+.markdown-rendered h3 {
+	letter-spacing: -0.00625em;
+	text-indent: -0.01em;
+}
+.cm-s-obsidian .cm-line.HyperMD-header-4, 
+.markdown-rendered h4 {
+	text-indent: -0.0075em;
+}

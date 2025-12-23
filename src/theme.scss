@@ -9,6 +9,8 @@
 		fonts.scss
 	10_COLORS
 	20_MARKDOWN
+		headings.scss
+		markdown.scss
 	30_INTERFACE
 	40_MODALS
 	50_MOBILE
@@ -24,6 +26,9 @@
 
 @use "10_colors/_base-colors";
 
+@use "20_markdown/_headings";
+@use "20_markdown/_blockquotes";
+@use "20_markdown/_callouts";
 @use "20_markdown/_markdown";
 
 @use "30_interface/_interface";	
