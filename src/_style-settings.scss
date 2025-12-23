@@ -1,0 +1,206 @@
+/* @settings
+name: Velocity - Theme Configurator
+id: obsidian-velocity
+settings:
+-
+	id: ss-section-heading
+	description: Set theme colors
+	type: info-text
+	markdown: true
+- 	
+	id: theme-mode
+	title: Select vehicle driving profile (WIP)
+	type: class-select
+	default: theme-strada
+	options:
+        - label: Touring
+          value: theme-turismo
+		- label: Sport
+		  value: theme-strada
+        - label: Race
+          value: theme-corsa
+- 	
+	id: theme-paint-light
+	title: Select vehicle paint job (light mode)
+	type: class-select
+	default: none
+	options:
+        - label: Velocity Silver 
+          value: none
+		- label: Obsidian White
+          value: deflight
+		- label: Utopia Gray
+          value: utopia
+		- label: Classic
+          value: classic
+- 	
+	id: color-highlight-rgb
+	title: Select highlight color
+	type: variable-select
+	default: var(--color-yellow-rgb)
+	options:
+	- 
+		label: Pink
+		value: var(--color-pink-rgb)
+	- 
+		label: Red
+		value: var(--color-red-rgb)
+	- 
+		label: Orange
+		value: var(--color-orange-rgb)
+	- 
+		label: Yellow
+		value: var(--color-yellow-rgb)
+	- 
+		label: Green
+		value: var(--color-green-rgb)
+	- 
+		label: Cyan
+		value: var(--color-cyan-rgb)
+	- 
+		label: Blue
+		value: var(--color-blue-rgb)
+	- 
+		label: Purple
+		value: var(--color-purple-rgb)
+- 	
+	id: ss-section-heading
+	description: Customize theme layout
+	type: info-text
+	markdown: true
+- 
+	id: line-height-normal
+	title: Select editor line height 
+	type: variable-select
+	default: '1.6'
+	allowEmpty: false
+	options:
+	- 
+		label: Compact
+		value: '1.5'
+	- 
+		label: Spacious
+		value: '1.6'
+-
+	id: vl-layout-padding
+	title: Select interface item spacing
+	type: variable-select
+	default: 8px
+	allowEmpty: false
+	options:
+	- 
+		label: Compact
+		value: 6px
+	- 
+		label: Spacious
+		value: 8px
+-
+	id: file-line-width
+	title: Customize readable line width
+	description: Set the readable width of text in the editor, using relative units (rem).
+	type: variable-number-slider
+	default: 43.75
+	min: 40
+	max: 47.5
+	step: 0.25
+	format: 'rem'
+-
+	title: Additional settings
+	type: heading
+	level: 1
+	collapsed: true
+-
+	id: ss-section-heading
+	description: Disable theme features
+	type: info-text
+	markdown: true
+- 	
+	id: disable-performance-tweaks
+	title: Disable performance tweaks
+	description: Deactivates special CSS hacks which typically improve editor performance. 
+	type: class-toggle
+- 	
+	id: disable-hover-header
+	title: Disable Compact Panels in the sidebar   
+	type: class-toggle
+- 	 
+	id: disable-naked-embeds
+	title: Disable Naked Embed styling
+	type: class-toggle
+- 	
+	id: disable-autohide
+	title: Disable Sidebar Auto-Hide™ feature
+	type: class-toggle
+-	 	
+	id: disable-status-fade
+	title: Disable Status Bar fade until hover
+	type: class-toggle
+-	
+	id: disable-title-h1
+	title: Disable title style for H1 Headings
+	type: class-toggle
+-
+	id: disable-list-styling
+	title: Restore bullet-style list markers
+	type: class-toggle
+- 	
+	id: disable-callout-styling
+	title: Restore default Callout styling
+	type: class-toggle
+-
+	id: disable-custom-icons
+	title: Restore defualt icon styling
+	type: class-toggle
+-
+	id: ss-section-heading-top
+	title: Enable opt
+	type: heading
+	level: 2
+	collapsed: false
+-
+	id: ss-section-heading
+	description: Enable optional features
+	type: info-text
+	markdown: true
+- 
+	id: prevent-exit
+	title: Accidental exit prevention for tabs
+	description: Disables the exit button when hovering over inactive tabs.
+	type: class-toggle
+- 
+	id: active-line-highlight
+	title: Active line highlighting
+	description: Highlights the active line with slight backdrop for easier text navigation.  
+	type: class-toggle
+- 	
+	id: hide-bases-header
+	title: Cleaner Bases display 
+	description: Hides the filter toolbar options for embedded Bases in Reading mode.
+	type: class-toggle
+- 	
+	id: enable-dim-img
+	title: Image dimming in Dark mode
+	description: Reduces the brightness of images in Dark mode except when hovered.
+	type: class-toggle
+- 	
+	id: switch-edit-icons
+	title: Inverted editing mode toggle display
+	description: Displays the icon of the current editing mode instead of the next mode.
+	type: class-toggle
+-	
+	id: improve-pinned-tabs
+	title: Improved pinned tabs appearance
+	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
+	type: class-toggle
+-
+	id: override-default-font
+	title: Override dedicated theme typeface
+	description: Velocity is best experienced with the font it is bundled with - Raveo. Enable this setting to allow custom font overrides via the Appearance settings.
+	type: class-toggle
+-	
+	id: enable-special-code
+	title: Unique text color for inline code
+	description: Inline code is given a unique color to make it easier to distinguish from regular text.
+	type: class-toggle
+- 
+*/
