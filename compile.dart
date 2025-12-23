@@ -63,11 +63,21 @@ Future<void> main(List<String> args) async {
       _error('Error: $e');
     }
 
-    // Collect directories to watch: parent of SCSS entry and parent of settings file.
-    final watchDirs = {File(scssPath).parent, File(settingsPath)};
+    // Collect directories to watch: watch the `src` tree (all subdirectories)
+    final watchDirs = <Directory>{};
+    final srcRoot = Directory('src');
+    if (srcRoot.existsSync()) {
+      watchDirs.add(srcRoot);
+      // gather all subdirectories under src
+      await for (final entity in srcRoot.list(recursive: true, followLinks: false)) {
+        if (entity is Directory) watchDirs.add(entity);
+      }
+    } else {
+      // fallback to watching the SCSS entry's parent if src isn't found
+      watchDirs.add(File(scssPath).parent);
+    }
 
-    _info('Watching for changes in:');
-    for (final d in watchDirs) _info('  ${d.path}');
+    _info('Watching for changes');
 
     // Shared debounce timer for rebuilds
     Timer? debounce;

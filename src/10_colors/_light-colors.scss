@@ -1,0 +1,231 @@
+.theme-light {
+
+	--accent-h: 215;	
+	--accent-s: 100%;	
+	--accent-l: 55%;
+	
+	--color-red-rgb: 230, 52, 52;
+	--color-red: rgb(230, 52, 52);
+	--color-orange-rgb: 236, 117, 0;
+	--color-orange: rgb(236, 117, 0);
+	--color-yellow-rgb: 229, 169, 37;
+	--color-yellow: rgb(229, 169, 37);
+	--color-green-rgb: 42, 185, 71;
+	--color-green: rgb(42, 185, 71);
+	--color-cyan-rgb: 5, 178, 197;
+	--color-cyan: rgb(5, 178, 197);
+	--color-blue-rgb: 42, 122, 241;
+	--color-blue: rgb(42, 122, 241);
+	--color-purple-rgb: 136, 75, 231;
+	--color-purple: rgb(136, 75, 231);
+	--color-pink-rgb: 215, 56, 123;
+	--color-pink: rgb(215, 56, 123);
+
+	--base-hue: 281;
+	--base-sat-xtr: 0.01050;
+	--base-sat-str: 0.00250;
+	--base-sat-med: 0.00150;
+	--base-sat-low: 0.00050;
+
+	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(99.00% var(--base-sat-low) var(--base-hue));
+	--color-base-10: oklch(96.20% var(--base-sat-str) var(--base-hue));
+	--color-base-20: oklch(92.00% var(--base-sat-str) var(--base-hue));
+	--color-base-25: oklch(88.25% var(--base-sat-str) var(--base-hue)); 
+	--color-base-30: oklch(85.75% var(--base-sat-str) var(--base-hue)); 
+	--color-base-35: oklch(78.75% var(--base-sat-str) var(--base-hue)); 
+	--color-base-40: oklch(75.25% var(--base-sat-str) var(--base-hue)); 
+	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
+	--color-base-60: oklch(55.75% var(--base-sat-xtr) var(--base-hue));
+	--color-base-70: oklch(46.50% var(--base-sat-xtr) var(--base-hue));
+	--color-base-80: oklch(40.00% var(--base-sat-str) var(--base-hue)); 
+	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
+   --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
+
+	--trans-strong-00: oklch(100% 0 0 / 0.950);
+	--trans-strong-10: oklch(100% 0 0 / 0.750);
+	--trans-strong-20: oklch(100% 0 0 / 0.625);
+	--trans-strong-30: oklch(100% 0 0 / 0.400);
+	--trans-strong-40: oklch(from var(--color-base-50) l c h / 0.100);
+	
+	--trans-faint-00: oklch(62.50% 0 0 / 0.0300);
+	--trans-faint-05: oklch(20.00% 0 0 / 0.0275);
+	--trans-faint-10: oklch(05.00% 0 0 / 0.0550);
+	--trans-faint-20: oklch(0.000% 0 0 / 0.0625);
+	--trans-faint-25: oklch(0.000% 0 0 / 0.0700);
+	--trans-faint-30: oklch(0.000% 0 0 / 0.0920);
+	--trans-faint-40: oklch(0.000% 0 0 / 0.1125);
+	--trans-faint-50: oklch(0.000% 0 0 / 0.1450);
+	--trans-faint-60: oklch(0.000% 0 0 / 0.3200); 
+	
+	--text-normal: var(--color-base-90);
+	--text-selection: hsla(var(--color-accent-hsl), 0.15);
+
+    --text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
+	--text-highlight-bg-rgb: var(--color-highlight-rgb);
+	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.875 c h);
+	--text-highlight-bg-search: var(--text-highlight-bg);
+	--text-highlight-bg-search-active: color-mix(in oklab, var(--color-highlight), transparent 37.5%);
+	
+	--link-unresolved-lch: 0.625;
+
+	--bg-main-inner: oklch(97.50% 0.00125 var(--base-hue));
+	--bg-main-outer: oklch(94.50% 0.00625 var(--base-hue)); 
+	--bg-main-workspace: radial-gradient( at 50% 50%, 
+		var(--bg-main-inner) 20%, 
+		var(--bg-main-outer) 100%
+		);
+		
+	--background-modifier-border: var(--trans-faint-20);
+	--background-modifier-border-focus: transparent;
+	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
+	--background-modifier-hover: var(--trans-faint-20);
+
+	--bg-checkbox: radial-gradient(transparent 50%, var(--color-base-30) 55% 60%, transparent 65%);
+	--bg-checkbox-active: radial-gradient(transparent 56%, #ffffffdd 76%);
+
+
+	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
+	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
+	--color-accent-3: color-mix(in oklab, var(--color-accent), hsla(0, 0%, 100%, 0.5));
+	--color-accent-4: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
+	--color-accent-5: color-mix(in oklch, var(--text-selection) 100%, transparent 75%);
+	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
+
+	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--base-hue));
+
+	--checkbox-border-color: var(--color-base-35);
+	--checkbox-border-color-hover: var(--color-base-50);
+
+	--fab-bg: var(--background-primary);
+	--fab-color: var(--text-muted);
+
+	--hr-color: var(--trans-faint-30);
+
+	--link-color-sidebar: var(--color-accent-1);
+
+	--list-bullet-color: var(--text-muted);
+	--list-dash-color: oklch(0.00% 0 0 / 0.25);
+
+	--background-primary: var(--color-base-05);
+	--background-secondary: var(--color-base-10);
+
+	--modal-background: 
+		color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20));
+	--modal-small-background: 
+		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
+
+	--nav-heading-color: var(--color-base-80);
+	--nav-header-bg: var(--trans-strong-40);
+	--nav-text-color: var(--text-normal);
+	--nav-folder-color: var(--color-base-80);
+
+	--search-result-background: var(--trans-strong-20);
+
+	--settings-background: color-mix(in oklab, var(--background-secondary) 70%, var(--color-base-20));
+
+	--stacked-shadow-color: var(--trans-faint-10);
+	
+	--strikethrough-color: var(--text-faint);
+
+	--table-row-bg: var(--trans-faint-05);
+
+	--tab-background-active: var(--trans-strong-20);
+	--tab-right-fade: linear-gradient(to left, var(--color-base-20) 75%, transparent);
+	--tab-close-bg: oklch(from var(--color-base-30) l c h / 0.625);
+
+	--tab-sidebar-bg: var(--trans-strong-00);
+	--tab-sidebar-container-bg: oklch(00.00% 0 0 / 0.03125);
+
+	--workspace-border-color: var(--trans-faint-00);
+
+		// Base shadows 
+	--input-shadow: none;
+	--input-shadow-hover: none;
+
+	--shadow-faint: 
+		0px 0 12px 0px var(--trans-faint-10);	
+	--shadow-muted: 
+		0px 3px 18px 0px var(--trans-faint-25);
+	--shadow-normal: 
+		0px 0px 5px 0px var(--trans-faint-05),
+		0px 10px 20px 0px var(--trans-faint-25);	
+	--shadow-strong:
+		0px 1.25px 6.25px rgba(0, 0, 0, 0.08),
+	 	0px 3px 12px rgba(0, 0, 0, 0.06), 
+		0px 16px 32px rgba(0, 0, 0, 0.12);		
+	--glass-base: 
+		inset 1px 1px 2px 0 var(--trans-strong-30),
+		inset -1px -1px 2px 0 var(--trans-strong-30);	
+	--glass-base-m: 
+		inset 0 0 1px 0 var(--trans-strong-20),
+		inset 1.5px 1.5px 3px 0 var(--trans-strong-30),
+		inset -1.5px -1.5px 3px 0 var(--trans-strong-30);
+	--glass-base-l: 
+		inset 1.5px 1.5px 4px 0 var(--trans-strong-20),
+		inset -1.5px -1.5px 4px 0 var(--trans-strong-20);
+
+	--shadow-s: 
+		var(--glass-base),
+		var(--shadow-normal);
+	--shadow-l: 
+		var(--glass-base-l),
+		var(--shadow-strong);
+	
+		// Interface shadows 
+
+	--menu-shadow: 
+		inset 1px 1px 2px 0 var(--trans-strong-10),
+		inset -1px -1px 2px 0 var(--trans-strong-10),
+		var(--shadow-normal);
+	--shadow-fab: 
+		0px 0.25px 0px 0.75px var(--trans-faint-30),
+		inset 0px -0.25px 2px 0px var(--trans-faint-05),
+		0px 2px 8px -2px var(--trans-faint-40);
+	--shadow-fab-active: 
+		0px 0.25px 0px 0.5px var(--text-selection),
+		inset 0px -0.25px 4px -1px var(--text-selection),
+		0px 1.5px 8px -1.5px var(--text-selection);
+	--shadow-sidebar: 
+		0px 0px 8px 0px var(--trans-faint-00);
+	--shadow-tab:
+		0px 0px 4px 0px var(--trans-faint-30);	
+	--shadow-workspace: 
+		0 0.25px 1.25px 0px oklch(0.00% 0 0 / 0.25), 
+		0px 0px 24px var(--trans-faint-10);	
+	--shadow-workspace-multi:
+		0px 2.5px 10px var(--trans-faint-10);
+		
+		// Component shadows 
+	--shadow-button: 
+		var(--glass-base),
+		var(--shadow-muted);
+	--shadow-input: 
+		0 0 0 0.5px var(--trans-faint-40);
+	--shadow-input-active: 
+		0 0 0 2.5px var(--color-accent-4);
+	--shadow-toggle:
+		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30),
+		inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
+
+		// Markdown item shadows 
+
+		// Modal interface shadows 
+	--shadow-setting-items: 
+		inset 1px 1px 2px 0 var(--trans-strong-10),
+		inset -1px -1px 2px 0 var(--trans-strong-10),
+		0px 1px 9px var(--trans-faint-05);
+	--shadow-setting-items-top: 
+		inset 1px 2px 2px 0 var(--trans-strong-10),
+		0px 1px 9px var(--trans-faint-05);
+	--shadow-suggestion-item: 
+		var(--glass-base-m),
+		var(--shadow-muted);
+	
+		// Other shadows 
+	--bases-cards-shadow-hover: 
+		0 0.125px 0px 0.375px var(--trans-faint-60);	
+}
+
+

@@ -24,9 +24,11 @@
 @use "00_elements/_fonts";
 @use "00_elements/_media";
 
-@use "10_colors/_base-colors";
+@use "10_colors/_dark-colors";
+@use "10_colors/_light-colors";
+@use "10_colors/_light-extra-colors";
 
-@use "20_markdown/__main-20";
+@use "20_markdown/__markdown";
 @use "20_markdown/_blockquotes";
 @use "20_markdown/_callouts";
 @use "20_markdown/_checkboxes";
