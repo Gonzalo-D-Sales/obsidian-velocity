@@ -315,6 +315,8 @@ body:not(.is-mobile) {
 // Main workspace tab 
 body:not(.is-mobile) .mod-root {
     padding-block-end: 8px;
+	--left-margin-delay: var(--anim-duration-fast);
+	--right-margin-delay: var(--anim-duration-fast);
 }
 .workspace-split.mod-root,
 .workspace-tabs .workspace-leaf {
@@ -324,14 +326,18 @@ body:not(.is-mobile) .mod-root {
 // Main tab(s) margins 
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .workspace-tab-container {
     margin-inline-start: 8px;
+	--left-margin-delay: 0ms;
 }
 body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspace-tab-container {
     margin-inline-end: 8px;
+	--right-margin-delay: 0ms;
 }
-// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy
-// effect to the sidebar reveal animation that matches the sidebar close animation. 
+// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy effect to the sidebar reveal animation that matches the sidebar close animation. 
 body:not(.is-mobile) .workspace:is(.is-left-sidedock-open, .is-right-sidedock-open) .mod-root .workspace-tab-container {
-	transition-delay: var(--anim-duration-fast);
+	transition: 
+	all var(--anim-duration-moderate),
+	margin-inline-start var(--anim-duration-moderate) var(--left-margin-delay),
+	margin-inline-end var(--anim-duration-moderate) var(--right-margin-delay);
 }
 
 // padding adjustment when there is no view header 
