@@ -22,6 +22,7 @@
 
 @use "00_elements/_base";
 @use "00_elements/_fonts";
+@use "00_elements/_custom-icons";
 @use "00_elements/_media";
 
 @use "10_colors/_dark-colors";
@@ -38,7 +39,9 @@
 @use "20_markdown/_lists";
 @use "20_markdown/_formatting";
 
-@use "30_interface/_interface";	
+@use "30_interface/_clickable-icons";
+@use "30_interface/_layout";
+@use "30_interface/__interface";	
 @use "30_interface/_status-bar";
 
 @use "40_modals/_modals";	
