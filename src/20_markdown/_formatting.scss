@@ -1,0 +1,70 @@
+// Formatting markers 
+
+.cm-formatting-strong {
+	font-weight: var(--font-normal);
+}
+.cm-s-obsidian span.cm-formatting-quote {
+	padding-inline-start: 0.25rem;
+}
+
+// Strikethrough / Checklist crossed-out 
+.cm-strikethrough, del {
+    color: var(--strikethrough-color);
+	--bold-color: var(--strikethrough-color);
+	--italic-color: var(--strikethrough-color);
+}
+del {
+	--text-highlight-bg: var(--hr-color);
+}
+
+.markdown-rendered del > mark {
+    color: var(--strikethrough-color);
+}
+.markdown-rendered mark > del {
+    color: inherit;
+}
+
+// Highlights 
+
+.cm-s-obsidian span.cm-highlight,
+:is(.markdown-source-view, .markdown-preview-view) mark {
+	box-decoration-break: clone;
+	padding-block: 0.125rem;
+}
+:is(.markdown-source-view, .markdown-preview-view) mark {
+	border-radius: var(--radius-xs);
+	padding-inline: 0.25rem;
+}
+
+// Code to make highlight padding and radii consistent between modes
+.cm-line .cm-formatting-highlight:first-of-type,
+.cm-highlight:nth-child(1 of .cm-highlight) {
+	border-top-left-radius: var(--radius-xs);
+	border-bottom-left-radius: var(--radius-xs);
+	padding-inline-start: 0.25rem;
+}
+.cm-line .cm-formatting-highlight:last-of-type,
+.cm-highlight:nth-last-child(1 of .cm-highlight) {
+	border-top-right-radius: var(--radius-xs);
+	border-bottom-right-radius: var(--radius-xs);
+	padding-inline-end: 0.25rem;
+}
+
+// Highlight flash (for example, when clicking on Outline items) 
+.view-content .is-flashing {
+	box-shadow: 0 0 0 6px var(--text-highlight-bg);
+}
+
+// --> HRs <--
+
+.modal hr,
+.markdown-source-view hr,
+.markdown-preview-view hr,
+.embedded-backlinks > .nav-header {
+	background-color: var(--hr-color);
+	border: none;
+	border-radius: var(--radius-l);
+	contain: content;
+	height: 0.125rem;
+	-electron-corner-smoothing: var(--corner-smoothing);
+}

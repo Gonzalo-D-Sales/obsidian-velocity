@@ -8,12 +8,13 @@ body:not(.disable-callout-styling) {
 	--callout-border-opacity: 0.2;
 	--callout-radius: var(--radius-sm);
 	--callout-padding: 16px;
-		// --callout-title-padding: 0px; 
-		// Callout colors 
+    // --callout-title-padding: 0px; 
+    
+    // Callout colors 
 	--callout-bug: var(--color-pink-rgb);
 	--callout-warning: var(--color-yellow-rgb);
 
-		// Styling 
+    // Styling 
 	.markdown-source-view .cm-content > .cm-callout[contenteditable=false] {
 		border-radius: var(--callout-radius);
 		contain: none !important;
@@ -33,9 +34,6 @@ body:not(.disable-callout-styling) {
 		--bold-color: var(--color-base-80);
 		--italic-color: var(--color-base-80);
 	}
-		// .callout.is-collapsible {
-	// padding-bottom: 16px;
-	// } 
 	.callout .callout {
 		margin-inline: 0.125em;
 		outline-color: var(--trans-strong-20);
@@ -79,7 +77,7 @@ body:not(.disable-callout-styling) {
 		--icon-stroke: var(--icon-stroke-thick);
 	}
 
-		// Things inside Callouts 
+    // Things inside Callouts 
 	.callout table {
 		--table-border-color: var(--hr-color);
 	}

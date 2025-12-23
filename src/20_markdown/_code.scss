@@ -1,0 +1,21 @@
+body.enable-special-code {
+	--code-normal: var(--code-special);
+}
+
+.markdown-rendered :is(code, pre) {
+	border: unset;
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+.markdown-rendered code {
+    padding-inline: 0.375rem;
+}
+.markdown-rendered pre,
+.HyperMD-codeblock,
+.cm-hmd-indented-code {
+	--code-normal: var(--text-normal);
+}
+.markdown-rendered pre,
+.HyperMD-codeblock-begin,
+.HyperMD-codeblock-end {
+	--code-radius: var(--radius-sm);
+}

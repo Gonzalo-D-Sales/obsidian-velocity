@@ -1,0 +1,25 @@
+.active-line-highlight {
+	.cm-active.HyperMD-header-1::before,
+	.cm-active:not(
+		.HyperMD-header-1,
+		.HyperMD-codeblock,
+		.HyperMD-quote)::after {
+		content: '';
+		z-index: -2;
+		inset: -2px -6px;
+		position: absolute;
+		background-color: oklch(from var(--color-base-100) l c h / 0.05);
+		border-radius: var(--radius-s);
+		-electron-corner-smoothing: var(--corner-smoothing);
+	}
+
+	.cm-active.cm-line.HyperMD-codeblock {
+		background-color: var(--trans-faint-30);
+	}
+	.cm-active.cm-line.HyperMD-quote {
+		background-color: oklch(from var(--color-base-100) l c h / 0.05);
+	}
+	.table-cell-wrapper .cm-active::after {
+		display: none;
+	}
+}

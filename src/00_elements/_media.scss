@@ -1,0 +1,21 @@
+audio, 
+img, 
+video {
+    border-radius: var(--radius-s);
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+.image-embed img, 
+.markdown-rendered img {
+    border-radius: var(--radius-sm);
+}
+body.enable-dim-img.theme-dark 
+:is(.image-embed img, 
+	.markdown-rendered img) {
+	filter: opacity(0.75);
+	transition: filter var(--anim-fast-smooth);
+}
+body.enable-dim-img.theme-dark 
+:is(.image-embed img, 
+	.markdown-rendered img):hover {
+	filter: unset;
+}

@@ -1,0 +1,209 @@
+// =========================== ===========================
+// 2 - Markdown
+// =========================== ===========================
+
+// Adaptive markdown spacing based on line-height
+
+@container style(--line-height-normal: 1.5) {
+	.markdown-rendered {
+		--list-spacing: 0.1em;
+		--heading-spacing: round(nearest, clamp(0px, 2em, 2.5rem), 2px);
+	}
+}
+@container style(--line-height-normal: 1.6) {
+	.markdown-rendered {
+		--heading-spacing: round(nearest, clamp(0px, 2em, 3rem), 2px);
+	}
+	.markdown-rendered .el-p + .el-p > p {
+		margin-block-start: 1.125rem;
+	}
+}
+
+// --> Links <--
+
+
+// MathJax 
+
+mjx-math {
+	color: var(--math-color);
+}
+
+// --> Metadata <--
+
+.metadata-container.is-collapsed .metadata-content {
+	filter: opacity(0);
+}
+
+// Properties title 
+.metadata-properties-heading {
+	display: block;
+}
+.metadata-properties-title {
+	font-size: var(--h5-size);
+    font-weight: var(--font-semi-medium);
+	font-variation-settings: 'opsz' 26;
+	transition: color var(--anim-duration-fast) ease-in-out;
+}
+
+.metadata-container.is-collapsed .metadata-properties-title {
+	color: var(--icon-color);
+}
+.metadata-properties-heading > .collapse-indicator {
+	opacity: 1;
+	--collapse-icon-color: var(--text-normal);
+	--collapse-icon-color-collapsed: var(--icon-color);
+}
+
+// Properties content 
+.metadata-property {
+	contain: content;
+	font-weight: var(--font-normal);
+	transition: var(--anim-super-swing);
+}
+.metadata-property-value {
+	min-height: var(--metadata-input-height);
+}
+span.metadata-property-icon,
+input.metadata-property-key-input {
+	height: 100%;
+	max-height: var(--metadata-input-height);
+	padding-block: unset;
+}
+input.metadata-property-key-input {
+	--shadow-input: none;
+	--shadow-input-active: none;
+}
+.metadata-add-button {
+	height: 28px;
+	padding-inline: 6px 8px;
+}
+
+// Properties in main workspace 
+.mod-root .workspace-leaf-content[data-type="file-properties"],
+.markdown-source-view, .markdown-preview-view { 
+	.metadata-property-icon {
+		--icon-size: 1rem;
+		--icon-stroke: var(--icon-s-stroke-width);
+	}
+	.metadata-add-button {
+		background-color: var(--interactive-accent);
+		color: var(--text-on-accent);
+		margin-inline-start: 0.25em;
+		padding-inline: 0.75em;
+	}
+	.metadata-add-button > .text-button-icon {
+		display: none;	
+	}
+}
+
+// Multi-select pills (not tags) 
+.multi-select-container {
+	padding-inline-start: 6px;
+	gap: 4px; 
+}
+.multi-select-input {
+    padding-inline-start: 2px;
+}
+.multi-select-pill-content {
+	display: inline;
+	text-box-trim: trim-both;
+	margin-inline-end: 0.0875em;
+}
+.bases-td .multi-select-pill,
+.metadata-property .multi-select-pill,
+.metadata-property[data-property-key="tags"] .multi-select-pill {
+	padding-inline: var(--pill-padding-x);
+	--pill-color: var(--text-muted);
+    --pill-padding-x: 0.75em 0.375em; 
+    --pill-padding-y: 0.25em;
+}
+.bases-td .multi-select-pill-remove-button:hover,
+.multi-select-pill-remove-button:hover {
+	background-color: var(--text-error);
+}
+
+// Multi-select pill (tags) 
+.metadata-property[data-property-key="tags"] .multi-select-pill {
+	--pill-color: var(--tag-color);
+	--pill-color-remove: var(--color-accent-4);
+	--pill-color-remove-hover: var(--text-on-accent);
+}
+.metadata-property[data-property-key="tags"] .multi-select-pill-remove-button:hover {
+	background-color: var(--interactive-accent);
+}
+
+// --> Metadata (sidebars) <--
+
+.workspace > .workspace-split.mod-sidedock .metadata-container {
+	margin-block-end: 0;
+	--icon-color: var(--color-base-80);
+	--metadata-label-text-color: var(--color-base-80);
+	--metadata-input-text-color: var(--text-muted);
+    --metadata-divider-width: 0;
+	--metadata-input-padding: 8px;
+}
+.mod-sidedock .metadata-property-key-input {
+	padding-inline-start: 6px;
+}
+.mod-sidedock .multi-select-container {
+	padding-block: 0;
+}
+@container (width < 320px) {
+.metadata-property {
+	flex-direction: column;
+	flex-wrap: wrap;
+	border-top: 1px solid var(--metadata-divider-color);
+}
+.metadata-property:first-child {
+	border-top: none;
+}
+.metadata-property > .metadata-property-key {
+	border-block-end: 0;
+	padding-block: 6px;
+	width: 100%;
+}
+.metadata-property > .metadata-property-value {
+	padding-inline-start: calc(var(--icon-size) + 3px);
+}
+.metadata-property > .metadata-property-value > * {
+	padding-block: 4px;
+}
+.metadata-property > .metadata-property-value > .multi-select-container {
+	padding-block: 0 2px;
+}
+}
+
+// --> Tables <--
+
+.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper, 
+:is(.markdown-rendered, .markdown-source-view.is-live-preview) table {
+	width: 100%;
+}
+body .markdown-rendered table thead tr > th {
+	border: none;
+	border-bottom: 2px solid var(--table-header-border-color);
+	font-size: var(--table-header-size);
+	line-height: var(--table-line-height);
+	padding-inline: 12px;
+} 
+body .markdown-rendered table tr td {
+	border: none;
+	border-left: 1px solid var(--table-border-color);
+	font-weight: var(--font-normal);
+	padding-inline: 12px;
+}
+body .markdown-rendered table tr td:first-child, 
+body .markdown-rendered table tr th:first-child {
+	border-left: none;
+}
+
+// --> Tags <--
+
+a.tag {
+	box-shadow: var(--tag-shadow);
+	transition: var(--anim-super-delay);
+	letter-spacing: 0.00625em;
+}
+a.tag:active {
+	filter: opacity(50%);
+}

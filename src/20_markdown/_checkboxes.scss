@@ -1,0 +1,30 @@
+// Checkbox 
+input[type=checkbox] {
+	border: none;
+	box-shadow: none !important;
+	background-image: var(--bg-checkbox); 
+	transition: 210ms var(--anim-motion-jumpy);
+}
+input[type=checkbox]:active {
+	transform: scale(0.75);
+}
+.HyperMD-task-line[data-task="x"],
+.HyperMD-task-line[data-task="f"],
+.task-list-item.is-checked:not([data-task="/"]) {
+	--bold-color: var(--checklist-done-color);
+	--italic-color: var(--checklist-done-color);
+	--code-normal: var(--checklist-done-color);
+	--text-normal: var(--trans-faint-60);
+}
+input[type=checkbox]:checked {
+	background-image: var(--bg-checkbox-active);
+	border: none;
+}
+input[type=checkbox]:checked::after {
+    top: -0.03125em;
+    inset-inline-start: -0.03125em;
+}
+
+.task-list-item ul::before {
+	--indentation-guide-reading-indent: -1.03125em;
+}

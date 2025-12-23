@@ -1,0 +1,32 @@
+// List spacing
+.markdown-rendered :is(ol, ul) > li {
+	margin-inline-start: 1.75em;
+}
+.list-bullet,
+.markdown-rendered ul > li  {
+	--list-marker-color: var(--list-bullet-color);
+}
+.markdown-rendered li > :is(ul,ol) {
+	padding-block: var(--list-spacing);
+}
+
+// Lists: special styling 
+body:not(.disable-list-styling) {
+	.list-bullet::after,
+	.modal-content li::marker {
+		contain: content;
+		height: 0.125rem;
+		width: 1rem;
+		-electron-corner-smoothing: var(--corner-smoothing);
+		--list-bullet-radius: 0.25rem;
+		--list-bullet-transform: translateX(-0.125rem);
+		--list-marker-color: var(--list-dash-color);
+	}
+	.cm-formatting-list-ul {
+		margin-inline-end: 0.125rem;
+	}
+	& .is-collapsed ~ .cm-formatting-list .list-bullet::after,
+	  .is-collapsed .list-bullet::after {
+		color: var(--color-accent-2);
+	}
+}

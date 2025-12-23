@@ -9,7 +9,7 @@ settings:
 	markdown: true
 - 	
 	id: theme-mode
-	title: Select vehicle driving profile (WIP)
+	title: Select vehicle trim
 	type: class-select
 	default: theme-strada
 	options:
