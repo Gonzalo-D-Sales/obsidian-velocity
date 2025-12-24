@@ -768,10 +768,6 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 // --> Scrollbar / scrollbar padding <--
 
-.mod-sidedock .workspace-leaf-content ::-webkit-scrollbar,
-.workspace-drawer-tab-container .workspace-leaf-content ::-webkit-scrollbar {
-	display: none;
-}
 .cm-scroller::-webkit-scrollbar-track,
 .markdown-preview-view::-webkit-scrollbar-track,
 .bases-view::-webkit-scrollbar-track {
@@ -782,6 +778,15 @@ body.show-view-header .markdown-preview-view::-webkit-scrollbar-track,
 body.show-view-header .bases-view::-webkit-scrollbar-track {
 	margin-block-start: 0px;
 }
+.workspace-tabs.mod-stacked > .workspace-tab-container::-webkit-scrollbar-track {
+    margin-inline: 8px;
+}
+
+.mod-sidedock .workspace-leaf-content ::-webkit-scrollbar,
+.workspace-drawer-tab-container .workspace-leaf-content ::-webkit-scrollbar {
+	display: none;
+}
+
 .mod-settings .vertical-tab-content::-webkit-scrollbar-track,
 .mod-dim .modal:not(.mod-settings, .prompt)::-webkit-scrollbar-track {
 	margin-block: 18px;
@@ -789,9 +794,11 @@ body.show-view-header .bases-view::-webkit-scrollbar-track {
 .modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
 	margin-block: 44px 18px;
 }
+
 .prompt.theme-picker-modal > .prompt-results::-webkit-scrollbar-track {
 	margin-block: 0 16px;
 }
+
 .suggestion-container > ::-webkit-scrollbar-track,
 .popover ::-webkit-scrollbar-track {
 	margin-block: 4px;

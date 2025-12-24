@@ -27,9 +27,10 @@
 		> .workspace-tab-container {
 		margin-inline: 0px;
 	}
-	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-tabs.mod-stacked .workspace-tab-container {
-		box-shadow: var(--input-shadow);
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-tab-header-container-inner {
+		padding-inline-start: 0px !important;
 	}
+
 	body:not(.is-mobile, .is-popout-window, .disable-autohide).is-hidden-frameless
 		.mod-horizontal:last-of-type
 		> .workspace-tabs:nth-last-child(1 of .mod-top)
