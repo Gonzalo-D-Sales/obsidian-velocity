@@ -8,21 +8,21 @@
 // Tab Containers
 
 // Separate window padding adjustment for tabs
-.is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
+body:not(.is-mobile) .is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
     padding-inline-start: 2px;
 }
 
-.workspace > .mod-root .workspace-tab-header-container-inner {
+body:not(.is-mobile) .workspace > .mod-root .workspace-tab-header-container-inner {
     align-items: center;
     column-gap: 4px;
     padding-inline: 8px;
     padding-block: 0;
 }
-.workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
+body:not(.is-mobile) .workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
     padding-inline-start: 0;
 }
 
-.mod-sidedock .workspace-tab-header-container-inner {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container-inner {
     background-color: var(--tab-sidebar-container-bg);
     border-radius: 20px;
     height: fit-content;
@@ -35,7 +35,7 @@
 
 // Root Tabs
 
-.mod-root .workspace-tabs:not(.mod-stacked) {
+body:not(.is-mobile) .mod-root .workspace-tabs:not(.mod-stacked) {
     .workspace-tab-header {
         contain: content;
         align-items: center;
@@ -122,25 +122,25 @@ body.prevent-exit
 
 // Sidebar Tabs
 
-.mod-sidedock .workspace-tab-header {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header {
     contain: content;
     border-radius: var(--tab-radius);
     min-height: 36px;
     min-width: 36px;
     --tab-radius: var(--radius-xxl);
 }
-.mod-sidedock .workspace-tab-header:hover {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header:hover {
     --background-modifier-hover: transparent;
     --icon-color-hover: var(--nav-item-color);
 }
-.mod-sidedock .workspace-tab-header-inner {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-inner {
     transition: inherit;
     & > * {
         transition: inherit;
     }
 }
-.mod-sidedock .workspace-tab-header.is-active,
-.mod-sidedock .workspace-tab-header.is-active:hover {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active:hover {
     background-color: var(--tab-sidebar-bg);
     box-shadow: var(--shadow-tab);
     --icon-color-focused: var(--color-base-100);
@@ -148,19 +148,19 @@ body.prevent-exit
 
 // Tab Icons
 
-.workspace-tab-header:not(.is-active) .workspace-tab-header-inner .workspace-tab-header-inner-icon {
+body:not(.is-mobile) .workspace-tab-header:not(.is-active) > .workspace-tab-header-inner {
     --icon-opacity: 0.8;
 }
-.mod-sidedock .workspace-tab-header-status-container {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-status-container {
     color: var(--icon-color);
     filter: opacity(var(--icon-opacity));
-    --icon-opacity: 0.75;
+    --icon-opacity: 0.8;
 }
-.mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container {
     --icon-color: var(--link-color);
     --icon-opacity: 1;
 }
-.mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container:hover {
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container:hover {
     --icon-color: var(--link-color-hover);
 }
 
