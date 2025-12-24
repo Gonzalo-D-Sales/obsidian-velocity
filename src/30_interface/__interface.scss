@@ -6,7 +6,7 @@
 // FROM Willemstad
 // By tingmelvin
 
-body.improve-pinned-tabs .mod-root .workspace-tab-header:has(.mod-pinned) {
+body.improve-pinned-tabs .mod-root > .workspace-tabs:not(.mod-stacked) .workspace-tab-header:has(.mod-pinned) {
 	max-width: 60px;
 	> .workspace-tab-header-inner {
 		background-color: var(--trans-faint-05);

@@ -1,20 +1,11 @@
 // Remove tab gutter curves
-.workspace-split.mod-root .workspace-tab-header::before,
-.workspace-split.mod-root .workspace-tab-header::after,
-.workspace-split.mod-root .workspace-tab-header-inner::after {
+.mod-root .workspace-tab-header::before,
+.mod-root .workspace-tab-header::after,
+.mod-root .workspace-tab-header-inner::after {
     display: none;
 }
 
 // Tab Containers
-
-// Separate window padding adjustment for tabs
-body:not(.is-mobile)
-    .is-hidden-frameless
-    .workspace-window
-    .workspace-tab-header-container
-    > .workspace-tab-header-container-inner {
-    padding-inline-start: 2px;
-}
 
 body:not(.is-mobile) .workspace > .mod-root .workspace-tab-header-container-inner {
     align-items: center;
