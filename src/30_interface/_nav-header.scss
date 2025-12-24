@@ -1,0 +1,59 @@
+body:not(.is-mobile) {
+	.mod-sidedock .nav-header {
+		margin-block: calc(var(--vl-layout-padding) - 6px);
+		align-self: center;
+		width: calc(100% - 60px);
+	}
+	.nav-header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 6px;
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	}
+	.nav-buttons-container {
+		contain: content;
+		flex-wrap: nowrap;
+		height: 0;
+		width: 48px;
+		max-width: calc(100% + 60px);
+		background-color: var(--trans-faint-20);
+		border-radius: var(--radius-xxl);
+		padding: 2px;
+		interpolate-size: allow-keywords;
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		& > * {
+			filter: opacity(0);
+		}
+	}
+	.nav-action-button {
+		border-radius: var(--radius-xl);
+		height: 32px;
+		width: 44px;
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	}
+	.nav-header > .search-input-container {
+		margin-block: 8px 0;
+	}
+	.mod-sidedock .nav-header + * {
+		padding-top: 0;
+	}
+	// Git plugin compatibility
+	[data-type="git-view"] .nav-header {
+		width: 100%;
+	}
+	[data-type="git-view"] .nav-buttons-container {
+		max-width: 100%;
+	}
+}
+body:not(.is-mobile) .nav-header:hover > .nav-buttons-container,
+body.disable-hover-header .nav-buttons-container {
+	height: fit-content;
+	width: fit-content;
+	& > * {
+		filter: unset;
+	}
+}
+body.disable-hover-header .nav-buttons-container {
+	--trans-faint-20: var(--trans-strong-40);
+}

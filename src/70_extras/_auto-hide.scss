@@ -1,0 +1,69 @@
+// ADAPTED FROM: Micro Mike
+// By ThisTheThe
+// MIT License
+
+// --> Sidebar Auto-Hide <--
+
+@media only screen and (max-width: 800px) {
+	body:not(.is-mobile, .is-popout-window, .disable-autohide)
+		:is(.mod-right-split, .mod-left-split, .workspace-ribbon, .sidebar-toggle-button) {
+		display: none;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) {
+		background: var(--background-primary);
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace {
+		--frame-right-space: 0px;
+		--frame-left-space: 0px;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-split.mod-vertical {
+		gap: 0 !important;
+		padding: 0;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace .mod-root {
+		--shadow-workspace: none;
+		--shadow-workspace-multi: none;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace .mod-root .workspace-tab-container {
+		outline-color: transparent;
+		border-radius: 0 !important;
+		margin: 0 !important;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-tabs.mod-stacked .workspace-tab-container {
+		box-shadow: var(--input-shadow);
+	}
+	.mod-macos.is-hidden-frameless
+		.workspace
+		.workspace-tabs.mod-top.mod-top-right-space
+		.workspace-tab-header-container {
+		padding-right: 8px;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide).is-hidden-frameless
+		.mod-horizontal:last-of-type
+		> .workspace-tabs:nth-last-child(1 of .mod-top)
+		> .workspace-tab-header-container,
+	body:not(.is-mobile, .is-popout-window, .disable-autohide).is-hidden-frameless
+		.workspace-tabs:last-of-type:nth-last-child(1 of .mod-top)
+		> .workspace-tab-header-container {
+		margin-right: var(--frame-right-space-override);
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-tab-header-container-inner {
+		padding-inline: 0px 6px !important;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after {
+		content: "auto-hide is active";
+		border-radius: var(--radius-l);
+		color: var(--text-error);
+		position: absolute;
+		left: -128px;
+		bottom: 0px;
+		padding: 6px 8px;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after,
+	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar:hover::after {
+		background-color: oklch(from var(--text-error) l c h / 0.1);
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar::after {
+		background-color: transparent;
+	}
+}

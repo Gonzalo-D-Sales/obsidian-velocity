@@ -1,0 +1,208 @@
+// Remove tab gutter curves
+.workspace-split.mod-root .workspace-tab-header::before,
+.workspace-split.mod-root .workspace-tab-header::after,
+.workspace-split.mod-root .workspace-tab-header-inner::after {
+    display: none;
+}
+
+// Tab Containers
+
+// Separate window padding adjustment for tabs
+.is-hidden-frameless .workspace-window .workspace-tab-header-container > .workspace-tab-header-container-inner {
+    padding-inline-start: 2px;
+}
+
+.workspace > .mod-root .workspace-tab-header-container-inner {
+    align-items: center;
+    column-gap: 4px;
+    padding-inline: 8px;
+    padding-block: 0;
+}
+.workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
+    padding-inline-start: 0;
+}
+
+.mod-sidedock .workspace-tab-header-container-inner {
+    background-color: var(--tab-sidebar-container-bg);
+    border-radius: 20px;
+    height: fit-content;
+    margin-block: 10px;
+    padding: unset;
+    overflow: visible;
+    outline: 3px solid var(--tab-sidebar-container-bg);
+    -electron-corner-smoothing: var(--corner-smoothing);
+}
+
+// Root Tabs
+
+.mod-root .workspace-tabs:not(.mod-stacked) {
+    .workspace-tab-header {
+        contain: content;
+        align-items: center;
+        border-radius: var(--tab-radius);
+        min-height: 36px;
+        margin-block-start: unset;
+        padding: unset;
+    }
+    .workspace-tab-header.is-active {
+        background-color: transparent;
+    }
+    .workspace-tab-header:not(.is-active) .workspace-tab-header-status-container {
+        pointer-events: none;
+        --text-accent: var(--icon-color);
+    }
+    .workspace-tab-header-inner {
+        min-height: 34px;
+        background-color: var(--trans-faint-05);
+        padding-inline: 0;
+    }
+    .workspace-tab-header:hover > .workspace-tab-header-inner {
+        background-color: var(--background-modifier-hover);
+    }
+    .workspace-tab-header.is-active > .workspace-tab-header-inner {
+        background-color: var(--background-modifier-hover);
+    }
+    .workspace-tab-header-inner-icon {
+        padding-inline: 6px 0;
+        margin-inline-end: -6px;
+    }
+    .workspace-tab-header .workspace-tab-header-inner-close-button {
+        filter: opacity(0);
+        border-radius: 0;
+        margin-inline-start: -32px;
+        padding: 8px 9px 8px 5px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            filter: unset;
+            background: var(--tab-right-fade);
+        }
+    }
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover::after {
+        content: "";
+        background-color: var(--tab-close-bg);
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: var(--radius-xs);
+        z-index: -1;
+    }
+    .workspace-tab-header-inner-title {
+        contain: content;
+        padding-inline: 6px 10px;
+        transition: color var(--anim-super-swing);
+        text-align: center;
+        text-box-trim: trim-both;
+    }
+
+    .workspace-tab-header-new-tab {
+        margin-inline: -4px 8px;
+    }
+    .workspace-tab-header-status-container {
+        margin-inline: -32px 6px;
+    }
+    .workspace-tab-header-status-icon {
+        padding: 4px;
+    }
+}
+
+body.prevent-exit
+    .workspace-tabs:not(.mod-stacked)
+    .workspace-tab-header:not(.is-active):hover
+    .workspace-tab-header-inner-close-button {
+    display: none;
+}
+.workspace-tab-header-inner-close-button,
+.mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
+    border-radius: var(--radius-xs);
+    color: var(--icon-color);
+    padding: 4px;
+    --icon-stroke: var(--icon-s-stroke-width);
+}
+
+// Sidebar Tabs
+
+.mod-sidedock .workspace-tab-header {
+    contain: content;
+    border-radius: var(--tab-radius);
+    min-height: 36px;
+    min-width: 36px;
+    --tab-radius: var(--radius-xxl);
+}
+.mod-sidedock .workspace-tab-header:hover {
+    --background-modifier-hover: transparent;
+    --icon-color-hover: var(--nav-item-color);
+}
+.mod-sidedock .workspace-tab-header-inner {
+    transition: inherit;
+    & > * {
+        transition: inherit;
+    }
+}
+.mod-sidedock .workspace-tab-header.is-active,
+.mod-sidedock .workspace-tab-header.is-active:hover {
+    background-color: var(--tab-sidebar-bg);
+    box-shadow: var(--shadow-tab);
+    --icon-color-focused: var(--color-base-100);
+}
+
+// Tab Icons
+
+.workspace-tab-header:not(.is-active) .workspace-tab-header-inner .workspace-tab-header-inner-icon {
+    --icon-opacity: 0.8;
+}
+.mod-sidedock .workspace-tab-header-status-container {
+    color: var(--icon-color);
+    filter: opacity(var(--icon-opacity));
+    --icon-opacity: 0.75;
+}
+.mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container {
+    --icon-color: var(--link-color);
+    --icon-opacity: 1;
+}
+.mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container:hover {
+    --icon-color: var(--link-color-hover);
+}
+
+// --> Stacked Tabs <--
+
+.workspace-tabs.mod-stacked .workspace-tab-container {
+	background-color: var(--background-primary);
+}
+.workspace-tabs.mod-stacked .workspace-tab-header {
+	--nav-text-color: var(--text-normal);
+	--tab-text-color: var(--icon-color);
+	--tab-text-color-focused: var(--icon-color);
+}
+.workspace-tabs.mod-stacked .workspace-tab-container::-webkit-scrollbar-track {
+	margin-inline: 2px;
+}
+body:not(.is-mobile) .mod-root .workspace-tabs.mod-stacked {
+	.workspace-leaf,
+	.workspace-tab-header-inner {
+		border-bottom: 1px solid var(--divider-color);
+	}
+	.workspace-tab-header .workspace-tab-header-inner {
+		padding: 9px 8px 8px;
+	}
+	.workspace-tab-header .workspace-tab-header-inner-icon {
+		display: none;
+	}
+	:is(.workspace-tab-header-inner-close-button, .workspace-tab-header-status-icon) {
+		padding: 6px;
+	}
+	.workspace-tab-header-inner-close-button {
+		order: -1;
+	}
+	.workspace-tab-header .workspace-tab-header-inner-title {
+		letter-spacing: 0.125px;
+		padding-inline: 6px 0;
+		padding-right: 1px;
+	}
+	.workspace-leaf-content .view-header {
+		padding-inline: 0 12px;
+	}
+}
+body:not(.is-mobile) .workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header-container-inner {
+	padding: 0 0 0 4px;
+}

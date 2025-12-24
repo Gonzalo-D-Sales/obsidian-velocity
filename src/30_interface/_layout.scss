@@ -2,7 +2,7 @@ body:not(.is-mobile) {
 	background-image: var(--bg-main-workspace);
 }
 
-// general 
+// general
 .workspace-tab-container,
 .workspace-tab-header-container {
 	overflow: hidden;
@@ -12,74 +12,79 @@ body:not(.is-mobile) {
 	transition-timing-function: var(--vl-ease-out);
 }
 
-// Main workspace tab 
+// Main workspace tab
 body:not(.is-mobile) .mod-root {
-    padding-block-end: 8px;
+	padding-block-end: 8px;
 }
 .workspace-split.mod-root,
 .workspace-tabs .workspace-leaf {
 	background-color: transparent;
 }
 
-// Main tab(s) margins 
+// Main tab(s) margins
 body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .workspace-tab-container {
-    margin-inline-start: 8px;
+	margin-inline-start: 8px;
 	--left-margin-delay: 0ms;
 }
 body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspace-tab-container {
-    margin-inline-end: 8px;
+	margin-inline-end: 8px;
 	--right-margin-delay: 0ms;
 }
-// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy effect to the sidebar reveal animation that matches the sidebar close animation. 
+// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy effect to the sidebar reveal animation that matches the sidebar close animation.
 body:not(.is-mobile) .workspace-tab-container {
-	transition: 
-	all var(--anim-duration-moderate),
-	margin-inline-start var(--anim-duration-moderate) var(--left-margin-delay),
-	margin-inline-end var(--anim-duration-moderate) var(--right-margin-delay);
+	transition:
+		all var(--anim-duration-moderate),
+		margin-inline-start var(--anim-duration-moderate) var(--left-margin-delay),
+		margin-inline-end var(--anim-duration-moderate) var(--right-margin-delay);
 	--left-margin-delay: var(--anim-duration-fast);
 	--right-margin-delay: var(--anim-duration-fast);
 }
 
-// padding adjustment when there is no view header 
+// padding adjustment when there is no view header
 body:not(.is-mobile):not(.show-view-header) {
-    --file-margins-y: 72px;
+	--file-margins-y: 72px;
 }
-// padding adjustment for multiple tabs layout 
+// padding adjustment for multiple tabs layout
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) {
 	--file-margins-x: 32px;
 }
-// gap between multiple root tabs 
-body:not(
-	.is-mobile, 
-	.is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical {
-    gap: 8px;
+// gap between multiple root tabs
+body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical {
+	gap: 8px;
 }
 
-// Main workspace tab(s) radius 
+// Main workspace tab(s) radius
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container,
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .workspace-leaf {
 	background-color: transparent;
 	border-radius: var(--radius-ml);
+}
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
+	contain: content;	
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
-// Main workspace tab(s) shadow 
+// Main workspace tab(s) shadow
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
-    box-shadow: var(--shadow-workspace);
+	box-shadow: var(--shadow-workspace);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) > .workspace-tab-container {
-    box-shadow: var(--shadow-workspace-multi);
+	box-shadow: var(--shadow-workspace-multi);
 }
-body:not(.is-mobile) .workspace:not(.is-left-sidedock-open,.is-right-sidedock-open) > .mod-root .workspace-tabs > .workspace-tab-container {
-    box-shadow: var(--shadow-workspace-multi);
+body:not(.is-mobile)
+	.workspace:not(.is-left-sidedock-open, .is-right-sidedock-open)
+	> .mod-root
+	.workspace-tabs
+	> .workspace-tab-container {
+	box-shadow: var(--shadow-workspace-multi);
 }
 
-// allow shadow to overflow to sidebars 
+// allow shadow to overflow to sidebars
 body:not(.is-mobile) .mod-root .workspace-tabs {
 	overflow: visible;
 }
 
-// Sidedock / workspace-split 
+// Sidedock / workspace-split
 .mod-sidedock .node-insert-event,
 .mod-sidedock .workspace-leaf-content > .view-content {
 	padding-inline: 16px;
@@ -87,15 +92,15 @@ body:not(.is-mobile) .mod-root .workspace-tabs {
 .workspace-leaf-content[data-type="bookmarks"] > .view-content {
 	padding-inline: 16px;
 }
-.mod-sidedock .node-insert-event:is(.backlink-pane,.outgoing-link-pane) {
+.mod-sidedock .node-insert-event:is(.backlink-pane, .outgoing-link-pane) {
 	padding-inline: 0;
 }
 
 body:not(.is-mobile) .mod-sidedock .workspace-leaf {
-    animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 }
 
-// divider reveal on hover 
+// divider reveal on hover
 .mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
 	border-block: 1px solid transparent;
 	&:hover {
@@ -103,7 +108,7 @@ body:not(.is-mobile) .mod-sidedock .workspace-leaf {
 	}
 }
 
-// empty sidedock 
+// empty sidedock
 .workspace-sidedock-empty-state {
 	padding-block-start: var(--header-height);
 }
