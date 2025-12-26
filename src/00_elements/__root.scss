@@ -1,0 +1,378 @@
+body {
+    // Animation curve
+
+    --anim-duration-superfast: 75ms;
+    --anim-duration-fast: 150ms;
+
+    --vl-ease-out: cubic-bezier(0.3, 0.75, 0, 1);
+    --nav-header-timing: var(--vl-ease-out);
+    // Animation timing
+
+    --anim-fast-delay: var(--anim-duration-fast) var(--anim-motion-delay);
+    --anim-fast-swing: var(--anim-duration-fast) var(--anim-motion-swing);
+    --anim-fast-smooth: var(--anim-duration-fast) var(--anim-motion-smooth);
+    --anim-super-delay: var(--anim-duration-superfast) var(--anim-motion-delay);
+    --anim-super-swing: var(--anim-duration-superfast) var(--anim-motion-swing);
+    --anim-super-smooth: var(--anim-duration-superfast) var(--anim-motion-smooth);
+
+    // Bases
+    --bases-embed-border-radius: 0;
+    --bases-header-border-width: 0;
+    --bases-header-padding-start: 0;
+    --bases-header-padding-end: 0;
+    --bases-table-cell-background-active: transparent;
+    --bases-table-cell-shadow-active: var(--shadow-input-active);
+    --bases-table-container-border-radius: 0;
+    --bases-table-group-background: transparent;
+    --bases-table-header-color: var(--color-base-55);
+    --bases-table-header-color-hover: var(--color-base-80);
+    --bases-table-header-weight: var(--font-semi-medium);
+    --bases-table-header-background-hover: transparent;
+    --bases-table-row-background-hover: transparent;
+    --bases-table-row-border-width: 0;
+    --bases-table-text-size: var(--table-text-size);
+    --bases-table-row-height: 32px;
+    --bases-cards-label-color: var(--icon-color);
+
+    // Blockquotes
+    --blockquote-color: var(--text-muted);
+    --blockquote-border-color: var(--color-base-50);
+    --blockquote-border-thickness: 0.1875rem;
+
+    // Blur values
+    --blur-s: blur(8px);
+    --blur-m: blur(12px);
+
+    // Bold
+    --bold-color: var(--color-base-100);
+    --bold-modifier: 250;
+
+    // Buttons
+
+    // Canvas
+
+    // Caret (text entry cursor)
+
+    // Checkboxes
+    --checkbox-radius: 50%;
+    --checkbox-marker-color: var(--text-on-accent);
+    --checklist-done-color: var(--strikethrough-color);
+    --checkbox-size: 1.125rem;
+
+    // Code
+    --code-border-width: 0;
+    --code-radius: var(--radius-xs);
+    --code-background: var(--trans-faint-20);
+    --code-background-alt: var(--trans-strong-10);
+    --code-border-color: var(--trans-faint-20);
+    --code-normal: var(--text-normal);
+    --code-special: var(--color-red);
+
+    // Collapse icons
+
+    // Corner smoothing
+    --corner-smoothing: 60%;
+
+    // Cursor
+
+    // Dialogs - e.g. small modals, confirmations
+    --dialog-width: 500px;
+
+    // Dividers between panes
+    --divider-color-hover: var(--color-accent-4);
+    --divider-width: 0;
+
+    // Dragging
+    --drag-ghost-background: var(--color-base-00);
+    --drag-ghost-text-color: var(--color-base-90);
+
+    // Embeds
+    --embed-block-shadow-hover: none;
+
+    // File layout
+    --file-line-width: 43.75rem;
+    --file-margins-y: 28px;
+    --file-margins-x: 5%;
+    --file-header-font-weight: var(--font-semi-medium);
+
+    // Relative font sizes
+    --font-small: 0.90625em;
+
+    // UI font sizes
+    --font-ui-larger: 24px;
+
+    // Font weights
+    --font-thin: 275;
+    --font-extralight: 300;
+    --font-light: 325;
+    --font-normal: 425;
+    --font-medium: 525;
+    --font-semibold: 625;
+    --font-bold: 725;
+    --font-extrabold: 825;
+
+    --font-semi-medium: calc(var(--font-normal) + 75);
+    --font-normal-linux: var(--font-normal);
+
+    // Footnotes
+
+    // Graphs
+    --graph-controls-width: 232px;
+    --graph-node-focused: transparent;
+
+    // Headings
+    --h1-color: var(--color-base-90);
+    --h2-color: var(--color-base-90);
+    --h3-color: var(--color-base-90);
+    --h4-color: var(--color-base-90);
+    --h5-color: var(--color-base-80);
+    --h6-color: var(--color-base-70);
+    --h1-size-alt: 1.625em;
+    --h1-size: 2em;
+    --h2-size: 1.5em;
+    --h3-size: 1.375em;
+    --h4-size: 1.25em;
+    --h5-size: 1.125em;
+    --h6-size: 1em;
+    --h1-weight-alt: 625;
+    --h1-weight: 350;
+    --h2-weight: 550;
+    --h3-weight: 550;
+    --h4-weight: 550;
+    --h5-weight: 600;
+    --h6-weight: 650;
+
+    --header-height: 56px;
+
+    // Icons
+    --icon-stroke-thick: 2.25px;
+    --icon-xs-stroke-width: 2.125px;
+    --icon-m-stroke-width: 1.875px;
+
+    --icon-color: var(--color-base-60);
+    --icon-color-hover: var(--text-normal);
+    --icon-color-focused: var(--icon-color-hover);
+
+    // Indent size
+    --indent-unit: 0.375em;
+
+    // Indentation guide
+    --indentation-guide-width: 0;
+    --indentation-guide-width-active: 0;
+    --nav-indentation-guide-width: 0;
+
+    // Inline title
+    --inline-title-margin-bottom: round(nearest, clamp(0px, 0.5em, 1.5rem), 2px);
+
+    // Inputs
+    --input-height: 28px;
+    --input-radius: var(--radius-s);
+    --input-border-width: 0;
+
+    --interactive-normal: var(--trans-faint-25);
+    --interactive-hover: var(--trans-faint-30);
+
+    // Italic
+    // --italic-color: var(--text-normal);
+    // --italic-weight: var(--font-semi-medium);
+
+    // Line heights
+    --line-height-normal: 1.6;
+
+    // Links
+    --link-decoration: none;
+    --link-decoration-hover: none;
+    --link-unresolved-opacity: 1;
+    --link-unresolved-color: oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
+
+    // Lists
+    --list-spacing: 0.15em;
+    --list-marker-color: var(--color-base-50);
+
+    // Math
+
+    --math-color: var(--text-normal);
+
+    // File navigator
+    --nav-collapse-icon-color: var(--trans-faint-60);
+
+    // Metadata
+    --metadata-border-radius: var(--radius-m);
+    --metadata-gap: 2px;
+    --metadata-property-box-shadow-hover: 0 0 0 2.5px var(--background-modifier-hover);
+    --metadata-property-box-shadow-focus: var(--shadow-input-active);
+
+    --metadata-label-font-weight: var(--font-semi-medium);
+    --metadata-label-text-color: var(--icon-color);
+    --metadata-label-text-color-hover: var(--icon-color);
+    --metadata-label-width: 10em;
+    --metadata-input-longtext-lines: 5;
+    --metadata-input-height: 2.125rem;
+    --metadata-input-padding: 6px 8px;
+
+    // Menus
+    --menu-background: var(--background-primary-alt);
+    --menu-radius: var(--radius-ml);
+    --menu-border-color: var(--trans-faint-40);
+
+    // Modals - e.g. settings, community themes, community plugins
+    --modal-radius: var(--radius-xxl);
+    --modal-border-width: 0;
+    // --modal-community-sidebar-width: 300px;
+
+    // Multi-select pills
+    --pill-background: var(--code-background);
+    --pill-background-hover: var(--code-background);
+    --pill-color: var(--text-muted);
+    --pill-color-hover: var(--text-muted);
+    --pill-color-remove-hover: var(--text-on-accent);
+    --pill-radius: var(--radius-l);
+    --pill-weight: var(--font-semi-medium);
+
+    // PDF view
+    --pdf-shadow: none !important;
+    --pdf-spread-shadow: none;
+    --pdf-thumbnail-shadow: var(--shadow-input);
+
+    // Prompts - e.g. quick switcher, command palette
+    --prompt-background: var(--modal-background);
+    --prompt-backdrop-filter: var(--blur-m);
+    --prompt-border-color: var(--menu-border-color);
+    --prompt-input-height: 48px;
+
+    // Radiuses
+    --radius-xs: 5px;
+    --radius-s: 7px;
+    --radius-sm: 9px;
+    --radius-m: 11px;
+    --radius-ml: 13px;
+    --radius-l: 17px;
+    --radius-xl: 19px;
+    --radius-xxl: 21px;
+    --radius-prompt: 24px;
+    --radius-settings: 27px;
+
+    // Ribbon
+    --ribbon-background: transparent;
+    --ribbon-background-collapsed: transparent;
+    --ribbon-padding: 8px 0px 12px 8px;
+    --ribbon-width: 56px;
+
+    // Scrollbars
+    --scrollbar-thumb-bg: var(--trans-faint-30);
+    --scrollbar-active-thumb-bg: var(--trans-faint-50);
+
+    // Search
+    --search-clear-button-color: var(--color-base-50);
+    --search-icon-color: var(--color-base-50);
+    --search-icon-size: 17px;
+
+    // Settings
+    --setting-group-heading-color: var(--icon-color);
+    --setting-group-heading-size: var(--font-ui-large);
+    --setting-group-heading-weight: var(--font-medium);
+    --setting-item-background: var(--trans-strong-10);
+    --setting-items-background: var(--background-primary);
+    --setting-items-padding: calc(var(--vl-layout-padding) + 8px);
+    --setting-items-radius: calc(var(--radius-ml) + 2px);
+    --setting-items-border-width: 0;
+
+    // Sidebar toggles
+    --sidebar-left-toggle-inner-width: 12%;
+    --sidebar-right-toggle-inner-width: 12%;
+
+    // Sliders
+    --slider-track-background: var(--trans-faint-50);
+    --slider-track-height: 20px;
+    --slider-thumb-height: 12px;
+    --slider-thumb-width: 12px;
+    --slider-thumb-border-width: 0;
+    --slider-thumb-y: -3px;
+
+    // Status bar
+    --status-bar-background: transparent;
+    --status-bar-border-width: 0;
+    --status-bar-radius: var(--radius-l) 0 0 var(--radius-l);
+
+    // Swatch for color inputs
+
+    // Tabs
+    --tab-container-background: transparent;
+    --tab-font-weight: var(--font-normal);
+    --tab-outline-width: 0;
+    --tab-text-color: var(--icon-color);
+    --tab-text-color-active: var(--color-base-100);
+    --tab-text-color-focused-active-current: var(--color-base-100);
+    --tab-text-color-focused-active: var(--color-base-100);
+    --tab-text-color-focused: var(--icon-color);
+    --tab-radius: var(--radius-s);
+    --tab-width: 240px;
+    --tab-max-width: 240px;
+
+    // Mobile tab switcher
+
+    // Stacked tabs
+    --tab-stacked-font-weight: var(--font-medium);
+    --tab-stacked-shadow: -8px 0 8px 0 var(--stacked-shadow-color);
+
+    // Tables
+    --table-background: unset;
+    --table-row-background-hover: unset;
+    --table-row-alt-background: var(--table-row-bg);
+    --table-row-alt-background-hover: var(--table-row-bg);
+    --table-border-color: var(--trans-faint-30);
+    --table-header-color: var(--color-base-55);
+    --table-header-weight: var(--font-medium);
+    --table-line-height: var(--line-height-normal);
+    --table-text-size: var(--font-small);
+    --table-text-weight: var(--font-normal);
+
+    // Tags
+    // --tag-background: var(--color-base-50);
+    // --tag-background-hover: var(--tag-background);
+    // --tag-color: var(--color-accent);
+    // --tag-color-hover: var(--tag-color);
+    --tag-padding-x: 0.6875em;
+    --tag-padding-y: 0.3125em;
+    --tag-weight: var(--font-semi-medium);
+    --tag-size: var(--font-smallest);
+    // --tag-shadow: var(--shadow-faint);
+
+    // Toggles
+    --toggle-width: 44px;
+    --toggle-border-width: 4px;
+    --toggle-thumb-color: white;
+    --toggle-thumb-width: 12px;
+    --toggle-thumb-height: 12px;
+    --toggle-s-border-width: 4px;
+    --toggle-s-width: 36px;
+    --toggle-s-thumb-height: 12px;
+    --toggle-s-thumb-width: 12px;
+
+    // Vault profile
+    --vault-profile-color: var(--icon-color);
+    --vault-profile-color-hover: var(--text-muted);
+    --vault-profile-font-size: 18px;
+    --vault-profile-font-weight: var(--font-normal);
+
+    // Window frame
+    --titlebar-background: transparent;
+    --titlebar-background-focused: transparent;
+    --titlebar-height: 36px;
+    --titlebar-text-color: var(--trans-faint-60);
+    --titlebar-text-color-focused: var(--text-muted);
+    --titlebar-text-weight: var(--font-semibold);
+
+    // Backgrounds
+    --background-modifier-form-field: transparent;
+    --background-modifier-form-field-hover: transparent;
+    --background-primary-alt: color-mix(in oklab, var(--background-primary), var(--background-secondary));
+
+    --color-highlight: rgb(var(--color-highlight-rgb));
+    --color-highlight-rgb: var(--color-yellow-rgb);
+
+    // Text
+
+    // Extra theme layout variables
+    --vl-layout-padding: 8px;
+}

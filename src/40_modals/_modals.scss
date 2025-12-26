@@ -19,6 +19,9 @@ body:is(.is-maximized, .is-fullscreen) .modal-bg {
 .modal-bg {
 	background-color: oklab(from var(--background-modifier-cover) l a b / 0.25) !important;
 }
+.modal {
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
+}
 .modal, .menu {
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
@@ -53,6 +56,7 @@ body:not(.is-mobile) .modal-header {
 
 .modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal),
 .modal-container.mod-confirmation > .modal {
+	contain: content;
 	background-color: var(--modal-small-background);
 	backdrop-filter: var(--blur-s);
 	border: unset;
@@ -367,7 +371,6 @@ body:not(.is-phone) .mod-community-modal .modal-sidebar {
 	contain: content;
 	background-color: var(--settings-background);
 	padding-block-start: 4px;
-	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
 	--modal-radius: var(--radius-settings);
 }
 body:not(.is-phone) .mod-community-modal .modal-sidebar {
@@ -546,18 +549,17 @@ body:not(.is-phone) .modal.mod-community-modal .community-item.is-selected .sugg
 // --> Prompt Modal <--
 
 .prompt {
+	contain: content;
 	box-shadow: var(--glass-base-l), var(--shadow-strong);
 	border-radius: var(--radius-prompt);
 	font-weight: var(--font-normal);
 	margin-block: 15vh;
 	top: 0;
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
 	--prompt-border-width: 0;
 }
 
 // Prompt Input 
-.prompt-input-container {
-	contain: content;
-}
 body:not(.is-phone) .prompt-input-container {
 	padding: 7px 16px 0 16px;
 	justify-content: center;
@@ -661,7 +663,8 @@ input.prompt-input::placeholder {
 // --> Popovers <--
 
 .popover {
-	animation: var(--anim-duration-moderate) var(--vl-ease-out) popover;
+	contain: content;
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
 	border-radius: var(--radius-ml);
 	box-shadow: var(--menu-shadow);
 	--background-primary: var(--background-primary-alt);
@@ -680,6 +683,7 @@ input.prompt-input::placeholder {
 	box-shadow: var(--menu-shadow);
 	border: 1px solid var(--menu-border-color);
 	border-radius: var(--radius-ml);
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-suggestions;
 }
 .mod-dim + .suggestion-container {
 	backdrop-filter: var(--blur-m);

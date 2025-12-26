@@ -71,13 +71,6 @@ body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
 body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) > .workspace-tab-container {
 	box-shadow: var(--shadow-workspace-multi);
 }
-body:not(.is-mobile)
-	.workspace:not(.is-left-sidedock-open, .is-right-sidedock-open)
-	> .mod-root
-	.workspace-tabs
-	> .workspace-tab-container {
-	box-shadow: var(--shadow-workspace-multi);
-}
 
 // allow shadow to overflow to sidebars
 body:not(.is-mobile) .mod-root .workspace-tabs {
