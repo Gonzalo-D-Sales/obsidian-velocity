@@ -30,7 +30,7 @@ body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container-inner {
 
 // Root Tabs
 
-body:not(.is-mobile) .mod-root .workspace-tabs:not(.mod-stacked) {
+body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
     .workspace-tab-header {
         contain: content;
         align-items: center;

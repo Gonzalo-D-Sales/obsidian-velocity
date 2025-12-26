@@ -1,5 +1,6 @@
 body:not(.is-mobile) {
 	.mod-sidedock .nav-header {
+		isolation: isolate;
 		margin-block: calc(var(--vl-layout-padding) - 6px);
 		align-self: center;
 		width: calc(100% - 60px);

@@ -41,7 +41,7 @@ body:not(.is-mobile) :is(.workspace-ribbon,
 	padding: 8px 12px;
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
 	--background-modifier-hover: var(--background-primary);
-		// shadow on hover 
+	// shadow on hover 
 	&:hover,
 	&:active,
 	&.has-active-menu {
@@ -61,6 +61,7 @@ body:not(.is-mobile)
 		.view-actions) .clickable-icon {
 	> .svg-icon {
 		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		--icon-stroke: var(--icon-m-stroke-width);
 	}
 	&:active > .svg-icon {
 		transform: scale3d(0.8, 0.8, 0.8);
@@ -79,8 +80,4 @@ body:not(.is-mobile)
 }
  .sidebar-toggle-icon-inner {
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
-}
-
-.menu-item-icon svg {
-	padding: 0;
 }

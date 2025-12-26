@@ -5,6 +5,7 @@ body:not(.is-mobile) {
 // general
 .workspace-tab-container,
 .workspace-tab-header-container {
+	contain: content;
 	overflow: hidden;
 	transition: var(--anim-duration-moderate);
 }
@@ -15,6 +16,7 @@ body:not(.is-mobile) {
 // Main workspace tab
 body:not(.is-mobile) .mod-root {
 	padding-block-end: 8px;
+	z-index: 1;
 }
 .workspace-split.mod-root,
 .workspace-tabs .workspace-leaf {
@@ -49,7 +51,8 @@ body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) {
 	--file-margins-x: 32px;
 }
 // gap between multiple root tabs
-body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical {
+body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical,
+body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .workspace-split > .mod-vertical {
 	gap: 8px;
 }
 
@@ -60,7 +63,7 @@ body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .wor
 	border-radius: var(--radius-ml);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
-	contain: content;	
+	contain: content;
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
@@ -73,11 +76,16 @@ body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) > .workspace-t
 }
 
 // allow shadow to overflow to sidebars
-body:not(.is-mobile) .mod-root .workspace-tabs {
+body:not(.is-mobile) .mod-root > .workspace-tabs,
+body:not(.is-mobile) .mod-root > .workspace-split > .workspace-tabs {
+	isolation: isolate;
 	overflow: visible;
 }
 
 // Sidedock / workspace-split
+body:not(.is-phone) .mod-sidedock :is(.workspace-split, .workspace-tabs, .workspace-leaf, .workspace-leaf-content) {
+	contain: size;
+}
 .mod-sidedock .node-insert-event,
 .mod-sidedock .workspace-leaf-content > .view-content {
 	padding-inline: 16px;
