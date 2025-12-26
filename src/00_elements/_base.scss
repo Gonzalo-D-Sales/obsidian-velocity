@@ -99,7 +99,12 @@ body:not(.mod-windows, .mod-linux) {
 @keyframes anim-modals {
 	0% {
 		transform: scale(1.03125);
-		opacity: 0;
+		opacity: 0.5;
+	}
+}
+@keyframes anim-modal-settings {
+	0% {
+		transform: scale(1.03125);
 	}
 }
 @keyframes anim-suggestions {

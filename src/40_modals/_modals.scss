@@ -192,6 +192,7 @@ body:not(.is-mobile) .modal-header {
 .modal-container > .modal.mod-settings {
 	contain: content;
 	background-color: var(--settings-background);
+	animation-name: anim-modal-settings;
 	--modal-radius: var(--radius-settings);
 }
 .modal-container.mod-dim .vertical-tabs-container {

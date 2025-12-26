@@ -16,6 +16,7 @@ body:not(.is-mobile) {
 // Main workspace tab
 body:not(.is-mobile) .mod-root {
 	padding-block-end: 8px;
+	isolation: isolate;
 	z-index: 1;
 }
 .workspace-split.mod-root,
@@ -35,9 +36,9 @@ body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspac
 // this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy effect to the sidebar reveal animation that matches the sidebar close animation.
 body:not(.is-mobile) .workspace-tab-container {
 	transition:
-		all var(--anim-duration-moderate),
-		margin-inline-start var(--anim-duration-moderate) var(--left-margin-delay),
-		margin-inline-end var(--anim-duration-moderate) var(--right-margin-delay);
+		all var(--anim-duration-moderate) var(--vl-ease-out),
+		margin-inline-start var(--anim-duration-moderate) var(--vl-ease-out) var(--left-margin-delay),
+		margin-inline-end var(--anim-duration-moderate) var(--vl-ease-out) var(--right-margin-delay);
 	--left-margin-delay: var(--anim-duration-fast);
 	--right-margin-delay: var(--anim-duration-fast);
 }
@@ -52,7 +53,10 @@ body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) {
 }
 // gap between multiple root tabs
 body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical,
-body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .workspace-split > .mod-vertical {
+body:not(.is-mobile, .is-popout-window)
+	.workspace.is-left-sidedock-open.is-right-sidedock-open
+	> .workspace-split
+	> .mod-vertical {
 	gap: 8px;
 }
 
@@ -63,22 +67,20 @@ body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .wor
 	border-radius: var(--radius-ml);
 }
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
-	contain: content;
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
 
 // Main workspace tab(s) shadow
 body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
-	box-shadow: var(--shadow-workspace);
-}
-body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) > .workspace-tab-container {
 	box-shadow: var(--shadow-workspace-multi);
+}
+body:not(.is-mobile) .mod-root .workspace-tabs:only-of-type > .workspace-tab-container {
+	box-shadow: var(--shadow-workspace);
 }
 
 // allow shadow to overflow to sidebars
 body:not(.is-mobile) .mod-root > .workspace-tabs,
 body:not(.is-mobile) .mod-root > .workspace-split > .workspace-tabs {
-	isolation: isolate;
 	overflow: visible;
 }
 
