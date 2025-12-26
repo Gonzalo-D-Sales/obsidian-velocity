@@ -111,33 +111,31 @@ body:not(.is-phone) {
 // --> Vault Profile <--
 
 body:not(.is-mobile) {
-	.workspace-split.mod-left-split 
-	> .workspace-sidedock-vault-profile {
-	background-color: transparent;
-	font-variation-settings: "opsz" 28;
-	gap: 0;
-	padding-inline-start: 6px;
+	.workspace-split.mod-left-split > .workspace-sidedock-vault-profile {
+		background-color: transparent;
+		font-variation-settings: "opsz" 28;
+		gap: 0;
+		padding-inline-start: 6px;
+	}
+	.workspace-split.mod-left-split > .workspace-sidedock-vault-profile > .workspace-drawer-vault-switcher {
+		contain: content;
+		height: 100%;
+		border-radius: var(--radius-xxl);
+		padding-inline-start: 10px;
 	}
 	.workspace-split.mod-left-split
-	> .workspace-sidedock-vault-profile
-	> .workspace-drawer-vault-switcher {
-	height: 100%;
-	border-radius: var(--radius-xxl);
-	padding-inline-start: 10px;
+		> .workspace-sidedock-vault-profile
+		> .workspace-drawer-vault-switcher
+		> .workspace-drawer-vault-switcher-icon {
+		color: var(--vault-profile-color);
+		--icon-stroke: 2.125px;
 	}
-	.workspace-split.mod-left-split 
-	> .workspace-sidedock-vault-profile
-	> .workspace-drawer-vault-switcher
-	> .workspace-drawer-vault-switcher-icon {
-	color: var(--vault-profile-color);
-	--icon-stroke: 2.125px;
+	.workspace-split.mod-left-split
+		> .workspace-sidedock-vault-profile
+		> .workspace-drawer-vault-actions
+		> :first-child {
+		display: none;
 	}
-	.workspace-split.mod-left-split 
-	> .workspace-sidedock-vault-profile
-	> .workspace-drawer-vault-actions
-	> :first-child {
-	display: none;
-	}	
 }
 
 // --> PDF viewer <--

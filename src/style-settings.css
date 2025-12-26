@@ -11,28 +11,34 @@ settings:
 	id: theme-mode
 	title: Select vehicle trim
 	type: class-select
-	default: theme-strada
+	default: theme-sport
 	options:
-        - label: Touring
-          value: theme-turismo
+        - label: Plain
+          value: theme-plain
 		- label: Sport
-		  value: theme-strada
+		  value: theme-sport
         - label: Race
-          value: theme-corsa
+          value: theme-race
 - 	
 	id: theme-paint-light
 	title: Select vehicle paint job (light mode)
 	type: class-select
 	default: none
 	options:
+		- label: Obsidian White
+		  value: white
         - label: Velocity Silver 
           value: none
-		- label: Obsidian White
-          value: deflight
+		- label: Tungsten Gray
+          value: tungsten
 		- label: Utopia Gray
-          value: utopia
-		- label: Classic
-          value: classic
+          value: utopia    
+		- label: Touring Beige
+          value: beige
+		- label: Millennium Green
+          value: milgreen
+		- label: Jet Blue Metallic
+          value: jetblue
 - 	
 	id: color-highlight-rgb
 	title: Select highlight color

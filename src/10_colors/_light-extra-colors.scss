@@ -1,4 +1,4 @@
-.theme-light.deflight {
+.theme-light.white {
 	--accent-h: 258;	
 	--accent-s: 88%;	
 	--accent-l: 66%;
@@ -20,11 +20,12 @@
 	--color-pink-rgb: 213, 57, 132;
 	--color-pink: #d53984;
 
-	--base-hue: 0;
-	--base-sat-xtr: 0;
-	--base-sat-str: 0;
-	--base-sat-med: 0;
-	--base-sat-low: 0;
+	--bhue: 0;
+	--bsat-xtr: 0;
+	--bsat-str: 0;
+	--bsat-med: 0;
+	--bsat-low: 0;
+	--bsat-modal: 0;
 
 	--bg-main-inner: oklch(99.00% 0 0);
 	--bg-main-outer: oklch(94.00% 0 0); 
@@ -36,8 +37,8 @@
 }
 .theme-light.utopia {
 	--accent-h: 125;	
-	--accent-s: 45%;	
-	--accent-l: 44%;
+	--accent-s: 40%;	
+	--accent-l: 45%;
 
 	--color-red-rgb: 244, 41, 27;
 	--color-red: rgb(244, 41, 27);
@@ -56,20 +57,57 @@
 	--color-pink-rgb: 219, 76, 224;
 	--color-pink: rgb(219, 76, 224);
 
-	--base-hue: 112;
-	--base-sat-xtr: 0.00750;
-	--base-sat-str: 0.00375;
-	--base-sat-med: 0.00125;
-	--base-sat-low: 0.00000;
+	--bhue: 112;
+	--bsat-xtr: 0.00750;
+	--bsat-str: 0.00375;
+	--bsat-med: 0.00125;
+	--bsat-low: 0.00000;
+	--bsat-modal: 0.00125;
 
-	--color-base-05: oklch(98.875% var(--base-sat-low) var(--base-hue));
+	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
 
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }
-.theme-light.classic {
-		// --accent-h: 218;	
-	// --accent-s: 62%;	
-	// --accent-l: 52%; 
+.theme-light.tungsten {
+	--accent-h: 205;	
+	--accent-s: 21%;	
+	--accent-l: 49%;
+
+	--color-red-rgb: 233, 49, 71;
+	--color-red: #e93147;
+	--color-orange-rgb: 236, 117, 0;
+	--color-orange: #ec7500;
+	--color-yellow-rgb: 224, 172, 0;
+	--color-yellow: #e0ac00;
+	--color-green-rgb: 8, 185, 78;
+	--color-green: #08b94e;
+	--color-cyan-rgb: 0, 191, 188;
+	--color-cyan: #00bfbc;
+	--color-blue-rgb: 8, 109, 221;
+	--color-blue: #086ddd;
+	--color-purple-rgb: 120, 82, 238;
+	--color-purple: #7852ee;
+	--color-pink-rgb: 213, 57, 132;
+	--color-pink: #d53984;
+
+	--bhue: 240;
+	--bsat-xtr: 0.00500;
+	--bsat-str: 0.00125;
+	--bsat-med: 0.00050;
+	--bsat-low: 0.00000;
+	--bsat-modal: 0;
+
+	--bl-00: 98.75%;
+
+	--bg-main-inner: oklch(95.00% 0.0015 var(--bhue));
+	--bg-main-outer: oklch(92.50% 0.0015 var(--bhue));
+
+	--color-base-05: oklch(calc(var(--bl-05) - 1.50%) var(--bsat-low) var(--bhue));
+	--color-base-10: oklch(calc(var(--bl-10) - 1.50%) var(--bsat-str) var(--bhue));
+
+	--tab-right-fade: linear-gradient(to left, oklch(90.00% var(--bsat-str) var(--bhue)) 75%, transparent);
+}
+.theme-light.beige {
 	--accent-h: 0;	
 	--accent-s: 60%;	
 	--accent-l: 60%;
@@ -91,16 +129,94 @@
 	--color-pink-rgb: 219, 76, 224;
 	--color-pink: rgb(219, 76, 224);
 
-	--base-hue: 80;
-	--base-sat-xtr: 0.01000;
-	--base-sat-str: 0.00375;
-	--base-sat-med: 0.00125;
-	--base-sat-low: 0.00000;
+	--bhue: 80;
+	--bsat-xtr: 0.01000;
+	--bsat-str: 0.00375;
+	--bsat-med: 0.00125;
+	--bsat-low: 0.00000;
+	--bsat-modal: 0.0025;
 
-	--bg-main-inner: oklch(98.50% 0.00375 var(--base-hue));
-	--bg-main-outer: oklch(93.25% 0.00375 var(--base-hue)); 
+	--bg-main-inner: oklch(98.50% 0.00375 var(--bhue));
+	--bg-main-outer: oklch(93.25% 0.00375 var(--bhue)); 
 
-	--color-base-05: oklch(98.875% var(--base-sat-med) var(--base-hue));
+	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
 
    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
+}
+.theme-light.milgreen {
+	--accent-h: 76;	
+	--accent-s: 76%;	
+	--accent-l: 33%;
+
+	--color-red-rgb: 244, 41, 27;
+	--color-red: rgb(244, 41, 27);
+	--color-orange-rgb: 255, 106, 28;
+	--color-orange: rgb(255, 106, 28);
+	--color-yellow-rgb: 242, 161, 0;
+	--color-yellow: rgb(242, 161, 0);
+	--color-green-rgb: 46, 179, 108;
+	--color-green: rgb(46, 179, 108);
+	--color-cyan-rgb: 4, 168, 178;
+	--color-cyan: rgb(4, 168, 178);
+	--color-blue-rgb: 0, 144, 240;
+	--color-blue: rgb(0, 144, 240);
+	--color-purple-rgb: 126, 99, 236;
+	--color-purple: rgb(126, 99, 236);
+	--color-pink-rgb: 219, 76, 224;
+	--color-pink: rgb(219, 76, 224);
+
+	--bhue: 124;
+	--bsat-xtr: 0.01250;
+	--bsat-str: 0.00625;
+	--bsat-med: 0.00125;
+	--bsat-low: 0.00000;
+	--bsat-modal: 0.0075;
+
+	--bg-main-inner: oklch(97.00% 0.00625 var(--bhue));
+	--bg-main-outer: oklch(93.00% 0.01250 var(--bhue)); 
+
+	--background-secondary: color-mix(in oklab, var(--color-base-10), var(--color-base-20));
+
+	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
+    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
+
+	--tab-right-fade: linear-gradient(to left, oklch(91.25% var(--bsat-str) var(--bhue)) 75%, transparent);
+}
+.theme-light.jetblue {
+	--accent-h: 210;	
+	--accent-s: 40%;	
+	--accent-l: 48%;
+
+	--color-red-rgb: 244, 41, 27;
+	--color-red: rgb(244, 41, 27);
+	--color-orange-rgb: 255, 106, 28;
+	--color-orange: rgb(255, 106, 28);
+	--color-yellow-rgb: 242, 161, 0;
+	--color-yellow: rgb(242, 161, 0);
+	--color-green-rgb: 46, 179, 108;
+	--color-green: rgb(46, 179, 108);
+	--color-cyan-rgb: 4, 168, 178;
+	--color-cyan: rgb(4, 168, 178);
+	--color-blue-rgb: 0, 144, 240;
+	--color-blue: rgb(0, 144, 240);
+	--color-purple-rgb: 126, 99, 236;
+	--color-purple: rgb(126, 99, 236);
+	--color-pink-rgb: 219, 76, 224;
+	--color-pink: rgb(219, 76, 224);
+
+	--bhue: 256;
+	--bsat-xtr: 0.01000;
+	--bsat-str: 0.00500;
+	--bsat-med: 0.00250;
+	--bsat-low: 0.00000;
+	--bsat-modal: 0.00375;
+
+	--bg-main-inner: oklch(97.50% 0.0050 var(--bhue));
+	--bg-main-outer: oklch(92.25% 0.0100 var(--bhue)); 
+
+	--background-secondary: color-mix(in oklab, var(--color-base-10), var(--color-base-20));
+
+	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
+
+    --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 }

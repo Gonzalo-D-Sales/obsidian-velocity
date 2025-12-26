@@ -21,32 +21,48 @@
 	--color-pink-rgb: 215, 56, 123;
 	--color-pink: rgb(215, 56, 123);
 
-	--base-hue: 281;
-	--base-sat-xtr: 0.01050;
-	--base-sat-str: 0.00250;
-	--base-sat-med: 0.00150;
-	--base-sat-low: 0.00050;
+	--bhue: 281;
+	--bsat-xtr: 0.01050;
+	--bsat-str: 0.00250;
+	--bsat-med: 0.00150;
+	--bsat-low: 0.00050;
+	--bsat-modal: 0.00125;
 
-	--color-base-00: oklch(100.0% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(99.00% var(--base-sat-low) var(--base-hue));
-	--color-base-10: oklch(96.20% var(--base-sat-str) var(--base-hue));
-	--color-base-20: oklch(92.00% var(--base-sat-str) var(--base-hue));
-	--color-base-25: oklch(88.25% var(--base-sat-str) var(--base-hue)); 
-	--color-base-30: oklch(85.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-35: oklch(78.75% var(--base-sat-str) var(--base-hue)); 
-	--color-base-40: oklch(75.25% var(--base-sat-str) var(--base-hue)); 
-	--color-base-50: oklch(71.50% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-55: oklch(65.00% var(--base-sat-xtr) var(--base-hue)); 
-	--color-base-60: oklch(55.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(46.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-80: oklch(40.00% var(--base-sat-str) var(--base-hue)); 
-	--color-base-90: oklch(30.00% var(--base-sat-low) var(--base-hue)); 
-   --color-base-100: oklch(24.00% var(--base-sat-low) var(--base-hue)); 
+	--bl-00: 100.0%;
+	--bl-05: 99.00%;
+	--bl-10: 96.20%;
+	--bl-20: 92.00%;
+	--bl-25: 88.25%;
+	--bl-30: 85.75%;
+	--bl-35: 78.75%;
+	--bl-40: 75.25%;
+	--bl-50: 71.50%;
+	--bl-55: 65.00%;
+	--bl-60: 55.75%;
+	--bl-70: 46.50%;
+	--bl-80: 40.00%;
+	--bl-90: 30.00%;
+	--bl-100: 24.0%;
+	--color-base-00: oklch(var(--bl-00) var(--bsat-low) var(--bhue));
+	--color-base-05: oklch(var(--bl-05) var(--bsat-low) var(--bhue));
+	--color-base-10: oklch(var(--bl-10) var(--bsat-str) var(--bhue));
+	--color-base-20: oklch(var(--bl-20) var(--bsat-str) var(--bhue));
+	--color-base-25: oklch(var(--bl-25) var(--bsat-str) var(--bhue)); 
+	--color-base-30: oklch(var(--bl-30) var(--bsat-str) var(--bhue)); 
+	--color-base-35: oklch(var(--bl-35) var(--bsat-str) var(--bhue)); 
+	--color-base-40: oklch(var(--bl-40) var(--bsat-str) var(--bhue)); 
+	--color-base-50: oklch(var(--bl-50) var(--bsat-xtr) var(--bhue)); 
+	--color-base-55: oklch(var(--bl-55) var(--bsat-xtr) var(--bhue)); 
+	--color-base-60: oklch(var(--bl-60) var(--bsat-xtr) var(--bhue));
+	--color-base-70: oklch(var(--bl-70) var(--bsat-xtr) var(--bhue));
+	--color-base-80: oklch(var(--bl-80) var(--bsat-str) var(--bhue)); 
+	--color-base-90: oklch(var(--bl-90) var(--bsat-low) var(--bhue)); 
+    --color-base-100: oklch(var(--bl-100) var(--bsat-low) var(--bhue)); 
 
-	--trans-strong-00: oklch(100% 0 0 / 0.950);
-	--trans-strong-10: oklch(100% 0 0 / 0.750);
-	--trans-strong-20: oklch(100% 0 0 / 0.625);
-	--trans-strong-30: oklch(100% 0 0 / 0.400);
+	--trans-strong-00: oklch(var(--bl-00) 0 0 / 0.950);
+	--trans-strong-10: oklch(var(--bl-00) 0 0 / 0.750);
+	--trans-strong-20: oklch(var(--bl-00) 0 0 / 0.625);
+	--trans-strong-30: oklch(var(--bl-00) 0 0 / 0.400);
 	--trans-strong-40: oklch(from var(--color-base-50) l c h / 0.100);
 	
 	--trans-faint-00: oklch(62.50% 0 0 / 0.0300);
@@ -70,8 +86,8 @@
 	
 	--link-unresolved-lch: 0.625;
 
-	--bg-main-inner: oklch(97.50% 0.00125 var(--base-hue));
-	--bg-main-outer: oklch(94.50% 0.00625 var(--base-hue)); 
+	--bg-main-inner: oklch(97.50% 0.00125 var(--bhue));
+	--bg-main-outer: oklch(94.50% 0.00625 var(--bhue)); 
 	--bg-main-workspace: radial-gradient( at 50% 50%, 
 		var(--bg-main-inner) 20%, 
 		var(--bg-main-outer) 100%
@@ -93,7 +109,7 @@
 	--color-accent-5: color-mix(in oklch, var(--text-selection) 100%, transparent 75%);
 	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
 
-	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--base-hue));
+	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--bhue));
 
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-50);
@@ -115,7 +131,8 @@
 		color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20));
 	--modal-small-background: 
 		color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
-
+	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
+	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.725);
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
 	--nav-text-color: var(--text-normal);
