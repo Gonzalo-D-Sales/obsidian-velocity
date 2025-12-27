@@ -473,6 +473,7 @@ body:not(.is-phone) .mod-community-theme .community-item {
 }
 body:not(.is-phone) .community-item.is-selected, 
 body:not(.is-phone) .community-item.is-selected:hover {
+	background-color: var(--interactive-accent);
     box-shadow: var(--glass-base-m), var(--shadow-faint);
 }
 body:not(.is-phone) .community-item-name {

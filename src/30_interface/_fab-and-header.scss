@@ -6,6 +6,7 @@
 }
 .view-header > .view-header-left .clickable-icon {
 	--icon-color: var(--text-normal);
+	--icon-size: var(--icon-m);
 }
 .view-header-title-container > *,
 .view-header > :is(.view-header-left, .view-header-reload-button, .view-actions) {
@@ -15,7 +16,7 @@
 }
 // View header Title
 .view-header-title-container {
-	margin-inline-end: 4px;
+	margin-inline-end: 8px;
 }
 .view-header-title {
 	color: var(--text-normal);
