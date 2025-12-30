@@ -5,7 +5,7 @@
 	--math-color: var(--color-base-80);
 }
 body:not(.disable-callout-styling) {
-	--callout-border-opacity: 0.2125;
+	--callout-border-opacity: 0.2;
 	--callout-radius: var(--radius-sm);
 	--callout-padding: 1rem;
     
@@ -13,7 +13,7 @@ body:not(.disable-callout-styling) {
 	--callout-bug: var(--color-pink-rgb);
 	--callout-warning: var(--color-yellow-rgb);
 
-    // Styling 
+    // Callout styling
 	.markdown-source-view .cm-content > .cm-callout[contenteditable=false] {
 		border-radius: var(--callout-radius);
 		contain: none !important;
@@ -22,40 +22,53 @@ body:not(.disable-callout-styling) {
 	}
 	.callout {
 		contain: content;
+		color: var(--text-normal);
 		background: radial-gradient(180% 60% at 50% 0%, 
 		rgb(var(--callout-color), 0.0625),
 		rgb(var(--callout-color), 0.1));
 		box-shadow: 
-		0 0 0 1.625px rgb(var(--callout-color), var(--callout-border-opacity));
+		0 0 0 1.75px rgb(var(--callout-color), var(--callout-border-opacity));
 		outline: 1px solid var(--background-primary);
 	}
 	.callout .callout {
 		outline-color: var(--trans-strong-10);
 	}
 
+	// Callout title bar
+	.callout-icon {
+		margin-inline: 0 0.3125rem;
+	}
 	.callout-title {
+		align-items: center;
 		font-size: 1.125rem;
+		--icon-stroke: var(--icon-xs-stroke-width);
 	}
 	.callout-title-inner {
 		font-weight: var(--font-semibold);
 		font-variation-settings: 'opsz' 24;
+		text-box-trim: trim-both;
+		text-box-edge: cap alphabetic;
 		--bold-color: var(--callout-title-color);
 		--italic-color: var(--callout-title-color);
 	}
 	.callout-title-inner > :is(h1,h2,h3,h4,h5,h6) {
 		margin-block: 0 !important;
 		color: var(--callout-title-color);
+		--h1-size: var(--h1-size-alt);
+		--h1-weight: var(--h1-weight-alt);
 	}
 	.callout-title-inner > h1::after {
 		display: none !important;
 	}
-
-	.callout-icon {
-		margin-inline: -0.1875rem 0.3125rem;
+	.callout-fold {
+		padding-inline-end: 0;
+		margin-left: auto;
 	}
 	
+	// Callout content
 	.callout > .callout-content {
-		padding-inline: 1.5rem 0.75rem;
+		overflow: visible;
+		padding-inline: 1.75rem 0;
 	}
 	.callout > .callout-content > p:first-child {
 		margin-block-start: 0.5rem;
@@ -64,17 +77,11 @@ body:not(.disable-callout-styling) {
 		margin-block-end: 0;
 	}
 
-	.callout-fold {
-		padding-inline-end: 0;
-		margin-left: auto;
-		--icon-stroke: var(--icon-stroke-thick);
-	}
-
     // Things inside Callouts 
 	.callout table {
 		--table-border-color: var(--hr-color);
 	}
-	:is(.callout[data-callout="quote"], .callout[data-callout="cite"]) .callout-content {
-		color: var(--color-base-80);
+	:is(.callout[data-callout="quote"], .callout[data-callout="cite"]) {
+		--text-normal: var(--blockquote-color);
 	}
 }

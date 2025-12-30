@@ -24,7 +24,6 @@
 
 @use "10_colors/_dark-colors";
 @use "10_colors/_light-colors";
-@use "10_colors/_contrast";
 @use "10_colors/_light-extra-colors";
 
 @use "20_markdown/__markdown";
@@ -54,6 +53,7 @@
 
 @use "60_integrations/_autofit-tabs";	
 @use "60_integrations/_plugins";	
+@use "60_integrations/_style-settings";	
 
 @use "70_extras/_css-classes";
 @use "70_extras/_active-highlight";

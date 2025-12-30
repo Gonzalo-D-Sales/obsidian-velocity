@@ -28,7 +28,6 @@ button.clickable-icon {
 .sidebar-toggle-button {
 	z-index: 1;
 	isolation: isolate;
-	contain: content;
 } 
 
 body:not(.is-mobile) :is(.workspace-ribbon,

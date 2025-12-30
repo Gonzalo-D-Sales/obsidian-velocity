@@ -1,0 +1,63 @@
+.style-settings-collapse-indicator {
+    color: var(--icon-color);
+}
+.style-settings-collapse-indicator svg {
+    stroke-width: 4px;
+}
+
+.style-settings-info-text .setting-item-info + .setting-item-control {
+	display: none;
+}
+.setting-item.style-settings-heading {
+    font-size: var(--font-ui-large);
+    padding-block-end: unset;
+    border-block-end: none;
+	&:first-child {
+		margin-block-start: 24px;
+	}
+}
+.setting-item.style-settings-info-text[data-id="ss-section-title"] {
+	background-color: transparent;
+    margin-block-end: unset;
+}
+
+.style-settings-container {
+    --setting-group-heading-size: 16px;
+    --setting-group-heading-weight: var(--font-semibold);
+}
+
+.setting-item-heading[data-id="obsidian-velocity"] + .style-settings-container {
+	.setting-item[data-id="file-line-width"] .setting-item-description {
+		display: initial;
+		> div {
+			display: none;
+		}
+	}
+}
+.setting-item.style-settings-info-text[data-id="ss-section-title"] {
+	> .setting-item-info {
+    	margin-inline-end: unset;
+	}
+	p {
+		color: var(--text-normal);
+		font-size: 16px;
+		font-weight: var(--font-semibold);
+	}
+	.setting-item-description {
+		padding: unset;
+	}
+}
+
+.setting-item.style-settings-heading:not(.is-collapsed)[data-level="0"] {
+    margin-bottom: 4px;
+}
+.setting-item.style-settings-heading:not(.is-collapsed) .setting-item-name {
+    color: var(--text-normal);
+}
+
+// Hidden setting items
+
+.theme-dark .style-settings-container > .setting-item[data-id="theme-paint-light"],
+.theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"] {
+	display: none;
+}

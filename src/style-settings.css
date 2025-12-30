@@ -1,27 +1,15 @@
 /* @settings
-name: Velocity - Theme Configurator
+name: Velocity - Quick Settings
 id: obsidian-velocity
 settings:
 -
-	id: ss-section-heading
-	description: Set theme colors
+	id: ss-section-title
+	description: Theme colors
 	type: info-text
 	markdown: true
 - 	
-	id: theme-mode
-	title: Select vehicle trim
-	type: class-select
-	default: theme-sport
-	options:
-        - label: Plain
-          value: theme-plain
-		- label: Sport
-		  value: theme-sport
-        - label: Race
-          value: theme-race
-- 	
 	id: theme-paint-light
-	title: Select vehicle paint job (light mode)
+	title: Select paint job
 	type: class-select
 	default: none
 	options:
@@ -29,8 +17,6 @@ settings:
 		  value: white
         - label: Velocity Silver 
           value: none
-		- label: Tungsten Gray
-          value: tungsten
 		- label: Utopia Gray
           value: utopia    
 		- label: Touring Beige
@@ -39,6 +25,22 @@ settings:
           value: milgreen
 		- label: Jet Blue Metallic
           value: jetblue
+- 	
+	id: theme-paint-dark
+	title: Select paint job
+	type: class-select
+	default: none
+	options:
+		- label: Obsidian Black
+		  value: black
+        - label: Velocity Black
+          value: none
+		- label: Touring Beige
+          value: beige
+		- label: British Racing Green
+          value: brg
+		- label: Rosso Vino
+          value: vino
 - 	
 	id: color-highlight-rgb
 	title: Select highlight color
@@ -70,8 +72,18 @@ settings:
 		label: Purple
 		value: var(--color-purple-rgb)
 - 	
-	id: ss-section-heading
-	description: Customize theme layout
+	id: enable-special-text
+	title: Colored bold and italics
+	description: Bold and italics are given unique colors. 
+	type: class-toggle
+- 
+	id: enable-special-code
+	title: Unique code text color
+	description: Inline code is given a unique color to make it easier to distinguish from regular text.
+	type: class-toggle
+- 
+	id: ss-section-title
+	description: Theme layout
 	type: info-text
 	markdown: true
 - 
@@ -111,15 +123,18 @@ settings:
 	step: 0.25
 	format: 'rem'
 -
-	title: Additional settings
+*/
+
+/* @settings
+name: Velocity - Configurator
+id: obsidian-velocity-config
+settings:
+-
+	id: ss-section-heading
+	title: Disable  features
 	type: heading
 	level: 1
 	collapsed: true
--
-	id: ss-section-heading
-	description: Disable theme features
-	type: info-text
-	markdown: true
 - 	
 	id: disable-performance-tweaks
 	title: Disable performance tweaks
@@ -158,17 +173,12 @@ settings:
 	title: Restore default icon styling
 	type: class-toggle
 -
-	id: ss-section-heading-top
-	title: Enable opt
-	type: heading
-	level: 2
-	collapsed: false
--
 	id: ss-section-heading
-	description: Enable optional features
-	type: info-text
-	markdown: true
-- 
+	title: Enable optional features
+	type: heading
+	level: 1
+	collapsed: true
+-
 	id: prevent-exit
 	title: Accidental exit prevention for tabs
 	description: Disables the exit button when hovering over inactive tabs.
@@ -204,9 +214,4 @@ settings:
 	description: Velocity is best experienced with the font it is bundled with - Raveo. Enable this setting to allow custom font overrides via the Appearance settings.
 	type: class-toggle
 -	
-	id: enable-special-code
-	title: Unique text color for inline code
-	description: Inline code is given a unique color to make it easier to distinguish from regular text.
-	type: class-toggle
-- 
 */
