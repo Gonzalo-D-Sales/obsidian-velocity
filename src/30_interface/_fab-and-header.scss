@@ -76,19 +76,17 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		padding-inline: 0 1px;
 		order: 2;
 		opacity: 1;
-		filter: opacity(100%);
+		cursor: pointer;
 		background-color: var(--fab-bg);
 		box-shadow:
 			var(--shadow-input),
 			0px 3px 15px 0px var(--trans-faint-20);
-		cursor: pointer;
 		transition: var(--anim-duration-moderate) var(--vl-ease-out);
 		&:active {
 			transform: scale3d(0.9375, 0.9375, 0.9375);
 		}
 		&:active > .svg-icon {
-			transform: scale3d(0.75, 0.75, 0.75);
-			filter: opacity(50%);
+			filter: opacity(0.875);
 		}
 	}
 	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
