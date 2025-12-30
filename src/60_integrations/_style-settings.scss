@@ -22,8 +22,12 @@
 }
 
 .style-settings-container {
+    padding-block-end: 0;
     --setting-group-heading-size: 16px;
     --setting-group-heading-weight: var(--font-semibold);
+}
+.style-settings-container > .setting-item {
+    border-radius: var(--radius-m);
 }
 
 .setting-item-heading[data-id="obsidian-velocity"] + .style-settings-container {
@@ -51,8 +55,8 @@
 .setting-item.style-settings-heading:not(.is-collapsed)[data-level="0"] {
     margin-bottom: 4px;
 }
-.setting-item.style-settings-heading:not(.is-collapsed) .setting-item-name {
-    color: var(--text-normal);
+.setting-item.style-settings-heading:not(.is-collapsed) {
+    --setting-group-heading-color: var(--text-normal);
 }
 
 // Hidden setting items
@@ -60,4 +64,90 @@
 .theme-dark .style-settings-container > .setting-item[data-id="theme-paint-light"],
 .theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"] {
 	display: none;
+}
+
+// Paint job preview
+
+.theme-light .style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] > .setting-item-info > *,
+.setting-item-heading[data-id*="ss-section-hidden"]  {
+    display: none;
+} 
+.setting-item-heading[data-id="ss-section-hidden-paint"] + .style-settings-container  {
+    display: flex;
+    gap: 8px;
+} 
+.style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] {
+    flex: 1 1;
+    min-height: 200px;
+    padding: 12px;
+} 
+.style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] > .setting-item-info {
+    width: 100%;
+    height: 100%;
+    margin: unset;
+    border-radius: var(--radius-xs);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    background-image: var(--paint-image-light);
+} 
+.style-settings-container > .setting-item[data-id*="theme-paint"] {
+    flex: 1 1;
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+    > .setting-item-info {
+        width: 100%;
+        max-height: fit-content;
+        margin-inline-end: unset !important;
+        margin-block-end: auto;
+    }
+    > .setting-item-info::after {
+        content: var(--paint-description);
+        width: 100%;
+        max-height: fit-content;
+        display: block;
+        margin-block-start: calc(var(--font-small) * 3);
+        font-size: var(--font-small);
+        color: var(--icon-color);
+        font-style: italic;
+
+    }
+    .setting-item-name {
+        font-size: var(--font-ui-large);
+        font-variation-settings: 'opsz' 28;
+        font-weight: var(--font-medium);
+        text-box-trim: trim-both;
+        text-box-edge: cap text;
+    }
+    .setting-item-control {
+        max-height: fit-content;
+        width: 100%;
+    }
+    select.dropdown {
+        font-weight: var(--font-medium);
+    }
+    small {
+        font-size: var(--font-ui-smaller);
+        padding-inline-start: 1px;
+    }
+}
+
+.theme-light {
+    --paint-description: "The default color scheme for Velocity. A timeless classic with a mild futuristic touch.";
+}
+.theme-light.white {
+    --paint-description: "The original colors of Obsidian. Familiar, clean and with a totally neutral character, perfect for the aspiring minimalist.";
+}
+.theme-light.utopia {
+    --paint-description: "A serene off-white tan color scheme inspired by jdanielmourao's Sanctum, a classic among Obsidian themes.";
+}
+.theme-light.beige {
+    --paint-description: "This warm color scheme takes after the spirit of old grand tourers, known for their comfort, sportiness and leather-laden interiors.";
+}
+.theme-light.milgreen {
+    --paint-description: "With a stong green accent and metallic sheen, this retro-futuristic color scheme harkens back to the glory days of Web 2.0 interface design.";
+}
+.theme-light.jetblue {
+    --paint-description: "A cool blue paint scheme inspired by the Audi R8 and the Nord color palette. Sleek and modern with a touch of elegance.";
 }

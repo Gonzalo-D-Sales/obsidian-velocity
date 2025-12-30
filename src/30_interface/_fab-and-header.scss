@@ -81,18 +81,14 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		box-shadow:
 			var(--shadow-input),
 			0px 3px 15px 0px var(--trans-faint-20);
-		cursor: var(--cursor-link);
-
-		> .svg-icon {
-			filter: opacity(75%);
-		}
-		&:hover > .svg-icon {
-			filter: opacity(100%);
+		cursor: pointer;
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		&:active {
+			transform: scale3d(0.9375, 0.9375, 0.9375);
 		}
 		&:active > .svg-icon {
-			transform: scale3d(0.625, 0.625, 0.625);
+			transform: scale3d(0.75, 0.75, 0.75);
 			filter: opacity(50%);
-			transition-duration: 450ms;
 		}
 	}
 	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
@@ -101,14 +97,19 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		--icon-color-hover: var(--icon-color);
 		--icon-color-focused: var(--icon-color);
 
-		> .svg-icon {
-			filter: opacity(100%);
-		}
-		&:hover > .svg-icon {
-			filter: opacity(75%);
-		}
 	}
 	& .view-actions .clickable-icon.view-action.mod-bookmark {
 		order: 1;
+	}
+}
+
+@starting-style {
+	body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
+		transform: scale3d(0.9375, 0.9375, 0.9375);
+	}
+	body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-actions > .clickable-icon.view-action:not(:last-child, .mod-bookmark) > .svg-icon {
+		filter: var(--blur-s);
+		opacity: 0;
+		transform: scale3d(0.75, 0.75, 0.75);
 	}
 }

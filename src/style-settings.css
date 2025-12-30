@@ -8,6 +8,15 @@ settings:
 	type: info-text
 	markdown: true
 - 	
+	id: ss-section-hidden-paint
+	title: BLANK
+	type: heading
+	level: 1
+-
+	id: paint-preview-light
+	description: BLANK
+	type: info-text
+- 
 	id: theme-paint-light
 	title: Select paint job
 	type: class-select
@@ -42,6 +51,11 @@ settings:
 		- label: Rosso Vino
           value: vino
 - 	
+	id: ss-section-hidden
+	title: BLANK
+	type: heading
+	level: 1
+-
 	id: color-highlight-rgb
 	title: Select highlight color
 	type: variable-select
