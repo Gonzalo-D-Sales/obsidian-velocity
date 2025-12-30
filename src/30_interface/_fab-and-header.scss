@@ -84,14 +84,14 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		transition: var(--anim-duration-moderate) var(--vl-ease-out);
 		&:active {
 			transform: scale3d(0.9375, 0.9375, 0.9375);
+			box-shadow: var(--shadow-input);
 		}
 		&:active > .svg-icon {
 			filter: opacity(0.875);
 		}
 	}
 	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
-		box-shadow: var(--shadow-fab-active);
-		--icon-color: var(--interactive-accent);
+		--icon-color: var(--control-icon-color);
 		--icon-color-hover: var(--icon-color);
 		--icon-color-focused: var(--icon-color);
 
@@ -102,9 +102,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 }
 
 @starting-style {
-	body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
-		transform: scale3d(0.9375, 0.9375, 0.9375);
-	}
 	body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-actions > .clickable-icon.view-action:not(:last-child, .mod-bookmark) > .svg-icon {
 		filter: var(--blur-s);
 		opacity: 0;
