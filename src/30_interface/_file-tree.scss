@@ -20,7 +20,7 @@
 
 :is([data-type="bookmarks"], [data-type="file-explorer"]) {
 	.tree-item-self.mod-collapsible {
-		--nav-item-background-active: var(--color-accent-6);
+		--nav-item-background-active: var(--color-accent-4);
 	}
 	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible {
 		background-color: var(--nav-item-background-active);

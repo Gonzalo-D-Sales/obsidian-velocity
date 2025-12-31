@@ -6,7 +6,7 @@
 }
 .backlink-pane .search-result-file-title,
 .outgoing-link-pane .outgoing-link-item {
-    --nav-item-background-hover: var(--color-accent-5);
+    --nav-item-background-hover: var(--color-accent-4);
     --nav-item-color: var(--link-color-sidebar);
     --nav-item-color-hover: var(--link-color-sidebar);
     --nav-item-color-active: var(--link-color-sidebar);
@@ -83,9 +83,6 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 }
 
 // special code for uncreated outgoing links
-.outgoing-link-item:not([draggable="true"]) {
-    --nav-item-background-hover: var(--color-accent-6);
-}
 .outgoing-link-item:not([draggable="true"]) .tree-item-inner-text,
 .outgoing-link-item:not([draggable="true"]):hover .tree-item-inner-text {
     color: var(--link-unresolved-color);

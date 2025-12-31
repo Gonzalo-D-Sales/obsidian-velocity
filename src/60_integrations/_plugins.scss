@@ -54,15 +54,14 @@ body:not(.is-phone) .mod-sidedock {
 .bases-td {
 	--divider-color-hover: var(--color-base-30);
 }
-.bases-view .bases-thead .bases-td .bases-table-header-name {
-	font-size: var(--font-ui-small);
-}
+
 
 .metadata-input.mod-date,
-.bases-td .metadata-input,
-.bases-cards-line .metadata-input.mod-datetime {
+.metadata-input.mod-datetime {
 	box-shadow: none;
 	font-weight: var(--font-normal);
+}
+.metadata-input.mod-datetime {
 	letter-spacing: -0.5px;
 }
 
@@ -73,7 +72,21 @@ body:not(.is-phone) .mod-sidedock {
 }
 .bases-metadata-value {
 	padding-block: 4px;
+	--metadata-input-font-size: 0.75em;
 }
+.bases-table-cell > .multi-select-container > .multi-select-pill {
+	contain: content;
+	--pill-padding-x: 8px 4px;
+}
+.bases-table-cell[data-property-type="tags"] .multi-select-pill {
+	contain: content;
+	--pill-padding-x: 8px 4px;
+}
+
+.bases-group-heading {
+	--tag-weight: var(--font-semibold);
+}
+
 
 .bases-tbody {
 	background-color: transparent;
@@ -156,7 +169,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 :is(.bases-toolbar-sort-menu, .bases-toolbar-filter-menu) > .text-icon-button.is-active {
 	color: var(--color-accent-1);
-	background-color: var(--color-accent-5);
+	background-color: var(--background-modifier-active-hover);
 	&:hover {
 		background-color: var(--text-selection);
 	}
@@ -184,14 +197,13 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 // Obsidian Bases (modals)
-.query-toolbar-menu {
+.bases-toolbar-menu {
 	background-color: var(--background-secondary);
-	border-radius: var(--radius-l);
 }
-.query-toolbar-menu .input-row {
+.bases-toolbar-menu .input-row {
 	padding-block-end: 4px;
 }
-.query-toolbar-menu + .suggestion-container,
+.bases-toolbar-menu + .suggestion-container,
 .formula-editor .cm-tooltip.cm-tooltip-autocomplete {
 	border-color: var(--trans-faint-40);
 }
@@ -200,7 +212,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	padding-block: 4px 8px;
 	padding-inline-start: 8px;
 }
-.query-toolbar-menu .bases-toolbar-menu-container-header {
+.bases-toolbar-menu .bases-toolbar-menu-container-header {
 	padding-inline: 2px;
 	> * {
 		margin-block: 2px;
@@ -227,10 +239,11 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 // Bases menu search input
 .bases-toolbar-menu-container .search-input-container {
 	background-color: var(--background-modifier-form-field);
-	box-shadow: var(--shadow-normal);
-	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-faint);
+	border-radius: calc(var(--radius-s) + 1px);
 	border: none;
-	margin: 2px 2px 8px;
+	outline: 1px solid var(--trans-faint-10);
+	margin: 6px;
 	padding-block: 0;
 }
 .bases-toolbar-menu-container .search-input-container input[type="search"],
@@ -262,20 +275,18 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 // Filter & Sort menus shared variables
-.base-toolbar-sort-item .metadata-property,
-.bases-query-container .filter-expression {
-	transition: box-shadow var(--anim-super-smooth);
-	--input-height: 30px;
-	--metadata-input-background: var(--color-base-00);
-	--metadata-input-background-hover: var(--color-base-00);
-	--metadata-property-background: var(--background-primary);
-	--metadata-property-background-hover: var(--background-primary);
-	--metadata-property-box-shadow: var(--shadow-normal);
-	--metadata-property-box-shadow-hover: var(--shadow-normal);
+.bases-toolbar-menu .metadata-property {
+	--interactive-normal: var(--background-modifier-hover);
+	--metadata-input-background: transparent;
+	--metadata-input-background-hover: transparent;
+	--metadata-property-background: transparent;
+	--metadata-property-background-hover: transparent;
+	--metadata-property-box-shadow: none;
+	--metadata-property-box-shadow-hover: none;
 	--metadata-property-box-shadow-focus: var(--shadow-input-active);
-	--metadata-label-background: var(--color-base-00);
+	--metadata-label-background: transparent;
 	--dropdown-background: transparent;
-	--dropdown-background-hover: var(--trans-strong-40);
+	--dropdown-background-hover: transparent;
 	--bases-query-input-weight: var(--font-semi-medium);
 
 	.combobox-button {
@@ -288,29 +299,42 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 		color: var(--icon-color);
 	}
 	.combobox-button > .combobox-button-icon {
+		--icon-color: var(--text-normal);
 		--icon-size: var(--icon-xs);
-		--icon-stroke: var(--icon-xs-stroke-width);
 	}
 	.combobox-button.filter-property-select > .combobox-button-chevron,
 	.combobox-button.bases-sort-property > .combobox-button-chevron {
 		display: none;
 	}
 }
+.bases-toolbar-section-content {
+	background-color: var(--background-primary);
+	box-shadow: var(--shadow-muted);
+	border: 1px solid var(--setting-item-border-color);
+	border-radius: var(--radius-sm);
+	margin: 0 8px 8px;
+}
 
 // Sort menu
+.bases-toolbar-menu .bases-groupby-container .bases-toolbar-items, 
+.bases-toolbar-menu .bases-sort-container .bases-toolbar-items {
+	padding-block: 8px;
+}
 .base-toolbar-sort-item {
 	background-color: transparent;
+	> .metadata-property {
+		background-color: var(--background-modifier-hover);
+	}
 	.bases-sort-property-container {
 		padding: 0;
 	}
-	.bases-sort-property-container + .clickable-icon {
+	.bases-sort-container + .clickable-icon {
 		padding: 6px;
 	}
 	.combobox-button {
 		color: var(--color-base-50);
 	}
 	.combobox-button.bases-sort-direction {
-		width: 37.5%;
 		font-weight: var(--bases-query-input-weight);
 		--text-normal: var(--text-accent);
 	}
@@ -326,29 +350,20 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 // Filter menu
-.mod-filters .query-toolbar-section-header {
-	color: var(--color-base-80);
+.bases-toolbar-filter-menu .bases-toolbar-section-header {
 	gap: 6px;
 	padding-block: 12px;
 }
-.mod-filters .query-toolbar-section-header .flair {
+.bases-toolbar-filter-menu .bases-toolbar-section-header .flair {
 	color: var(--text-accent);
-	background-color: var(--color-accent-5);
+	background-color: var(--background-modifier-active-hover);
 	border-radius: var(--radius-xs);
 	padding: 4px 6px 2px;
 }
 
 .bases-query-container {
-	background-color: var(--background-primary);
-	box-shadow: var(--shadow-setting-items);
-	border: 1px solid var(--setting-item-border-color);
-	border-radius: var(--radius-sm);
-	margin: 0 10px 10px;
-
-	.filter-expression {
-		--input-height: 30px;
-	}
 	.filter-rhs-container :is(.metadata-input-text, .metadata-input-longtext) {
+		box-shadow: none;
 		color: var(--text-accent);
 		font-weight: var(--bases-query-input-weight);
 	}
@@ -375,8 +390,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	> .filter-group-header > .conjunction.dropdown {
 		order: 2;
 		color: var(--color-base-80);
-		background-color: var(--nav-item-background-active);
-		--background-modifier-hover: var(--trans-faint-25);
+		background-color: var(--background-modifier-hover);
 	}
 	> .filter-group-header > .filter-group-header-actions > .clickable-icon {
 		padding: 6px;
@@ -396,65 +410,16 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	margin-block: 6px 4px;
 }
 
-// Properties menu
-.mod-properties .bases-toolbar-items {
-	flex-direction: column-reverse;
-	.suggestion-group[data-group="actions"] {
-		border-top: none;
-		border-bottom: 1px solid var(--divider-color);
-		padding: 0 0 2px;
-	}
-	.suggestion-group[data-group="actions"] > * {
-		font-weight: var(--font-medium);
-		padding-inline: 8px;
-		width: 124px;
-	}
-}
-.mod-properties .bases-toolbar-items .suggestion-group[data-group="properties"] {
-	padding-block: 8px 0;
-	> * {
-		border-radius: var(--radius-xl);
-		padding: 6px 8px;
-	}
-	.bases-toolbar-menu-item .bases-toolbar-menu-item-info {
-		order: -1;
-		overflow: visible;
-	}
-	.bases-toolbar-menu-item > .clickable-icon {
-		background-color: var(--background-modifier-hover);
-		border-radius: var(--radius-xl);
-		padding-inline: 12px;
-	}
-	.bases-toolbar-menu-item.mod-implicit > .clickable-icon:hover {
-		--background-modifier-hover: var(--hr-color);
-	}
-	.bases-toolbar-menu-item.mod-hidden > .clickable-icon {
-		--background-modifier-hover: var(--trans-faint-00);
-	}
-	.bases-toolbar-menu-item-info-icon {
-		contain: content;
-		transition: var(--anim-super-swing);
-	}
-	.bases-toolbar-menu-item-info-icon:is(:hover, :active) {
-		color: var(--text-accent);
-	}
-}
 // Formula editor
-.query-toolbar-menu .suggestion-container {
+.bases-toolbar-menu .suggestion-container {
 	animation: none;
 }
-.mod-properties .bases-toolbar-menu-form .input-row .input-row-label {
-	font-weight: inherit;
-}
-.mod-properties .bases-toolbar-menu-form .formula-editor-container {
+.bases-toolbar-menu .formula-editor {
 	box-shadow: var(--shadow-input);
 	&:focus-within {
 		box-shadow: var(--shadow-input-active);
 	}
-}
-.mod-properties .bases-toolbar-menu-form .input-row .input-row-status {
-	margin-block: 8px -6px;
-	padding-inline-start: 4px;
+	--interactive-normal: var(--background-modifier-form-field);
 }
 .formula-editor .cm-placeholder {
 	padding-inline-start: 2px;
@@ -590,7 +555,7 @@ div[class*="el-h"] + * .dataview-container .contains-task-list {
 	--color-text-weeknum: var(--text-muted);
 	--table-row-alt-background: none;
 	--table-row-alt-background-hover: none;
-	--table-highlight: var(--color-accent-5);
+	--table-highlight: var(--background-modifier-active-hover);
 	--interactive-accent: transparent;
 }
 .callout #calendar-container {
@@ -989,7 +954,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
 }
 .omnisearch-input-container__buttons:has(button) {
 	display: unset;
-	margin-inline-end: 8px;
+	margin-inline-end: 12px;
 	z-index: 1;
 }
 
@@ -1025,7 +990,7 @@ body:not(.is-phone) .vertical-tabs > .obsidian-vertical-tabs-container {
 		padding-block: calc(var(--vl-layout-padding) + 1px) calc(var(--vl-layout-padding) - 1px);
 	}
 	.tree-item.is-tab.is-highlighted > .tree-item-self.is-clickable {
-		background-color: var(--color-accent-6);
+		background-color: var(--color-accent-4);
 		color: var(--text-accent);
 	}
 }

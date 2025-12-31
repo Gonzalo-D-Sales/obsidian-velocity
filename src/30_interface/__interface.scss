@@ -12,7 +12,7 @@ body.improve-pinned-tabs .mod-root > .workspace-tabs:not(.mod-stacked) .workspac
 		background-color: var(--trans-faint-05);
 	}
 	&.is-active > .workspace-tab-header-inner {
-		background-color: var(--color-accent-6);
+		background-color: var(--color-accent-4);
 	}
 	.workspace-tab-header-inner-title,
 	.workspace-tab-header-inner-icon {
@@ -20,7 +20,7 @@ body.improve-pinned-tabs .mod-root > .workspace-tabs:not(.mod-stacked) .workspac
 	}
 	.workspace-tab-header-status-container {
 		margin-inline: unset;
-		--background-modifier-active-hover: var(--color-accent-6);
+		--background-modifier-active-hover: var(--color-accent-4);
 	}
 }
 

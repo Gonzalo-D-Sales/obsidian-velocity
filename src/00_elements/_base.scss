@@ -281,7 +281,7 @@ input[type="color"]:focus {
 
 .is-loading::before {
 	border-radius: var(--radius-m);
-	background: linear-gradient(to right, var(--color-accent-4), var(--color-accent) 50%);
+	background: linear-gradient(to right, var(--color-accent-3), var(--color-accent) 50%);
 }
 .modal-content .is-loading::before {
 	margin-block-start: 2px;

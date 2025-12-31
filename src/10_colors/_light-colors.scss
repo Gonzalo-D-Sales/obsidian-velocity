@@ -97,10 +97,8 @@
 
 	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
 	--color-accent-2: color-mix(in oklch, var(--color-accent) 80%, transparent 40%);
-	--color-accent-3: color-mix(in oklab, var(--color-accent), hsla(0, 0%, 100%, 0.5));
-	--color-accent-4: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
-	--color-accent-5: color-mix(in oklch, var(--text-selection) 100%, transparent 75%);
-	--color-accent-6: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
+	--color-accent-3: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
+	--color-accent-4: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
 
 	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--bhue));
 
@@ -171,9 +169,6 @@
 	--menu-shadow:
 		inset 1px 1px 2px 0 var(--trans-strong-10), inset -1px -1px 2px 0 var(--trans-strong-10), var(--shadow-normal);
 	--shadow-fab: var(--shadow-input), 0px 3px 15px 0px var(--trans-faint-20);
-	--shadow-fab-active:
-		0px 0.25px 0px 0.5px var(--text-selection), inset 0px -0.25px 4px -1px var(--text-selection),
-		0px 1.5px 8px -1.5px var(--text-selection);
 	--shadow-sidebar: 0px 0px 8px 0px var(--trans-faint-00);
 	--shadow-tab: 0px 0px 4px 0px var(--trans-faint-30);
 	--shadow-workspace: 0 0.25px 1.25px 0px oklch(0% 0 0 / 0.25), 0px 0px 24px var(--trans-faint-10);
@@ -182,7 +177,7 @@
 	// Component shadows
 	--shadow-button: var(--glass-base), var(--shadow-muted);
 	--shadow-input: 0 0 0 0.5px var(--trans-faint-40);
-	--shadow-input-active: 0 0 0 2.5px var(--color-accent-4);
+	--shadow-input-active: 0 0 0 2.5px var(--color-accent-3);
 	--shadow-toggle:
 		inset 0.75px 0.75px 1.75px 0 var(--trans-strong-30), inset -0.75px -0.75px 1.75px 0 var(--trans-strong-30);
 

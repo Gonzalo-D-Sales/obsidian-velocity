@@ -116,7 +116,7 @@ input.metadata-property-key-input {
 	text-box-trim: trim-both;
 	margin-inline-end: 0.0875em;
 }
-.bases-td .multi-select-pill,
+.bases-table-cell .multi-select-pill,
 .metadata-property .multi-select-pill,
 .metadata-property[data-property-key="tags"] .multi-select-pill {
 	padding-inline: var(--pill-padding-x);
@@ -124,17 +124,19 @@ input.metadata-property-key-input {
 	--pill-padding-x: 0.75em 0.375em;
 	--pill-padding-y: 0.25em;
 }
-.bases-td .multi-select-pill-remove-button:hover,
+.bases-table-cell .multi-select-pill-remove-button:hover,
 .multi-select-pill-remove-button:hover {
 	background-color: var(--text-error);
 }
 
 // Multi-select pill (tags)
+.bases-table-cell[data-property-type="tags"] .multi-select-pill,
 .metadata-property[data-property-key="tags"] .multi-select-pill {
 	--pill-color: var(--tag-color);
-	--pill-color-remove: var(--color-accent-4);
+	--pill-color-remove: var(--color-accent-3);
 	--pill-color-remove-hover: var(--text-on-accent);
 }
+.bases-table-cell[data-property-type="tags"] .multi-select-pill-remove-button:hover,
 .metadata-property[data-property-key="tags"] .multi-select-pill-remove-button:hover {
 	background-color: var(--interactive-accent);
 }
