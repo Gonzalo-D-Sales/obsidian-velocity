@@ -6,18 +6,18 @@
 }
 
 .style-settings-info-text .setting-item-info + .setting-item-control {
-	display: none;
+    display: none;
 }
 .setting-item.style-settings-heading {
     font-size: var(--font-ui-large);
     padding-block-end: unset;
     border-block-end: none;
-	&:first-child {
-		margin-block-start: 24px;
-	}
+    &:first-child {
+        margin-block-start: 24px;
+    }
 }
 .setting-item.style-settings-info-text[data-id="ss-section-title"] {
-	background-color: transparent;
+    background-color: transparent;
     margin-block-end: unset;
 }
 
@@ -31,25 +31,25 @@
 }
 
 .setting-item-heading[data-id="obsidian-velocity"] + .style-settings-container {
-	.setting-item[data-id="file-line-width"] .setting-item-description {
-		display: initial;
-		> div {
-			display: none;
-		}
-	}
+    .setting-item[data-id="file-line-width"] .setting-item-description {
+        display: initial;
+        > div {
+            display: none;
+        }
+    }
 }
 .setting-item.style-settings-info-text[data-id="ss-section-title"] {
-	> .setting-item-info {
-    	margin-inline-end: unset;
-	}
-	p {
-		color: var(--text-normal);
-		font-size: 16px;
-		font-weight: var(--font-semibold);
-	}
-	.setting-item-description {
-		padding: unset;
-	}
+    > .setting-item-info {
+        margin-inline-end: unset;
+    }
+    p {
+        color: var(--text-normal);
+        font-size: 16px;
+        font-weight: var(--font-semibold);
+    }
+    .setting-item-description {
+        padding: unset;
+    }
 }
 
 .setting-item.style-settings-heading:not(.is-collapsed)[data-level="0"] {
@@ -63,24 +63,28 @@
 
 .theme-dark .style-settings-container > .setting-item[data-id="theme-paint-light"],
 .theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"] {
-	display: none;
+    display: none;
 }
 
 // Paint job preview
 
-.theme-light .style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] > .setting-item-info > *,
-.setting-item-heading[data-id*="ss-section-hidden"]  {
+.theme-light
+    .style-settings-container
+    > .style-settings-info-text[data-id="paint-preview-light"]
+    > .setting-item-info
+    > *,
+.setting-item-heading[data-id*="ss-section-hidden"] {
     display: none;
-} 
-.setting-item-heading[data-id="ss-section-hidden-paint"] + .style-settings-container  {
+}
+.setting-item-heading[data-id="ss-section-hidden-paint"] + .style-settings-container {
     display: flex;
     gap: 8px;
-} 
+}
 .style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] {
     flex: 1 1;
     min-height: 200px;
     padding: 12px;
-} 
+}
 .style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] > .setting-item-info {
     width: 100%;
     height: 100%;
@@ -90,7 +94,7 @@
     background-size: cover;
     background-color: transparent;
     background-image: var(--paint-image-light);
-} 
+}
 .style-settings-container > .setting-item[data-id*="theme-paint"] {
     flex: 1 1;
     flex-direction: column;
@@ -111,11 +115,10 @@
         font-size: var(--font-small);
         color: var(--icon-color);
         font-style: italic;
-
     }
     .setting-item-name {
         font-size: var(--font-ui-large);
-        font-variation-settings: 'opsz' 28;
+        font-variation-settings: "opsz" 28;
         font-weight: var(--font-medium);
         text-box-trim: trim-both;
         text-box-edge: cap text;

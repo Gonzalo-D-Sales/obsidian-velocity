@@ -39,8 +39,7 @@
     display: none;
 }
 .search-result-file-matched-text {
-    background-color: var(--text-highlight-bg-search);
-    padding: 0 2px 1px;
+    padding-inline: 1px;
 }
 .search-result-file-match:hover .search-result-file-matched-text,
 .tree-item-self.is-clickable:hover .search-result-file-matched-text {

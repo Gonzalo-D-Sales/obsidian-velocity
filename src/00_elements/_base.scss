@@ -238,6 +238,9 @@ textarea,
 :is(input, textarea, .vertical-tab-header input):focus {
 	box-shadow: var(--shadow-input-active);
 }
+.search-input-container::before {
+	z-index: 1;
+}
 
 .mod-sidedock,
 .vertical-tab-header {
@@ -260,10 +263,6 @@ textarea,
 .mod-sidedock textarea {
 	text-indent: 2px;
 }
-.mod-sidedock .search-input-container {
-	--search-icon-color: var(--text-normal);
-}
-
 // Placeholder text
 input::placeholder {
 	font-weight: var(--font-normal);

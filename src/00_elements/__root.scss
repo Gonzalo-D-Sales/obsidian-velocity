@@ -192,8 +192,7 @@ body {
     --list-marker-color: var(--color-base-50);
 
     // Math
-
-    --math-color: var(--text-normal);
+    --math-color: color-mix(in oklab, var(--color-base-90), var(--color-base-100));
 
     // File navigator
     --nav-collapse-icon-color: var(--trans-faint-60);

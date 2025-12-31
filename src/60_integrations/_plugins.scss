@@ -492,24 +492,8 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	border-top: none;
 }
 
-// Page content Search 
-.webviewer-content .document-search-container {
-	top: 52px;
-	right: 16px;
-}
-.mod-sidedock .webviewer-content .document-search-container {
-	top: 48px;
-	left: unset;
-	right: 16px;
-}
-.mod-right-split .webviewer-content .document-search-container {
-	left: unset;
-	right: unset;
-	margin-right: 24px;
-}
-
 .webviewer-content .error-notice {
-	margin: auto;
+    margin: auto;
     text-align: center;
 }
 

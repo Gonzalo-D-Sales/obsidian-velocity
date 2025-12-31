@@ -101,7 +101,7 @@
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-40);
 
-	--fab-bg: var(--background-primary);
+	--fab-bg: var(--background-primary-alt);
 	--fab-color: var(--color-base-80);
 
 	--hr-color: var(--trans-faint-30);
@@ -205,9 +205,8 @@
 		0 0 16px var(--trans-strong-00);
 	--shadow-workspace-multi: none;
 	--shadow-fab: 
-		inset 0 1.25px 2px 0px var(--trans-faint-10),
-		inset 0 -1px 2.5px 0px var(--trans-strong-00),
-		0 3px 12px -3px var(--trans-dark-10);
+		var(--shadow-input),
+		0px 2px 12px 0px var(--trans-dark-10);
 	--shadow-fab-active: 
 		inset 0 1.25px 2px 0px var(--color-accent-5),
 		inset 0 1.25px 2px 0px var(--trans-faint-05),

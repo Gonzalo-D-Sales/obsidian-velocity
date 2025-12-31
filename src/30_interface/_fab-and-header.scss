@@ -78,9 +78,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		opacity: 1;
 		cursor: pointer;
 		background-color: var(--fab-bg);
-		box-shadow:
-			var(--shadow-input),
-			0px 3px 15px 0px var(--trans-faint-20);
+		box-shadow: var(--shadow-fab);
 		transition: var(--anim-duration-moderate) var(--vl-ease-out);
 		&:active {
 			transform: scale3d(0.9375, 0.9375, 0.9375);
@@ -94,7 +92,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		--icon-color: var(--control-icon-color);
 		--icon-color-hover: var(--icon-color);
 		--icon-color-focused: var(--icon-color);
-
 	}
 	& .view-actions .clickable-icon.view-action.mod-bookmark {
 		order: 1;
@@ -102,7 +99,11 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 }
 
 @starting-style {
-	body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] .view-actions > .clickable-icon.view-action:not(:last-child, .mod-bookmark) > .svg-icon {
+	body:not(.is-mobile)
+		.workspace-leaf-content[data-type="markdown"]
+		.view-actions
+		> .clickable-icon.view-action:not(:last-child, .mod-bookmark)
+		> .svg-icon {
 		filter: var(--blur-s);
 		opacity: 0;
 		transform: scale3d(0.75, 0.75, 0.75);

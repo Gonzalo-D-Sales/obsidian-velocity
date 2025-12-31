@@ -137,6 +137,11 @@ settings:
 	step: 0.25
 	format: 'rem'
 -
+	id: switch-edit-icons
+	title: Inverted editing mode toggle display
+	description: Displays the icon of the current editing mode instead of the next mode.
+	type: class-toggle
+-	
 */
 
 /* @settings
@@ -213,11 +218,6 @@ settings:
 	description: Reduces the brightness of images in Dark mode except when hovered.
 	type: class-toggle
 - 	
-	id: switch-edit-icons
-	title: Inverted editing mode toggle display
-	description: Displays the icon of the current editing mode instead of the next mode.
-	type: class-toggle
--	
 	id: improve-pinned-tabs
 	title: Improved pinned tabs appearance
 	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
