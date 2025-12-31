@@ -129,33 +129,11 @@ body:not(.is-mobile) .embedded-backlinks > .nav-header {
 
 // --> Sidebar Leaves with special content <--
 
-body:not(.is-mobile)
-    .mod-sidedock
-    .workspace-leaf-content:is([data-type="canvas"], [data-type="kanban"], [data-type="pdf"], [data-type="webviewer"]) {
-    background-color: var(--background-primary);
-    border-radius: var(--radius-ml);
-    box-shadow: var(--shadow-sidebar);
-    width: calc(100% - 16px);
-    height: calc(100% - 10px);
-    margin: 1px 8px 9px;
-    padding-block-end: 0;
-    padding-inline: unset;
-    > .view-content {
-        padding-block-start: 0;
-    }
-    --bases-cards-group-padding: 2px 12px 12px 12px;
+body:not(.is-phone) .mod-sidedock {
+    --canvas-background: transparent;
+    --file-header-background: transparent;
+    --file-header-background-focused: transparent;
 }
-body:not(.is-mobile)
-    .mod-sidedock
-    .workspace-tabs:last-child
-    .workspace-leaf-content:is([data-type="canvas"], [data-type="kanban"], [data-type="pdf"], [data-type="webviewer"]) {
-    height: calc(100% - 2px);
-    margin-block-end: 1px;
-}
-body:not(.is-mobile)
-    .mod-sidedock.mod-right-split
-    .workspace-tabs:last-child
-    .workspace-leaf-content:is([data-type="canvas"], [data-type="kanban"], [data-type="pdf"], [data-type="webviewer"]) {
-    height: calc(100% - 44px);
-    margin-block-end: 44px;
+.workspace-split:not(.mod-root) .graph-controls.is-close {
+    background-color: transparent;
 }

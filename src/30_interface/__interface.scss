@@ -96,8 +96,14 @@ body:not(.is-mobile) {
 		border-radius: var(--radius-xs);
 	}
 }
-.mod-sidedock .pdf-toolbar {
+
+// PDF viewer in sidedock
+body:not(.is-phone) .mod-sidedock .pdf-toolbar {
+    border-radius: var(--radius-ml) var(--radius-ml) 0 0;
 	padding: 8px;
+}
+body:not(.is-phone) .mod-sidedock .pdf-container {
+    border-radius: 0 0 var(--radius-ml) var(--radius-ml);
 }
 
 // --> Empty State <--
