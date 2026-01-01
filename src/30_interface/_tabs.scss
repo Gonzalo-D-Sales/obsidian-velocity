@@ -155,11 +155,13 @@ body:not(.is-mobile) .mod-sidedock .workspace-tab-header-status-container {
     --icon-opacity: 0.8;
 }
 body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container {
+    gap: 4px;
+    padding-inline: 2px;
     --icon-color: var(--link-color);
     --icon-opacity: 1;
 }
-body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container:hover {
-    --icon-color: var(--link-color-hover);
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-icon:hover {
+    color: var(--link-color-hover);
 }
 
 // --> Stacked Tabs <--

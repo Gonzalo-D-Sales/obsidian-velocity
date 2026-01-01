@@ -1,0 +1,73 @@
+.canvas-wrapper {
+  --resizer-size: 16px;
+  --shadow-stationary: var(--shadow-canvas-node);
+  --shadow-drag: 0px 0px transparent;
+  --shadow-border-accent: 0 0 0 2px var(--color-accent-1);
+  --bases-table-header-background: var(--background-primary-alt);
+  --canvas-color: 150, 150, 150;
+}
+
+// Canvas Nodes
+.canvas-node-container {
+    background-color: var(--background-primary-alt);
+}
+.canvas-node > .canvas-node-container {
+    border-color: rgb(var(--canvas-color), 0.5);
+}
+.canvas-node.is-focused > .canvas-node-container {
+    border-color: transparent;
+}
+.canvas-node.is-themed > .canvas-node-container {
+    border-width: 2px;
+}
+
+// Node Labels
+.canvas-node-label {
+    font-weight: var(--font-medium);
+}
+.canvas-node .empty-state-action {
+    color: var(--text-color)
+}
+
+// Node Groups
+.canvas-node-group {
+    --shadow-stationary: 0px 0px transparent;
+}
+.canvas-group-label {
+    font-weight: var(--font-semibold);
+}
+
+// Canvas bottom menu
+
+.canvas-wrapper > .canvas-card-menu {
+    background-color: var(--trans-strong-20);
+    border-radius: var(--radius-m);
+    inset-block-end: 8px;
+    gap: 2px;
+    padding: 4px;
+    transition: var(--anim-duration-moderate) var(--vl-ease-out);
+    filter: opacity(0.5);
+}
+.canvas-wrapper > .canvas-card-menu:hover {
+    backdrop-filter: var(--blur-s);
+    filter: opacity(1);
+}
+.canvas-card-menu > .canvas-card-menu-button.mod-draggable > svg {
+    transition: var(--anim-duration-moderate) var(--vl-ease-out);
+}
+
+// Canvas right menu
+
+.canvas-control-group {
+    background-color: var(--color-base-20);
+    border: none;
+    transition: var(--anim-duration-moderate) var(--vl-ease-out);
+    filter: opacity(0.5);
+}
+.canvas-control-group:hover {
+    filter: opacity(1);
+}
+.canvas-control-item {
+    color: var(--control-icon-color);
+    padding: 10px;
+}

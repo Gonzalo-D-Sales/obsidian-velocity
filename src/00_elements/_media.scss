@@ -8,13 +8,13 @@ video {
 .markdown-rendered img {
     border-radius: var(--radius-sm);
 }
-body.enable-dim-img.theme-dark 
+body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
 :is(.image-embed img, 
 	.markdown-rendered img) {
-	filter: opacity(0.5);
+	filter: opacity(0.75);
 	transition: filter var(--anim-fast-smooth);
 }
-body.enable-dim-img.theme-dark 
+body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
 :is(.image-embed img, 
 	.markdown-rendered img):hover {
 	filter: unset;

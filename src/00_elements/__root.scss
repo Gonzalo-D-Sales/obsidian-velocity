@@ -54,6 +54,7 @@ body {
     // Buttons
 
     // Canvas
+    --canvas-color-5: var(--color-blue-rgb);
 
     // Caret (text entry cursor)
 
@@ -152,6 +153,8 @@ body {
     --icon-stroke-thick: 2.25px;
     --icon-xs-stroke-width: 2.125px;
     --icon-m-stroke-width: 1.875px;
+
+    --icon-xl: 28px;
 
     --icon-color: var(--color-base-60);
     --icon-color-hover: var(--text-normal);

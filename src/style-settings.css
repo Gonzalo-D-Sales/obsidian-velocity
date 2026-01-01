@@ -155,11 +155,18 @@ settings:
 	level: 1
 	collapsed: true
 - 	
-	id: disable-performance-tweaks
-	title: Disable performance tweaks
-	description: Deactivates special CSS hacks which typically improve editor performance. 
+	id: disable-list-styling
+	title: Restore bullet-style list markers
 	type: class-toggle
 - 	
+	id: disable-callout-styling
+	title: Restore default Callout styling
+	type: class-toggle
+-
+	id: disable-custom-icons
+	title: Restore default icon styling
+	type: class-toggle
+-
 	id: disable-hover-header
 	title: Disable Compact Panels in the sidebar   
 	type: class-toggle
@@ -180,18 +187,11 @@ settings:
 	title: Disable title style for H1 Headings
 	type: class-toggle
 -
-	id: disable-list-styling
-	title: Restore bullet-style list markers
+	id: disable-performance-tweaks
+	title: Disable performance tweaks
+	description: Deactivates special CSS hacks which typically improve editor performance. 
 	type: class-toggle
 - 	
-	id: disable-callout-styling
-	title: Restore default Callout styling
-	type: class-toggle
--
-	id: disable-custom-icons
-	title: Restore default icon styling
-	type: class-toggle
--
 	id: ss-section-heading
 	title: Enable optional features
 	type: heading

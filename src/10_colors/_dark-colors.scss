@@ -185,12 +185,14 @@
 		var(--glass-base-l),
 		var(--shadow-strong);
 
-		// Interface shadows
+	// Interface shadows
 
 	--shadow-workspace: 
 		0 -0.25px 1.75px -1px var(--trans-faint-60),
 		0 0 16px var(--trans-strong-00);
 	--shadow-workspace-multi: none;
+	--menu-shadow: var(--shadow-normal);
+	--shadow-canvas-node: 0px 0px 16px 0px var(--trans-dark-10);
 	--shadow-fab: 
 		var(--shadow-input),
 		0px 2px 12px 0px var(--trans-dark-10);

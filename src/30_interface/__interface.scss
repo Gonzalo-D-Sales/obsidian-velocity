@@ -7,7 +7,7 @@
 // By tingmelvin
 
 body.improve-pinned-tabs .mod-root > .workspace-tabs:not(.mod-stacked) .workspace-tab-header:has(.mod-pinned,.mod-linked) {
-	max-width: 60px;
+	max-width: 64px;
 	> .workspace-tab-header-inner {
 		background-color: var(--trans-faint-05);
 	}
