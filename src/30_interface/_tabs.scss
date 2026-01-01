@@ -99,6 +99,9 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
     .workspace-tab-header-status-icon {
         padding: 4px;
     }
+    .workspace-tab-header-status-container:has(.mod-linked) + .workspace-tab-header-inner-close-button {
+        display: none;
+    }
 }
 
 body.prevent-exit

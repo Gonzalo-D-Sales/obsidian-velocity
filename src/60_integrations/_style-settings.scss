@@ -136,11 +136,13 @@
     }
 }
 
+// Paint flavor text
+
 .theme-light {
     --paint-description: "The default color scheme for Velocity. A timeless classic with a mild futuristic touch.";
 }
 .theme-light.white {
-    --paint-description: "The original colors of Obsidian. Familiar, clean and with a totally neutral character, perfect for the aspiring minimalist.";
+    --paint-description: "The original colors of Obsidian. Familiar, clean and of a totally neutral character, perfect for the aspiring minimalist.";
 }
 .theme-light.utopia {
     --paint-description: "A serene off-white tan color scheme inspired by jdanielmourao's Sanctum, a classic among Obsidian themes.";
@@ -152,5 +154,5 @@
     --paint-description: "With a stong green accent and metallic sheen, this retro-futuristic color scheme harkens back to the glory days of Web 2.0 interface design.";
 }
 .theme-light.jetblue {
-    --paint-description: "A cool blue paint scheme inspired by the Audi R8 and the Nord color palette. Sleek and modern with a touch of elegance.";
+    --paint-description: "A cool blue paint scheme inspired by the Audi R8 and the Nord color palette. Sleek and industrial with a touch of elegance.";
 }
