@@ -89,7 +89,7 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
 		}
 	}
 	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
-		--icon-color: var(--control-icon-color);
+		--icon-color: var(--fab-color-active);
 		--icon-color-hover: var(--icon-color);
 		--icon-color-focused: var(--icon-color);
 	}

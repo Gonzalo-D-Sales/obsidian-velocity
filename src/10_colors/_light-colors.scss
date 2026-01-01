@@ -74,13 +74,14 @@
 	--trans-faint-50: oklch(0% 0 0 / 0.145);
 	--trans-faint-60: oklch(0% 0 0 / 0.32);
 
+	--trans-white-00: oklch(var(--bl-00) 0 0 / 0.75);
+	--trans-white-10: oklch(var(--bl-00) 0 0 / 0.625);
+
 	--text-normal: var(--color-base-90);
 	--text-selection: oklab(from var(--color-accent) l a b / 0.15);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
 	--text-highlight-bg-search: oklch(from var(--color-highlight) 0.9 c h / 0.625);
-
-	--link-unresolved-lch: 0.625;
 
 	--bg-main-inner: oklch(97.5% 0.00125 var(--bhue));
 	--bg-main-outer: oklch(94.5% 0.00625 var(--bhue));
@@ -108,10 +109,12 @@
 
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--icon-color);
+	--fab-color-active: var(--text-normal);
 
 	--hr-color: var(--trans-faint-30);
 
 	--link-color-sidebar: var(--color-accent-1);
+	--link-unresolved-lch: 0.625;
 
 	--list-bullet-color: var(--text-muted);
 	--list-dash-color: oklch(0% 0 0 / 0.25);
@@ -121,7 +124,8 @@
 
 	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
 	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.725);
-	
+	--modal-community-header-bg: var(--trans-strong-10);
+
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
 	--nav-text-color: var(--text-normal);
@@ -177,6 +181,7 @@
 
 	// Component shadows
 	--shadow-button: var(--glass-base), var(--shadow-muted);
+	--shadow-button-error: var(--shadow-button);
 	--shadow-input: 0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 0 0 0 2.5px var(--color-accent-3);
 	--shadow-toggle:

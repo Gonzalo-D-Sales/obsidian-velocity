@@ -346,9 +346,11 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	font-family: var(--font-interface-theme);
 	font-weight: var(--font-normal-linux);
 }
-.setting-hotkey.has-conflict,
 .hotkey-filter {
 	box-shadow: var(--shadow-button);
+}
+.setting-hotkey.has-conflict{
+	box-shadow: var(--shadow-button-error);
 }
 .setting-hotkey.mod-empty {
 	color: var(--text-faint);
@@ -360,12 +362,12 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 	padding-inline: 10px 4px;
 }
 .hotkey-filter-remove-button {
-    color: var(--trans-strong-10);
+    color: var(--trans-white-00);
 }
 .hotkey-filter-remove-button:hover {
-	background-color: var(--trans-strong-20);
+	background-color: var(--trans-white-10);
 	border-radius: var(--radius-l);
-    color: var(--text-accent);
+    color: var(--color-accent);
 }
 
 // --> Community Modal <--
@@ -382,7 +384,7 @@ body:not(.is-phone) .mod-community-modal .modal-sidebar {
 }
 
 body:not(.is-phone) .community-modal-controls {
-	background-color: var(--trans-strong-10);
+	background-color: var(--modal-community-header-bg);
 	backdrop-filter: var(--blur-m);
 	border-radius: calc(var(--radius-settings) - 14px); 
 	box-shadow: var(--glass-base-m), var(--shadow-muted);
@@ -471,13 +473,13 @@ body:not(.is-phone) .mod-community-theme .community-item {
 	display: grid;
 	grid-template-columns: 4fr 3fr;
 	&.is-selected .placeholder-icon > svg {
-		color: var(--trans-strong-20);
+		color: var(--trans-white-10);
 	}
 }
 body:not(.is-phone) .community-item.is-selected, 
 body:not(.is-phone) .community-item.is-selected:hover {
 	background-color: var(--interactive-accent);
-    box-shadow: var(--glass-base-m), var(--shadow-faint);
+    box-shadow: var(--shadow-button);
 }
 body:not(.is-phone) .community-item-name {
 	display: flex;
@@ -547,7 +549,7 @@ body:not(.is-phone) .modal.mod-community-modal .community-item .suggestion-highl
     display: contents;
 }
 body:not(.is-phone) .modal.mod-community-modal .community-item.is-selected .suggestion-highlight {
-	color: var(--trans-strong-20);
+	color: var(--trans-white-10);
     display: contents;
 }
 
@@ -639,8 +641,8 @@ input.prompt-input::placeholder {
 	background-color: var(--interactive-accent);
 	box-shadow: var(--shadow-suggestion-item);
 	color: var(--text-on-accent);
-	--text-muted: var(--trans-strong-10);
-	--text-accent: var(--trans-strong-10);
+	--text-muted: var(--trans-white-00);
+	--text-accent: var(--trans-white-00);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;

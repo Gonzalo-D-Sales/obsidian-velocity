@@ -54,7 +54,7 @@
 .tree-item-self.is-being-dragged {
 	background-color: var(--interactive-accent) !important;
 	box-shadow: var(--shadow-s) !important;
-	--nav-collapse-icon-color: var(--trans-strong-10) !important;
+	--nav-collapse-icon-color: var(--trans-white-00) !important;
 }
 
 .collapse-icon svg.svg-icon {
@@ -65,5 +65,5 @@
 	letter-spacing: 0.075em;
 }
 .tree-item-self.is-being-dragged > .nav-file-tag {
-	color: var(--trans-strong-10);
+	color: var(--trans-white-00);
 }

@@ -184,9 +184,10 @@ button.mod-cta.mobile-tap,
 button.mod-warning,
 button.mod-warning:focus,
 button.mod-warning.mobile-tap {
-	box-shadow: var(--glass-base), var(--shadow-muted);
+	box-shadow: var(--shadow-button-error);
 	font-weight: var(--font-normal-linux);
 }
+
 button.mod-cta:hover,
 :is(.mod-root, .popover) .metadata-add-button:hover {
 	background-color: var(--interactive-accent);
@@ -351,7 +352,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 	height: var(--toggle-thumb-height) !important;
 	margin-top: var(--toggle-border-width) !important;
 	right: -8px !important;
-	--toggle-thumb-color: var(--trans-strong-10);
+	--toggle-thumb-color: var(--trans-white-00);
 }
 .checkbox-container.is-enabled:active::after {
 	left: -8px !important;
