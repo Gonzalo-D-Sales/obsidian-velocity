@@ -1,5 +1,4 @@
 .theme-dark {
-	
 	--accent-h: 215;	
 	--accent-s: 100%;	
 	--accent-l: 53%;
@@ -8,8 +7,8 @@
 	--color-red: #fb464c;
 	--color-orange-rgb: 233, 151, 63;
 	--color-orange: #e9973f;
-	--color-yellow-rgb: 224, 222, 113;
-	--color-yellow: #e0de71;
+	--color-yellow-rgb: 224, 212, 113;
+	--color-yellow: rgb(224, 212, 113);
 	--color-green-rgb: 68, 207, 110;
 	--color-green: #44cf6e;
 	--color-cyan-rgb: 83, 223, 221;
@@ -23,27 +22,28 @@
 
 	--callout-quote: 150, 150, 160;
 
-	--base-hue: 284;
-	--base-sat-xtr: 0.007500;
-	--base-sat-str: 0.003750;
-	--base-sat-med: 0.001250;
-	--base-sat-low: 0.000000;
+	--bhue: 281;
+	--bsat-xtr: 0.007500;
+	--bsat-str: 0.003750;
+	--bsat-med: 0.001250;
+	--bsat-low: 0.000000;
+	--bsat-modal: 0.00175;
 	
-	--color-base-00: oklch(23.50% var(--base-sat-low) var(--base-hue));
-	--color-base-05: oklch(24.00% var(--base-sat-low) var(--base-hue));
-	--color-base-10: oklch(26.25% var(--base-sat-str) var(--base-hue));
-  	--color-base-20: oklch(27.50% var(--base-sat-str) var(--base-hue));
-	--color-base-25: oklch(31.25% var(--base-sat-str) var(--base-hue));
-  	--color-base-30: oklch(34.50% var(--base-sat-str) var(--base-hue));
-	--color-base-35: oklch(36.25% var(--base-sat-str) var(--base-hue));
-	--color-base-40: oklch(43.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-50: oklch(52.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-55: oklch(57.50% var(--base-sat-xtr) var(--base-hue));
-	--color-base-60: oklch(63.75% var(--base-sat-xtr) var(--base-hue));
-	--color-base-70: oklch(71.25% var(--base-sat-str) var(--base-hue));
-	--color-base-80: oklch(77.50% var(--base-sat-str) var(--base-hue));
-	--color-base-90: oklch(86.25% var(--base-sat-str) var(--base-hue));
-   --color-base-100: oklch(93.75% var(--base-sat-low) var(--base-hue));
+	--color-base-00: oklch(23.50% var(--bsat-low) var(--bhue));
+	--color-base-05: oklch(24.00% var(--bsat-low) var(--bhue));
+	--color-base-10: oklch(26.25% var(--bsat-str) var(--bhue));
+  	--color-base-20: oklch(27.50% var(--bsat-str) var(--bhue));
+	--color-base-25: oklch(31.25% var(--bsat-str) var(--bhue));
+  	--color-base-30: oklch(34.50% var(--bsat-str) var(--bhue));
+	--color-base-35: oklch(36.25% var(--bsat-str) var(--bhue));
+	--color-base-40: oklch(43.75% var(--bsat-xtr) var(--bhue));
+	--color-base-50: oklch(52.50% var(--bsat-xtr) var(--bhue));
+	--color-base-55: oklch(57.50% var(--bsat-xtr) var(--bhue));
+	--color-base-60: oklch(63.75% var(--bsat-xtr) var(--bhue));
+	--color-base-70: oklch(71.25% var(--bsat-str) var(--bhue));
+	--color-base-80: oklch(77.50% var(--bsat-str) var(--bhue));
+	--color-base-90: oklch(86.25% var(--bsat-str) var(--bhue));
+   --color-base-100: oklch(93.75% var(--bsat-low) var(--bhue));
 
     --trans-dark-00: oklch(from black l c h / 0.375);
 	--trans-dark-10: oklch(from black l c h / 0.1875);
@@ -65,19 +65,16 @@
 	--trans-faint-60: oklch(100% 0.020 283 / 0.3500);
 	
 	--text-normal: var(--color-base-90);
-	--text-selection: hsla(var(--color-accent-hsl), 0.15);
+	--text-selection: oklab(from var(--color-accent) l a b / 0.25);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.75 0.25 h / 0.3125);
-	--text-highlight-bg-rgb: var(--color-highlight-rgb);
-	--text-highlight-ul-color: oklch(from var(--color-highlight) 0.75 0.2 h);
-	--text-highlight-bg-search: var(--text-highlight-bg);
-	--text-highlight-bg-search-active: oklch(from var(--color-highlight) 0.875 0.375 h / 0.55);
+	--text-highlight-bg-search: oklch(from var(--color-highlight) 0.875 0.375 h / 0.5);
 
 	--bg-main-inner: var(--color-base-20);
 	--bg-main-outer: var(--color-base-10); 
 	--bg-main-workspace: radial-gradient( at 50% 50%, 
-		var(--bg-main-inner) 15%, 
-		var(--bg-main-outer) 150%
+		var(--bg-main-inner) 0%, 
+		var(--bg-main-outer) 200%
 		);
 
 	--background-modifier-border: var(--trans-faint-20);
@@ -91,18 +88,18 @@
 	
 	--color-accent-1: color-mix(in oklab, var(--color-accent) 64%, #fff 36%);
 	--color-accent-2: color-mix(in oklab, var(--color-accent-1), transparent 8%);
-	--color-accent-3: color-mix(in oklab, var(--color-accent), #fff 20%);
-	--color-accent-4: color-mix(in oklab, var(--color-accent) 50%, transparent 75%);
-	--color-accent-5: color-mix(in oklab, var(--text-selection) 100%, transparent 75%);
-	--color-accent-6: color-mix(in oklab, var(--text-selection) 40%, transparent 100%); 
-
+	--color-accent-3: color-mix(in oklab, var(--color-accent) 50%, transparent 75%);
+	--color-accent-4: color-mix(in oklab, var(--text-selection) 30%, transparent 70%);
+	
 	--bases-cards-background: var(--trans-faint-05);
 
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-40);
 
-	--fab-bg: var(--background-primary-alt);
-	--fab-color: var(--color-base-80);
+	--control-icon-color: color-mix(in oklab, var(--color-base-80), var(--color-base-90));
+
+	--fab-bg: var(--background-primary);
+	--fab-color: var(--icon-color);
 
 	--hr-color: var(--trans-faint-30);
 
@@ -115,9 +112,9 @@
 	--list-dash-color: var(--trans-faint-60);
 
 	--modal-background: 
-		color-mix(in oklab, var(--trans-strong-00), var(--trans-strong-30));
+		oklch(27.75% var(--bsat-modal) var(--bhue) / 0.625);
 	--modal-small-background: 
-		color-mix(in oklab, var(--trans-strong-10) 25%, var(--trans-strong-20));
+		oklch(27.75% var(--bsat-modal) var(--bhue) / 0.625);
 
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--divider-color);
@@ -154,9 +151,9 @@
 	--input-shadow-hover: none;
 
 	--shadow-faint: 
-		0px 3px 21px 0px var(--trans-dark-10);	
+		0px 3px 15px 0px var(--trans-strong-00);	
 	--shadow-muted: 
-		0px 3px 18px 0px var(--trans-dark-00);
+		0px 3px 18px 0px var(--trans-dark-10);
 	--shadow-normal: 
 		0px 3px 18px 0px var(--color-base-00);
 	--shadow-strong: 
@@ -175,11 +172,11 @@
 		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.1), 
 		inset 0 8px 16px rgba(255, 255, 255, 0.015);
 	--glass-button: 
-		inset 2px 2px 2.5px -0.5px oklab(from var(--interactive-accent) calc(l + 0.15) a b / 0.75), 
-		inset -2px -2px 2.5px -0.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75);
+		inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.625), 
+		inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.625);
 	--glass-button-l: 
-		inset 3px 3px 3px -1px oklab(from var(--interactive-accent) calc(l + 0.15) a b / 0.75), 
-		inset -3px -3px 3px -1px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75);
+		inset 4.5px 4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.625), 
+		inset -4.5px -4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.625);
 
 	--shadow-s: 
 		var(--glass-base),
@@ -188,15 +185,7 @@
 		var(--glass-base-l),
 		var(--shadow-strong);
 
-		// Interface shadows 
-
-	--shadow-input: 
-		0px 0px 0px 0.5px var(--trans-faint-30);
-	--shadow-input-active: 
-		0 0 0 2.25px var(--color-accent-4);
-	--shadow-muted: 
-		0px 8px 16px 0px var(--trans-strong-10);	
-
+		// Interface shadows
 
 	--bases-cards-shadow-hover: 
 		0 0 0 0.375px var(--trans-faint-60);
@@ -223,14 +212,14 @@
 		// Component shadows 
 	--shadow-button: 
 		var(--glass-button), 
-		var(--shadow-muted);
+		var(--shadow-faint);
 	--shadow-input: 
 		0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 
-		0 0 0 2.5px var(--color-accent-4);
+		0 0 0 2.5px var(--color-accent-3);
 	--shadow-toggle:
-		inset 1.25px 1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.125) a b / 0.75), 
-		inset -1.25px -1.25px 2px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75);
+		inset 1.5px 1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.125) a b / 0.75), 
+		inset -1.5px -1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75);
 		// Markdown item shadows 
 
 		// Modal interface shadows 

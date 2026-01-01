@@ -11,7 +11,7 @@ video {
 body.enable-dim-img.theme-dark 
 :is(.image-embed img, 
 	.markdown-rendered img) {
-	filter: opacity(0.75);
+	filter: opacity(0.5);
 	transition: filter var(--anim-fast-smooth);
 }
 body.enable-dim-img.theme-dark 

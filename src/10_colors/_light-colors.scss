@@ -78,8 +78,7 @@
 	--text-selection: oklab(from var(--color-accent) l a b / 0.15);
 
 	--text-highlight-bg: oklch(from var(--color-highlight) 0.9 c h / 0.33);
-	--text-highlight-bg-rgb: var(--color-highlight-rgb);
-	--text-highlight-bg-search: oklch(from var(--color-highlight) 0.9 c h / 0.67);
+	--text-highlight-bg-search: oklch(from var(--color-highlight) 0.9 c h / 0.625);
 
 	--link-unresolved-lch: 0.625;
 
@@ -105,6 +104,8 @@
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-50);
 
+	--control-icon-color: var(--color-base-90);
+
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--icon-color);
 
@@ -118,10 +119,9 @@
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
 
-	--modal-background: color-mix(in oklab, var(--trans-strong-10), var(--trans-strong-20));
-	--modal-small-background: color-mix(in oklab, var(--trans-strong-10) 75%, var(--trans-strong-20));
 	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
 	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.725);
+	
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);
 	--nav-text-color: var(--text-normal);

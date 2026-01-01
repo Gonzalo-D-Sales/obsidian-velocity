@@ -213,7 +213,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	padding-inline-start: 8px;
 }
 .bases-toolbar-menu .bases-toolbar-menu-container-header {
-	padding-inline: 2px;
+	padding-inline: 6zpx;
 	> * {
 		margin-block: 2px;
 		padding: 6px;
@@ -225,7 +225,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 		justify-content: space-between;
 	}
 	[class*="icon"] {
-		color: var(--color-base-80);
+		color: var(--control-icon-color);
 		--icon-stroke: var(--icon-stroke-thick);
 	}
 }
