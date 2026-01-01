@@ -194,6 +194,8 @@ body .markdown-rendered table thead tr > th {
 	font-size: var(--table-header-size);
 	line-height: var(--table-line-height);
 	padding-inline: 12px;
+	--bold-color: var(---table-header-color);
+	--italic-color: var(---table-header-color);
 }
 body .markdown-rendered table tr td {
 	border: none;

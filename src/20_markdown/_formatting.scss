@@ -30,6 +30,8 @@ del {
 :is(.markdown-source-view, .markdown-preview-view) mark {
 	box-decoration-break: clone;
 	padding-block: 0.125rem;
+	--bold-color: var(--text-normal);
+	--italic-color: var(--text-normal);
 }
 :is(.markdown-source-view, .markdown-preview-view) mark {
 	border-radius: var(--radius-xs);

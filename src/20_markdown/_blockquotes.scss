@@ -4,9 +4,11 @@
 	align-items: center;
 	border: none;
 	padding-inline: 1.75em 0;
-	--bold-color: var(--blockquote-color);	
-	--italic-color: var(--blockquote-color);
 	--math-color: var(--blockquote-color);
+}
+body:not(.enable-special-text) blockquote {
+	--bold-color: oklab(from var(--blockquote-color) l a b / 0.875);	
+	--italic-color: oklab(from var(--blockquote-color) l a b / 0.875);	
 }
 .HyperMD-quote,
 .markdown-rendered blockquote,

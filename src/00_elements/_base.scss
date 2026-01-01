@@ -26,6 +26,13 @@ body:not(.override-default-font) {
 	--font-text-override: "Raveo" !important;
 }
 
+// Unfocused colors
+
+body:not(.is-focused) {
+	--tab-text-color-active: var(--tab-text-color);
+	--control-icon-color: var(--icon-color);
+}
+
 //
 // =========================== ===========================
 // 1 - Foundations

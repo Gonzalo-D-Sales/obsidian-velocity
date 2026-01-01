@@ -49,7 +49,6 @@ body:not(.is-phone) .mod-sidedock {
 }
 .bases-table-header-label {
 	padding-inline-start: 6px;
-	text-transform: capitalize;
 }
 .bases-td {
 	--divider-color-hover: var(--color-base-30);
@@ -61,7 +60,8 @@ body:not(.is-phone) .mod-sidedock {
 	box-shadow: none;
 	font-weight: var(--font-normal);
 }
-.metadata-input.mod-datetime {
+.metadata-input.mod-datetime,
+.bases-cards-line > .metadata-input.mod-date {
 	letter-spacing: -0.5px;
 }
 
@@ -156,6 +156,9 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 		background-color: var(--trans-faint-25);
 	}
 }
+.text-icon-button > .text-button-label {
+	text-box-trim: trim-both;
+}
 .bases-toolbar-views-menu .mod-aux {
 	display: none;
 }
@@ -180,7 +183,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	scrollbar-gutter: unset;
 }
 .bases-cards-item {
-	border-radius: var(--radius-s);
+	border-radius: var(--radius-sm);
 	padding: 8px 2px 4px;
 	font-weight: var(--font-normal);
 	transition: box-shadow var(--anim-super-smooth);
@@ -213,7 +216,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	padding-inline-start: 8px;
 }
 .bases-toolbar-menu .bases-toolbar-menu-container-header {
-	padding-inline: 6zpx;
+	padding-inline: 6px;
 	> * {
 		margin-block: 2px;
 		padding: 6px;

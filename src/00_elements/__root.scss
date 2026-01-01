@@ -6,6 +6,7 @@ body {
 
     --vl-ease-out: cubic-bezier(0.3, 0.75, 0, 1);
     --nav-header-timing: var(--vl-ease-out);
+
     // Animation timing
 
     --anim-fast-delay: var(--anim-duration-fast) var(--anim-motion-delay);
@@ -32,7 +33,10 @@ body {
     --bases-table-row-border-width: 0;
     --bases-table-text-size: var(--table-text-size);
     --bases-table-row-height: 32px;
+    --bases-cards-line-height: 26px;
     --bases-cards-label-color: var(--icon-color);
+    --bases-cards-shadow: none;
+    --bases-cards-shadow-hover: none;
 
     // Blockquotes
     --blockquote-color: var(--text-muted);

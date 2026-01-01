@@ -20,12 +20,12 @@ settings:
 	id: theme-paint-light
 	title: Select paint job
 	type: class-select
-	default: none
+	default: velocity
 	options:
 		- label: Obsidian White
 		  value: white
         - label: Velocity Silver 
-          value: none
+          value: velocity
 		- label: Utopia Gray
           value: utopia    
 		- label: Touring Beige
@@ -38,12 +38,12 @@ settings:
 	id: theme-paint-dark
 	title: Select paint job
 	type: class-select
-	default: none
+	default: velocity-dark
 	options:
 		- label: Obsidian Black
 		  value: black
         - label: Velocity Black
-          value: none
+          value: velocity-dark
 		- label: Touring Beige
           value: beige
 		- label: British Racing Green

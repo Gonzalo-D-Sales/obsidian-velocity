@@ -2,23 +2,23 @@
 	--accent-h: 215;
 	--accent-s: 100%;
 	--accent-l: 55%;
-
-	--color-red-rgb: 230, 52, 52;
-	--color-red: rgb(230, 52, 52);
-	--color-orange-rgb: 236, 117, 0;
-	--color-orange: rgb(236, 117, 0);
+	
+	--color-red-rgb: 233, 49, 58;
+	--color-red: rgb(233, 49, 58);
+	--color-orange-rgb: 241, 110, 53;
+	--color-orange: rgb(241, 110, 53);
 	--color-yellow-rgb: 229, 169, 37;
 	--color-yellow: rgb(229, 169, 37);
-	--color-green-rgb: 42, 185, 71;
-	--color-green: rgb(42, 185, 71);
-	--color-cyan-rgb: 5, 178, 197;
-	--color-cyan: rgb(5, 178, 197);
-	--color-blue-rgb: 42, 122, 241;
-	--color-blue: rgb(42, 122, 241);
-	--color-purple-rgb: 136, 75, 231;
-	--color-purple: rgb(136, 75, 231);
-	--color-pink-rgb: 215, 56, 123;
-	--color-pink: rgb(215, 56, 123);
+	--color-green-rgb: 0, 187, 93;
+	--color-green: rgb(0, 187, 93);
+	--color-cyan-rgb: 9, 186, 221;
+	--color-cyan: rgb(9, 186, 221);
+	--color-blue-rgb: 48, 114, 255;
+	--color-blue: rgb(48, 114, 255);
+	--color-purple-rgb: 124, 80, 237;
+	--color-purple: rgb(124, 80, 237);
+	--color-pink-rgb: 214, 50, 202;
+	--color-pink: rgb(214, 50, 202);
 
 	--bhue: 281;
 	--bsat-xtr: 0.0105;
@@ -99,7 +99,7 @@
 	--color-accent-3: color-mix(in oklch, var(--color-accent) 50%, transparent 75%);
 	--color-accent-4: color-mix(in oklch, var(--text-selection) 40%, transparent 60%);
 
-	--bases-cards-background: oklch(from var(--trans-faint-05) l 0.075 var(--bhue));
+	--bases-cards-background: var(--trans-strong-40);
 
 	--checkbox-border-color: var(--color-base-35);
 	--checkbox-border-color-hover: var(--color-base-50);
@@ -189,7 +189,4 @@
 		0px 1px 9px var(--trans-faint-05);
 	--shadow-setting-items-top: inset 1px 2px 2px 0 var(--trans-strong-10), 0px 1px 9px var(--trans-faint-05);
 	--shadow-suggestion-item: var(--glass-base-m), var(--shadow-muted);
-
-	// Other shadows
-	--bases-cards-shadow-hover: 0 0.125px 0px 0.375px var(--trans-faint-60);
 }
