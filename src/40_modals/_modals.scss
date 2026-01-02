@@ -167,7 +167,7 @@ body:not(.is-mobile) .modal-header {
 	filter: opacity(0.875);
 }
 .menu-item.is-warning:not(.is-disabled).selected {
-	box-shadow: var(--glass-base), var(--shadow-muted);
+	box-shadow: var(--shadow-button-error);
 	background-color: var(--text-error);
 }
 // Menu label (graph mode) 

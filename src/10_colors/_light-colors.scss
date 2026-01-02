@@ -2,7 +2,7 @@
 	--accent-h: 215;
 	--accent-s: 100%;
 	--accent-l: 55%;
-	
+
 	--color-red-rgb: 233, 49, 58;
 	--color-red: rgb(233, 49, 58);
 	--color-orange-rgb: 241, 110, 53;
@@ -33,7 +33,7 @@
 	--bl-20: 92%;
 	--bl-25: 88.25%;
 	--bl-30: 85.75%;
-	--bl-35: 78.75%;
+	--bl-35: 82.50%;
 	--bl-40: 75.25%;
 	--bl-50: 71.5%;
 	--bl-55: 65%;
@@ -92,7 +92,6 @@
 	--background-modifier-cover: color-mix(in oklab, var(--color-base-80) 45%, transparent 100%);
 	--background-modifier-hover: var(--trans-faint-20);
 
-	--bg-checkbox: radial-gradient(transparent 50%, var(--color-base-30) 55% 60%, transparent 65%);
 	--bg-checkbox-active: radial-gradient(transparent 56%, #ffffffdd 76%);
 
 	--color-accent-1: color-mix(in oklab, var(--color-accent), white 7.5%);
@@ -103,8 +102,8 @@
 	--bases-cards-background: var(--trans-strong-40);
 
 	--checkbox-border-color: var(--color-base-35);
-	--checkbox-border-color-hover: var(--color-base-50);
 
+	--control-icon-background: var(--background-primary);
 	--control-icon-color: var(--color-base-90);
 
 	--fab-bg: var(--background-primary);
@@ -170,6 +169,7 @@
 
 	// Interface shadows
 
+	--control-icon-shadow: var(--shadow-faint);
 	--menu-shadow:
 		inset 1px 1px 2px 0 var(--trans-strong-10), inset -1px -1px 2px 0 var(--trans-strong-10), var(--shadow-normal);
 	--shadow-canvas-node: 0px 0px 16px 0px var(--trans-faint-20);

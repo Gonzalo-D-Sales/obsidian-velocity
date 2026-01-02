@@ -41,13 +41,13 @@ body:not(.is-mobile) :is(.workspace-ribbon,
 	border-radius: var(--radius-xxl);
 	padding: 8px 12px;
 	transition: var(--anim-duration-moderate) var(--vl-ease-out);
-	--background-modifier-hover: var(--background-primary);
+	--background-modifier-hover: var(--control-icon-background);
 	// shadow on hover 
 	&:hover,
 	&:active,
 	&.has-active-menu {
 		box-shadow: 
-		var(--shadow-faint);
+		var(--control-icon-shadow);
 	}
 }
 // icon click 

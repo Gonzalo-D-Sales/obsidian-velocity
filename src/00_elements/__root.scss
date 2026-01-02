@@ -63,6 +63,7 @@ body {
     --checkbox-marker-color: var(--text-on-accent);
     --checklist-done-color: var(--strikethrough-color);
     --checkbox-size: 1.125rem;
+    --bg-checkbox: radial-gradient(transparent 50%, var(--checkbox-border-color) 55% 60%, transparent 65%);
 
     // Code
     --code-border-width: 0;
