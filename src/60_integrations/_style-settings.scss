@@ -70,7 +70,7 @@
 
 .theme-light
     .style-settings-container
-    > .style-settings-info-text[data-id="paint-preview-light"]
+    > .style-settings-info-text[data-id="paint-preview"]
     > .setting-item-info
     > *,
 .setting-item-heading[data-id*="ss-section-hidden"] {
@@ -80,12 +80,12 @@
     display: flex;
     gap: 8px;
 }
-.style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] {
+.style-settings-container > .style-settings-info-text[data-id="paint-preview"] {
     flex: 1 1;
     min-height: 200px;
     padding: 12px;
 }
-.style-settings-container > .style-settings-info-text[data-id="paint-preview-light"] > .setting-item-info {
+.style-settings-container > .style-settings-info-text[data-id="paint-preview"] > .setting-item-info {
     width: 100%;
     height: 100%;
     margin: unset;
@@ -93,7 +93,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-color: transparent;
-    background-image: var(--paint-image-light);
+    background-image: var(--paint-image);
 }
 .style-settings-container > .setting-item[data-id*="theme-paint"] {
     flex: 1 1;
@@ -136,10 +136,19 @@
     }
 }
 
+.setting-item[data-id*="color-highlight-rgb"] .setting-item-control::before {
+    content: 'Lorem Ipsum';
+    background-color: var(--text-highlight-bg);
+    border-radius: var(--radius-xs);
+    font-size: var(--font-ui-small);
+    font-weight: var(--font-semi-medium);
+    padding: 3px 6px;
+}
+
 // Paint flavor text
 
 .theme-light {
-    --paint-description: "The default color scheme for Velocity. A timeless classic with a mild futuristic touch.";
+    --paint-description: "The default light color scheme for Velocity. A timeless classic with a mild futuristic touch.";
 }
 .theme-light.white {
     --paint-description: "The original colors of Obsidian. Familiar, clean and of a totally neutral character, perfect for the aspiring minimalist.";
@@ -155,4 +164,11 @@
 }
 .theme-light.jetblue {
     --paint-description: "A cool blue paint scheme inspired by the Audi R8 and the Nord color palette. Sleek and industrial with a touch of elegance.";
+}
+
+.theme-dark {
+    --paint-description: "The default dark color scheme for Velocity. A deep dark gray with a tinge of blue.";
+}
+.theme-dark.black {
+    --paint-description: "The iconic original colors of Obsidian. Experience this classic color palette on a fresh new layout!";
 }

@@ -13,8 +13,7 @@ settings:
 	type: heading
 	level: 1
 -
-	id: paint-preview-light
-	description: BLANK
+	id: paint-preview
 	type: info-text
 - 
 	id: theme-paint-light
@@ -59,32 +58,32 @@ settings:
 	id: color-highlight-rgb
 	title: Select highlight color
 	type: variable-select
-	default: var(--color-yellow-rgb)
+	default: var(--highlight-yellow-rgb)
 	options:
 	- 
 		label: Pink
-		value: var(--color-pink-rgb)
+		value: var(--highlight-pink-rgb)
 	- 
 		label: Red
-		value: var(--color-red-rgb)
+		value: var(--highlight-red-rgb)
 	- 
 		label: Orange
-		value: var(--color-orange-rgb)
+		value: var(--highlight-orange-rgb)
 	- 
 		label: Yellow
-		value: var(--color-yellow-rgb)
+		value: var(--highlight-yellow-rgb)
 	- 
 		label: Green
-		value: var(--color-green-rgb)
+		value: var(--highlight-green-rgb)
 	- 
 		label: Cyan
-		value: var(--color-cyan-rgb)
+		value: var(--highlight-cyan-rgb)
 	- 
 		label: Blue
-		value: var(--color-blue-rgb)
+		value: var(--highlight-blue-rgb)
 	- 
 		label: Purple
-		value: var(--color-purple-rgb)
+		value: var(--highlight-purple-rgb)
 - 	
 	id: enable-special-text
 	title: Colored bold and italics

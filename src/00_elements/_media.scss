@@ -11,8 +11,8 @@ video {
 body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
 :is(.image-embed img, 
 	.markdown-rendered img) {
-	filter: opacity(0.75);
-	transition: filter var(--anim-fast-smooth);
+	filter: opacity(0.7);
+	transition: filter var(--anim-duration-moderate) var(--anim-motion-smooth);
 }
 body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
 :is(.image-embed img, 

@@ -189,14 +189,14 @@
 		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.15),
 		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.125), inset 0 8px 16px rgba(255, 255, 255, 0.015);
 	--glass-button:
-		inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75),
-		inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.5625);
+		inset 3.5px 3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
+		inset -3.5px -3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5625);
 	--glass-button-l:
-		inset 4.5px 4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.75),
-		inset -4.5px -4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.1) a b / 0.5625);
+		inset 4.5px 4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
+		inset -4.5px -4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5625);
 	--glass-button-error:
-		inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.1) a b / 0.75),
-		inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.1) a b / 0.5625);
+		inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.75),
+		inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.5625);
 
 	--shadow-s: var(--glass-base), var(--shadow-normal);
 	--shadow-l: var(--glass-base-l), var(--shadow-strong);

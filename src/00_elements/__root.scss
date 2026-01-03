@@ -376,8 +376,17 @@ body {
     --background-primary-alt: color-mix(in oklab, var(--background-primary), var(--background-secondary));
 
     --color-highlight: rgb(var(--color-highlight-rgb));
-    --color-highlight-rgb: var(--color-yellow-rgb);
+    --color-highlight-rgb: var(--highlight-yellow-rgb);
     --text-highlight-bg-rgb: var(--color-highlight-rgb);
+
+    --highlight-yellow-rgb: var(--color-yellow-rgb);
+    --highlight-green-rgb: var(--color-green-rgb);
+    --highlight-cyan-rgb: var(--color-cyan-rgb);
+    --highlight-blue-rgb: var(--color-blue-rgb);
+    --highlight-purple-rgb: var(--color-purple-rgb);
+    --highlight-pink-rgb: var(--color-pink-rgb);
+    --highlight-red-rgb: var(--color-red-rgb);
+    --highlight-orange-rgb: var(--color-orange-rgb);
 
     // Text
 

@@ -165,8 +165,9 @@ button:not([class*="mod-"]):focus-visible {
 
 button[class*="mod-"]:active,
 button[class*="mod-"]:hover:active,
-:is(.mod-root, .popover) .metadata-add-button:active,
-:is(.mod-root, .popover) .metadata-add-button:hover:active {
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button:active,
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button:hover:active,
+.mod-root .workspace-leaf-content[data-type="file-properties"] .metadata-add-button:active {
 	filter: brightness(1.0625) opacity(70%);
 }
 button[class*="mod-"]:focus-visible {
@@ -176,7 +177,8 @@ button[class*="mod-"]:focus-visible {
 button.mod-cta,
 button.mod-cta:focus,
 button.mod-cta.mobile-tap,
-:is(.mod-root, .popover) .metadata-add-button,
+.mod-root .metadata-add-button,
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button,
 .file-recovery-list-item-header.is-active {
 	box-shadow: var(--shadow-button);
 	font-weight: var(--font-normal-linux);
