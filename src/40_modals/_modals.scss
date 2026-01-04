@@ -191,7 +191,7 @@ body:not(.is-mobile) .modal-header {
 
 .modal-container > .modal.mod-settings {
 	contain: content;
-	background-color: var(--settings-background);
+	background: var(--settings-background);
 	animation-name: anim-modal-settings;
 	--modal-radius: var(--radius-settings);
 }
@@ -375,7 +375,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 body:not(.is-phone) .mod-community-modal,
 body:not(.is-phone) .mod-community-modal .modal-sidebar {
 	contain: content;
-	background-color: var(--settings-background);
+	background: var(--settings-background);
 	padding-block-start: 4px;
 	--modal-radius: var(--radius-settings);
 }

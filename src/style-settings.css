@@ -37,18 +37,22 @@ settings:
 	id: theme-paint-dark
 	title: Select paint job
 	type: class-select
-	default: velocity-dark
+	default: velocity-gray
 	options:
-		- label: Obsidian Black
-		  value: black
-        - label: Velocity Black
-          value: velocity-dark
-		- label: Touring Beige
-          value: beige
+		- label: Obsidian Gray
+		  value: gray
+        - label: Velocity Gray 
+          value: velocity-gray
+		- label: Jet Black
+          value: black  
+		- label: Touring Bronze 
+          value: bronze
 		- label: British Racing Green
           value: brg
-		- label: Rosso Vino
-          value: vino
+		- label: Nordblau Metallic 
+          value: nord
+		- label: Midnight Purple
+          value: midnight
 - 	
 	id: ss-section-hidden
 	title: BLANK

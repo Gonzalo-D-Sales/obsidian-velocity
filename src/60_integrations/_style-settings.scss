@@ -169,6 +169,21 @@
 .theme-dark {
     --paint-description: "The default dark color scheme for Velocity. A deep dark gray with a tinge of blue.";
 }
+.theme-dark.gray {
+    --paint-description: "The iconic original colors of Obsidian. Experience this classic, minimalist color palette on a fresh new layout.";
+}
 .theme-dark.black {
-    --paint-description: "The iconic original colors of Obsidian. Experience this classic color palette on a fresh new layout!";
+    --paint-description: "A zero-frills, borderline spartan paint scheme. Its pitch black high contrast is perfectly suited for power users, as well as OLED screens.";
+}
+.theme-dark.bronze {
+    --paint-description: "A mellow color scheme that takes after the spirit of old grand touring sports cars - perfect for those who love coffee brown and earthen tones.";
+}
+.theme-dark.brg {
+    --paint-description: "This color scheme takes after a classic from racing history. Imbue your notes with the elegance and vitality of a British super sports.";
+}
+.theme-dark.nord {
+    --paint-description: "A deeper blue take on the Nord color palette, with additional inspiration from real-world automotive paints. Calm, elegant and futuristic.";
+}
+.theme-dark.midnight {
+    --paint-description: "A stunning iridescent purple paint scheme inspired by a rare factory option for the Nissan GT-R. Its dynamic colors shift based on your notes' layout.";
 }

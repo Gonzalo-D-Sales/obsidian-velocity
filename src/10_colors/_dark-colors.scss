@@ -28,6 +28,7 @@
 	--bsat-med: 0.00125;
 	--bsat-low: 0;
 	--bsat-modal: 0.00175;
+	--bsat-trans: 1;
 
 	--bl-00: 23.50%;
 	--bl-05: 24.00%;
@@ -62,22 +63,22 @@
 
 	--trans-black-00: oklch(from black l c h / 0.375);
 	--trans-black-10: oklch(from black l c h / 0.1875);
-	--trans-strong-00: oklch(from var(--color-base-00) l c h / 0.75);
-	--trans-strong-05: oklch(from var(--color-base-00) l c h / 0.625);
-	--trans-strong-10: oklch(from var(--color-base-05) l c h / 0.375);
-	--trans-strong-20: oklch(from var(--color-base-20) l c h / 0.5);
-	--trans-strong-30: oklch(from var(--color-base-30) l c h / 0.5);
-	--trans-strong-40: oklch(from var(--color-base-30) l c h / 0.5);
+	--trans-strong-00: oklch(from var(--color-base-00) l var(--bsat-str) h / 0.75);
+	--trans-strong-05: oklch(from var(--color-base-00) l var(--bsat-str) h / 0.625);
+	--trans-strong-10: oklch(from var(--color-base-05) l var(--bsat-str) h / 0.375);
+	--trans-strong-20: oklch(from var(--color-base-20) l var(--bsat-str) h / 0.5);
+	--trans-strong-30: oklch(from var(--color-base-30) l var(--bsat-str) h / 0.5);
+	--trans-strong-40: oklch(from var(--color-base-30) l var(--bsat-str) h / 0.5);
 
-	--trans-faint-00: oklch(100% 0.075 283 / 0.015);
-	--trans-faint-05: oklch(100% 0.06 283 / 0.025);
-	--trans-faint-10: oklch(100% 0.05 283 / 0.05);
-	--trans-faint-20: oklch(100% 0.05 283 / 0.0625);
-	--trans-faint-25: oklch(100% 0.05 283 / 0.075);
-	--trans-faint-30: oklch(100% 0.075 283 / 0.1);
-	--trans-faint-40: oklch(100% 0.04 283 / 0.125);
-	--trans-faint-50: oklch(100% 0.02 283 / 0.2);
-	--trans-faint-60: oklch(100% 0.02 283 / 0.35);
+	--trans-faint-00: oklch(100% calc(var(--bsat-trans) * 0.075) var(--bhue) / 0.015);
+	--trans-faint-05: oklch(100% calc(var(--bsat-trans) * 0.060) var(--bhue) / 0.025);
+	--trans-faint-10: oklch(100% calc(var(--bsat-trans) * 0.050) var(--bhue) / 0.05);
+	--trans-faint-20: oklch(100% calc(var(--bsat-trans) * 0.050) var(--bhue) / 0.0625);
+	--trans-faint-25: oklch(100% calc(var(--bsat-trans) * 0.050) var(--bhue) / 0.075);
+	--trans-faint-30: oklch(100% calc(var(--bsat-trans) * 0.075) var(--bhue) / 0.1);
+	--trans-faint-40: oklch(100% calc(var(--bsat-trans) * 0.040) var(--bhue) / 0.125);
+	--trans-faint-50: oklch(100% calc(var(--bsat-trans) * 0.020) var(--bhue) / 0.2);
+	--trans-faint-60: oklch(100% calc(var(--bsat-trans) * 0.020) var(--bhue) / 0.35);
 
 	--trans-black-00: oklch(0 0 0 / 0.375);
 	--trans-black-10: oklch(0 0 0 / 0.1875);
