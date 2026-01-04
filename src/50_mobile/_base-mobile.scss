@@ -26,6 +26,12 @@
 		// vault profile 
 	--vault-profile-font-weight: var(--font-medium);
 }
+.theme-dark.is-mobile {
+	--color-base-00: oklch(var(--bl-00) var(--bsat-med) var(--bhue));
+	--color-base-05: oklch(var(--bl-05) var(--bsat-low) var(--bhue));
+	--color-base-10: oklch(var(--bl-10) var(--bsat-str) var(--bhue));
+	--color-base-20: oklch(var(--bl-20) var(--bsat-str) var(--bhue));
+}
 .is-phone {
 		// file margins 
 	--file-margins-x: 24px;
