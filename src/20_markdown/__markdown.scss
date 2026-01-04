@@ -19,6 +19,33 @@
 	}
 }
 
+// Line numbers
+
+body:not(.is-phone) .markdown-source-view.is-readable-line-width .cm-gutters {
+	position: absolute;
+	margin-inline: 12px;
+}
+.cm-gutters {
+	--text-faint: var(--color-base-35);
+}
+.cm-gutterElement {
+	font-weight: calc(var(--font-normal) + 50);
+	transition: color var(--anim-duration-moderate) var(--vl-ease-out);
+}
+.cm-gutterElement.cm-active {
+	color: var(--text-muted);
+}
+
+body:not(.is-phone) .mod-root .workspace-leaf-content {
+	container-type: inline-size;
+}
+@container (width < calc(47.5rem + max(5cqw, 32px))) {
+	body:not(.is-phone) .markdown-source-view.is-readable-line-width .cm-gutters {
+		position: relative;
+		padding-inline: unset;
+	}
+}
+
 // --> Links <--
 
 .external-link {

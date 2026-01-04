@@ -3,7 +3,8 @@
 	.cm-active:not(
 		.HyperMD-header-1,
 		.HyperMD-codeblock,
-		.HyperMD-quote)::after {
+		.HyperMD-quote,
+		.cm-gutterElement)::after {
 		content: '';
 		z-index: -2;
 		inset: -2px -6px;
