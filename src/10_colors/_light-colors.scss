@@ -124,6 +124,7 @@
 	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
 	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.725);
 	--modal-community-header-bg: var(--trans-strong-10);
+	--modal-community-item-bg: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
 
 	--nav-heading-color: var(--color-base-80);
 	--nav-header-bg: var(--trans-strong-40);

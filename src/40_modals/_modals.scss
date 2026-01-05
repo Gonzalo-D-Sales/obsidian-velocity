@@ -463,7 +463,7 @@ body:not(.is-phone) .community-modal-controls > .setting-item.mod-toggle > .sett
 }
 body:not(.is-phone) .community-item.tappable {
 	contain: content;
-	background-color: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
+	background-color: var(--modal-community-item-bg);
     border-radius: var(--radius-ml);
     border: none;
 	box-shadow: var(--shadow-faint);
