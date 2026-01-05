@@ -61,6 +61,9 @@
 
 // Hidden setting items
 
+body:not(.is-phone) .setting-item[data-id="safe-area-adjust"] {
+    display: none;
+}
 .theme-dark .style-settings-container > .setting-item[data-id="theme-paint-light"],
 .theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"] {
     display: none;

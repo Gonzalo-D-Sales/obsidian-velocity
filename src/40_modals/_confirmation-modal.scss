@@ -1,0 +1,79 @@
+.modal:is(.mod-file-rename, .mod-bookmark) .modal-header {
+	margin-block-end: 16px;
+}
+
+.modal-container.mod-dim > .modal:not(.mod-settings, .mod-community-modal),
+.modal-container.mod-confirmation > .modal {
+	contain: content;
+	background-color: var(--modal-small-background);
+	backdrop-filter: var(--blur-s);
+	border: unset;
+	--background-modifier-form-field: var(--trans-strong-20);
+	--background-modifier-form-field-hover: var(--trans-strong-20);
+}
+.modal-container.mod-confirmation > .modal {
+	> .modal-content > :is(div, p) {
+		color: var(--text-muted);
+		text-align: center;
+	}
+	> .modal-content > .mod-warning {
+		color: var(--text-error);
+	}
+	> .modal-content > * > *,
+	  .modal-content > .setting-item {
+		text-align: start;
+	}
+	.setting-item {
+		contain: layout;
+		border-top: unset;
+	}
+	.setting-item-name {
+		padding-inline-start: 2px;
+	}
+	.setting-item:not(:first-of-type)::before {
+		content: '';
+		contain: content;
+		position: absolute;
+		top: 0;
+		inset-inline: 2px;
+		background-color: var(--trans-faint-20);
+		border-radius: var(--radius-s);
+		padding-block: 0.0625em;
+	}
+}
+.modal .search-input-container::before {
+	z-index: 1;
+}
+.setting-font-list {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	margin-block: 8px;
+}
+
+// --> Confirmation Modal (Bookmarks/Iconic/etc.) <--
+
+.mod-confirmation.mod-dim {
+	.mod-cta {
+		order: 0;
+	}
+	button {
+		order: 1;
+	}
+	.setting-item:first-child .setting-item-control input:hover {
+		box-shadow: var(--shadow-input);
+		cursor: not-allowed;
+		}
+}
+
+
+// --> Rename File <--
+
+.mod-file-rename .rename-textarea {
+	font-weight: var(--font-normal);
+	font-size: var(--font-ui-medium);
+	text-align: center;
+	margin-bottom: -4px;
+	padding-block: 6px 4px;
+	padding-inline: 8px;
+}

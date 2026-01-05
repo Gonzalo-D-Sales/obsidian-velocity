@@ -440,6 +440,10 @@ body.show-view-header .bases-view::-webkit-scrollbar-track {
 	margin-block: 4px;
 }
 
+.is-mobile .workspace-drawer-tab-options-list::-webkit-scrollbar {
+	display: none;
+}
+
 // Special performance tweaks
 
 body:not(.is-mobile):not(.disable-performance-tweaks) {

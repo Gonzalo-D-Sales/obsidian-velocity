@@ -121,8 +121,10 @@
 	--background-primary: var(--color-base-05);
 	--background-secondary: var(--color-base-10);
 
-	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
-	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.725);
+	--mobile-nav-fade-bg: linear-gradient(var(--background-secondary), transparent calc(var(--touch-size-l) * 1.5));
+
+	--modal-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.675);
+	--modal-small-background: oklch(99.5% var(--bsat-modal) var(--bhue) / 0.7);
 	--modal-community-header-bg: var(--trans-strong-10);
 	--modal-community-item-bg: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
 

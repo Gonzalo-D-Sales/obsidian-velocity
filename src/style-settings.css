@@ -140,6 +140,16 @@ settings:
 	step: 0.25
 	format: 'rem'
 -
+	id: safe-area-adjust
+	title: (Phone) Adjust top interface item margins
+	description: Manually adjust the safe-area-inset variable to move the UI away from/closer to your phone's status bar.
+	type: variable-number-slider
+	default: 40
+	min: 0
+	max: 80
+	step: 4
+	format: 'px'
+-
 	id: switch-edit-icons
 	title: Inverted editing mode toggle display
 	description: Displays the icon of the current editing mode instead of the next mode.

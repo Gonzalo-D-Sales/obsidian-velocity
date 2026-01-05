@@ -136,6 +136,8 @@
 	--list-bullet-color: var(--color-base-80);
 	--list-dash-color: var(--trans-faint-60);
 
+	--mobile-nav-fade-bg: linear-gradient(oklch(from var(--background-secondary) l c h), transparent calc(var(--touch-size-l) * 1.5));
+
 	--modal-background: oklch(27.75% var(--bsat-modal) var(--bhue) / 0.625);
 	--modal-small-background: oklch(27.75% var(--bsat-modal) var(--bhue) / 0.625);
 	--modal-community-header-bg: var(--trans-strong-20);

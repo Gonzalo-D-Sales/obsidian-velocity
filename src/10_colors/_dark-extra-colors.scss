@@ -243,6 +243,7 @@
     --bl-00: 22.50%;
     --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) var(--bhue));
 
+    --background-secondary: oklch(from var(--color-base-20) l c calc(var(--bhue) - 30));
     --bg-main-inner: oklch(28.50% var(--bsat-xtr) calc(var(--bhue) - 30));
 	--bg-main-outer: oklch(24.75% var(--bsat-xtr) calc(var(--bhue) + 30));
 

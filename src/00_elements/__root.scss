@@ -44,8 +44,10 @@ body {
     --blockquote-border-thickness: 0.1875rem;
 
     // Blur values
-    --blur-s: blur(8px);
-    --blur-m: blur(12px);
+    --blur-brightness: 1;
+    --blur-saturation: 1.125;
+    --blur-radius-s: 8px;
+    --blur-radius-m: 12px;
 
     // Bold
     --bold-color: var(--color-base-100);
