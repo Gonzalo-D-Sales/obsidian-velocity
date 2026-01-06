@@ -4,17 +4,16 @@
 // =========================== ===========================
 
 body.is-mobile {
-
-	--mobile-sidebar-background: transparent !important;
+	// backgrounds
 	--bg-main-drawer-left: radial-gradient(at 100% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 150%);
 	--bg-main-drawer-right: radial-gradient(at 0% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 150%);
+	--mobile-sidebar-background: transparent !important;
+	--interactive-normal: var(--background-modifier-hover);
 	
 	// blur
 	--blur-radius-s: 6px;
 	--blur-radius-m: 10px;
 	--blur-radius-l: 16px;
-
-	--interactive-normal: var(--background-modifier-hover);
 
 	--mobile-sidebar-width: 100%;
 
@@ -50,37 +49,34 @@ body.is-mobile {
 .theme-dark.is-mobile {
 	--bg-main-drawer-left: radial-gradient(at 100% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 200%);
 	--bg-main-drawer-right: radial-gradient(at 0% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 200%);
+
+	// base colors
 	--color-base-00: oklch(var(--bl-00) var(--bsat-med) var(--bhue));
 	--color-base-05: oklch(var(--bl-05) var(--bsat-low) var(--bhue));
 	--color-base-10: oklch(var(--bl-10) var(--bsat-str) var(--bhue));
 	--color-base-20: oklch(var(--bl-20) var(--bsat-str) var(--bhue));
 	
+	// background variables
 	--interactive-normal: var(--trans-faint-25);
-	
 	--setting-items-background: var(--background-primary);
 	--settings-background: var(--background-secondary);
 
+	// shadows
 	--glass-base-m:
 		inset 1.3125px 1.625px 2px -1.25px rgba(255, 255, 255, 0.375),
 		inset -1.3125px -1.625px 2px -1.25px rgba(255, 255, 255, 0.25), 
 		inset 0 0 16px rgba(255, 255, 255, 0.033);
 	--glass-base-l:
 		inset 0 1.25px 2.5px -1px rgba(255, 255, 255, 0.25);
-		
 	--menu-shadow: var(--glass-base-l), var(--shadow-normal);
 }
-body.is-phone {
 
+body.is-phone {
+	// backgrounds
 	--tab-switcher-background: oklab(from var(--background-secondary) l a b / 0.5);
-	--tab-switcher-preview-background-shadow: var(--glass-base-l), var(--shadow-normal);
 
 	// file margins
 	--file-margins-x: 24px;
-
-	// Safe area
-	--safe-area-inset-top: calc(env(safe-area-inset-top) + var(--safe-area-adjust));
-	--safe-area-adjust: 40px;
-	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + 24px);
 
 	// smaller headings
 	--h1-size-alt: 1.5em;
@@ -94,18 +90,45 @@ body.is-phone {
 	// radii
 	--setting-items-radius: calc(var(--touch-radius-xs) + 4px);
 
+	// safe area
+	--safe-area-inset-top: calc(env(safe-area-inset-top) + var(--safe-area-adjust));
+	--safe-area-adjust: 40px;
+	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + 24px);
+
+	// shadows
+	--tab-switcher-preview-background-shadow: var(--glass-base-l), var(--shadow-normal);
+
 	// view header
 	--file-header-justify: start;
 }
-.is-tablet {
-	--file-margins-x: 5%;
-	--file-margins-y: 28px;
+
+body.is-tablet {
+	// backgrounds
 	--system-status-background: var(--background-secondary);
 
+	// font size tweaks
+	--font-ui-smaller: 13px;
+	--font-ui-small: 14px;
+	--font-ui-medium: 15px;
+
+	// file spacing
+	--file-margins-x: 5%;
+	--file-margins-y: 28px;
+	--frame-right-space: 4px;
+
+	// radii
 	--tab-radius: var(--radius-sm);
 	--modal-radius: var(--radius-settings);
 
-	--frame-right-space: 4px;
+	// toggles and sliders
+	--toggle-width: 56px;
+	--toggle-thumb-height: 16px;
+	--toggle-thumb-width: 16px;
+	--toggle-thumb-padding: 8px;
+	--slider-track-height: 28px;
+	--slider-thumb-height: 16px;
+	--slider-thumb-width: 16px;
+	--slider-thumb-y: -5px;
 }
 
 .is-mobile .workspace-leaf-content .tree-item-self,
@@ -179,6 +202,17 @@ body.is-phone {
 	padding-inline: 12px;
 	--tab-font-weight: var(--font-medium);
 }
+.is-tablet .workspace-drawer-tab-options {
+	padding-inline: 6px 8px;
+}
+
+// Drawer nav files
+.is-mobile .nav-files-container > *,
+.is-mobile .nav-folder > .tree-item-children  {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2px;
+}
 
 .is-mobile .workspace-drawer .search-input-container {
 	--input-radius: inherit;
@@ -195,6 +229,10 @@ body.is-phone {
 	backdrop-filter: var(--blur-m);
 	border-radius: var(--touch-radius-xxs);
 	scrollbar-gutter: unset;
+}
+.is-tablet .workspace-drawer-tab-options-list {
+	margin-inline: 6px 8px;
+	width: calc(100% - 14px);
 }
 .is-mobile .workspace-drawer-tab-options-list > .workspace-tab-header > .workspace-tab-header-inner {
 	border-radius: calc(var(--touch-radius-xs) * 0.5625);
@@ -221,6 +259,10 @@ body.is-phone {
 
 .is-mobile input[type="range"]::-webkit-slider-runnable-track {
 	padding-inline: 6px;
+}
+
+.is-tablet input[type='range'] {
+	width: 124px;
 }
 
 // Tab switcher phone
@@ -357,18 +399,13 @@ body.is-phone .mobile-navbar-action {
 
 // TABLET
 
+// tablet main workspace
 .is-tablet .workspace-drawer:not(.is-pinned) > * {
 	box-shadow: var(--shadow-fab);
 }
 
 .is-tablet .mod-root .workspace-tabs {
 	overflow: visible;
-}
-.is-tablet .mod-root {
-	padding-block-end: calc(var(--touch-size-xxs) / 2);
-	padding-inline: calc(var(--touch-size-xxs) / 2) !important;
-	transition: padding var(--anim-duration-moderate) var(--vl-ease-out);
-	z-index: 2;
 }
 .is-tablet .is-left-sidedock-open > .mod-root {
 	padding-inline-start: 0 !important;
@@ -384,6 +421,12 @@ body.is-phone .mobile-navbar-action {
 	z-index: 0;
 }
 
+.is-tablet .mod-root {
+	padding-block-end: calc(var(--touch-size-xxs) / 2);
+	padding-inline: calc(var(--touch-size-xxs) / 2) !important;
+	transition: padding var(--anim-duration-moderate) var(--vl-ease-out);
+	z-index: 2;
+}
 .is-tablet .mod-root .workspace-tab-container {
 	border-radius: var(--touch-radius-xs);
 	box-shadow: var(--shadow-workspace);
@@ -391,13 +434,28 @@ body.is-phone .mobile-navbar-action {
 .is-tablet .workspace-drawer .workspace-drawer-active-tab-container {
 	background-color: transparent;
 }
+
+
+// tablet root tabs
+.is-tablet .mod-root .workspace-tab-header-container {
+	padding-block: 4px 8px;
+	--tab-container-background: transparent;
+}
+.is-tablet .mod-root .workspace-tab-header-container-inner {
+	gap: 4px;
+	padding-block: 4px;
+}
+.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header .workspace-tab-header-inner-title {
+	font-weight: var(--font-semi-medium);
+}
 .is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-title {
 	padding-inline: 4px 10px;
 }
-.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
+.is-tablet:not(.prevent-exit) .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
 	padding-inline: 6px 10px;
 }
 
+// tablet view header
 .is-tablet .view-header {
 	padding-inline-start: 10px;
 }
@@ -415,15 +473,10 @@ body.is-phone .mobile-navbar-action {
 	text-box-trim: trim-both;
 }
 
-.is-tablet .mod-root .workspace-tab-header-container {
-	padding-block: 4px 8px;
-	--tab-container-background: transparent;
+// tablet tab header icons
+.is-tablet .sidebar-toggle-button .clickable-icon {
+	margin-block-end: 8px;
 }
-.is-tablet .mod-root .workspace-tab-header-container-inner {
-	gap: 4px;
-	padding-block: 4px;
-}
-
 .is-tablet .sidebar-toggle-button .clickable-icon {
 	margin-block-end: 8px;
 }
