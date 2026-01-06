@@ -550,10 +550,10 @@ body.is-tablet .mod-root .document-search-container {
 	--text-faint: var(--text-on-accent);
 	--text-error: var(--text-on-accent);
 }
-.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs .workspace-tab-header-container {
+.is-tablet.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs .workspace-tab-header-container {
 	--size-4-2: 2px;
 }
-.workspace-tabs .workspace-tab-header-container > * {
+.is-tablet .workspace-tabs .workspace-tab-header-container > * {
 	--size-4-2: 8px;
 }
 

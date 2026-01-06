@@ -1,0 +1,70 @@
+// Search input
+.omnisearch-input-container {
+	padding: 8px 8px 8px 16px;
+	gap: 8px;
+}
+.omnisearch-input-container__buttons {
+	display: none;
+}
+.omnisearch-input-container__buttons:has(button) {
+	display: unset;
+	margin-inline-end: 12px;
+	z-index: 1;
+}
+
+// Search content
+.suggestion-item.omnisearch-result {
+	border-radius: var(--radius-ml);
+}
+.omnisearch-result__title {
+	font-weight: var(--font-semibold);
+	gap: 0px;
+	margin-inline-start: 8px;
+}
+.omnisearch-result__extension,
+.omnisearch-result__counter {
+	margin-inline: 2px 8px;
+	text-box-trim: trim-both;
+	text-box-edge: cap alphabetic;
+}
+.omnisearch-result__counter {
+	opacity: 0.625;
+	font-style: italic;
+}
+.omnisearch-result__title > .omnisearch-result__icon {
+	display: none;
+}
+.omnisearch-result__folder-path {
+	background-color: var(--background-modifier-hover);
+	border-radius: var(--radius-m);
+	font-weight: var(--font-medium);
+	margin-block: 3px 6px;
+	margin-inline-start: 32px;
+	padding: 3px 9px;
+	gap: 2px;
+	width: max-content;
+}
+.omnisearch-result__folder-path::before {
+	content: '';
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	transform: translateX(-32px);
+	background-color: var(--text-muted);
+	-webkit-mask-position: -25% -25%;	
+	-webkit-mask-repeat: no-repeat;
+	-webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIxLjc1IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWNvcm5lci1kb3duLXJpZ2h0LWljb24gbHVjaWRlLWNvcm5lci1kb3duLXJpZ2h0Ij48cGF0aCBkPSJtMTUgMTAgNSA1LTUgNSIvPjxwYXRoIGQ9Ik00IDR2N2E0IDQgMCAwIDAgNCA0aDEyIi8+PC9zdmc+");
+	
+}
+.omnisearch-result__folder-path > .omnisearch-result__icon {
+	width: 14px;
+	height: 14px;
+	--icon-stroke: var(--icon-s-stroke-width);
+}
+.omnisearch-result__folder-path > span {
+	text-box-trim: trim-end;
+}
+.omnisearch-result__body {
+	font-size: var(--font-ui-smaller);
+	margin-inline-start: 0.75em;
+}

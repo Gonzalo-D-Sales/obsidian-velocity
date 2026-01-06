@@ -476,21 +476,6 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
 	--nn-theme-navitem-name-font-weight: var(--font-semibold);
 }
 
-// --> Omnisearch <--
-
-.omnisearch-input-container {
-	padding: 8px;
-	gap: 8px;
-}
-.omnisearch-input-container__buttons {
-	display: none;
-}
-.omnisearch-input-container__buttons:has(button) {
-	display: unset;
-	margin-inline-end: 12px;
-	z-index: 1;
-}
-
 // --> Tabs (plugin) <--
 
 .tabs-container {
