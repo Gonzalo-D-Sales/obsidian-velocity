@@ -73,7 +73,6 @@
     --bl-80: 76.25%;
     --bl-90: 80.00%;
     --bl-100: 86.25%;
-    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) 0);
     
     --trans-faint-30: oklch(100% 0 0 / 0.1375);
 
@@ -167,7 +166,7 @@
 
     --bl-00: 22.75%;
     --bl-05: 23.50%;
-    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) var(--bhue));
+    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) var(--bhue)) !important;
 
     --bg-main-inner: oklch(28.75% calc(var(--bsat-xtr) - 0.0025) var(--bhue));
 	--bg-main-outer: oklch(25.00% calc(var(--bsat-xtr) + 0.0025) var(--bhue));
@@ -205,7 +204,7 @@
 
     --bl-00: 23.00%;
     --bl-05: 23.75%;
-    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-str) - 0.0025) var(--bhue));
+    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-str) - 0.0025) var(--bhue)) !important;
 
     --bg-main-inner: oklch(28.25% calc(var(--bsat-str) - 0.0025) var(--bhue));
 	--bg-main-outer: oklch(25.50% calc(var(--bsat-str)  + 0.0025) var(--bhue));
@@ -241,14 +240,20 @@
     --bsat-trans: 1.25;
 
     --bl-00: 22.50%;
-    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) var(--bhue));
+    --color-base-00: oklch(var(--bl-00) calc(var(--bsat-xtr) - 0.005) var(--bhue)) !important;
 
-    --background-secondary: oklch(from var(--color-base-20) l c calc(var(--bhue) - 30));
     --bg-main-inner: oklch(28.50% var(--bsat-xtr) calc(var(--bhue) - 30));
 	--bg-main-outer: oklch(24.75% var(--bsat-xtr) calc(var(--bhue) + 30));
 
+    --bg-main-drawer-left: radial-gradient(at 100% 50%, 
+        var(--bg-main-inner) 0%, 
+        var(--bg-main-outer) 200%) !important;
+    --bg-main-drawer-right: radial-gradient(at 0% 50%, 
+        var(--bg-main-inner) 0%, 
+        var(--bg-main-outer) 200%) !important;
+    
     --highlight-yellow-rgb: 239, 211, 0;
-    --settings-background: radial-gradient(at -100% 50%, var(--bg-main-inner) 0%, var(--bg-main-outer) 200%);
+    --settings-background: radial-gradient(at -100% 50%, var(--bg-main-inner) 0%, var(--bg-main-outer) 200%) !important;
 }
 
 // Colored bold and italics

@@ -57,7 +57,7 @@ body.is-mobile {
 
 	// background variables
 	--background-modifier-hover: var(--trans-faint-20);
-	--interactive-normal: var(--trans-faint-25);
+	--interactive-normal: var(--trans-faint-20);
 	--setting-items-background: var(--background-primary);
 	--settings-background: var(--background-secondary);
 
@@ -370,6 +370,9 @@ body.is-phone .mobile-navbar-action {
 }
 
 // Settings
+.is-tablet .modal.mod-settings .vertical-tab-content {
+	background-color: transparent;
+}
 
 .is-mobile .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 0;
@@ -440,6 +443,9 @@ body.is-phone .mobile-navbar-action {
 // tablet main workspace
 .is-tablet .workspace-drawer:not(.is-pinned) > * {
 	box-shadow: var(--shadow-fab);
+}
+.is-tablet .workspace-drawer.is-pinned .nav-buttons-container {
+	--icon-color: var(--text-muted);
 }
 
 .is-tablet .mod-root .workspace-tabs {
