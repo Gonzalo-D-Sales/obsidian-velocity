@@ -1,0 +1,180 @@
+body:not(.is-phone) .mod-community-modal,
+body:not(.is-phone) .mod-community-modal .modal-sidebar {
+	contain: content;
+	background: var(--settings-background);
+	padding-block-start: 4px;
+	--modal-radius: var(--radius-settings);
+}
+body:not(.is-phone) .mod-community-modal .modal-sidebar {
+	container-type: inline-size;
+}
+
+body:not(.is-phone) .community-modal-controls {
+	background-color: var(--modal-community-header-bg);
+	backdrop-filter: var(--blur-m);
+	border-radius: calc(var(--radius-settings) - 14px); 
+	box-shadow: var(--glass-base-m), var(--shadow-muted);
+	contain: content;
+	padding-inline: 0;
+	margin: 6px 14px -38px 14px;
+	min-height: 52px;
+	overflow: visible;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 1;
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+
+@container (width < 500px) {
+body:not(.is-phone) .mod-community-modal.mod-sidebar-layout {
+	.community-modal-controls {
+		flex-direction: column;
+		row-gap: 6px;
+		padding: 8px;
+	}
+	.community-modal-controls > .setting-item:first-child {
+		padding: 3px 4px !important;
+		margin-inline-end: unset;
+	}	
+	.community-modal-controls > .setting-item.mod-toggle {
+		padding-inline: unset;
+		--modal-community-sidebar-width: none;
+	}	
+	.setting-item.mod-toggle > .setting-item-control {
+		justify-content: flex-end;
+	}
+	.community-modal-search-results {
+		padding: 16px;
+	}
+}
+}
+body:not(.is-phone) .mod-community-modal .community-modal-controls > .setting-item {
+	padding-inline: 0 8px;
+	padding-block: unset;
+}
+body:not(.is-phone) .community-modal-controls > .setting-item:first-child {
+	margin-block: 0 !important;
+}
+body:not(.is-phone) .mod-community-modal .setting-item input {
+	--background-modifier-form-field: transparent;
+	--background-modifier-form-field-hover: transparent;
+}
+body:not(.is-phone) .mod-community-modal .community-modal-controls > .setting-item:first-child {
+	padding-inline: 8px;
+	flex: 1;
+	margin-inline-end: auto;
+}
+body:not(.is-phone) .mod-community-modal .community-modal-controls button.clickable-icon {
+    padding: 6px;
+}
+body:not(.is-phone) .community-modal-controls > .setting-item.mod-toggle {
+	padding-inline: 0 16px;
+	flex: 1;
+	--modal-community-sidebar-width: 200px;
+}
+body:not(.is-phone) .community-modal-controls > .setting-item.mod-toggle > .setting-item-control {
+	justify-content: space-evenly;
+}
+.community-modal-search-summary {
+	display: none;
+}
+
+.community-modal-search-results-wrapper {
+    border-top: none;
+	padding-top: 32px;
+}
+.community-modal-search-results {
+    gap: 10px;
+	padding: 16px 28px;
+}
+body:not(.is-phone) .community-item.tappable {
+	contain: content;
+	background-color: var(--modal-community-item-bg);
+    border-radius: var(--radius-ml);
+    border: none;
+	box-shadow: var(--shadow-faint);
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+body:not(.is-phone) .mod-community-theme .community-item {
+	display: grid;
+	grid-template-columns: 4fr 3fr;
+	&.is-selected .placeholder-icon > svg {
+		color: var(--trans-white-10);
+	}
+}
+body:not(.is-phone) .community-item.is-selected, 
+body:not(.is-phone) .community-item.is-selected:hover {
+	background-color: var(--interactive-accent);
+    box-shadow: var(--shadow-button);
+}
+body:not(.is-phone) .community-item-name {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font: var(--font-medium) 16px/var(--line-height-normal) var(--font-interface-theme);
+	font-variation-settings: 'opsz' 24;
+	grid-column: 1/3;
+	grid-row: 2;
+	margin-block-start: -2px;
+}
+body:not(.is-phone) .mod-community-theme .community-item-name {
+	margin-block-start: unset;
+	padding-inline: 2px 0;
+}
+body:not(.is-phone) .mod-community-theme .community-item-author {
+	grid-column: 1/2;
+	padding-inline-start: 2px;
+	order: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	text-wrap: nowrap;
+	text-box-trim: trim-both;
+}
+body:not(.is-phone) .mod-community-theme .community-item-downloads {
+	grid-row: 3;
+	grid-column: 2;
+	padding-inline: 0 3px;
+	text-align: end;
+	text-box-trim: trim-both;
+}
+body:not(.is-phone) .community-item-screenshot {
+	display: grid;
+    margin-block: 0 4px;
+	grid-column: 1/3;
+	grid-row: 1;
+	border-radius: var(--radius-xs);
+}
+.community-item .flair {
+	contain: content;
+	font-weight: var(--font-semibold);
+	border-radius: var(--radius-l);
+	padding-inline: 6px;
+	padding-block: var(--flair-padding);
+	text-indent: 1px;
+}
+body:not(.is-phone) .community-item-badge.mod-update {
+	contain: content;
+	color: var(--text-success);
+	background-color: color-mix(in oklab, var(--color-base-05), var(--color-base-10));
+	border-radius: 0 var(--radius-sm) 0 var(--radius-sm);
+	margin: -9px;
+	padding: 7px 7px 4px 8px;
+	--icon-size: var(--icon-s);
+}
+body:not(.is-phone) .community-item.is-selected .community-item-badge.mod-update {
+	color: white;
+	background-color: var(--interactive-accent);
+}
+
+// FROM: Willemstad 
+// By tingmelvin 
+// GPL-3.0 License 
+
+body:not(.is-phone) .modal.mod-community-modal .community-item .suggestion-highlight {
+	color: var(--interactive-accent);
+    display: contents;
+}
+body:not(.is-phone) .modal.mod-community-modal .community-item.is-selected .suggestion-highlight {
+	color: var(--trans-white-10);
+    display: contents;
+}

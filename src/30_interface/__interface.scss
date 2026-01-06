@@ -6,7 +6,10 @@
 // FROM Willemstad
 // By tingmelvin
 
-body.improve-pinned-tabs .mod-root > .workspace-tabs:not(.mod-stacked) .workspace-tab-header:has(.mod-pinned,.mod-linked) {
+body.improve-pinned-tabs
+	.mod-root
+	> .workspace-tabs:not(.mod-stacked)
+	.workspace-tab-header:has(.mod-pinned, .mod-linked) {
 	max-width: 64px;
 	> .workspace-tab-header-inner {
 		background-color: var(--trans-faint-05);
@@ -99,13 +102,9 @@ body:not(.is-mobile) {
 
 // PDF viewer in sidedock
 body:not(.is-phone) .mod-sidedock .pdf-toolbar {
-    border-radius: var(--radius-ml) var(--radius-ml) 0 0;
+	border-radius: var(--radius-ml) var(--radius-ml) 0 0;
 	padding: 8px;
 }
 body:not(.is-phone) .mod-sidedock .pdf-container {
-    border-radius: 0 0 var(--radius-ml) var(--radius-ml);
+	border-radius: 0 0 var(--radius-ml) var(--radius-ml);
 }
-
-// --> Empty State <--
-
-// REMOVED FOR NOW
