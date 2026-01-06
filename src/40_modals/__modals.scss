@@ -515,6 +515,7 @@ input.prompt-input::placeholder {
 	color: var(--text-on-accent);
 	--text-muted: var(--trans-white-00);
 	--text-accent: var(--trans-white-00);
+	--color-base-80: var(--trans-white-00);
 }
 .prompt .suggestion-item.is-selected .suggestion-hotkey {
 	background-color: transparent;
