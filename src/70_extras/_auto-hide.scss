@@ -1,0 +1,59 @@
+// ADAPTED FROM: Micro Mike
+// By ThisTheThe
+// MIT License
+
+// --> Sidebar Auto-Hide <--
+
+@media only screen and (width < 800px) {
+	body:not(.is-mobile, .is-popout-window, .disable-autohide)
+		:is(.mod-right-split, .mod-left-split, .workspace-ribbon, .sidebar-toggle-button) {
+		display: none;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) {
+		background: var(--background-primary);
+		--frame-right-space: 0px;
+		--frame-left-space: 0px;
+		--shadow-workspace: none;
+		--shadow-workspace-multi: none;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-split.mod-vertical {
+		gap: 0px !important;
+		padding: 0px;
+	}
+
+	body:not(.is-mobile, .is-popout-window, .disable-autohide)
+		.workspace-split.mod-root
+		> .workspace-tabs
+		> .workspace-tab-container {
+		margin-inline: 0px;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-tab-header-container-inner {
+		padding-inline-start: 0px !important;
+	}
+
+	body:not(.is-mobile, .is-popout-window, .disable-autohide).is-hidden-frameless
+		.mod-horizontal:last-of-type
+		> .workspace-tabs:nth-last-child(1 of .mod-top)
+		> .workspace-tab-header-container,
+	body:not(.is-mobile, .is-popout-window, .disable-autohide).is-hidden-frameless
+		.workspace-tabs:last-of-type:nth-last-child(1 of .mod-top)
+		> .workspace-tab-header-container {
+		margin-right: var(--frame-right-space-override);
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after {
+		content: "auto-hide is active";
+		border-radius: var(--radius-l);
+		color: var(--text-error);
+		position: absolute;
+		left: -128px;
+		bottom: 0px;
+		padding: 6px 8px;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide) .status-bar::after,
+	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar:hover::after {
+		background-color: oklch(from var(--text-error) l c h / 0.1);
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar::after {
+		background-color: transparent;
+	}
+}

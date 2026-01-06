@@ -1,0 +1,248 @@
+/* @settings
+name: Velocity - Quick Settings
+id: obsidian-velocity
+settings:
+-
+	id: ss-section-title
+	description: Theme colors
+	type: info-text
+	markdown: true
+- 	
+	id: ss-section-hidden-paint
+	title: BLANK
+	type: heading
+	level: 1
+-
+	id: paint-preview
+	type: info-text
+- 
+	id: theme-paint-light
+	title: Select paint job
+	type: class-select
+	default: velocity
+	options:
+		- label: Obsidian White
+		  value: white
+        - label: Velocity Silver 
+          value: velocity
+		- label: Utopia Gray
+          value: utopia    
+		- label: Touring Beige
+          value: beige
+		- label: Millennium Green
+          value: milgreen
+		- label: Jet Blue Metallic
+          value: jetblue
+- 	
+	id: theme-paint-dark
+	title: Select paint job
+	type: class-select
+	default: velocity-gray
+	options:
+		- label: Obsidian Gray
+		  value: gray
+        - label: Velocity Gray 
+          value: velocity-gray
+		- label: Jet Black Matte
+          value: black  
+		- label: Touring Bronze 
+          value: bronze
+		- label: British Racing Green
+          value: brg
+		- label: Nordblau Metallic 
+          value: nord
+		- label: Midnight Purple
+          value: midnight
+- 	
+	id: ss-section-hidden
+	title: BLANK
+	type: heading
+	level: 1
+-
+	id: color-highlight-rgb
+	title: Select highlight color
+	type: variable-select
+	default: var(--highlight-yellow-rgb)
+	options:
+	- 
+		label: Pink
+		value: var(--highlight-pink-rgb)
+	- 
+		label: Red
+		value: var(--highlight-red-rgb)
+	- 
+		label: Orange
+		value: var(--highlight-orange-rgb)
+	- 
+		label: Yellow
+		value: var(--highlight-yellow-rgb)
+	- 
+		label: Green
+		value: var(--highlight-green-rgb)
+	- 
+		label: Cyan
+		value: var(--highlight-cyan-rgb)
+	- 
+		label: Blue
+		value: var(--highlight-blue-rgb)
+	- 
+		label: Purple
+		value: var(--highlight-purple-rgb)
+- 	
+	id: enable-special-text
+	title: Colored bold and italics
+	description: Bold and italics are given unique colors. 
+	type: class-toggle
+- 
+	id: enable-special-code
+	title: Unique code text color
+	description: Inline code is given a unique color to make it easier to distinguish from regular text.
+	type: class-toggle
+- 
+	id: ss-section-title
+	description: Theme layout
+	type: info-text
+	markdown: true
+- 
+	id: line-height-normal
+	title: Select editor line height 
+	type: variable-select
+	default: '1.6'
+	allowEmpty: false
+	options:
+	- 
+		label: Compact
+		value: '1.5'
+	- 
+		label: Spacious
+		value: '1.6'
+-
+	id: vl-layout-padding
+	title: Select interface item spacing
+	type: variable-select
+	default: 8px
+	allowEmpty: false
+	options:
+	- 
+		label: Compact
+		value: 6px
+	- 
+		label: Spacious
+		value: 8px
+-
+	id: file-line-width
+	title: Customize readable line width
+	description: Set the readable width of text in the editor, using relative units (rem).
+	type: variable-number-slider
+	default: 43.75
+	min: 40
+	max: 47.5
+	step: 0.25
+	format: 'rem'
+-
+	id: safe-area-adjust
+	title: (Phone) Adjust top interface item margins
+	description: Manually adjust the safe-area-inset variable to move the UI away from/closer to your phone's status bar.
+	type: variable-number-slider
+	default: 40
+	min: 0
+	max: 80
+	step: 4
+	format: 'px'
+-
+	id: switch-edit-icons
+	title: Inverted editing mode toggle display
+	description: Displays the icon of the current editing mode instead of the next mode.
+	type: class-toggle
+-	
+*/
+
+/* @settings
+name: Velocity - Configurator
+id: obsidian-velocity-config
+settings:
+-
+	id: ss-section-heading
+	title: Disable  features
+	type: heading
+	level: 1
+	collapsed: true
+- 	
+	id: disable-list-styling
+	title: Restore bullet-style list markers
+	type: class-toggle
+- 	
+	id: disable-callout-styling
+	title: Restore default Callout styling
+	type: class-toggle
+-
+	id: disable-custom-icons
+	title: Restore default icon styling
+	type: class-toggle
+-
+	id: restore-indent-guide
+	title: Restore indentation guides
+	type: class-toggle
+- 	
+	id: disable-hover-header
+	title: Disable Compact Panels in the sidebar   
+	type: class-toggle
+- 	 
+	id: disable-naked-embeds
+	title: Disable Naked Embed styling
+	type: class-toggle
+- 	
+	id: disable-autohide
+	title: Disable Sidebar Auto-Hide™ feature
+	type: class-toggle
+-	 	
+	id: disable-status-fade
+	title: Disable Status Bar fade until hover
+	type: class-toggle
+-	
+	id: disable-title-h1
+	title: Disable title style for H1 Headings
+	type: class-toggle
+-
+	id: disable-performance-tweaks
+	title: Disable performance tweaks
+	description: Deactivates special CSS hacks which typically improve editor performance. 
+	type: class-toggle
+- 	
+	id: ss-section-heading
+	title: Enable optional features
+	type: heading
+	level: 1
+	collapsed: true
+-
+	id: prevent-exit
+	title: Accidental exit prevention for tabs
+	description: Disables the exit button when hovering over inactive tabs.
+	type: class-toggle
+- 
+	id: active-line-highlight
+	title: Active line highlighting
+	description: Highlights the active line with slight backdrop for easier text navigation.  
+	type: class-toggle
+- 	
+	id: hide-bases-header
+	title: Cleaner Bases display 
+	description: Hides the filter toolbar options for embedded Bases in Reading mode.
+	type: class-toggle
+- 	
+	id: enable-dim-img
+	title: Image dimming in Dark mode
+	description: Reduces the brightness of images in Dark mode except when hovered.
+	type: class-toggle
+- 	
+	id: improve-pinned-tabs
+	title: Improved pinned tabs appearance
+	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
+	type: class-toggle
+-
+	id: override-default-font
+	title: Override dedicated theme typeface
+	description: Velocity is best experienced with the font it is bundled with - Raveo. Enable this setting to allow custom font overrides via the Appearance settings.
+	type: class-toggle
+-	
+*/

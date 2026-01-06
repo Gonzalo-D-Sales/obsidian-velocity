@@ -1,0 +1,61 @@
+// --> Document Search <--
+
+body:not(.is-phone) {
+    .document-search-container {
+        contain: content;
+        background-color: var(--background-secondary);
+        border-radius: var(--radius-xxl);
+        box-shadow: var(--shadow-input), var(--shadow-normal);
+        padding: 6px;
+        position: absolute;
+        inset-block-start: 8px;
+        inset-inline-end: 0;
+        margin: 0 8px;
+        --input-radius: var(--radius-l);
+        --clickable-icon-radius: var(--radius-xl);
+        --search-icon-color: var(--color-base-55);
+        --background-modifier-form-field: transparent;
+        --background-modifier-form-field-hover: transparent;
+    }
+    .mod-right-split .document-search-container {
+        inset-inline-start: 0;
+    }
+    .mod-root .document-search-container {
+        background-color: var(--fab-bg);
+        box-shadow: var(--shadow-fab);
+        inset-block-start: 20px;
+        inset-inline-end: 60px;
+    }
+
+    .document-search-container > :is(.document-search, .document-replace) {
+        padding-inline: 0 2px;
+        gap: 2px;
+    }
+    .document-search-buttons,
+    .document-replace-buttons {
+        gap: 2px;
+    }
+    :is(.document-search-input, .document-replace) > input:focus {
+        box-shadow: var(--shadow-input-active);
+    }
+    .document-replace > input::placeholder {
+        text-indent: 4px;
+    }
+}
+// Web Viewer page search
+
+body:not(.is-phone) {
+    .search-in-page > .document-search-container {
+        box-shadow: var(--shadow-input), var(--shadow-normal);
+        inset-block-start: 60px;
+        inset-inline-end: 12px;
+    }
+}
+
+// Search highlights
+.markdown-rendered .search-highlight > div,
+.markdown-rendered .search-highlight > div.is-active,
+.cm-s-obsidian span.obsidian-search-match-highlight {
+    background-color: var(--text-highlight-bg-search);
+    box-shadow: none;
+}

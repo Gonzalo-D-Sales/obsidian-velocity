@@ -1,0 +1,21 @@
+audio, 
+img, 
+video {
+    border-radius: var(--radius-sm);
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+.image-embed img, 
+.markdown-rendered img {
+    border-radius: var(--radius-sm);
+}
+body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
+:is(.image-embed img, 
+	.markdown-rendered img) {
+	filter: opacity(0.7);
+	transition: filter var(--anim-duration-moderate) var(--anim-motion-smooth);
+}
+body.enable-dim-img.theme-dark :is(.markdown-preview-view, .markdown-source-view)
+:is(.image-embed img, 
+	.markdown-rendered img):hover {
+	filter: unset;
+}

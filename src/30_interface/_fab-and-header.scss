@@ -1,0 +1,111 @@
+// --> View Header <--
+
+.view-header {
+	padding-inline: 8px;
+	flex-shrink: 0;
+}
+.view-header > .view-header-left .clickable-icon {
+	--icon-color: var(--text-normal);
+	--icon-size: var(--icon-m);
+}
+.view-header-title-container > *,
+.view-header > :is(.view-header-left, .view-header-reload-button, .view-actions) {
+	& .clickable-icon {
+		padding: 10px;
+	}
+}
+// View header Title
+.view-header-title-container {
+	margin-inline-end: 8px;
+}
+.view-header-title {
+	color: var(--text-normal);
+	padding-inline: 2px;
+}
+.view-header-title-parent {
+	color: var(--text-faint);
+}
+.view-header-title-parent .view-header-breadcrumb {
+	padding-inline: 6px;
+}
+// Empty view header for new tabs
+body:not(.is-mobile)
+	.workspace-leaf-content[data-type="empty"]
+	> .view-header
+	> :is(.view-header-left, .view-header-title-container) {
+	visibility: hidden;
+}
+
+// Floating action button (FAB) in view header
+
+body:not(.is-mobile) .workspace-leaf-content[data-type="markdown"] {
+	& .view-actions {
+		contain: content;
+		column-gap: 4px;
+		padding-inline-end: 4px;
+		padding-block-end: 24px;
+		margin-block-end: -24px;
+		transform: translateX(-8px) translateY(12px);
+	}
+	& .view-actions .clickable-icon.view-action:last-child {
+		contain: content;
+		border-radius: var(--radius-xl);
+		height: 36px;
+		width: 20px;
+		padding: 0;
+		margin-block-start: 2px;
+		filter: opacity(0%);
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		--icon-size: 24px;
+	}
+	& .view-actions:hover .clickable-icon.view-action:last-child {
+		filter: opacity(37.5%);
+		&:hover {
+			filter: unset;
+		}
+	}
+	& .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
+		--icon-size: var(--icon-m);
+		--icon-color: var(--fab-color);
+		--icon-color-hover: var(--fab-color);
+		--icon-color-focused: var(--fab-color);
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		padding-block: 1px 0;
+		padding-inline: 0 1px;
+		order: 2;
+		opacity: 1;
+		cursor: pointer;
+		background-color: var(--fab-bg);
+		box-shadow: var(--shadow-fab);
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		&:active {
+			transform: scale3d(0.9375, 0.9375, 0.9375);
+			box-shadow: var(--shadow-input);
+		}
+		&:active > .svg-icon {
+			filter: opacity(0.875);
+		}
+	}
+	&[data-mode="source"] .view-actions .clickable-icon.view-action:not(:last-child, .mod-bookmark) {
+		--icon-color: var(--fab-color-active);
+		--icon-color-hover: var(--icon-color);
+		--icon-color-focused: var(--icon-color);
+	}
+	& .view-actions .clickable-icon.view-action.mod-bookmark {
+		order: 1;
+	}
+}
+
+@starting-style {
+	body:not(.is-mobile)
+		.workspace-leaf-content[data-type="markdown"]
+		.view-actions
+		> .clickable-icon.view-action:not(:last-child, .mod-bookmark)
+		> .svg-icon {
+		filter: var(--blur-s);
+		opacity: 0;
+		transform: scale3d(0.75, 0.75, 0.75);
+	}
+}

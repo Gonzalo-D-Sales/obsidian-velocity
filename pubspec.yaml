@@ -1,0 +1,8 @@
+name: velocity_theme_compiler
+description: Small helper to compile the Velocity Obsidian theme using Dart Sass.
+version: 0.0.0
+environment:
+  sdk: '>=2.18.0 <4.0.0'
+
+dependencies:
+  sass: ^1.97.1

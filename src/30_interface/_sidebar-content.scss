@@ -1,0 +1,136 @@
+// Backlinks
+
+.workspace-leaf-content[data-type="backlink"] > .view-content,
+.workspace-leaf-content[data-type="outgoing-link"] > .view-content {
+    padding-block-start: unset;
+}
+.backlink-pane .search-result-file-title,
+.outgoing-link-pane .outgoing-link-item {
+    --nav-item-background-hover: var(--color-accent-4);
+    --nav-item-color: var(--link-color-sidebar);
+    --nav-item-color-hover: var(--link-color-sidebar);
+    --nav-item-color-active: var(--link-color-sidebar);
+    --nav-collapse-icon-color: var(--icon-color);
+    > .tree-item-inner {
+        font-weight: var(--font-semi-medium);
+    }
+}
+:is(.backlink-pane, .outgoing-link-pane) > .tree-item-self {
+    --nav-heading-color: var(--icon-color);
+    --nav-heading-color-collapsed-hover: var(--nav-heading-color);
+    --nav-item-color-hover: var(--nav-heading-color);
+}
+:is(.backlink-pane, .outgoing-link-pane) > .tree-item-self > .tree-item-inner {
+    font: var(--font-semi-medium) var(--font-ui-medium) var(--font-interface-theme);
+    font-variation-settings: "opsz" 24;
+}
+.search-empty-state {
+    --text-faint: var(--color-base-40);
+}
+
+.search-result-file-matches {
+    color: var(--text-muted);
+    outline: 1px solid var(--trans-faint-20);
+    box-shadow: var(--shadow-sidebar);
+    font-weight: var(--font-semi-medium);
+    margin-block-start: 0;
+}
+.search-result-file-title > .tree-item-flair-outer {
+    display: none;
+}
+.search-result-file-matched-text {
+    padding-inline: 1px;
+}
+.search-result-file-match:hover .search-result-file-matched-text,
+.tree-item-self.is-clickable:hover .search-result-file-matched-text {
+    background-color: var(--trans-faint-40);
+}
+
+// Embedded backlinks
+.embedded-backlinks,
+.mod-root .workspace-leaf-content[data-type="backlink"],
+.mod-root .workspace-leaf-content[data-type="outgoing-link"] {
+    border: unset;
+    --search-result-background: var(--trans-faint-05);
+}
+body:not(.is-mobile) .embedded-backlinks > .nav-header {
+    margin-block-end: 2rem;
+    padding: unset;
+}
+.embedded-backlinks .tree-item-self.is-clickable {
+    contain: content;
+    width: auto;
+    user-select: none;
+}
+.embedded-backlinks .search-empty-state {
+    user-select: none;
+}
+.embedded-backlinks .backlink-pane > .tree-item-self > .tree-item-inner {
+    color: var(--text-muted);
+    margin-inline-end: unset;
+}
+
+// Outgoing links
+.outgoing-link-pane .tree-item-inner-text {
+    line-height: var(--line-height-normal);
+}
+
+.outgoing-link-item > .tree-item-icon {
+    margin-block-start: 3px;
+}
+.outgoing-link-item[aria-label] > .tree-item-icon {
+    margin-block-start: 1px;
+}
+
+// special code for uncreated outgoing links
+.outgoing-link-item:not([draggable="true"]) .tree-item-inner-text,
+.outgoing-link-item:not([draggable="true"]):hover .tree-item-inner-text {
+    color: var(--link-unresolved-color);
+}
+.outgoing-link-item:not([draggable="true"]) .tree-item-icon {
+    filter: opacity(60%);
+}
+
+// Search View
+.search-row {
+    column-gap: 6px;
+}
+.search-row > .clickable-icon {
+    contain: content;
+    border-radius: var(--radius-xl);
+    padding: 8px;
+}
+.global-search-input-container > .input-right-decorator.clickable-icon {
+    border-radius: var(--radius-xl);
+    padding-inline: 6px;
+}
+.mod-sidedock .search-info-container {
+    color: var(--text-accent);
+    font-weight: var(--font-semi-medium);
+    padding: 8px 20px;
+}
+.mod-sidedock .search-params {
+    margin: 8px 12px;
+}
+.mod-sidedock .search-params .setting-item {
+    margin-block-end: calc(var(--vl-layout-padding) * 0.5);
+    padding-inline: 8px 2px;
+}
+.mod-sidedock .search-results-info {
+    margin-inline: 12px;
+    padding: 6px 2px 8px;
+    --input-shadow: none;
+    --interactive-accent: var(--text-normal);
+    --text-muted: var(--icon-color);
+}
+
+// --> Sidebar Leaves with special content <--
+
+body:not(.is-phone) .mod-sidedock {
+    --canvas-background: transparent;
+    --file-header-background: transparent;
+    --file-header-background-focused: transparent;
+}
+.workspace-split:not(.mod-root) .graph-controls.is-close {
+    background-color: transparent;
+}

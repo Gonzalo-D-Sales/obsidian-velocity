@@ -1,0 +1,480 @@
+// =========================== ===========================
+// 0 - Base
+// =========================== ===========================
+
+// --> Theme Default Typeface <--
+
+body,
+.modal {
+	font-weight: var(--font-normal);
+}
+
+body {
+	--font-interface-theme:
+		"Raveo", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+	--font-text-theme:
+		"Raveo", "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Apple Color Emoji",
+		"Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+	// alt font for corsa override
+	--font-label: var(--font-interface-theme);
+}
+
+body:not(.override-default-font) {
+	--font-interface-override: "Raveo" !important;
+	--font-text-override: "Raveo" !important;
+}
+
+// Unfocused colors
+
+body:not(.is-focused) {
+	--tab-text-color-active: var(--tab-text-color);
+	--control-icon-color: var(--icon-color);
+}
+
+//
+// =========================== ===========================
+// 1 - Foundations
+// =========================== ===========================
+
+// --> OS Settings <--
+
+// Windows & Linux
+.mod-windows,
+.mod-linux {
+	--callout-blend-mode: normal;
+	--flair-padding: 3px 1px;
+	--frame-right-space: 160px;
+	// frame spacing and autohide override
+	--frame-right-space-override: 164px;
+}
+
+// macOS
+.mod-macos,
+body:not(.mod-windows, .mod-linux) {
+	// font weights (-25 Linux weight)
+	--font-thin: 250;
+	--font-extralight: 275;
+	--font-light: 300;
+	--font-normal: 400;
+	--font-medium: 500;
+	--font-semibold: 600;
+	--font-bold: 700;
+	--font-extrabold: 800;
+	// heading weights
+	--h1-weight-alt: 600;
+	--h1-weight: 325;
+	--h2-weight: 525;
+	--h3-weight: 525;
+	--h4-weight: 525;
+	--h5-weight: 575;
+	--h6-weight: 575;
+
+	// frame spacing and autohide override
+	--frame-right-space-override: 0px;
+
+	--flair-padding: 2px;
+}
+.mod-macos.is-hidden-frameless .workspace .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container {
+	padding-right: 36px;
+}
+.mod-macos .lucide-more-vertical {
+	transform: none;
+}
+
+// Linux
+.mod-linux {
+	// counteracts unusually light weight text on top of accents
+	--font-normal-linux: var(--font-semi-medium);
+}
+
+// Windows
+
+// .mod-windows {
+// 	// NEEDS TESTING; FOR NOW EQUAL TO LINUX
+// }
+
+// --> Animations <--
+
+@keyframes anim-panels {
+	0% {
+		transform: scale(1.0625);
+		opacity: 0;
+	}
+}
+@keyframes anim-modals {
+	0% {
+		transform: scale(1.03125);
+		opacity: 0.5;
+	}
+}
+@keyframes anim-modal-settings {
+	0% {
+		transform: scale(1.03125);
+	}
+}
+@keyframes anim-suggestions {
+	0% {
+		opacity: 0;
+	}
+}
+
+body:not(.is-mobile) {
+	--fab-easing-curve: cubic-bezier(0.55, 2, 0.5, 0.97);
+}
+
+// --> Buttons <--
+
+// Electron Corner-smoothing
+
+.checkbox-container,
+.flair,
+.graph-controls,
+.menu,
+.menu-item,
+.nav-buttons-container,
+.notice,
+.popover,
+.search-result-file-matches,
+.suggestion,
+.suggestion-item,
+.suggestion-container,
+.tooltip {
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+
+button,
+button:active,
+.metadata-add-button {
+	contain: content;
+	transition:
+		background-color var(--anim-super-smooth),
+		filter var(--anim-duration-moderate) var(--vl-ease-out);
+}
+button:not(.clickable-icon, [class*="mod-"]):active,
+button:not(.clickable-icon, [class*="mod-"]):hover:active,
+:is(.mod-root, .popover) .metadata-add-button:active,
+:is(.mod-root, .popover) .metadata-add-button:hover:active {
+	background-color: var(--interactive-hover);
+	filter: opacity(60%);
+}
+button:not([class*="mod-"]):focus-visible {
+	background-color: var(--interactive-hover);
+}
+
+button[class*="mod-"]:active,
+button[class*="mod-"]:hover:active,
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button:active,
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button:hover:active,
+.mod-root .workspace-leaf-content[data-type="file-properties"] .metadata-add-button:active {
+	filter: brightness(1.0625) opacity(70%);
+}
+button[class*="mod-"]:focus-visible {
+	filter: brightness(1.0625) opacity(81.25%);
+}
+
+button.mod-cta,
+button.mod-cta:focus,
+button.mod-cta.mobile-tap,
+.mod-root .metadata-add-button,
+:is(.markdown-source-view, .markdown-preview-view) .metadata-add-button,
+.file-recovery-list-item-header.is-active {
+	box-shadow: var(--shadow-button);
+	font-weight: var(--font-normal-linux);
+}
+button.mod-warning,
+button.mod-warning:focus,
+button.mod-warning.mobile-tap {
+	box-shadow: var(--shadow-button-error);
+	font-weight: var(--font-normal-linux);
+}
+
+button.mod-cta:hover,
+:is(.mod-root, .popover) .metadata-add-button:hover {
+	background-color: var(--interactive-accent);
+	filter: brightness(1.0625);
+}
+
+button.mod-warning {
+	color: var(--text-color);
+}
+
+// --> Dropdown <--
+
+:is(select, .dropdown) {
+	contain: content;
+}
+:is(select, .dropdown):focus {
+	background-color: var(--dropdown-background-hover);
+}
+// .modal button:not(.clickable-icon,.mod-cta):focus,
+// :is(select,.dropdown):focus-within {
+// box-shadow: var(--input-shadow);
+// }
+
+// --> Graph & Controls <--
+
+.graph-controls {
+	inset: 8px 4px auto auto;
+}
+.graph-controls > .mod-reset {
+	margin-inline-end: 8px;
+}
+.graph-controls > .mod-close {
+	margin-inline-end: -1px;
+}
+.graph-control-section {
+	padding-block: 8px;
+	.tree-item-self {
+		margin-block-end: unset;
+	}
+	.tree-item-children:last-child {
+		padding-block-end: unset;
+	}
+	.setting-item.mod-slider > .setting-item-control {
+		padding-block: 0px 4px;
+	}
+}
+
+// --> Inputs <--
+
+input,
+textarea,
+.vertical-tab-header input {
+	box-shadow: var(--shadow-input);
+	contain: content;
+}
+:is(input, textarea, .vertical-tab-header input):focus {
+	box-shadow: var(--shadow-input-active);
+}
+.search-input-container::before {
+	z-index: 1;
+}
+
+.mod-sidedock,
+.vertical-tab-header {
+	--background-modifier-form-field: var(--search-result-background);
+	--background-modifier-form-field-hover: var(--background-modifier-form-field);
+}
+.setting-item textarea {
+	--background-modifier-form-field: var(--trans-faint-00);
+	--background-modifier-form-field-hover: var(--background-modifier-form-field);
+}
+
+// Sidebar input
+.mod-sidedock :is(input[type="search"], textarea) {
+	outline: 1px solid var(--trans-faint-20);
+	--shadow-input: var(--shadow-sidebar);
+}
+.mod-sidedock input[type="search"] {
+	border-radius: var(--radius-xl);
+}
+.mod-sidedock textarea {
+	text-indent: 2px;
+}
+// Placeholder text
+input::placeholder {
+	font-weight: var(--font-normal);
+}
+
+// Remove extra shadow on color input
+input[type="color"] {
+	width: unset;
+}
+input[type="color"],
+input[type="color"]:focus {
+	box-shadow: initial;
+}
+
+// Indentation guide
+
+body.restore-indent-guide {
+	--indentation-guide-width: 2px;
+    --indentation-guide-width-active: 2px;
+    --nav-indentation-guide-width: 2px;
+}
+
+// --> Loader <--
+
+.is-loading::before {
+	border-radius: var(--radius-m);
+	background: linear-gradient(to right, var(--color-accent-3), var(--color-accent) 50%);
+}
+.modal-content .is-loading::before {
+	margin-block-start: 2px;
+}
+.community-modal-empty-state.is-loading::before {
+	top: 12px;
+}
+button.is-loading::before {
+	margin-block-start: unset;
+}
+
+// --> Range Slider <--
+
+input[type="range"] {
+	box-shadow: none;
+	margin-inline-end: unset;
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+}
+body:not(.is-mobile) input[type="range"]:active {
+	background-color: var(--interactive-accent);
+	box-shadow: var(--shadow-toggle);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+	border-color: transparent !important;
+	box-shadow: none !important;
+}
+input[type="range"]:active::-webkit-slider-thumb,
+input[type="range"]::-webkit-slider-thumb:active {
+	background-color: var(--trans-white-00);
+}
+
+// padding for the slider thumb to nestle nicely
+input[type="range"]::-webkit-slider-runnable-track {
+	padding-inline: 4px;
+}
+
+// --> Toggle <--
+
+.checkbox-container {
+	background-color: oklab(from var(--slider-track-background) l a b / 0.175);
+	transition: var(--anim-duration-fast) ease-in-out;
+}
+.checkbox-container,
+.checkbox-container:hover {
+	box-shadow: unset;
+}
+.checkbox-container:focus-within {
+	outline: none;
+}
+.checkbox-container.is-enabled {
+	box-shadow: var(--shadow-toggle);
+}
+.checkbox-container::after {
+	box-shadow: unset;
+	transition: var(--anim-duration-fast) var(--anim-motion-delay);
+}
+.checkbox-container:active::after {
+	width: calc(var(--toggle-thumb-width) + 8px) !important;
+	height: var(--toggle-thumb-height) !important;
+	margin-top: var(--toggle-border-width) !important;
+	right: -8px !important;
+	--toggle-thumb-color: var(--trans-white-00);
+}
+.checkbox-container.is-enabled:active::after {
+	left: -8px !important;
+}
+
+.checkbox-container.mod-small:active::after {
+	width: calc(var(--toggle-s-thumb-width) + 6px) !important;
+	right: -6px;
+}
+.checkbox-container.mod-small.is-enabled:active::after {
+	left: -6px;
+}
+
+// --> Tooltips / Notice / Drag ghost <--
+
+.tooltip-arrow {
+	display: none;
+}
+.tooltip,
+.notice {
+	font-weight: var(--font-semi-medium);
+	background-color: var(--background-primary);
+	border: none;
+	border-radius: var(--radius-xl);
+	box-shadow:
+		0 0 0 0.75px var(--trans-faint-10),
+		var(--shadow-muted);
+	color: var(--text-muted);
+}
+.tooltip {
+	padding: 6px 12px;
+}
+.tooltip.mod-error {
+	box-shadow: var(--glass-base), var(--shadow-strong);
+}
+.notice {
+	border-radius: var(--radius-ml);
+	padding: 12px 16px;
+}
+.drag-ghost {
+	border-radius: var(--radius-m);
+	box-shadow:
+		0 0 0 0.75px var(--trans-faint-10),
+		var(--shadow-muted);
+	padding: 8px 12px;
+}
+
+// --> Scrollbar / scrollbar padding <--
+
+.cm-scroller::-webkit-scrollbar-track,
+.markdown-preview-view::-webkit-scrollbar-track,
+.bases-view::-webkit-scrollbar-track {
+	margin-block: 4px;
+}
+.is-tablet {
+	.cm-scroller::-webkit-scrollbar-track,
+	.markdown-preview-view::-webkit-scrollbar-track,
+	.bases-view::-webkit-scrollbar-track {
+	margin-block: 20px;
+	}
+}
+body.show-view-header .cm-scroller::-webkit-scrollbar-track,
+body.show-view-header .markdown-preview-view::-webkit-scrollbar-track,
+body.show-view-header .bases-view::-webkit-scrollbar-track {
+	margin-block-start: 0px;
+}
+.workspace-tabs.mod-stacked > .workspace-tab-container::-webkit-scrollbar-track {
+	margin-inline: 8px;
+}
+
+.mod-sidedock .workspace-leaf-content ::-webkit-scrollbar,
+.workspace-drawer-tab-container .workspace-leaf-content ::-webkit-scrollbar {
+	display: none;
+}
+
+.mod-settings .vertical-tab-content::-webkit-scrollbar-track,
+.mod-dim .modal:not(.mod-settings, .prompt)::-webkit-scrollbar-track {
+	margin-block: 18px;
+}
+.modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
+	margin-block: 44px 18px;
+}
+.is-tablet {
+	.mod-settings .vertical-tab-content::-webkit-scrollbar-track,
+	.mod-dim .modal:not(.mod-settings, .prompt)::-webkit-scrollbar-track {
+		margin-block: 28px;
+	}
+	.modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
+		margin-block: 48px 28px;
+	}
+}
+
+.prompt.theme-picker-modal > .prompt-results::-webkit-scrollbar-track {
+	margin-block: 0 16px;
+}
+
+.suggestion-container > ::-webkit-scrollbar-track,
+.popover ::-webkit-scrollbar-track {
+	margin-block: 4px;
+}
+
+.is-mobile .workspace-drawer-tab-options-list::-webkit-scrollbar {
+	display: none;
+}
+
+// Special performance tweaks
+
+body:not(.is-mobile):not(.disable-performance-tweaks) {
+	.markdown-preview-view {
+		will-change: scroll-position;
+	}
+	.markdown-preview-view > .markdown-preview-pusher {
+		will-change: margin-bottom;
+	}
+}

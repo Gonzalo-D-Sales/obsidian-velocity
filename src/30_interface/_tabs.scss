@@ -1,0 +1,212 @@
+// Remove tab gutter curves
+.mod-root .workspace-tab-header::before,
+.mod-root .workspace-tab-header::after,
+.mod-root .workspace-tab-header-inner::after {
+    display: none;
+}
+
+// Tab Containers
+
+body:not(.is-mobile) .workspace > .mod-root .workspace-tab-header-container-inner {
+    align-items: center;
+    column-gap: 4px;
+    padding-inline: 8px;
+    padding-block: 0;
+}
+body:not(.is-mobile) .workspace.is-left-sidedock-open .mod-root .workspace-tab-header-container-inner {
+    padding-inline-start: 0;
+}
+
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-container-inner {
+    background-color: var(--tab-sidebar-container-bg);
+    border-radius: 20px;
+    height: fit-content;
+    margin-block: 10px;
+    padding: unset;
+    overflow: visible;
+    outline: 3px solid var(--tab-sidebar-container-bg);
+    -electron-corner-smoothing: var(--corner-smoothing);
+}
+
+// Root Tabs
+
+body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
+    .workspace-tab-header {
+        contain: content;
+        align-items: center;
+        border-radius: var(--tab-radius);
+        min-height: 36px;
+        margin-block-start: unset;
+        padding: unset;
+    }
+    .workspace-tab-header.is-active {
+        background-color: transparent;
+    }
+    .workspace-tab-header:not(.is-active) .workspace-tab-header-status-container {
+        pointer-events: none;
+        --text-accent: var(--icon-color);
+    }
+    .workspace-tab-header-inner {
+        min-height: 34px;
+        background-color: var(--trans-faint-05);
+        padding-inline: 0;
+    }
+    .workspace-tab-header:hover > .workspace-tab-header-inner {
+        background-color: var(--background-modifier-hover);
+    }
+    .workspace-tab-header.is-active > .workspace-tab-header-inner {
+        background-color: var(--background-modifier-hover);
+    }
+    .workspace-tab-header-inner-icon {
+        padding-inline: 6px 0;
+        margin-inline-end: -6px;
+    }
+    .workspace-tab-header .workspace-tab-header-inner-close-button {
+        filter: opacity(0);
+        border-radius: 0;
+        margin-inline-start: -32px;
+        padding: 8px 9px 8px 5px;
+        display: flex;
+        justify-content: center;
+        &:hover {
+            filter: unset;
+            background: var(--tab-right-fade);
+        }
+    }
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover::after {
+        content: "";
+        background-color: var(--tab-close-bg);
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: var(--radius-xs);
+        z-index: -1;
+    }
+    .workspace-tab-header-inner-title {
+        contain: content;
+        padding-inline: 6px 10px;
+        transition: color var(--anim-super-swing);
+        text-align: center;
+        text-box-trim: trim-both;
+    }
+
+    .workspace-tab-header-new-tab {
+        margin-inline: -4px 8px;
+    }
+    .workspace-tab-header-status-container {
+        margin-inline: -32px 6px;
+    }
+    .workspace-tab-header-status-icon {
+        padding: 4px;
+    }
+    .workspace-tab-header-status-container:has(.mod-linked) + .workspace-tab-header-inner-close-button {
+        display: none;
+    }
+}
+
+body.prevent-exit
+    .workspace-tabs:not(.mod-stacked)
+    .workspace-tab-header:not(.is-active):hover
+    .workspace-tab-header-inner-close-button {
+    display: none;
+}
+.workspace-tab-header-inner-close-button,
+.mod-root .workspace-tab-header .workspace-tab-header-inner-close-button {
+    border-radius: var(--radius-xs);
+    color: var(--icon-color);
+    padding: 4px;
+    --icon-stroke: var(--icon-s-stroke-width);
+}
+
+// Sidebar Tabs
+
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header {
+    contain: content;
+    border-radius: var(--tab-radius);
+    min-height: 36px;
+    min-width: 36px;
+    --tab-radius: var(--radius-xxl);
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header:hover {
+    --background-modifier-hover: transparent;
+    --icon-color-hover: var(--nav-item-color);
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-inner {
+    transition: inherit;
+    & > * {
+        transition: inherit;
+    }
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active,
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active:hover {
+    background-color: var(--tab-sidebar-bg);
+    box-shadow: var(--shadow-tab);
+    --icon-color-focused: var(--color-base-100);
+}
+
+// Tab Icons
+
+body:not(.is-mobile) .workspace-tab-header:not(.is-active) > .workspace-tab-header-inner {
+    --icon-opacity: 0.8;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header-status-container {
+    color: var(--icon-color);
+    filter: opacity(var(--icon-opacity));
+    --icon-opacity: 0.8;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-container {
+    gap: 4px;
+    padding-inline: 2px;
+    --icon-color: var(--link-color);
+    --icon-opacity: 1;
+}
+body:not(.is-mobile) .mod-sidedock .workspace-tab-header.is-active .workspace-tab-header-status-icon:hover {
+    color: var(--link-color-hover);
+}
+
+// --> Stacked Tabs <--
+
+body:not(.is-mobile) .workspace-tabs.mod-stacked > .workspace-tab-container {
+    background-color: var(--background-primary);
+}
+body:not(.is-mobile) .workspace-tabs.mod-stacked > .workspace-tab-container::-webkit-scrollbar-track {
+    margin-inline: 8px;
+}
+body:not(.is-mobile) .workspace-tabs.mod-stacked > .workspace-tab-container > .workspace-leaf {
+    border-radius: 0;
+}
+body:not(.is-mobile) .mod-root .workspace-tabs.mod-stacked {
+    .workspace-leaf,
+    .workspace-tab-header-inner {
+        border-bottom: 1px solid var(--divider-color);
+    }
+    .workspace-tab-header {
+        color: var(--icon-color);
+    }
+    .workspace-tab-header.is-active {
+        color: var(--text-normal);
+    }
+    .workspace-tab-header > .workspace-tab-header-inner {
+        padding: 8px;
+    }
+    .workspace-tab-header-inner > .workspace-tab-header-inner-icon {
+        display: none;
+    }
+    :is(.workspace-tab-header-inner-close-button, .workspace-tab-header-status-icon) {
+        margin-inline-start: 4px;
+        padding: 8px;
+    }
+    .workspace-tab-header-inner-close-button {
+        order: -1;
+    }
+    .workspace-tab-header .workspace-tab-header-inner-title {
+        letter-spacing: 0.25px;
+        text-box-trim: trim-both;
+    }
+    .workspace-leaf-content > .view-header {
+        padding-inline: 0 12px;
+    }
+}
+body:not(.is-mobile) .mod-root > .workspace-tabs.mod-stacked .workspace-tab-header-container-inner {
+    padding: 0 1px;
+}

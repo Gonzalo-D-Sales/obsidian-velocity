@@ -1,0 +1,294 @@
+//
+// =========================== ===========================
+// 4 - Modals
+// =========================== ===========================
+
+// Remove redundant exit buttons on PC 
+body:not(.is-mobile) 
+:is(.mod-settings::before,
+.modal-sidebar::before,
+.modal .modal-close-button,
+.prompt .search-input-clear-button) {
+	display: none;
+}
+body.is-tablet .modal-close-button.mod-raised {
+	display: none;
+}
+
+body:is(.is-maximized, .is-fullscreen) .modal-bg {
+	background-color: var(--background-modifier-cover) !important;
+}
+
+.modal-bg {
+	background-color: oklab(from var(--background-modifier-cover) l a b / 0.25) !important;
+}
+body:not(.is-phone) .modal {
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
+}
+.modal, .menu {
+	--background-modifier-form-field: var(--background-primary);
+	--background-modifier-form-field-hover: var(--background-primary);
+}
+.modal-title {
+	font-weight: calc(var(--font-normal) + 50);
+	font-size: var(--font-ui-larger);
+	font-variation-settings: 'opsz' 28;
+	text-align: center;
+	text-box-trim: trim-start;
+}
+.modal-button-container {
+	row-gap: 12px;
+}
+.modal button {
+	min-height: var(--input-height);
+}
+body:not(.is-phone) .modal-button-container > button {
+	flex: 1;
+	height: 30px;
+}
+body:not(.is-phone) .modal-button-container > .mod-checkbox {
+	width: 100%;
+	justify-content: center;
+}
+body:not(.is-phone) .modal-header {
+	margin-block: 8px;
+}
+
+// --> Settings Modal <--
+
+.modal-container > .modal.mod-settings,
+.modal-container > .modal.mod-community-modal {
+	background: var(--settings-background);
+}
+body:not(.is-phone) .modal-container > .modal.mod-settings {
+	contain: content;
+	animation-name: anim-modal-settings;
+	--modal-radius: var(--radius-settings);
+}
+.modal-container.mod-dim .vertical-tabs-container {
+	--scrollbar-thumb-bg: var(--trans-strong-40);
+	--scrollbar-active-thumb-bg: var(--trans-faint-30);
+}
+.modal-container.mod-dim .vertical-tab-header-group {
+	margin-block-end: 8px;
+}
+.modal-container.mod-dim .vertical-tab-header {
+	background-color: transparent;
+	border-inline-end-color: transparent;
+    max-width: 264px;
+	padding-inline: 20px 16px;
+}
+.modal-container.mod-dim .vertical-tab-content {
+	background-color: transparent;
+	padding: 32px;
+	transform: translate3d(0px, 0px, 0px);
+	--scrollbar-thumb-bg: var(--trans-faint-20);
+	--scrollbar-active-thumb-bg: var(--trans-faint-40);
+}
+.mod-settings .vertical-tab-content > :is(h1,h2,h3,h4,h5,h6,p,span) {
+	margin-block: 1em;
+}
+
+// Settings Sidebar 
+body:not(.is-phone) .vertical-tab-nav-item {
+	color: var(--text-muted);
+	font: var(--font-medium) var(--font-ui-small) var(--font-interface);
+	padding-block: var(--vl-layout-padding);
+	padding-inline-start: 12px;
+	--background-modifier-hover: transparent;
+}
+body:not(.is-phone) .vertical-tab-nav-item.is-active {
+    background-color: var(--nav-item-background-active);
+}
+body:not(.is-phone) .vertical-tab-nav-item.is-active .vertical-tab-nav-item-title {
+    color: var(--color-base-100);
+}
+.vertical-tab-nav-item-icon,
+.vertical-tab-nav-item:hover > .vertical-tab-nav-item-icon {
+	color: var(--icon-color);
+}
+.vertical-tab-nav-item.is-active > .vertical-tab-nav-item-icon {
+	color: var(--color-base-100);
+}
+body:not(.is-phone) .vertical-tab-header-group-title {
+	font: var(--font-medium) var(--font-ui-medium) var(--font-interface);
+	font-variation-settings: 'opsz' 24;
+    padding-inline-start: 12px;
+}
+
+// Setting item 'sections' 
+.mod-settings .setting-group > .setting-items {
+	box-shadow: var(--shadow-setting-items);
+}
+.mod-settings .setting-group-search {
+	box-shadow: var(--shadow-setting-items-top);
+}
+.mod-settings .setting-group-search + .setting-items {
+	clip-path: inset(0.0625px -24px -24px -24px);
+}
+
+.setting-group + .setting-group {
+	margin-block-start: 28px;
+}
+.setting-group .setting-item-heading {
+	font-variation-settings: 'opsz' 28;
+	margin-block-end: 12px;
+	padding-inline-start: 21px;
+}
+.mod-settings .setting-group > .setting-items .setting-item {
+	padding-inline: 5px 4px;
+}
+.setting-items .setting-item {
+	contain: layout;
+	padding-block: 13px;
+	border-block-start-color: transparent;
+	&::after {
+		content: '';
+		contain: content;
+		position: absolute;
+		bottom: -1px;
+		inset-inline: 1px;
+		background-color: var(--color-base-10);
+		border-radius: var(--radius-s);
+		padding-block: 0.05em;
+	}
+	&:last-child::after {
+		display: none;
+	}
+}
+
+.setting-item {
+	background-color: var(--setting-item-background);
+	border-radius: var(--radius-sm);
+}
+.setting-item-heading {
+	background-color: transparent;
+}
+.setting-item-name {
+	overflow: visible;
+}
+.setting-item-description {
+	font-size: 11.5px;
+	text-box-trim: trim-end;
+	--bold-color: var(--color-base-80);
+}
+
+.extra-setting-button {
+	--icon-color: var(--color-base-80);
+}
+.extra-setting-button[aria-disabled='true'] {
+	filter: opacity(0.4);
+}
+
+.installed-plugins-container {
+    padding-top: 0;
+    border-top: none;
+}
+
+
+
+// Hotkeys Settings page 
+
+.flair.mod-pop,
+.hotkey-filter,
+.setting-hotkey.mod-active {
+    color: var(--text-on-accent);
+	font-weight: var(--font-normal-linux);
+	gap: 4px;
+}
+.flair.mod-pop {
+	border-radius: var(--radius-l);
+	font-weight: calc(var(--font-normal-linux) + 50);
+	font-variation-settings: 'opsz' 28;
+	padding: 2px 6px;
+}
+
+.setting-hotkey,
+.hotkey-filter {
+	contain: content;
+	border-radius: var(--code-radius);
+	font-family: var(--font-interface-theme);
+	font-weight: var(--font-normal-linux);
+}
+.hotkey-filter {
+	box-shadow: var(--shadow-button);
+}
+.setting-hotkey.has-conflict{
+	box-shadow: var(--shadow-button-error);
+}
+.setting-hotkey.mod-empty {
+	color: var(--text-faint);
+}
+.hotkey-filter {
+	background-color: var(--interactive-accent);
+	border-radius: var(--radius-l);
+	margin-block-start: 12px;
+	padding-inline: 10px 4px;
+}
+.hotkey-filter-remove-button {
+    color: var(--trans-white-00);
+}
+.hotkey-filter-remove-button:hover {
+	background-color: var(--trans-white-10);
+	border-radius: var(--radius-l);
+    color: var(--color-accent);
+}
+
+// --> Workspaces Modal <--
+
+.list-container.mod-manage-workspaces {
+    padding-inline-start: 8px;
+}
+
+// --> Popovers <--
+
+.popover {
+	contain: content;
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
+	border-radius: var(--radius-ml);
+	box-shadow: var(--menu-shadow);
+	--background-primary: var(--background-primary-alt);
+	--background-modifier-border: var(--menu-border-color);
+	--bases-table-header-background: var(--background-primary);
+}
+.popover.hover-popover.is-editing {
+	border-color: transparent;
+	outline: 2px solid var(--color-accent-3);
+}
+// --> Suggestion Item <--
+
+.suggestion-container {
+	background-color: var(--modal-background);
+	backdrop-filter: var(--blur-s);
+	box-shadow: var(--menu-shadow);
+	border: 1px solid var(--menu-border-color);
+	border-radius: var(--radius-ml);
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-suggestions;
+}
+.mod-dim + .suggestion-container {
+	backdrop-filter: var(--blur-m);
+}
+
+.mod-search-suggestion {
+	--background-secondary: var(--modal-background);
+}
+.mod-search-suggestion > .suggestion {
+	--background-secondary: transparent;
+}
+.suggestion-item {
+	color: var(--text-normal);
+	font-weight: var(--font-normal);
+    padding-block: calc(var(--vl-layout-padding) - 2px);
+}
+.search-suggest-item.mod-group {
+	color: var(--text-faint);
+	font-size: var(--font-ui-small);
+	font-weight: var(--font-medium);
+	font-variation-settings: 'opsz' 20;
+}
+.search-suggest-item.mod-group:not(:first-child) {
+    margin-block-start: 12px;
+	margin-inline-end: 4px;
+	padding-block: 8px 0;
+    padding-inline: 8px 0;
+}

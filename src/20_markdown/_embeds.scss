@@ -1,0 +1,25 @@
+body:not(.disable-naked-embeds) {
+	--embed-border-start: none;
+	--embed-padding: 0 1.25em 0 0;
+	.markdown-embed-title {
+		display: none;
+	}
+}
+.markdown-embed-link {
+	color: var(--text-faint);
+}
+
+.markdown-embed > .markdown-embed-content > .markdown-preview-view {
+	padding-inline-end: unset;
+	scrollbar-gutter: unset;
+}
+
+.file-embed.mod-generic {
+	border-radius: var(--radius-sm);
+	font-weight: var(--font-medium);
+	--text-muted: var(--color-base-50);
+	--text-normal: var(--icon-color);
+}
+.file-embed-title {
+	padding-top: 0.125rem;
+}

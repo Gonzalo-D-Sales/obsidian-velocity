@@ -11,13 +11,13 @@ Velocity has now reached the first stage of ``beta`` development, after **nearly
 
 ## Table of Contents
 
-- [Installation](#Installation)
-- [Images](#Images)
-- [FAQ](#FAQ)
-- [Features](#Features)
-- [Roadmap](#Roadmap)
-- [Background](#Background)
-- [Credits](#Credits)
+- [Installation](#Installation-)
+- [Images](#Images-)
+- [FAQ](#FAQ-)
+- [Features](#Features-)
+- [Roadmap](#Roadmap-)
+- [Background](#Background-)
+- [Credits](#Credits-)
 
 ## Installation [^](#Table-of-Contents)
 As of 03/09/2025, Velocity is **officially released** on the Obsidian store. Simply download it inside the app itself!

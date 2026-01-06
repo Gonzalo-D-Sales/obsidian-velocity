@@ -1,0 +1,117 @@
+body:not(.is-mobile) {
+	background-image: var(--bg-main-workspace);
+}
+
+// general
+.workspace-tab-container,
+.workspace-tab-header-container {
+	contain: content;
+	overflow: hidden;
+	transition: var(--anim-duration-moderate);
+}
+.workspace-tab-header-container {
+	transition-timing-function: var(--vl-ease-out);
+}
+
+// Main workspace tab
+body:not(.is-mobile) .mod-root {
+	padding-block-end: 8px;
+	isolation: isolate;
+	z-index: 1;
+}
+.workspace-split.mod-root,
+.workspace-tabs .workspace-leaf {
+	background-color: transparent;
+}
+
+// Main tab(s) margins
+body:not(.is-mobile) .workspace:not(.is-left-sidedock-open) .mod-root .workspace-tab-container {
+	margin-inline-start: 8px;
+	--left-margin-delay: 0ms;
+}
+body:not(.is-mobile) .workspace:not(.is-right-sidedock-open) .mod-root .workspace-tab-container {
+	margin-inline-end: 8px;
+	--right-margin-delay: 0ms;
+}
+// this delay prevents layout thrashing of the left sidebar toggle, and also gives a bouncy effect to the sidebar reveal animation that matches the sidebar close animation.
+body:not(.is-mobile) .workspace-tab-container {
+	transition:
+		all var(--anim-duration-moderate) var(--vl-ease-out),
+		margin-inline-start var(--anim-duration-moderate) var(--vl-ease-out) var(--left-margin-delay),
+		margin-inline-end var(--anim-duration-moderate) var(--vl-ease-out) var(--right-margin-delay);
+	--left-margin-delay: var(--anim-duration-fast);
+	--right-margin-delay: var(--anim-duration-fast);
+}
+
+// padding adjustment when there is no view header
+body:not(.is-mobile):not(.show-view-header) {
+	--file-margins-y: 72px;
+}
+// padding adjustment for multiple tabs layout
+body:not(.is-mobile) .mod-root .workspace-tabs:not(:only-of-type) {
+	--file-margins-x: 32px;
+}
+// gap between multiple root tabs
+body:not(.is-mobile, .is-popout-window) .workspace.is-left-sidedock-open.is-right-sidedock-open > .mod-vertical,
+body:not(.is-mobile, .is-popout-window)
+	.workspace.is-left-sidedock-open.is-right-sidedock-open
+	> .workspace-split
+	> .mod-vertical {
+	gap: 8px;
+}
+
+// Main workspace tab(s) radius
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container,
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container > .workspace-leaf {
+	background-color: transparent;
+	border-radius: var(--radius-ml);
+}
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
+	-electron-corner-smoothing: var(--corner-smoothing);
+}
+
+// Main workspace tab(s) shadow
+body:not(.is-mobile) .mod-root .workspace-tabs > .workspace-tab-container {
+	box-shadow: var(--shadow-workspace-multi);
+}
+body:not(.is-mobile) .mod-root .workspace-tabs:only-of-type > .workspace-tab-container {
+	box-shadow: var(--shadow-workspace);
+}
+
+// allow shadow to overflow to sidebars
+body:not(.is-mobile) .mod-root > .workspace-tabs,
+body:not(.is-mobile) .mod-root > .workspace-split > .workspace-tabs {
+	overflow: visible;
+}
+
+// Sidedock / workspace-split
+body:not(.is-phone) .mod-sidedock :is(.workspace-split, .workspace-tabs, .workspace-leaf, .workspace-leaf-content) {
+	contain: size;
+}
+.mod-sidedock .node-insert-event,
+.mod-sidedock .workspace-leaf-content > .view-content {
+	padding-inline: 16px;
+}
+.workspace-leaf-content[data-type="bookmarks"] > .view-content {
+	padding-inline: 16px;
+}
+.mod-sidedock .node-insert-event:is(.backlink-pane, .outgoing-link-pane) {
+	padding-inline: 0;
+}
+
+body:not(.is-mobile) .mod-sidedock .workspace-leaf {
+	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-panels;
+}
+
+// divider reveal on hover
+.mod-sidedock > :not(.mod-top) .workspace-tab-header-container {
+	border-block: 1px solid transparent;
+	&:hover {
+		border-top-color: var(--trans-faint-20);
+	}
+}
+
+// empty sidedock
+.workspace-sidedock-empty-state {
+	padding-block-start: var(--header-height);
+}

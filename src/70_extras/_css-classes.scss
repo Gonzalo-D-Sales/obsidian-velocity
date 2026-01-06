@@ -1,0 +1,79 @@
+//
+// =========================== ===========================
+// 7 - CSSclasses
+// =========================== ===========================
+
+// --> UTILITY Classes <--
+
+// (utility-override) - Overrides any UTILITY CSSclasses, excluding override classes. 
+// (hide-override) - Overrides any HIDE CSSclasses. 
+// (show-override) - Overrides any SHOW CSSclasses. 
+// (style-override) - Overrides any STYlE CSSclasses. 
+
+// (override) - Overrides ALL CSSclasses in a particular file. Makes all editor CSSclass pills red. 
+.override .metadata-property[data-property-key="cssclasses"] .multi-select-pill {
+	--pill-color: oklch(from var(--text-error) l c h / 0.875);
+	--pill-color-hover: oklch(from var(--text-error) l c h / 0.625);
+}
+
+// --> HIDE / SHOW Classes <--
+
+// (hide-metadata) - Hides file properties in a particular file. 
+.hide-metadata:not(.override, .hide-override) .metadata-container {
+	display: none !important;
+}
+// (hide-title) - Hides the inline title in a particular page. 
+.hide-title:not(.override, .hide-override) .inline-title:not([data-level]) {
+    display: none;
+}
+// (show-title) - Shows the inline title in a particular page. 
+:not(.node-insert-event) > .show-title:not(.override, .show-override) .inline-title:not([data-level]) {
+    display: block;
+}
+
+// --> STYLE Classes <--
+
+// (style-justify) - Justifies all text. 
+:is(.style-justify,.justified):not(.override, .style-override)
+:is(p, .cm-line:not(.HyperMD-header)) {
+	text-align: justify;
+}
+// (style-wide) - Sets the file line width to the maximum value, equivalent to disabling readable width. 
+.style-wide:not(.override, .style-override) {
+	--file-line-width: 28px 0;
+}
+// (style-top-margin) - Adds additional padding to the top of the file. 
+.style-margin-top:not(.override, .style-override).markdown-source-view {
+	padding-top: 28px;
+}
+.style-margin-top:not(.override, .style-override).markdown-preview-view {
+	padding-top: 56px;
+}
+
+// (large/super-heading) - Turns editor H1 into a large Swiss Design heading. 
+:is(.large-heading,.super-heading):not(.override, .style-override) :is(
+	.markdown-source-view .HyperMD-header-1, 
+	.markdown-rendered > .markdown-preview-sizer >.el-h1 > h1) {
+	padding-block-end: 0.0625em !important;	
+	letter-spacing: -0.05rem;
+	text-indent: -0.03em;
+	--h1-size: 2.25em;
+	--h1-weight: var(--font-extralight);
+}
+.super-heading:not(.override, .style-override) :is(
+	.markdown-source-view .HyperMD-header-1, 
+	.markdown-rendered > .markdown-preview-sizer >.el-h1 > h1) {
+	padding-block-end: 0.0625em !important;	
+	--h1-weight: var(--font-semibold);
+	&::after {
+		display: none;
+	}
+}
+
+// (simple-title) - Gives inline title the standard heading style. 
+.simple-title:not(.override, .style-override, .superheading) .inline-title:not([data-level]) {
+	font-size: var(--h1-size-alt);
+	font-weight: var(--h1-weight-alt);
+	border-bottom: none;
+	padding-bottom: 0;
+}

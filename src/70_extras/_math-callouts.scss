@@ -1,0 +1,52 @@
+body:not(.disable-callout-styling) .callout[data-callout*="math"] {
+	color: var(--color-base-100);
+	background-image: unset;
+	box-shadow: 0 0 0 1.5px rgb(var(--callout-color), 0.375);
+	outline: unset;
+	--callout-color: var(--color-blue-rgb);
+
+	> .callout-title > .callout-title-inner {
+		font-family: MJXZERO, MJXTEX;
+		font-size: 1.25rem;
+		font-weight: var(--font-medium);
+		margin-block-start: 0.5rem;
+		padding-inline-start: unset;
+	}
+	> .callout-title > .callout-icon {
+		display: none;
+	}
+	> .callout-content {
+		font-weight: calc(var(--font-light) + 50);
+		padding-inline-start: unset;
+	}
+	> .callout-content > p:first-child {
+		margin-block-start: 0.25rem;
+	}
+}
+// other colors 
+body:not(.disable-callout-styling) .callout[data-callout="math-red"] {
+	--callout-color: var(--color-red-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-orange"] {
+	--callout-color: var(--color-orange-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-yellow"] {
+	--callout-color: var(--color-yellow-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-green"] {
+	--callout-color: var(--color-green-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-cyan"] {
+	--callout-color: var(--color-cyan-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-purple"] {
+	--callout-color: var(--color-purple-rgb);
+}
+body:not(.disable-callout-styling) .callout[data-callout="math-pink"] {
+	--callout-color: var(--color-pink-rgb);
+}
+body:not(.disable-callout-styling) 
+	.callout:is([data-callout="math-gray"], [data-callout="math-grey"]) {
+	box-shadow: 0 0 0 1.5px rgb(var(--callout-color), 0.5);
+	--callout-color: 100, 100, 100;
+}

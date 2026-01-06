@@ -1,0 +1,110 @@
+//
+// =========================== ===========================
+// 3 - Interface
+// =========================== ===========================
+
+// FROM Willemstad
+// By tingmelvin
+
+body.improve-pinned-tabs
+	.mod-root
+	> .workspace-tabs:not(.mod-stacked)
+	.workspace-tab-header:has(.mod-pinned, .mod-linked) {
+	max-width: 64px;
+	> .workspace-tab-header-inner {
+		background-color: var(--trans-faint-05);
+	}
+	&.is-active > .workspace-tab-header-inner {
+		background-color: var(--color-accent-4);
+	}
+	.workspace-tab-header-inner-title,
+	.workspace-tab-header-inner-icon {
+		display: none;
+	}
+	.workspace-tab-header-status-container {
+		margin-inline: unset;
+		--background-modifier-active-hover: var(--color-accent-4);
+	}
+}
+
+// --> Ribbon <--
+
+.workspace-ribbon > .side-dock-actions {
+	gap: 4px;
+}
+.workspace-ribbon > .sidebar-toggle-button {
+	padding-inline-start: 8px;
+}
+.clickable-icon.side-dock-ribbon-action {
+	--icon-color: var(--text-muted);
+	--icon-color-hover: var(--color-base-100);
+}
+
+// --> Vault Profile <--
+
+body:not(.is-mobile) {
+	.workspace-split.mod-left-split > .workspace-sidedock-vault-profile {
+		background-color: transparent;
+		font-variation-settings: "opsz" 28;
+		gap: 0;
+		padding-inline-start: 6px;
+	}
+	.workspace-split.mod-left-split > .workspace-sidedock-vault-profile > .workspace-drawer-vault-switcher {
+		contain: content;
+		height: 100%;
+		border-radius: var(--radius-xxl);
+		padding-inline-start: 10px;
+	}
+	.workspace-split.mod-left-split
+		> .workspace-sidedock-vault-profile
+		> .workspace-drawer-vault-switcher
+		> .workspace-drawer-vault-switcher-icon {
+		color: var(--vault-profile-color);
+		--icon-stroke: 2.125px;
+	}
+	.workspace-split.mod-left-split
+		> .workspace-sidedock-vault-profile
+		> .workspace-drawer-vault-actions
+		> :first-child {
+		display: none;
+	}
+}
+
+// --> PDF viewer <--
+
+.pdfViewer > .page {
+	border: unset;
+}
+
+.pdf-toolbar-left {
+	> .clickable-icon {
+		padding: 8px;
+		--icon-stroke: var(--icon-m-stroke-width);
+		--icon-color: var(--text-muted);
+	}
+	> .pdf-page-input {
+		margin-inline-end: 2px;
+		--input-height: 26px;
+	}
+}
+.pdf-sidebar-container {
+	--divider-width: 1px;
+}
+.pdf-sidebar-container {
+	.thumbnail {
+		border-radius: var(--radius-m);
+	}
+	.thumbnail > img,
+	.thumbnail::before {
+		border-radius: var(--radius-xs);
+	}
+}
+
+// PDF viewer in sidedock
+body:not(.is-phone) .mod-sidedock .pdf-toolbar {
+	border-radius: var(--radius-ml) var(--radius-ml) 0 0;
+	padding: 8px;
+}
+body:not(.is-phone) .mod-sidedock .pdf-container {
+	border-radius: 0 0 var(--radius-ml) var(--radius-ml);
+}

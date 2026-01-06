@@ -1,0 +1,40 @@
+.el-blockquote blockquote,
+.markdown-rendered blockquote {
+	position: relative;
+	align-items: center;
+	border: none;
+	padding-inline: 1.75em 0;
+	--math-color: var(--blockquote-color);
+}
+body:not(.enable-special-text) blockquote {
+	--bold-color: oklab(from var(--blockquote-color) l a b / 0.875);	
+	--italic-color: oklab(from var(--blockquote-color) l a b / 0.875);	
+}
+.HyperMD-quote,
+.markdown-rendered blockquote,
+.cm-blockquote-border {
+	&::before {
+		content: '';
+		contain: content;
+		position: absolute;
+		height: 100%;
+		left: 0;
+		width: var(--blockquote-border-thickness);
+		background-color: var(--blockquote-border-color);
+		border-radius: var(--radius-m);
+		-electron-corner-smoothing: var(--corner-smoothing);
+	}
+}
+.HyperMD-quote > .cm-blockquote-border::before {
+	left: unset;
+	width: 1px;
+}
+.HyperMD-quote + .HyperMD-quote {
+	&::before {
+		height: calc(100% + 2px);
+		margin-block: -2px;
+	}
+}
+.cm-line:not(.HyperMD-callout) + .HyperMD-quote-lazy {
+	padding-inline-start: 16px !important;
+}

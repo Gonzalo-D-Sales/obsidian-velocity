@@ -1,0 +1,83 @@
+button.clickable-icon {
+	transition: filter var(--anim-fast-swing);
+}
+.clickable-icon[aria-disabled='true'] {
+    opacity: unset;
+	filter: opacity(0.3125);
+}
+:is(.workspace-sidedock-vault-profile, 
+	.view-header, 
+	.workspace-ribbon, 
+	.graph-controls) 
+	.clickable-icon {
+    padding: 8px;
+}
+.sidebar-toggle-button,
+.workspace-tab-header-new-tab,
+.workspace-tab-header-tab-list,
+.workspace-drawer-vault-actions {
+	margin-inline: 0;
+	--icon-color: var(--control-icon-color);
+	--icon-opacity: 1;
+}
+.workspace-tab-header-new-tab > .clickable-icon {
+	height: 34px;
+	width: 34px;
+	margin-bottom: 1px;
+}
+.sidebar-toggle-button {
+	z-index: 1;
+	isolation: isolate;
+} 
+
+body:not(.is-mobile) :is(.workspace-ribbon,
+	.workspace-sidedock-vault-profile,
+	.workspace-tab-header-tab-list,
+	.sidebar-toggle-button) .clickable-icon {
+	contain: content;
+	align-self: center;
+	height: fit-content;
+	min-height: 34px;
+	border-radius: var(--radius-xxl);
+	padding: 8px 12px;
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+	--background-modifier-hover: var(--control-icon-background);
+	// shadow on hover 
+	&:hover,
+	&:active,
+	&.has-active-menu {
+		box-shadow: 
+		var(--control-icon-shadow);
+	}
+}
+// icon click 
+body:not(.is-mobile) 
+	:is(.workspace-ribbon,
+		.workspace-sidedock-vault-profile,
+		.workspace-tab-header-new-tab,
+		.workspace-tab-header-tab-list,
+		.nav-buttons-container,
+		.sidebar-toggle-button,
+		.view-header-left,
+		.view-actions) .clickable-icon {
+	> .svg-icon {
+		transition: var(--anim-duration-moderate) var(--vl-ease-out);
+		--icon-stroke: var(--icon-m-stroke-width);
+	}
+	&:active > .svg-icon {
+		transform: scale3d(0.8, 0.8, 0.8);
+	}
+}
+.workspace .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-left-toggle-inner-width: 24%;
+	--sidebar-right-toggle-inner-width: 24%;
+}
+.is-left-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-left-toggle-inner-width-open: 12%;
+}
+.is-right-sidedock-open .sidebar-toggle-button > .clickable-icon:hover {
+	--sidebar-right-toggle-inner-width-open: 12%;
+}
+ .sidebar-toggle-icon-inner {
+	transition: var(--anim-duration-moderate) var(--vl-ease-out);
+}

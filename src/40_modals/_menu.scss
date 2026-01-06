@@ -1,0 +1,50 @@
+.menu {
+	font-weight: var(--font-semi-medium);
+}
+.menu-item {
+	padding-block: calc(var(--vl-layout-padding) - 2px);
+	padding-inline: 6px 8px;
+	--background-modifier-hover: var(--interactive-accent);
+}
+.menu-item:not(.is-disabled).selected {
+	box-shadow: var(--shadow-button);
+	color: var(--text-on-accent) !important;
+	--icon-color: var(--text-on-accent);
+}
+.menu-item-title {
+	text-box-trim: trim-end;
+	padding-block: 0.5px;
+}
+.menu-separator {
+	margin: 4px 6px;
+}
+
+// Menu icons 
+
+.menu-item-icon {
+	color: var(--text-faint);
+	transform: translate3d(1px, 0, 0);
+}
+.menu-item:not(.is-disabled).selected .svg-icon {
+	color: var(--text-on-accent);
+}
+.menu-item.is-warning:not(.is-disabled).selected .svg-icon {
+	color: var(--text-on-accent);
+}
+.menu-item.is-warning:not(.is-disabled, .selected) .svg-icon {
+	filter: opacity(0.875);
+}
+.menu-item.is-warning:not(.is-disabled).selected {
+	box-shadow: var(--shadow-button-error);
+	background-color: var(--text-error);
+}
+
+// Menu label (graph mode) 
+
+.menu-item.is-label {
+    color: var(--text-normal);
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-semibold);
+	text-indent: -16px;
+	text-align: center;
+}

@@ -1,0 +1,69 @@
+.workspace-leaf-content .tree-item-self {
+	padding-block: var(--vl-layout-padding);
+	--nav-item-background-hover: oklab(from var(--trans-faint-20) l a b / 0.025);
+}
+.tree-item-self.mod-collapsible {
+	--nav-item-color: var(--color-base-80);
+	--nav-item-color-hover: var(--nav-item-color);
+	--nav-item-color-active: var(--nav-item-color);
+	--nav-item-background-hover: transparent;
+	--nav-item-weight: var(--font-semi-medium);
+	--nav-item-weight-hover: var(--font-semi-medium);
+	--nav-item-weight-active: var(--font-semi-medium);
+	--icon-opacity: 1;
+}
+
+// Folders
+:is([data-type="bookmarks"], [data-type="outline"], [data-type="file-explorer"]) {
+	--nav-collapse-icon-color: var(--color-base-80);
+}
+
+:is([data-type="bookmarks"], [data-type="file-explorer"]) {
+	.tree-item-self.mod-collapsible {
+		--nav-item-background-active: var(--color-accent-4);
+	}
+	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible {
+		background-color: var(--nav-item-background-active);
+		--nav-item-color: var(--text-accent);
+		--nav-collapse-icon-color: var(--color-accent-1);
+	}
+	.tree-item:not(.is-collapsed) .tree-item-self.mod-collapsible.has-focus {
+		background-color: var(--text-selection);
+	}
+	.tree-item-children > .tree-item.is-collapsed .tree-item-self.mod-collapsible {
+		--nav-item-background-active: transparent;
+		--text-selection: var(--background-modifier-hover);
+		--nav-item-color: var(--color-base-80);
+		--nav-collapse-icon-color: var(--nav-folder-color);
+	}
+}
+
+// Files
+.tree-item-self.has-focus,
+.tree-item-self.is-selected {
+	box-shadow: none !important;
+}
+.tree-item-self.has-focus {
+	background-color: var(--background-modifier-hover);
+	--nav-item-background-hover: var(--background-modifier-hover);
+}
+.tree-item-self.is-selected {
+	background-color: var(--nav-item-background-selected) !important;
+	--nav-item-color-selected: var(--text-accent);
+}
+.tree-item-self.is-being-dragged {
+	background-color: var(--interactive-accent) !important;
+	box-shadow: var(--shadow-s) !important;
+	--nav-collapse-icon-color: var(--trans-white-00) !important;
+}
+
+.collapse-icon svg.svg-icon {
+	transition-duration: var(--anim-duration-fast);
+}
+.nav-file-tag {
+	font-variation-settings: "opsz" 28;
+	letter-spacing: 0.075em;
+}
+.tree-item-self.is-being-dragged > .nav-file-tag {
+	color: var(--trans-white-00);
+}

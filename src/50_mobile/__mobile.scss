@@ -1,0 +1,589 @@
+//
+// =========================== ===========================
+// 5 - Mobile
+// =========================== ===========================
+
+body.is-mobile {
+	// backgrounds
+	--bg-main-drawer-left: radial-gradient(at 100% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 150%);
+	--bg-main-drawer-right: radial-gradient(at 0% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 150%);
+	--mobile-sidebar-background: transparent !important;
+	--interactive-normal: var(--background-modifier-hover);
+
+	// blur
+	--blur-radius-s: 6px;
+	--blur-radius-m: 10px;
+	--blur-radius-l: 16px;
+
+	--mobile-sidebar-width: 100%;
+
+	// radii
+	--radius-l: 19px;
+	--radius-xl: 21px;
+	--radius-xxl: 24px;
+	--radius-settings: 36px;
+	--nav-item-radius: var(--radius-m);
+
+	// sliders
+	--slider-track-height: 32px;
+	--slider-thumb-height: 20px;
+	--slider-thumb-width: 20px;
+	--slider-thumb-y: -7px;
+
+	// toggles
+	--toggle-width: 60px;
+	--toggle-border-width: 6px;
+	--toggle-thumb-height: 20px;
+	--toggle-thumb-width: 20px;
+	--toggle-thumb-padding: 10px;
+
+	// view header
+
+	// vault profile
+	--vault-profile-font-weight: var(--font-medium);
+
+	// weights
+	--nav-item-weight-active: inherit;
+}
+.theme-dark.is-mobile {
+	--bg-main-drawer-left: radial-gradient(at 100% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 200%);
+	--bg-main-drawer-right: radial-gradient(at 0% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 200%);
+
+	// base colors
+	--color-base-00: oklch(var(--bl-00) var(--bsat-med) var(--bhue));
+	--color-base-05: oklch(var(--bl-05) var(--bsat-low) var(--bhue));
+	--color-base-10: oklch(var(--bl-10) var(--bsat-str) var(--bhue));
+	--color-base-20: oklch(var(--bl-20) var(--bsat-str) var(--bhue));
+
+	// background variables
+	--background-modifier-hover: var(--trans-faint-20);
+	--interactive-normal: var(--trans-faint-20);
+	--setting-items-background: var(--background-primary);
+	--settings-background: var(--background-secondary);
+
+	// shadows
+	--glass-base-m:
+		inset 1.3125px 1.625px 2px -1.25px rgba(255, 255, 255, 0.375),
+		inset -1.3125px -1.625px 2px -1.25px rgba(255, 255, 255, 0.25), inset 0 0 16px rgba(255, 255, 255, 0.033);
+	--glass-base-l: inset 0 1.25px 2.5px -1px rgba(255, 255, 255, 0.25);
+	--menu-shadow: var(--glass-base-l), var(--shadow-normal);
+}
+
+body.is-phone {
+	// backgrounds
+	--tab-switcher-background: oklab(from var(--background-secondary) l a b / 0.5);
+
+	// file margins
+	--file-margins-x: 24px;
+
+	// smaller headings
+	--h1-size-alt: 1.5em;
+	--h1-size: 1.875em;
+	--h2-size: 1.375em;
+	--h3-size: 1.25em;
+	--h4-size: 1.125em;
+	--h5-size: 1em;
+	--h6-size: 0.875em;
+
+	--setting-items-padding: calc(var(--vl-layout-padding) + 10px);
+
+	// radii
+	--setting-items-radius: calc(var(--touch-radius-xs) + 4px);
+
+	// safe area
+	--safe-area-inset-top: calc(env(safe-area-inset-top) + var(--safe-area-adjust));
+	--safe-area-adjust: 40px;
+	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + 24px);
+
+	// shadows
+	--tab-switcher-preview-background-shadow: var(--glass-base-l), var(--shadow-normal);
+
+	// view header
+	--file-header-justify: start;
+}
+
+body.is-tablet {
+	// backgrounds
+	--system-status-background: var(--background-secondary);
+
+	// font size tweaks
+	--font-ui-smaller: 13px;
+	--font-ui-small: 14px;
+	--font-ui-medium: 15px;
+	--font-ui-larger: 25px;
+
+	// file spacing
+	--file-margins-x: 5%;
+	--file-margins-y: 28px;
+	--frame-right-space: 4px;
+
+	// radii
+	--tab-radius: var(--radius-sm);
+	--modal-radius: var(--radius-settings);
+
+	// toggles and sliders
+	--toggle-width: 56px;
+	--toggle-thumb-height: 16px;
+	--toggle-thumb-width: 16px;
+	--toggle-thumb-padding: 8px;
+	--slider-track-height: 28px;
+	--slider-thumb-height: 16px;
+	--slider-thumb-width: 16px;
+	--slider-thumb-y: -5px;
+}
+
+.is-mobile .workspace-leaf-content .tree-item-self,
+.is-mobile .workspace-drawer-tab-options .workspace-tab-header-inner,
+.is-mobile .search-result-file-match {
+	padding-block: calc(var(--vl-layout-padding) * 1.25);
+}
+.is-mobile .search-result-file-matches,
+.is-mobile .search-result-file-match {
+	border-radius: var(--nav-item-radius);
+}
+
+.theme-dark.is-mobile
+	:is(.view-actions.mod-raised, .modal-close-button, .modal-setting-back-button, .workspace-drawer-header-icon) {
+	box-shadow: var(--control-icon-shadow);
+}
+.theme-dark.is-phone .mobile-navbar.mod-raised,
+.theme-dark.is-mobile .workspace-drawer-tab-select > .workspace-tab-header-inner,
+.theme-dark.is-mobile .workspace-drawer-tab-options-list {
+	box-shadow: var(--glass-base-m), var(--shadow-normal);
+}
+.theme-light.is-mobile .workspace-drawer-tab-select > .workspace-tab-header-inner,
+.theme-light.is-mobile .workspace-drawer-tab-options-list {
+	background-color: var(--control-icon-background);
+	box-shadow: var(--control-icon-shadow);
+}
+
+.is-mobile .multi-select-pill-remove-button {
+	border-radius: var(--radius-xxl);
+}
+
+// Sidebar Drawer
+
+.is-mobile :is(.workspace-drawer .workspace-leaf-content > .node-insert-event, .workspace-drawer .view-content) {
+	padding-inline: 20px;
+}
+.is-mobile .workspace-drawer .workspace-leaf-content:not([data-type="backlink"]) > .view-content {
+	padding-block-start: 12px;
+}
+
+// main drawer background
+.is-mobile .workspace-drawer.mod-left > .workspace-drawer-inner {
+	background: var(--bg-main-drawer-left);
+}
+.is-mobile .workspace-drawer.mod-right > .workspace-drawer-inner {
+	background: var(--bg-main-drawer-right);
+}
+// fade background
+.is-mobile .workspace-drawer-active-tab-content .workspace-leaf-content::before {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: var(--mobile-nav-fade-bg);
+	z-index: 1;
+}
+// invert for phone since controls are at bottom
+.is-phone .workspace-drawer-active-tab-content .workspace-leaf-content::before {
+	transform: scaleY(-1);
+}
+
+.is-tablet .workspace-drawer-inner {
+	padding-block-start: 0;
+}
+.is-tablet .workspace-drawer-tab-options {
+	padding-block-start: var(--safe-area-inset-top);
+}
+.is-tablet .workspace-drawer-tab-options-list {
+	margin-block-start: var(--safe-area-inset-top);
+}
+.is-tablet .search-row {
+	z-index: 1;
+}
+
+// solid background on top of gradient in certain areas
+.is-phone .workspace-drawer-header,
+.is-mobile .workspace-drawer-tab-options {
+	background-color: var(--background-secondary);
+}
+.is-mobile .workspace-drawer-tab-options {
+	margin-inline: unset;
+	padding-inline: 12px;
+	--tab-font-weight: var(--font-medium);
+}
+.is-tablet .workspace-drawer-tab-options {
+	padding-inline: 6px 8px;
+}
+
+// Drawer nav files
+.is-mobile .nav-files-container > *,
+.is-mobile .nav-folder > .tree-item-children {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2px;
+}
+
+.is-mobile .workspace-drawer .search-input-container {
+	--input-radius: inherit;
+}
+.is-mobile .workspace-drawer .search-input-container > input {
+	border: none;
+}
+
+// drawer options
+.is-mobile .workspace-drawer-tab-options-list {
+	margin-inline: 12px;
+	gap: 4px;
+	width: calc(100% - 24px);
+	backdrop-filter: var(--blur-m);
+	border-radius: var(--touch-radius-xxs);
+	scrollbar-gutter: unset;
+}
+.is-tablet .workspace-drawer-tab-options-list {
+	margin-inline: 6px 8px;
+	width: calc(100% - 14px);
+}
+.is-mobile .workspace-drawer-tab-options-list > .workspace-tab-header > .workspace-tab-header-inner {
+	border-radius: calc(var(--touch-radius-xs) * 0.5625);
+}
+.is-phone .workspace-drawer-tab-options-list {
+	padding-block-end: calc(var(--touch-size-l) + 4px);
+}
+.is-tablet .workspace-drawer-tab-options-list {
+	padding-block-start: calc(var(--touch-size-l) + 4px);
+}
+
+// nav action buttons
+.is-mobile .nav-buttons-container {
+	gap: 4px;
+	--interactive-normal: transparent;
+	--icon-color: var(--text-normal);
+}
+.is-mobile .nav-buttons-container > .nav-action-button {
+	width: var(--touch-size-l);
+	z-index: 1;
+}
+
+// Sliders and Toggles
+
+.is-mobile input[type="range"]::-webkit-slider-runnable-track {
+	padding-inline: 6px;
+}
+
+.is-tablet input[type="range"] {
+	width: 124px;
+}
+
+// Tab switcher phone
+
+.mobile-tab-switcher-menubar .clickable-icon {
+	padding: 12px 16px;
+}
+
+// Metadata
+
+.is-mobile .metadata-content {
+	background-color: transparent;
+}
+.is-mobile .metadata-property {
+	border-radius: var(--radius-sm);
+}
+.is-mobile .metadata-add-button {
+	height: var(--input-height);
+	padding-inline: calc(var(--input-height) / 3);
+}
+.is-phone .metadata-properties-heading > .collapse-indicator {
+	--collapse-icon-color: transparent;
+}
+
+// Menu
+
+.is-phone .menu-scroll {
+	margin-block: 0;
+	margin-inline: 16px;
+	padding: 4px 4px var(--safe-area-inset-bottom) 4px;
+	border-radius: var(--touch-radius-xxs) var(--touch-radius-xxs) 0 0;
+}
+.is-phone .menu-group .menu-item.tappable {
+	box-shadow: var(--shadow-setting-items);
+}
+
+// Modal
+
+.is-phone .modal-title {
+	font-size: 20px;
+}
+.is-phone .modal.mod-settings.mod-sidebar-layout {
+	--modal-header-height: calc(var(--safe-area-inset-top) + 52px);
+}
+
+.is-phone .modal .modal-setting-back-button {
+	inset-block-end: 8px;
+}
+
+.is-phone .mobile-tab-switcher {
+	backdrop-filter: var(--blur-s);
+}
+.is-phone .setting-item-control > :is(input[type="range"], input[type="range"].mobile-tap) {
+	width: 50% !important; 
+}
+
+
+// Main Navbar
+
+.mobile-navbar.mod-raised {
+	padding: 4px;
+}
+body.is-phone .mobile-navbar-action {
+	min-width: 0;
+	margin-inline-start: 0;
+}
+
+// Command Prompt
+
+.is-mobile:not(.is-phone) .prompt {
+	height: auto;
+	inset-block: 12vh;
+	margin-block: 0;
+}
+.is-phone .prompt {
+	margin-inline: 2px;
+	width: auto;
+}
+.is-phone .prompt-results > .suggestion-item {
+	padding-inline: 20px;
+	border-radius: var(--touch-radius-s);
+}
+.is-phone .prompt-results {
+	padding: 12px;
+}
+.is-phone .prompt-results::-webkit-scrollbar {
+	display: none;
+}
+.is-phone .prompt .suggestion-item {
+	padding-inline: 24px;
+	border-radius: var(--touch-radius-xxs);
+}
+
+// Settings
+.is-tablet .modal.mod-settings .vertical-tab-content {
+	background-color: transparent;
+}
+
+.is-mobile .mod-settings .setting-group > .setting-items .setting-item {
+	padding-inline: 0;
+}
+.is-tablet .mod-settings .setting-group > .setting-items .setting-item {
+	padding-inline: 5px 0;
+}
+.is-tablet .horizontal-tab-nav-item,
+.is-tablet .vertical-tab-nav-item {
+	border-radius: var(--nav-item-radius);
+	padding-block: calc(var(--vl-layout-padding) * 1.25) !important;
+}
+.is-phone .vertical-tab-header-group-title {
+	padding-inline-start: 20px;
+}
+.is-phone .setting-item {
+	border-radius: var(--touch-radius-xxs);
+}
+.is-phone .setting-items .setting-item > .setting-item-info {
+	padding-inline-start: 4px;
+}
+
+
+.is-phone .modal.mod-settings .vertical-tab-header-group-items > :first-child {
+	padding-block-start: 6px;
+	height: calc(var(--touch-size-l) + 6px);
+}
+.is-phone .modal.mod-settings .vertical-tab-header-group-items > :last-child {
+	padding-block-end: 6px;
+	height: calc(var(--touch-size-l) + 6px);
+}
+
+.is-mobile input[type="color"] {
+	height: 100%;
+}
+
+// Vault profile/Drawer
+
+.workspace-drawer-header-name-text {
+	font-variation-settings: "opsz" 28;
+	font-weight: var(--vault-profile-font-weight);
+}
+
+.is-phone .metadata-properties-title {
+	font-weight: var(--font-semibold);
+}
+
+// View header
+
+.is-tablet .workspace-tab-header-tab-list > .clickable-icon {
+	--icon-size: var(--icon-l);
+}
+.is-phone .view-header-left {
+	display: none;
+}
+.is-phone .view-header-title-container {
+	padding-inline-start: 16px;
+}
+.is-phone .view-header-title {
+	padding-inline-start: 0;
+}
+.is-mobile .mod-raised {
+	border-radius: var(--touch-radius-s);
+}
+
+// TABLET
+
+// tablet main workspace
+.is-tablet .workspace-drawer:not(.is-pinned) > * {
+	box-shadow: var(--shadow-fab);
+}
+.is-tablet .workspace-drawer.is-pinned .nav-buttons-container {
+	--icon-color: var(--text-muted);
+}
+
+.is-tablet .mod-root .workspace-tabs {
+	overflow: visible;
+}
+.is-tablet .is-left-sidedock-open > .mod-root {
+	padding-inline-start: 0 !important;
+}
+.is-tablet .is-right-sidedock-open > .mod-root {
+	padding-inline-end: 0 !important;
+}
+.is-tablet .workspace-drawer.is-pinned,
+.is-tablet .workspace-drawer-active-tab-content,
+.is-tablet .workspace-leaf,
+.is-tablet .workspace-leaf-content,
+.is-tablet .node-insert-event {
+	z-index: 0;
+}
+
+.is-tablet .mod-root {
+	padding-block-end: calc(var(--touch-size-xxs) / 2);
+	padding-inline: calc(var(--touch-size-xxs) / 2) !important;
+	transition: padding var(--anim-duration-moderate) var(--vl-ease-out);
+	z-index: 2;
+}
+.is-tablet .mod-root .workspace-tab-container {
+	border-radius: var(--touch-radius-xxs);
+	box-shadow: var(--shadow-workspace);
+}
+.is-tablet .workspace-drawer .workspace-drawer-active-tab-container {
+	background-color: transparent;
+}
+
+// tablet root tabs
+.is-tablet .mod-root .workspace-tab-header-container {
+	padding-block: 4px 8px;
+	--tab-container-background: transparent;
+}
+.is-tablet .mod-root .workspace-tab-header-container-inner {
+	gap: 4px;
+	padding-block: 4px;
+}
+.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header .workspace-tab-header-inner-title {
+	font-weight: var(--font-semi-medium);
+}
+.is-tablet
+	.mod-root
+	.workspace-tabs:not(.mod-stacked)
+	.workspace-tab-header:not(.is-active)
+	.workspace-tab-header-inner-title {
+	padding-inline: 4px 10px;
+}
+.is-tablet:not(.prevent-exit)
+	.mod-root
+	.workspace-tabs:not(.mod-stacked)
+	.workspace-tab-header:not(.is-active):hover
+	.workspace-tab-header-inner-title {
+	padding-inline: 6px 10px;
+}
+
+// tablet view header
+.is-tablet .view-header {
+	padding-inline-start: 10px;
+}
+.is-tablet .view-header-nav-buttons {
+	padding-block: 4px 0;
+}
+.is-tablet .view-actions.mod-raised {
+	background-color: transparent;
+	box-shadow: none;
+	backdrop-filter: none;
+}
+.is-tablet :is(.view-header-title, .view-header-title-parent > *) {
+	margin-block-start: 4px;
+	padding-block: 4px;
+	text-box-trim: trim-both;
+}
+
+body.is-tablet .mod-root .document-search-container {
+	border-radius: var(--touch-radius-l);
+	inset-block-start: 0;
+	inset-inline-end: 100px;
+	margin-block: 8px;
+	padding: 8px;
+	--input-height: 36px;
+}
+
+// tablet tab header icons
+.is-tablet .sidebar-toggle-button > .clickable-icon {
+	translate: 0 -5px;
+}
+.is-tablet .workspace-tab-header-tab-list > .clickable-icon,
+.is-tablet .sidebar-toggle-button > .clickable-icon {
+	padding: 8px 12px;
+}
+
+// tablet menu items
+.is-tablet .menu-item {
+	border-radius: var(--radius-sm);
+	padding-block: var(--vl-layout-padding);
+}
+.is-tablet .menu-item:not(.is-label):not(.is-disabled).mobile-tap,
+.is-tablet .menu-item:not(.is-label):not(.is-disabled).selected {
+	box-shadow: var(--shadow-button);
+	color: var(--text-on-accent);
+	--text-faint: var(--text-on-accent);
+	--text-error: var(--text-on-accent);
+}
+.is-tablet.is-hidden-frameless:not(.is-fullscreen) .workspace-tabs .workspace-tab-header-container {
+	--size-4-2: 2px;
+}
+.is-tablet .workspace-tabs .workspace-tab-header-container > * {
+	--size-4-2: 8px;
+}
+
+// tablet modal adjsutments
+.is-tablet .modal-button-container {
+	flex-direction: row;
+}
+
+.is-tablet .mod-community-modal .modal-sidebar {
+	contain: unset;
+}
+.is-tablet .community-modal-controls {
+	padding-block: 12px;
+	--input-radius: var(--radius-ml);
+}
+body.is-tablet .community-modal-controls > .setting-item.mod-toggle {
+	--modal-community-sidebar-width: 220px;
+}
+.is-tablet .community-item.tappable {
+	--background-modifier-hover: var(--modal-community-item-bg);
+}
+
+.is-tablet .suggestion-container {
+	border-radius: calc(var(--radius-l) - 2px);
+	background-color: var(--modal-small-background);
+}
+.is-tablet .suggestion-item {
+	border-radius: var(--nav-item-radius);
+}
