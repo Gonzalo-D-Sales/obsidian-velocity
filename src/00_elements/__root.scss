@@ -169,7 +169,9 @@ body {
     // Indentation guide
     --indentation-guide-width: 0;
     --indentation-guide-width-active: 0;
+    --indentation-guide-color: var(--trans-faint-30);
     --nav-indentation-guide-width: 0;
+    --nav-indentation-guide-color: var(--trans-faint-30);
 
     // Inline title
     --inline-title-margin-bottom: round(nearest, clamp(0px, 0.5em, 1.5rem), 2px);

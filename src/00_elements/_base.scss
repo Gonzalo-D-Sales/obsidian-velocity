@@ -287,6 +287,14 @@ input[type="color"]:focus {
 	box-shadow: initial;
 }
 
+// Indentation guide
+
+body.restore-indent-guide {
+	--indentation-guide-width: 2px;
+    --indentation-guide-width-active: 2px;
+    --nav-indentation-guide-width: 2px;
+}
+
 // --> Loader <--
 
 .is-loading::before {

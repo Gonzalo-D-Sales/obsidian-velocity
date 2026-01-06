@@ -180,6 +180,10 @@ settings:
 	title: Restore default icon styling
 	type: class-toggle
 -
+	id: restore-indent-guide
+	title: Restore indentation guides
+	type: class-toggle
+- 	
 	id: disable-hover-header
 	title: Disable Compact Panels in the sidebar   
 	type: class-toggle
