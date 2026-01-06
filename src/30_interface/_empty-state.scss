@@ -8,10 +8,18 @@
     display: flex;
     margin: 0;
 }
+body.is-phone .empty-state-action-list {
+    gap: 8px;
+    margin-block-end: 16px;
+}
+body.is-phone .empty-state-action-list  > .empty-state-action.tappable {
+    padding: 16px;
+}
 
 // Actions
 .empty-state-action-list {
     > .empty-state-action.tappable {
+        background-color: transparent;
         border-radius: 50%;
         width: 100%;
         height: 100%;

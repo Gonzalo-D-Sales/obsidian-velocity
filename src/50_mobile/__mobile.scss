@@ -328,15 +328,10 @@ body.is-tablet {
 .is-phone .mobile-tab-switcher {
 	backdrop-filter: var(--blur-s);
 }
-.is-phone .setting-item-control > input[class="slider"] {
-	max-width: 50%;
+.is-phone .setting-item-control > :is(input[type="range"], input[type="range"].mobile-tap) {
+	width: 50% !important; 
 }
-@container (max-width: 340px) {
-    .setting-item:not(.mod-toggle):not(.setting-item-heading) .setting-item-control:has(input[class="slider"]) {
-        width: 75% !important;
-        align-self: end !important;
-    }
-}
+
 
 // Main Navbar
 
@@ -386,6 +381,9 @@ body.is-phone .mobile-navbar-action {
 .is-tablet .vertical-tab-nav-item {
 	border-radius: var(--nav-item-radius);
 	padding-block: calc(var(--vl-layout-padding) * 1.25) !important;
+}
+.is-phone .vertical-tab-header-group-title {
+	padding-inline-start: 20px;
 }
 .is-phone .setting-item {
 	border-radius: var(--touch-radius-xxs);
