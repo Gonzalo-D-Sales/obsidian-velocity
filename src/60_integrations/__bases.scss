@@ -361,8 +361,16 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 		color: var(--text-accent);
 		font-weight: var(--bases-query-input-weight);
 	}
-	.filter-row-actions {
+	.filter-row-actions,
+	.filter-row .formula-editor {
 		background-color: var(--metadata-input-background);
+	}
+	.formula-editor {
+		min-height: 34px;
+	}
+	.formula-editor .cm-line {
+		text-box-trim: trim-both;
+		text-box-edge: cap alphabetic;
 	}
 	.combobox-button.filter-operator {
 		font-style: italic;
@@ -408,7 +416,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 .bases-toolbar-menu .suggestion-container {
 	animation: none;
 }
-.bases-toolbar-menu .formula-editor {
+.bases-toolbar-properties-menu .formula-editor {
 	box-shadow: var(--shadow-input);
 	&:focus-within {
 		box-shadow: var(--shadow-input-active);
