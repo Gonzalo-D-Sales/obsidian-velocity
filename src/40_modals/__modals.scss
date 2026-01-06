@@ -11,6 +11,9 @@ body:not(.is-mobile)
 .prompt .search-input-clear-button) {
 	display: none;
 }
+body.is-tablet .modal-close-button.mod-raised {
+	display: none;
+}
 
 body:is(.is-maximized, .is-fullscreen) .modal-bg {
 	background-color: var(--background-modifier-cover) !important;

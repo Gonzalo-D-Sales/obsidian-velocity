@@ -409,6 +409,13 @@ input[type="range"]::-webkit-slider-runnable-track {
 .bases-view::-webkit-scrollbar-track {
 	margin-block: 4px;
 }
+.is-tablet {
+	.cm-scroller::-webkit-scrollbar-track,
+	.markdown-preview-view::-webkit-scrollbar-track,
+	.bases-view::-webkit-scrollbar-track {
+	margin-block: 20px;
+	}
+}
 body.show-view-header .cm-scroller::-webkit-scrollbar-track,
 body.show-view-header .markdown-preview-view::-webkit-scrollbar-track,
 body.show-view-header .bases-view::-webkit-scrollbar-track {
@@ -429,6 +436,15 @@ body.show-view-header .bases-view::-webkit-scrollbar-track {
 }
 .modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
 	margin-block: 44px 18px;
+}
+.is-tablet {
+	.mod-settings .vertical-tab-content::-webkit-scrollbar-track,
+	.mod-dim .modal:not(.mod-settings, .prompt)::-webkit-scrollbar-track {
+		margin-block: 28px;
+	}
+	.modal.mod-community-modal .community-modal-search-results-wrapper::-webkit-scrollbar-track {
+		margin-block: 48px 28px;
+	}
 }
 
 .prompt.theme-picker-modal > .prompt-results::-webkit-scrollbar-track {
