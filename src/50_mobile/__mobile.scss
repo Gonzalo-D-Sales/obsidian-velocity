@@ -24,7 +24,7 @@ body.is-mobile {
 	--radius-xl: 21px;
 	--radius-xxl: 24px;
 	--radius-settings: 36px;
-	--nav-item-radius: var(--radius-sm);
+	--nav-item-radius: var(--radius-m);
 
 	// sliders
 	--slider-track-height: 32px;
@@ -91,7 +91,7 @@ body.is-phone {
 	--h5-size: 1em;
 	--h6-size: 0.875em;
 
-	// settings
+	// radii
 	--setting-items-radius: calc(var(--touch-radius-xs) + 4px);
 
 	// view header
@@ -367,6 +367,7 @@ body.is-phone .mobile-navbar-action {
 .is-tablet .mod-root {
 	padding-block-end: calc(var(--touch-size-xxs) / 2);
 	padding-inline: calc(var(--touch-size-xxs) / 2) !important;
+	transition: padding var(--anim-duration-moderate) var(--vl-ease-out);
 	z-index: 2;
 }
 .is-tablet .is-left-sidedock-open > .mod-root {
