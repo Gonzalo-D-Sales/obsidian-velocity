@@ -14,9 +14,9 @@ body.is-mobile {
 	--blur-radius-m: 10px;
 	--blur-radius-l: 16px;
 
-	--interactive-normal: var(--trans-faint-10);
+	--interactive-normal: var(--background-modifier-hover);
 
-	--mobile-sidebar-width: calc(100% - 52px);
+	--mobile-sidebar-width: 100%;
 
 	
 	// radii
@@ -24,6 +24,7 @@ body.is-mobile {
 	--radius-xl: 21px;
 	--radius-xxl: 24px;
 	--radius-settings: 36px;
+	--nav-item-radius: var(--radius-sm);
 
 	// sliders
 	--slider-track-height: 32px;
@@ -42,6 +43,9 @@ body.is-mobile {
 
 	// vault profile
 	--vault-profile-font-weight: var(--font-medium);
+
+	// weights
+	--nav-item-weight-active: inherit;
 }
 .theme-dark.is-mobile {
 	--bg-main-drawer-left: radial-gradient(at 100% 50%, var(--bg-main-inner) 33%, var(--bg-main-outer) 200%);
@@ -66,12 +70,17 @@ body.is-mobile {
 	--menu-shadow: var(--glass-base-l), var(--shadow-normal);
 }
 body.is-phone {
+
+	--tab-switcher-background: oklab(from var(--background-secondary) l a b / 0.5);
+	--tab-switcher-preview-background-shadow: var(--glass-base-l), var(--shadow-normal);
+
 	// file margins
 	--file-margins-x: 24px;
 
 	// Safe area
 	--safe-area-inset-top: calc(env(safe-area-inset-top) + var(--safe-area-adjust));
 	--safe-area-adjust: 40px;
+	--view-top-spacing-markdown: calc(var(--safe-area-inset-top) + var(--view-header-height) + 24px);
 
 	// smaller headings
 	--h1-size-alt: 1.5em;
@@ -89,10 +98,20 @@ body.is-phone {
 	--file-header-justify: start;
 }
 .is-tablet {
-	--touch-radius-xs: var(--radius-xxl);
+	--file-margins-x: 5%;
+	--file-margins-y: 28px;
+	--system-status-background: var(--background-secondary);
 
-	--input-radius: var(--radius-m);
+	--tab-radius: var(--radius-sm);
 	--modal-radius: var(--radius-settings);
+
+	--frame-right-space: 4px;
+}
+
+.is-mobile .workspace-leaf-content .tree-item-self,
+.is-mobile .workspace-drawer-tab-options .workspace-tab-header-inner,
+.is-mobile .search-result-file-match {
+	padding-block: calc(var(--vl-layout-padding) * 1.25);
 }
 
 .theme-dark.is-mobile :is(.view-actions.mod-raised, .modal-close-button, .modal-setting-back-button, .workspace-drawer-header-icon) {
@@ -109,7 +128,11 @@ body.is-phone {
 	box-shadow: var(--control-icon-shadow);
 }
 
-// Drawer
+// Sidebar Drawer
+
+.is-mobile :is(.workspace-drawer .workspace-leaf-content > .node-insert-event, .workspace-drawer .view-content) {
+	padding-inline: 20px;
+}
 
 // main drawer background
 .is-mobile .workspace-drawer.mod-left > .workspace-drawer-inner {
@@ -154,6 +177,7 @@ body.is-phone {
 .is-mobile .workspace-drawer-tab-options {
 	margin-inline: unset;
 	padding-inline: 12px;
+	--tab-font-weight: var(--font-medium);
 }
 
 .is-mobile .workspace-drawer .search-input-container {
@@ -163,26 +187,50 @@ body.is-phone {
 	border: none;
 }
 
+// drawer options
 .is-mobile .workspace-drawer-tab-options-list {
 	margin-inline: 12px;
+	gap: 4px;
 	width: calc(100% - 24px);
 	backdrop-filter: var(--blur-m);
 	border-radius: var(--touch-radius-xxs);
 	scrollbar-gutter: unset;
 }
+.is-mobile .workspace-drawer-tab-options-list > .workspace-tab-header > .workspace-tab-header-inner {
+	border-radius: calc(var(--touch-radius-xs) * 0.5625);
+}
+.is-phone .workspace-drawer-tab-options-list {
+	padding-block-end: calc(var(--touch-size-l) + 4px);
+}
+.is-tablet .workspace-drawer-tab-options-list {
+	padding-block-start: calc(var(--touch-size-l) + 4px);
+}
+
+// nav action buttons
 .is-mobile .nav-buttons-container {
+	gap: 4px;
 	--interactive-normal: transparent;
+	--icon-color: var(--text-normal);
 }
 .is-mobile .nav-buttons-container > .nav-action-button {
+	width: var(--touch-size-l);
 	z-index: 1;
 }
 
 // Sliders and Toggles
+
 .is-mobile input[type="range"]::-webkit-slider-runnable-track {
 	padding-inline: 6px;
 }
 
+// Tab switcher phone
+
+.mobile-tab-switcher-menubar .clickable-icon {
+	padding: 12px 16px;
+}
+
 // Metadata
+
 .is-mobile .metadata-content {
 	background-color: transparent;
 }
@@ -192,6 +240,7 @@ body.is-phone {
 }
 
 // Menu
+
 .is-phone .menu-scroll {
 	margin-block: 0;
 	margin-inline: 16px;
@@ -203,6 +252,7 @@ body.is-phone {
 }
 
 // Modal
+
 .is-phone .modal-title {
 	font-size: 20px;
 }
@@ -214,12 +264,22 @@ body.is-phone {
 	inset-block-end: 8px;
 }
 
-// Navbar
+.is-phone .mobile-tab-switcher {
+	backdrop-filter: var(--blur-s);
+}
+
+// Main Navbar
+
 .mobile-navbar.mod-raised {
 	padding: 4px;
 }
+body.is-phone .mobile-navbar-action {
+    min-width: 0;
+    margin-inline-start: 0;
+}
 
-// Prompt
+// Command Prompt
+
 .is-mobile:not(.is-phone) .prompt {
 	height: auto;
 	inset-block: 12vh;
@@ -245,17 +305,29 @@ body.is-phone {
 }
 
 // Settings
+
 .is-mobile .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 0;
 }
 .is-tablet .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 5px 0;
 }
+.is-tablet .horizontal-tab-nav-item, .is-tablet .vertical-tab-nav-item {
+	border-radius: var(--nav-item-radius);
+	padding-block: calc(var(--vl-layout-padding) * 1.25) !important;
+}
+.is-phone .setting-item {
+	border-radius: var(--touch-radius-xxs);
+}
 .is-phone .setting-items .setting-item > .setting-item-info {
 	padding-inline-start: 4px;
 }
+.is-mobile input[type="color"] {
+	height: 100%;
+}
 
 // Vault profile/Drawer
+
 .workspace-drawer-header-name-text {
 	font-variation-settings: "opsz" 28;
 	font-weight: var(--vault-profile-font-weight);
@@ -266,6 +338,7 @@ body.is-phone {
 }
 
 // View header
+
 .is-tablet .workspace-tab-header-tab-list > .clickable-icon {
 	--icon-size: var(--icon-l);
 }
@@ -277,4 +350,79 @@ body.is-phone {
 }
 .is-phone .view-header-title {
 	padding-inline-start: 0;
+}
+.is-mobile .mod-raised {
+	border-radius: var(--touch-radius-s);
+}
+
+// TABLET
+
+.is-tablet .workspace-drawer:not(.is-pinned) > * {
+	box-shadow: var(--shadow-fab);
+}
+
+.is-tablet .mod-root .workspace-tabs {
+	overflow: visible;
+}
+.is-tablet .mod-root {
+	padding-block-end: calc(var(--touch-size-xxs) / 2);
+	padding-inline: calc(var(--touch-size-xxs) / 2) !important;
+	z-index: 2;
+}
+.is-tablet .is-left-sidedock-open > .mod-root {
+	padding-inline-start: 0 !important;
+}
+.is-tablet .is-right-sidedock-open > .mod-root {
+	padding-inline-end: 0 !important;
+}
+.is-tablet .workspace-drawer.is-pinned,
+.is-tablet .workspace-drawer-active-tab-content,
+.is-tablet .workspace-leaf,
+.is-tablet .workspace-leaf-content,
+.is-tablet .node-insert-event {
+	z-index: 0;
+}
+
+.is-tablet .mod-root .workspace-tab-container {
+	border-radius: var(--touch-radius-xs);
+	box-shadow: var(--shadow-workspace);
+}
+.is-tablet .workspace-drawer .workspace-drawer-active-tab-container {
+	background-color: transparent;
+}
+.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active) .workspace-tab-header-inner-title {
+	padding-inline: 4px 10px;
+}
+.is-tablet .mod-root .workspace-tabs:not(.mod-stacked) .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-title {
+	padding-inline: 6px 10px;
+}
+
+.is-tablet .view-header {
+	padding-inline-start: 10px;
+}
+.is-tablet .view-header-nav-buttons {
+	padding-block: 4px 0;
+}
+.is-tablet .view-actions.mod-raised {
+	background-color: transparent;
+	box-shadow: none;
+	backdrop-filter: none;
+}
+.is-tablet :is(.view-header-title,.view-header-title-parent > *) {
+	margin-block-start: 4px;
+	padding-block: 4px;
+	text-box-trim: trim-both;
+}
+
+.is-tablet .mod-root .workspace-tab-header-container {
+	padding-block: 4px 8px;
+	--tab-container-background: transparent;
+}
+.is-tablet .mod-root .workspace-tab-header-container-inner {
+	gap: 4px;
+	padding-block: 4px;
+}
+
+.is-tablet .sidebar-toggle-button .clickable-icon {
+	margin-block-end: 8px;
 }

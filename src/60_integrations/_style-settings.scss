@@ -65,7 +65,9 @@ body:not(.is-phone) .setting-item[data-id="safe-area-adjust"] {
     display: none;
 }
 .theme-dark .style-settings-container > .setting-item[data-id="theme-paint-light"],
-.theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"] {
+.theme-light .style-settings-container > .setting-item[data-id="theme-paint-dark"],
+body.is-phone .style-settings-info-text[data-id="paint-preview"],
+body.is-phone .style-settings-info-text[data-id="disable-performance-tweaks"] {
     display: none;
 }
 
