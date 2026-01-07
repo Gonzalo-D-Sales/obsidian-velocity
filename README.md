@@ -1,6 +1,8 @@
 ![poster](./assets/poster.png)
 
-Velocity is a clean and futuristic theme for Obsidian, born out of a relentless pursuit of perfection. Witness for yourself the _next generation_ of theme design, and elevate your note-taking experience to a whole new level.
+### The theme of Tomorrow, in your hands Today.
+
+Velocity is a sleek and futuristic theme for Obsidian, born out of a relentless pursuit of design perfection. Witness what the _next generation_ of theme design feels like, and elevate your note-taking experience to a whole new level.
 
 ## Table of Contents
 
@@ -12,11 +14,11 @@ Velocity is a clean and futuristic theme for Obsidian, born out of a relentless 
 - [Credits](#Credits-)
 
 ## Updates [^](#Table-of-Contents)
-As of 03/09/2025, the latest release is `Velocity 2.0.0`.
+As of 01/07/2026, **the latest release** is `Velocity 2.0.0`.
 
-After over three months of continuous development since `1.3.0-beta`, 2.0.0 brings a fresh new look and massively refined user experience. Additionally, **full support** for phones and tablets is now available, ensuring all platforms get the same treatment and care.
+After over three months of continuous development since `1.3.0-beta`, 2.0.0 brings a **fresh new look** and massively refined user experience. Additionally, **full support** for phones and tablets is now available, ensuring all platforms get the same treatment and care.
 
-Check [the release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.0.0) for a full list of new features, improvements and fixes.
+Check out the [release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.0.0) for the full list of new features, improvements and fixes.
 
 ## Images [^](#Table-of-Contents) 
 
@@ -41,13 +43,14 @@ Check [the release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-v
 - **How long have you been working on this?**
   - Around **one year and two months**, as of the release of `2.0.0`.
 - **Will you add feature X/Y/Z to Velocity?**
-  - It depends. Certain features you may be looking for might already be present in the theme. Others which are missing may be added or rejected based on whether the feature is aligned with Velocity's overall philosophy, or whether the feature is better off as some snippet due to complexity/feature creep. In any case, please make requests for features in the **Issues** page or in the Obsidian **Discord** thread for Velocity.
+  - It depends. Certain features you may be looking for might already be present in the theme. Others which are missing may be added or rejected based on whether the feature is aligned with Velocity's overall philosophy, or whether the feature is better off as some snippet instead. In any case, please make requests for features in the **Issues** page or in the Obsidian **Discord** thread for Velocity.
 - **Will this theme work with plugin X/Y/Z?**
   - As an opinionated UI-centric theme, Velocity **may interfere with the styling of some plugins' settings** or modals in a way that is not intended or aesthetic. This is a necessary and inevitable tradeoff when designing a theme which alters the default UI to such an extent. Nevertheless, in my own testing, most plugins work just fine with Velocity. The worst you'll experience in most cases is some minor menu jank, but the actual functionality of plugins should be **totally unaffected.**
 - **Why does it look so much like theme X/Y/Z?**
-  - Velocity has been created with multiple inspirations in mind, including various themes I used for my own vaults before deciding to make my own. The most obvious parallels are to **[Cupertino](https://github.com/aaaaalexis/obsidian-cupertino)**, which is a result of that theme's innovations and approaches inspiring the current generation of themes. However, Velocity differs from Cupertino in many ways once you look past the surface level. At their core, the two themes are fundamentally different in approach and philosophy.
-  - The keen-eyed user or fellow theme developer may notice some paralles with the beautifully tactile **[Primary](https://github.com/primary-theme/obsidian)** by Cecilia May. This is because I have taken much inspiration from her exacting attention to detail and focus on tactile responsiveness in UI interactions. 
-  - I have detailed the full list of works I have drawn inspiration or borrowed code from in the Credits section of the README. **Any other resemblances are thus purely coincidental.** In any case, I do not intend to merely copy or imitate the work of a fellow theme dev. The whole project has been an outlet for me to _say something_ about design and about Obsidian theming, and so it has been very personal and intentional from the outset. 
+  - Velocity has been created with multiple inspirations in mind, including various themes I have used for my own vaults in the past. 
+  - The most apparent similarities are with **[Cupertino](https://github.com/aaaaalexis/obsidian-cupertino)**. However, Velocity differs from Cupertino in many ways once you look past the surface level. Ultimately, the two themes are fundamentally different in approach and philosophy.
+  - The keen-eyed may notice some parallels with the beautifully tactile **[Primary](https://github.com/primary-theme/obsidian)** by Cecilia May. This is because I have taken much inspiration from her exacting attention to detail and focus on tactile responsiveness in UI interactions. 
+  - I have detailed the full list of works I have drawn inspiration from in the Credits section of the README. **Any other resemblances are thus purely coincidental.**
 
 ## Features [^](#Table-of-Contents)
 
