@@ -12,9 +12,11 @@
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) {
 		background: var(--background-primary);
 		--frame-right-space: 0px;
-		--frame-left-space: 0px;
 		--shadow-workspace: none;
 		--shadow-workspace-multi: none;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide):not(.mod-macos) {
+		--frame-left-space: 0px;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide) .workspace-split.mod-vertical {
 		gap: 0px !important;
@@ -55,5 +57,11 @@
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade) .status-bar::after {
 		background-color: transparent;
+	}
+	body:not(.is-mobile, .is-popout-window, .disable-autohide, .disable-status-fade).mod-macos .workspace .workspace-tabs.mod-top.mod-top-right-space:last-of-type .workspace-tab-header-container {
+		padding-right: 8px;
+	}
+	body:not(.is-mobile,.is-popout-window,.disable-autohide,.disable-status-fade).mod-macos .workspace .workspace-tabs.mod-top:first-of-type .workspace-tab-header-container {
+		padding-left: var(--frame-left-space);
 	}
 }
