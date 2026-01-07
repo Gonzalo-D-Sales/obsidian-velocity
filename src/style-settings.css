@@ -168,10 +168,6 @@ settings:
 	level: 1
 	collapsed: true
 - 	
-	id: mod-macos
-	title: debug
-	type: class-toggle
-- 	
 	id: disable-list-styling
 	title: Restore bullet-style list markers
 	type: class-toggle

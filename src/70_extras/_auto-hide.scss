@@ -62,6 +62,6 @@
 		padding-right: 8px;
 	}
 	body:not(.is-mobile,.is-popout-window,.disable-autohide,.disable-status-fade).mod-macos .workspace .workspace-tabs.mod-top:first-of-type .workspace-tab-header-container {
-		padding-left: var(--frame-left-space);
+		padding-left: calc(var(--frame-left-space) + 8px);
 	}
 }
