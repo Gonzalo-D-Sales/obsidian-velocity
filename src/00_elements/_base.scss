@@ -75,6 +75,11 @@ body:not(.mod-windows, .mod-linux) {
 	--frame-right-space-override: 0px;
 
 	--flair-padding: 2px;
+
+	// undo slider changes
+	--slider-thumb-width: 24px;
+    --toggle-thumb-width: 20px;
+    --toggle-thumb-height: 12px;
 }
 .mod-macos.is-hidden-frameless .workspace .workspace-tabs.mod-top.mod-top-right-space .workspace-tab-header-container {
 	padding-right: 52px;
