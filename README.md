@@ -1,26 +1,20 @@
 ![poster](./assets/poster.png)
 
-### The theme of Tomorrow, in your hands Today.
+<h2 align="center">The theme of tomorrow, in your hands today.</h2>
 
-Velocity is a sleek and futuristic theme for Obsidian, born out of a relentless pursuit of design perfection. Witness what the _next generation_ of theme design feels like, and elevate your note-taking experience to a whole new level.
+Velocity is a sleek and futuristic theme for [Obsidian](https://obsidian.md), born out of a relentless pursuit of design perfection. See for yourself what it's like to use a truly _next-generation_ theme, and take your note-taking experience to a whole new level.    
 
-## Table of Contents
+<br>
+
+### Table of Contents
 
 - [Updates](#Installation-)
-- [Images](#Images-)
 - [FAQ](#FAQ-)
 - [Features](#Features-)
 - [Background](#Background-)
 - [Credits](#Credits-)
 
-## Updates [^](#Table-of-Contents)
-As of 01/07/2026, **the latest release** is `Velocity 2.0.0`.
-
-After over three months of continuous development since `1.3.0-beta`, 2.0.0 brings a **fresh new look** and massively refined user experience. Additionally, **full support** for phones and tablets is now available, ensuring all platforms get the same treatment and care.
-
-Check out the [release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.0.0) for the full list of new features, improvements and fixes.
-
-## Images [^](#Table-of-Contents) 
+<br>
 
 ![Headings](./assets/headings.png)
 ![Settings](./assets/settings.png)
@@ -29,11 +23,18 @@ Check out the [release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidi
 ![Bases](./assets/bases.png)
 ![Command Palette](./assets/command-palette.png)
 
+## Updates [^](#Table-of-Contents)
+As of 01/07/2026, **the latest release** is `Velocity 2.0.0`.
+
+After over three months of continuous development since `1.3.0-beta`, 2.0.0 brings a **fresh new look** and massively refined user experience. Additionally, **full support** for phones and tablets is now available, ensuring all platforms get the same treatment and care.
+
+Check out the [release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.0.0) for the full list of new features, improvements and fixes.
+
 ## FAQ [^](#Table-of-Contents)
 - **Do I have to buy Velocity?**
   - No. The theme is free, as it should be.
 - **What kind of user is this theme designed for?**
-  - Velocity is designed for creatives, thinkers and note-takers of all kinds. If you want your vault to look premium and polished, like it's straight out of a native macOS app, then Velocity can do just that (and more!) 
+  - Velocity is designed for creatives, thinkers and note-takers of all kinds. If you want your vault to look premium and polished, like it's straight out of a native macOS app, then Velocity can do just that (and so much more!) 
 - **How can I customize the theme?**
   - Download the **Style Settings** plugin from within the Obsidian app's plugin store. The plugin is free and the settings for Velocity should appear automatically so long as you have the theme enabled.
   - Choose the Quick Settings to easily change layout and colors.
