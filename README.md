@@ -2,12 +2,11 @@
 
 <h2 align="center">The theme of tomorrow, in your hands today.</h2>
 
-Velocity is a sleek and futuristic theme for [Obsidian](https://obsidian.md)—born out of a relentless, one-year-long pursuit of design perfection. See for yourself what it's like to use a truly _next-generation theme_, and take your note-taking experience to a whole new level.      
-<br>
-
-Check out the **News** section of this README for the latest updates and announcements.
+<p align="center"> Velocity is a sleek and futuristic theme for <a href="https://obsidian.md">Obsidian</a>—born out of a relentless, one-year-long pursuit of design perfection. <br> See for yourself what it's like to use a truly <i>next-generation theme</i>, and take your note-taking experience to a whole new level. </p> 
 
 <br>
+
+<p align="center"> Check out the <strong>News</strong> section of this README for the latest updates and announcements. </p> 
 
 ### Table of Contents
 
