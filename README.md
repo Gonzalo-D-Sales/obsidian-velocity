@@ -18,8 +18,7 @@
 
 <br>
 
-![Headings](./assets/headings.png)
-![Settings](./assets/settings.png)
+![Markdown](./assets/markdown.png)
 ![Multiple tabs](./assets/multitask.png)
 ![Graph Controls](./assets/graph-controls.png)
 ![Bases](./assets/bases.png)
