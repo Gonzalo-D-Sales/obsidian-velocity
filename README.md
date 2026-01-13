@@ -18,11 +18,8 @@
 
 <br>
 
-![Markdown](./assets/markdown.png)
 ![Colors](./assets/panels.png)
-![Graph Controls](./assets/graph-controls.png)
-![Bases](./assets/bases.png)
-![Command Palette](./assets/command-palette.png)
+![mobile](./assets/mobile.png)
 
 <br>
 
