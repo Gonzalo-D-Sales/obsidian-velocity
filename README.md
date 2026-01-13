@@ -19,7 +19,7 @@
 <br>
 
 ![Markdown](./assets/markdown.png)
-![Multiple tabs](./assets/multitask.png)
+![Colors](./assets/panels.png)
 ![Graph Controls](./assets/graph-controls.png)
 ![Bases](./assets/bases.png)
 ![Command Palette](./assets/command-palette.png)
