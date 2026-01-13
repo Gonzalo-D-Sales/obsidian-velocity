@@ -31,7 +31,7 @@ After over three months of continuous development since `1.3.0-beta`, 2.0.0 brin
 Check out the [release page for 2.0.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.0.0) for the full list of new features, improvements and fixes.
 
 > [!CAUTION] 
-> Velocity has been designed for and tested in the very latest insider versions of Obsidian, some of which have introduced breaking changes to the UI. Because Obsidian 1.13 has not yet released publicly, the **settings menu interface will be broken for many users.** However, other parts of the app should appear as usual.
+> Velocity has been designed for and tested in the very latest insider versions of Obsidian, some of which have introduced breaking changes to the UI. Because Obsidian 1.11 has only recently released, the settings menu interface will be broken for those who have not updated. Please make sure to **update Obsidian to the latest version** to avoid any problems.
 
 <br>
 
