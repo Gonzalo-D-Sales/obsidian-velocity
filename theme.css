@@ -151,6 +151,16 @@ settings:
 	step: 4
 	format: 'px'
 -
+	id: ss-section-title
+	description: Other
+	type: info-text
+	markdown: true
+- 
+	id: override-default-font
+	title: Override dedicated theme typeface
+	description: Velocity is best experienced with the font it is bundled with - Raveo. Enable this setting to allow custom font overrides via the Appearance settings.
+	type: class-toggle
+-	
 	id: switch-edit-icons
 	title: Inverted editing mode toggle display
 	description: Displays the icon of the current editing mode instead of the next mode.
@@ -241,9 +251,4 @@ settings:
 	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
 	type: class-toggle
 -
-	id: override-default-font
-	title: Override dedicated theme typeface
-	description: Velocity is best experienced with the font it is bundled with - Raveo. Enable this setting to allow custom font overrides via the Appearance settings.
-	type: class-toggle
--	
 */
