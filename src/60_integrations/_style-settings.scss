@@ -3,17 +3,16 @@
     --color-base-80: var(--color-accent);
     --icon-color: var(--color-accent-1);
     --text-normal: var(--color-accent-1);
-    --setting-group-heading-color: oklab(from var(--color-accent-1) l a b / 0.875);
-    --setting-item-spl-bg: var(--background-modifier-active-hover);
+    --setting-group-heading-color: var(--color-accent-1);
 }
 .style-settings-heading[data-id="obsidian-velocity-config"] {
-    --text-normal: var(--color-base-80);
     --icon-color: var(--text-muted);
-    --setting-item-spl-bg: var(--background-primary);
+    --text-normal: var(--text-muted);
+    --setting-group-heading-color: var(--text-muted);
 }
 .style-settings-heading[data-id*="obsidian-velocity"] {
-    background-color: var(--setting-item-spl-bg);
-    border-radius: var(--radius-settings);
+    background-color: var(--background-primary);
+    border-radius: var(--radius-sm);
     margin-block: calc(var(--vl-layout-padding) + 8px) calc(var(--vl-layout-padding) * -1) !important;
     > .setting-item-info {
         padding-block: calc(var(--vl-layout-padding) * 1.5);
