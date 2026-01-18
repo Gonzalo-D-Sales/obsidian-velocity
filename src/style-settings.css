@@ -214,11 +214,6 @@ settings:
 	title: Disable title style for H1 Headings
 	type: class-toggle
 -
-	id: disable-performance-tweaks
-	title: Disable performance tweaks
-	description: Deactivates special CSS hacks which typically improve editor performance. 
-	type: class-toggle
-- 	
 	id: ss-section-heading
 	title: Enable optional features
 	type: heading
@@ -250,4 +245,20 @@ settings:
 	description: Forces pinned workspace tabs to the start of the tabs list, and hides their titles to save space.
 	type: class-toggle
 -
+	id: ss-section-heading
+	title: Debug
+	type: heading
+	level: 1
+	collapsed: true
+- 	
+	id: disable-corner-smoothing
+	title: Turn off Electron corner-smoothing
+	description: Enable to fix visual bugs with tab containers and other rounded shapes.
+	type: class-toggle
+-
+	id: disable-performance-tweaks
+	title: Disable performance tweaks
+	description: Deactivates special CSS hacks which typically improve editor performance. 
+	type: class-toggle
+- 	
 */

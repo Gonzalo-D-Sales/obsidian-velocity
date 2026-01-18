@@ -1,8 +1,36 @@
+// Main options
+.style-settings-heading[data-id="obsidian-velocity"] {
+    --color-base-80: var(--color-accent);
+    --icon-color: var(--color-accent-1);
+    --text-normal: var(--color-accent-1);
+    --setting-group-heading-color: var(--color-accent-1);
+}
+.style-settings-heading[data-id="obsidian-velocity-config"] {
+    --icon-color: var(--text-muted);
+    --text-normal: var(--text-muted);
+    --setting-group-heading-color: var(--text-muted);
+}
+.style-settings-heading[data-id*="obsidian-velocity"] {
+    background-color: var(--background-primary);
+    border-radius: var(--radius-sm);
+    margin-block: calc(var(--vl-layout-padding) + 8px) calc(var(--vl-layout-padding) * -1) !important;
+    > .setting-item-info {
+        padding-block: calc(var(--vl-layout-padding) * 1.5);
+        text-box-trim: trim-both;
+    }
+    .style-settings-collapse-indicator svg {
+        stroke-width: 4.5px;
+    }
+}
+
 .style-settings-collapse-indicator {
     color: var(--icon-color);
 }
 .style-settings-collapse-indicator svg {
     stroke-width: 4px;
+    height: 10px;
+    width: 10px;
+    transition: var(--anim-duration-moderate) var(--vl-ease-out);
 }
 
 .style-settings-info-text .setting-item-info + .setting-item-control {
@@ -10,7 +38,7 @@
 }
 .setting-item.style-settings-heading {
     font-size: var(--font-ui-large);
-    padding-block-end: unset;
+    padding-block: calc(var(--vl-layout-padding) + 8px) unset;
     border-block-end: none;
     &:first-child {
         margin-block-start: 24px;
@@ -25,6 +53,9 @@
     padding-block-end: 0;
     --setting-group-heading-size: 16px;
     --setting-group-heading-weight: var(--font-semibold);
+}
+.style-settings-heading[data-level="0"] + .style-settings-container {
+    padding-inline-start: 20px;
 }
 .style-settings-container > .setting-item {
     border-radius: var(--radius-m);

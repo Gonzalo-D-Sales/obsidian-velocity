@@ -3,6 +3,7 @@
 	position: relative;
 	align-items: center;
 	border: none;
+	margin-block: var(--block-padding);
 	padding-inline: 1.75em 0;
 	--math-color: var(--blockquote-color);
 }

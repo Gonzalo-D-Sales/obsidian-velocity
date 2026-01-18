@@ -88,7 +88,9 @@ body:not(.is-phone) .modal-container > .modal.mod-settings {
 .mod-settings .vertical-tab-content > :is(h1,h2,h3,h4,h5,h6,p,span) {
 	margin-block: 1em;
 }
-
+.vertical-tab-content .setting-item ~ :is(h1, h2, h3, h4, .setting-item-heading) {
+	margin-block-start: calc(var(--vl-layout-padding) * 3);
+}
 // Settings Sidebar 
 body:not(.is-phone) .vertical-tab-nav-item {
 	color: var(--text-muted);
@@ -140,7 +142,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .setting-items .setting-item {
 	contain: layout;
-	padding-block: 13px;
+	padding-block: calc(var(--vl-layout-padding) + 5px);
 	border-block-start-color: transparent;
 	&::after {
 		content: '';
@@ -160,6 +162,9 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .setting-item {
 	background-color: var(--setting-item-background);
 	border-radius: var(--radius-sm);
+}
+.setting-item {
+	padding-block: calc(var(--vl-layout-padding) + 8px);
 }
 .setting-item-heading {
 	background-color: transparent;
