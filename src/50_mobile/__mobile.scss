@@ -391,9 +391,13 @@ body.is-phone .mobile-navbar-action {
 .is-phone .setting-item {
 	border-radius: var(--touch-radius-xxs);
 }
+.is-phone .style-settings-heading[data-id*="obsidian-velocity"] {
+	border-radius: var(--touch-radius-xxs);
+}
 .is-phone .setting-items .setting-item > .setting-item-info {
 	padding-inline-start: 4px;
 }
+
 
 
 .is-phone .modal.mod-settings .vertical-tab-header-group-items > :first-child {
