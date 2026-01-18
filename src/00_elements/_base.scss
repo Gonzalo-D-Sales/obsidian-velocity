@@ -129,8 +129,6 @@ body:not(.is-mobile) {
 	--fab-easing-curve: cubic-bezier(0.55, 2, 0.5, 0.97);
 }
 
-// --> Buttons <--
-
 // Electron Corner-smoothing
 
 .checkbox-container,
@@ -148,6 +146,12 @@ body:not(.is-mobile) {
 .tooltip {
 	-electron-corner-smoothing: var(--corner-smoothing);
 }
+
+body.disable-corner-smoothing {
+	--corner-smoothing: unset !important;
+}
+
+// --> Buttons <--
 
 button,
 button:active,
