@@ -29,6 +29,7 @@ body:not(.disable-callout-styling) {
 		box-shadow: 
 		0 0 0 1.75px rgb(var(--callout-color), var(--callout-border-opacity));
 		outline: 1px solid var(--background-primary);
+		margin-block: var(--block-padding);
 	}
 	.callout .callout {
 		outline-color: var(--trans-strong-10);

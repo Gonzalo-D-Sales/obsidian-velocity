@@ -8,17 +8,20 @@
   	margin-block-start: var(--heading-spacing);
 }
 .markdown-rendered .el-div + .el-p > p {
-  	margin-block-start: 1.5rem;
+  	margin-block-start: var(--block-padding);
 }
 .markdown-rendered div[class*="el-h"] + .el-table > table {
-  	margin-block-start: 0.5rem;
+  	margin-block-start: calc(var(--block-padding) / 2);
 }
 .markdown-rendered div[class*="el-h"] > * {
-	margin-block-start: round(nearest, 1em, 2px);
-	margin-block-end: round(nearest, 1rem, 2px);
+	margin-block-start: var(--heading-margin-start);
+	margin-block-end: var(--heading-margin-end);
 }
 .markdown-rendered div[class*="el-hr"] > * {
-	margin-block: 2rem;
+	margin-block: var(--hr-spacing);
+}
+.inline-title {
+	margin-block-end: var(--heading-margin-end) !important;
 }
 
 // Headings

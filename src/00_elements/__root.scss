@@ -198,7 +198,7 @@ body {
     --link-unresolved-color: oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
 
     // Lists
-    --list-spacing: 0.15em;
+    --list-spacing: 0.125em;
     --list-marker-color: var(--color-base-50);
 
     // Math

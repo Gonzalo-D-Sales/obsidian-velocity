@@ -12,6 +12,7 @@ body.enable-special-code {
 .markdown-rendered pre,
 .HyperMD-codeblock,
 .cm-hmd-indented-code {
+	margin-block: var(--block-padding);
 	--code-normal: var(--text-normal);
 }
 .markdown-rendered pre,
