@@ -195,7 +195,7 @@ body {
     --link-decoration: none;
     --link-decoration-hover: none;
     --link-unresolved-opacity: 1;
-    --link-unresolved-color: oklch(from var(--link-color) l c h / var(--link-unresolved-lch));
+    --link-unresolved-color: oklch(from var(--color-accent-1) l c h / var(--link-unresolved-lch));
 
     // Lists
     --list-spacing: 0.125em;
