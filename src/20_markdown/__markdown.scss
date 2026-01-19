@@ -8,22 +8,28 @@
 	.markdown-rendered {
 		--list-spacing: 0.1em;
 		--block-padding: 1.25rem;
-		--heading-margin-start: round(nearest, 1em, 2px);
-		--heading-margin-end: round(nearest, 1rem, 2px);
-		--heading-spacing: round(nearest, clamp(0px, 2em, 3rem), 2px);
-		--hr-spacing: 2rem;
+		--heading-margin-start: 1em;
+		--heading-spacing: round(nearest, 2em, 2px);
+		--hr-spacing: 1.5rem;
 	}
 }
 @container style(--line-height-normal: 1.6) {
 	.markdown-rendered {
+		--p-spacing: 1.25rem;
 		--block-padding: 1.5rem;
-		--heading-margin-start: round(nearest, 1.25em, 2px);
-		--heading-margin-end: round(nearest, 1.25rem, 2px);
-		--heading-spacing: round(nearest, clamp(0px, 2.25em, 3.75rem), 2px);
-		--hr-spacing: 2.25rem;
+		--heading-margin-start: 1.25em;
+		--heading-spacing: round(nearest, 2.25em, 2px);
+		--hr-spacing: 2rem;
 	}
-	.markdown-rendered .el-p + .el-p > p {
-		margin-block-start: 1.25rem;
+}
+@container style(--line-height-normal: 1.7) {
+	.markdown-rendered {
+		--list-spacing: 0.15em;
+		--p-spacing: 1.375rem;
+		--block-padding: 1.75rem;
+		--heading-margin-start: 1.375em;
+		--heading-spacing: round(nearest, 2.5em, 2px);
+		--hr-spacing: 2.5rem;
 	}
 }
 

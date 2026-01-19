@@ -116,6 +116,9 @@ settings:
 	- 
 		label: Spacious
 		value: '1.6'
+	- 
+		label: Loose
+		value: '1.7'
 -
 	id: vl-layout-padding
 	title: Select interface item spacing
