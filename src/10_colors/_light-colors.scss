@@ -144,8 +144,9 @@
 	--table-row-bg: var(--trans-faint-05);
 
 	--tab-background-active: var(--trans-strong-20);
-	--tab-right-fade: linear-gradient(to left, var(--color-base-20) 75%, transparent);
-	--tab-close-bg: oklch(from var(--color-base-30) l c h / 0.625);
+	--tab-right-fade: linear-gradient(to left, oklch(91.5% calc(var(--bsat-xtr) / 3) var(--bhue)) 80%, transparent);
+	--tab-right-fade-alt: linear-gradient(to left, oklch(calc(var(--bl-20) + 1.5%) 0 0) 80%, transparent);
+	--tab-close-bg: oklch(from var(--color-base-30) l c h / 0.8);
 
 	--tab-sidebar-bg: var(--trans-strong-00);
 	--tab-sidebar-container-bg: oklch(00% 0 0 / 0.03125);

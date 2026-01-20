@@ -14,6 +14,7 @@
 		--frame-right-space: 0px;
 		--shadow-workspace: none;
 		--shadow-workspace-multi: none;
+		--tab-right-fade: var(--tab-right-fade-alt) !important;
 	}
 	body:not(.is-mobile, .is-popout-window, .disable-autohide):not(.mod-macos) {
 		--frame-left-space: 0px;

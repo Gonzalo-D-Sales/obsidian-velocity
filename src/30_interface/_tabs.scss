@@ -62,26 +62,38 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
         margin-inline-end: -6px;
     }
     .workspace-tab-header .workspace-tab-header-inner-close-button {
-        filter: opacity(0);
         border-radius: 0;
         margin-inline-start: -32px;
         padding: 8px 9px 8px 5px;
         display: flex;
         justify-content: center;
-        &:hover {
-            filter: unset;
-            background: var(--tab-right-fade);
-        }
     }
-    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover::after {
+    .workspace-tab-header.is-active:hover .workspace-tab-header-inner-close-button {
+        background: var(--tab-right-fade);
+    }
+    
+    .workspace-tab-header .workspace-tab-header-inner-close-button > svg {
+        transition: var(--anim-duration-fast) var(--vl-ease-out);
+        filter: opacity(0);
+    }
+    .workspace-tab-header:hover .workspace-tab-header-inner-close-button > svg {
+        filter: opacity(1);
+    }
+
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button::after {
         content: "";
+        contain: content;
         background-color: var(--tab-close-bg);
         position: absolute;
-        width: 24px;
-        height: 24px;
-        border-radius: var(--radius-xs);
+        padding: 12px;
+        border-radius: var(--radius-xxl);
         z-index: -1;
+        filter: opacity(0);
     }
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover::after {
+        filter: opacity(1);
+    }
+
     .workspace-tab-header-inner-title {
         contain: content;
         padding-inline: 6px 10px;
