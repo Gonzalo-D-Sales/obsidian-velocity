@@ -71,6 +71,7 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
     .workspace-tab-header.is-active:hover .workspace-tab-header-inner-close-button {
         background: var(--tab-right-fade);
     }
+    
     .workspace-tab-header .workspace-tab-header-inner-close-button > svg {
         transition: var(--anim-duration-fast) var(--vl-ease-out);
         filter: opacity(0);
@@ -78,7 +79,8 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
     .workspace-tab-header:hover .workspace-tab-header-inner-close-button > svg {
         filter: opacity(1);
     }
-    .workspace-tab-header .workspace-tab-header-inner-close-button::after {
+
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button::after {
         content: "";
         contain: content;
         background-color: var(--tab-close-bg);
@@ -88,7 +90,7 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
         z-index: -1;
         filter: opacity(0);
     }
-    .workspace-tab-header .workspace-tab-header-inner-close-button:hover::after {
+    .workspace-tab-header.is-active .workspace-tab-header-inner-close-button:hover::after {
         filter: opacity(1);
     }
 
