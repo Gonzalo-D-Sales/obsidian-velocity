@@ -141,7 +141,7 @@
 	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
     --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
 
-	--tab-right-fade: linear-gradient(to left, oklch(91.25% var(--bsat-str) var(--bhue)) 75%, transparent);
+	--tab-right-fade: linear-gradient(to left, oklch(calc(var(--bl-20) - 1.5%) 0.0075 var(--bhue)) 80%, transparent);
 }
 .theme-light.jetblue {
 	--accent-h: 210;	
@@ -180,6 +180,8 @@
 	--color-base-05: oklch(calc(var(--bl-05) - 0.125%) var(--bsat-low) var(--bhue));
 
     --trans-strong-40: oklch(from var(--color-base-50) l 0 h / 0.100);
+
+	--tab-right-fade: linear-gradient(to left, oklch(calc(var(--bl-20) - 1.75%) 0.00625 var(--bhue)) 80%, transparent);
 }
 
 // Colored bold and italics

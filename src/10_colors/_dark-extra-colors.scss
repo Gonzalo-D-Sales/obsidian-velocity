@@ -93,6 +93,8 @@
     --pill-background: var(--trans-faint-25);
     --pill-background-hover: var(--trans-faint-25);
     --table-row-bg: var(--trans-faint-10);
+
+    --tab-right-fade-alt: linear-gradient(to left, oklch(var(--bl-20) 0 0) 80%, transparent);
 }
 .theme-dark.bronze {
     --accent-h: 27;	
@@ -172,6 +174,8 @@
 	--bg-main-outer: oklch(25.00% calc(var(--bsat-xtr) + 0.0025) var(--bhue));
 
     --settings-background: oklch(26.875% calc(var(--bsat-xtr) - 0.005) var(--bhue));
+
+    --tab-right-fade-alt: linear-gradient(to left, oklch(calc(var(--bl-20) + 1%) var(--bsat-xtr) var(--bhue)) 80%, transparent);
 }
 .theme-dark.nord {
     --accent-h: 192;	
@@ -254,6 +258,8 @@
     
     --highlight-yellow-rgb: 239, 211, 0;
     --settings-background: radial-gradient(at -100% 50%, var(--bg-main-inner) 0%, var(--bg-main-outer) 200%) !important;
+
+    --tab-right-fade-alt: linear-gradient(to left, oklch(calc(var(--bl-20) + 1%) var(--bsat-xtr) var(--bhue)) 80%, transparent);
 }
 
 // Colored bold and italics
