@@ -72,6 +72,9 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
         background: var(--tab-right-fade);
     }
     
+    .workspace-tab-header svg {
+        transition: color var(--anim-super-swing);
+    }
     .workspace-tab-header .workspace-tab-header-inner-close-button > svg {
         transition: var(--anim-duration-fast) var(--vl-ease-out);
         filter: opacity(0);
