@@ -74,6 +74,7 @@
 .simple-title:not(.override, .style-override, .superheading) .inline-title:not([data-level]) {
 	font-size: var(--h1-size-alt);
 	font-weight: var(--h1-weight-alt);
-	border-bottom: none;
-	padding-bottom: 0;
+	&::after {
+		display: none;
+	}
 }
