@@ -39,18 +39,22 @@ del {
 }
 
 // Code to make highlight padding and radii consistent between modes
-.cm-line .cm-formatting-highlight:first-of-type,
-.cm-highlight:nth-child(1 of .cm-highlight) {
+
+.cm-line > .cm-formatting-highlight:nth-child(1 of .cm-formatting-highlight),
+.cm-line > .cm-widgetBuffer + .cm-formatting-highlight,
+.cm-line > .cm-widgetBuffer + .cm-highlight:not(.cm-formatting) {
 	border-top-left-radius: var(--radius-xs);
 	border-bottom-left-radius: var(--radius-xs);
 	padding-inline-start: 0.25rem;
 }
-.cm-line .cm-formatting-highlight:last-of-type,
-.cm-highlight:nth-last-child(1 of .cm-highlight) {
+.cm-line > .cm-formatting-highlight:nth-last-child(1 of .cm-formatting-highlight),
+.cm-line > .cm-highlight + .cm-formatting-highlight,
+.cm-line > .cm-widgetBuffer + .cm-highlight:not(.cm-formatting) {
 	border-top-right-radius: var(--radius-xs);
 	border-bottom-right-radius: var(--radius-xs);
 	padding-inline-end: 0.25rem;
 }
+
 
 // Highlight flash (for example, when clicking on Outline items) 
 .view-content .is-flashing {
