@@ -322,6 +322,7 @@ body {
     // Mobile tab switcher
 
     // Stacked tabs
+    --tab-stacked-pane-width: var(--file-line-width);
     --tab-stacked-font-weight: var(--font-medium);
     --tab-stacked-shadow: -8px 0 8px 0 var(--stacked-shadow-color);
 
