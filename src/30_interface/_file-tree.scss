@@ -37,6 +37,9 @@
 		--nav-collapse-icon-color: var(--nav-folder-color);
 	}
 }
+body:not(.is-phone) .tree-item-children {
+	animation: var(--anim-duration-fast) ease-in anim-suggestions;
+}
 
 // Files
 .tree-item-self.has-focus,
