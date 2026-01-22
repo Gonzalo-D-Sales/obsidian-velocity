@@ -1,0 +1,56 @@
+// Pretty Properties banners
+
+body:not(.is-phone) .workspace-split.mod-root .view-content.has-banner {
+	background-color: var(--background-primary);
+}
+body:not(.is-phone) .workspace-split.mod-root .banner-image:not(:empty) {
+	inset-inline: 10px 0;
+	width: auto;
+	z-index: unset;
+}
+
+body:not(.is-phone) .banner-image:not(:empty) > img {
+	border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+}
+@container style(--banner-fading: none) {
+	body:not(.is-phone) .banner-image:not(:empty) > img {
+		border-radius: var(--radius-sm) !important;
+	}
+}
+body:not(.is-phone) .popover .banner-image > img {
+	border-radius: 0 !important;
+}
+
+// Pretty properties colored pills
+
+.multi-select-pill.theme-color {
+	--interactive-accent: var(--pill-color);
+	--pill-color: rgba(var(--pp-color-rgb), 1) !important;
+	--pill-color-remove: var(--pill-color) !important;
+	--pill-color-remove-hover: var(--text-on-accent) !important;
+	--text-error: rgba(var(--pp-color-rgb), 0.875);
+}
+[data-property-type="tags"] .multi-select-pill.theme-color {
+	--tag-color: var(--pill-color);
+	--tag-color-hover: var(--pill-color);
+	--tag-background: rgba(var(--pp-color-rgb), 0.2);
+	--tag-background-hover: var(--tag-background);
+}
+
+// Pretty properties settings
+
+.pp-settings-tabs {
+	display: flex;
+	justify-content: space-between;
+	gap: 4px;
+	border: none;
+	overflow: visible;
+	padding-block-end: calc(var(--vl-layout-padding) * 2);
+}
+.pp-settings-tabs > button.pp-settings-tab {
+	width: 100%;
+}
+.pp-settings-tabs > button.pp-settings-tab-selected {
+	background-color: var(--interactive-accent) !important;
+	box-shadow: var(--shadow-button);
+}

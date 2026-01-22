@@ -116,10 +116,12 @@ input.metadata-property-key-input {
 	max-height: var(--metadata-input-height);
 	padding-block: unset;
 }
-input.metadata-property-key-input {
+input.metadata-property-key-input,
+input.metadata-input {
 	--shadow-input: none;
 	--shadow-input-active: none;
 }
+
 .metadata-add-button {
 	height: 28px;
 	padding-inline: 6px 8px;
@@ -163,7 +165,7 @@ input.metadata-property-key-input {
 	padding-inline: var(--pill-padding-x);
 	--pill-color: var(--text-muted);
 	--pill-padding-x: 0.75em 0.375em;
-	--pill-padding-y: 0.25em;
+	--pill-padding-y: 0.25em !important;
 }
 .bases-table-cell .multi-select-pill-remove-button:hover,
 .multi-select-pill-remove-button:hover {
@@ -174,12 +176,16 @@ input.metadata-property-key-input {
 .bases-table-cell[data-property-type="tags"] .multi-select-pill,
 .metadata-property[data-property-key="tags"] .multi-select-pill {
 	--pill-color: var(--tag-color);
-	--pill-color-remove: var(--color-accent-3);
-	--pill-color-remove-hover: var(--text-on-accent);
+	--pill-color-remove: var(--color-accent-1);
+	--pill-color-remove-hover: var(--text-on-accent) !important;
 }
 .bases-table-cell[data-property-type="tags"] .multi-select-pill-remove-button:hover,
 .metadata-property[data-property-key="tags"] .multi-select-pill-remove-button:hover {
 	background-color: var(--interactive-accent);
+}
+.bases-table-cell[data-property-type="tags"] .multi-select-pill {
+	padding-block: var(--pill-padding-y) !important;
+	padding-inline: var(--pill-padding-x) !important;
 }
 
 // --> Metadata (sidebars) <--
