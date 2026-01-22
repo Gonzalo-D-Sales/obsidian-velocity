@@ -18,6 +18,10 @@
 .view-header-title-container {
 	margin-inline-end: 8px;
 }
+.view-header-title,
+.view-header-title-parent {
+	transform: translateY(0.125em);
+}
 .view-header-title {
 	color: var(--text-normal);
 	padding-inline: 2px;
