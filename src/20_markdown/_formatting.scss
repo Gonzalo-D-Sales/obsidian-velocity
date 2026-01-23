@@ -1,4 +1,4 @@
-// Formatting markers 
+// Formatting markers
 
 .cm-formatting-strong {
 	font-weight: var(--font-normal);
@@ -7,9 +7,10 @@
 	padding-inline-start: 0.25rem;
 }
 
-// Strikethrough / Checklist crossed-out 
-.cm-strikethrough, del {
-    color: var(--strikethrough-color);
+// Strikethrough / Checklist crossed-out
+.cm-strikethrough,
+del {
+	color: var(--strikethrough-color);
 	--bold-color: var(--strikethrough-color);
 	--italic-color: var(--strikethrough-color);
 }
@@ -18,13 +19,13 @@ del {
 }
 
 .markdown-rendered del > mark {
-    color: var(--strikethrough-color);
+	color: var(--strikethrough-color);
 }
 .markdown-rendered mark > del {
-    color: inherit;
+	color: inherit;
 }
 
-// Highlights 
+// Highlights
 
 .cm-s-obsidian span.cm-highlight,
 :is(.markdown-source-view, .markdown-preview-view) mark {
@@ -38,25 +39,29 @@ del {
 	padding-inline: 0.25rem;
 }
 
-// Code to make highlight padding and radii consistent between modes
-
+// first formatting highlight
 .cm-line > .cm-formatting-highlight:nth-child(1 of .cm-formatting-highlight),
-.cm-line > .cm-widgetBuffer + .cm-formatting-highlight,
-.cm-line > .cm-widgetBuffer + .cm-highlight:not(.cm-formatting) {
+// first non-formatting highlight
+.cm-line > .cm-highlight:nth-child(1 of .cm-highlight),
+// non-first highlight/formatting highlight following other content
+.cm-line > :is(:not(.cm-highlight), .cm-formatting-highlight) + .cm-widgetBuffer + span + .cm-widgetBuffer + .cm-highlight {
 	border-top-left-radius: var(--radius-xs);
 	border-bottom-left-radius: var(--radius-xs);
 	padding-inline-start: 0.25rem;
 }
+
+// last formatting highlight
 .cm-line > .cm-formatting-highlight:nth-last-child(1 of .cm-formatting-highlight),
-.cm-line > .cm-highlight + .cm-formatting-highlight,
-.cm-line > .cm-widgetBuffer + .cm-highlight:not(.cm-formatting) {
+// last non-formatting highlight
+.cm-line > .cm-highlight:nth-last-child(1 of .cm-highlight),
+// non-last highlight/formatting highlight followed by other content
+.cm-line > .cm-highlight:has(+ .cm-widgetBuffer + span + .cm-widgetBuffer + :is(:not(.cm-highlight), .cm-formatting-highlight)) {
 	border-top-right-radius: var(--radius-xs);
 	border-bottom-right-radius: var(--radius-xs);
 	padding-inline-end: 0.25rem;
 }
 
-
-// Highlight flash (for example, when clicking on Outline items) 
+// Highlight flash (for example, when clicking on Outline items)
 .view-content .is-flashing {
 	box-shadow: 0 0 0 6px var(--text-highlight-bg);
 }
