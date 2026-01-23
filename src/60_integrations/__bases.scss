@@ -45,7 +45,6 @@ body:not(.is-phone) .mod-sidedock {
 	--divider-color-hover: var(--color-base-30);
 }
 
-
 .metadata-input.mod-date,
 .metadata-input.mod-datetime {
 	box-shadow: none;
@@ -59,12 +58,22 @@ body:not(.is-phone) .mod-sidedock {
 // Pills/Tags in Bases
 
 .bases-table-cell {
-	padding-block: 8px;
+	padding-block: 6px;
 }
-.bases-metadata-value {
-	padding-block: 4px;
+.bases-table-cell.bases-metadata-value {
+	padding-block: unset;
+	--metadata-input-font-size: var(--font-ui-smaller);
+}
+:is(.markdown-source-view, .markdown-preview-view) .bases-metadata-value {
 	--metadata-input-font-size: 0.75em;
 }
+
+.bases-view a.tag {
+    --tag-padding-x: 0.625em;
+    --tag-padding-y: var(--pill-padding-y);
+	--tag-size: var(--metadata-input-font-size);
+}
+
 .bases-table-cell > .multi-select-container > .multi-select-pill {
 	contain: content;
 	--pill-padding-x: 8px 4px;
@@ -77,7 +86,6 @@ body:not(.is-phone) .mod-sidedock {
 .bases-group-heading {
 	--tag-weight: var(--font-semibold);
 }
-
 
 .bases-tbody {
 	background-color: transparent;
@@ -310,7 +318,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 // Sort menu
-.bases-toolbar-menu .bases-groupby-container .bases-toolbar-items, 
+.bases-toolbar-menu .bases-groupby-container .bases-toolbar-items,
 .bases-toolbar-menu .bases-sort-container .bases-toolbar-items {
 	padding-block: 8px;
 }

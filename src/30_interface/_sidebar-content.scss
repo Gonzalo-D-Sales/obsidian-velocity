@@ -143,3 +143,9 @@ body:not(.is-phone) .mod-sidedock {
 .workspace-split:not(.mod-root) .graph-controls.is-close {
     background-color: transparent;
 }
+
+// Tag pane
+
+.tag-container {
+    overflow-x: hidden;
+}
