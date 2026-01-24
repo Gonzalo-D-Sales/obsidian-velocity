@@ -374,6 +374,10 @@ body.is-phone .mobile-navbar-action {
 	background-color: transparent;
 }
 
+.is-mobile .modal.mod-settings .vertical-tab-content {
+  background: var(--settings-background);
+}
+
 .is-mobile .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 0;
 }
@@ -411,6 +415,7 @@ body.is-phone .mobile-navbar-action {
 
 .is-mobile input[type="color"] {
 	height: 100%;
+	width: unset !important;
 }
 
 // Vault profile/Drawer
