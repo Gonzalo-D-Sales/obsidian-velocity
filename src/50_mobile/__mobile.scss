@@ -460,10 +460,10 @@ body.is-phone .mobile-navbar-action {
 .is-tablet .mod-root .workspace-tabs {
 	overflow: visible;
 }
-.is-tablet .is-left-sidedock-open > .mod-root {
+.is-tablet .is-left-sidedock-open > .is-pinned + .mod-root {
 	padding-inline-start: 0 !important;
 }
-.is-tablet .is-right-sidedock-open > .mod-root {
+.is-tablet .is-right-sidedock-open > .mod-root:has(+ .is-pinned) {
 	padding-inline-end: 0 !important;
 }
 .is-tablet .workspace-drawer.is-pinned,
