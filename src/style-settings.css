@@ -193,6 +193,10 @@ settings:
 	title: Restore default icon styling
 	type: class-toggle
 -
+	id: restore-table-scroll
+	title: Restore table scrolling behavior
+	type: class-toggle
+- 	
 	id: restore-indent-guide
 	title: Restore indentation guides
 	type: class-toggle

@@ -67,8 +67,10 @@ body:not(.disable-callout-styling) {
 	}
 	
 	// Callout content
-	.callout > .callout-content {
+	&:not(.is-phone) .callout > .callout-content {
 		overflow: visible;
+	}
+	.callout > .callout-content {
 		padding-inline: 1.75rem 0;
 	}
 	.callout > .callout-content > p:first-child {
