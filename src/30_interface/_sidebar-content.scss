@@ -62,7 +62,7 @@
     border: unset;
     --search-result-background: var(--trans-faint-05);
 }
-body:not(.is-mobile) .embedded-backlinks > .nav-header {
+.embedded-backlinks > .nav-header {
     margin-block-end: 2rem;
     padding: unset;
 }
