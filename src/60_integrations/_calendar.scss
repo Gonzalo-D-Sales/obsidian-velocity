@@ -17,6 +17,10 @@
     --table-highlight: rgb(var(--callout-color), 0.1);
 }
 
+.mod-sidedock .workspace-leaf-content[data-type="calendar"] > .view-content {
+    padding-inline: 12px;
+}
+
 // General calendar styles
 
 #calendar-container {
@@ -39,8 +43,8 @@
         font-weight: var(--font-normal);
     }
     .nav {
-        margin-block-start: 4px;
-        padding-inline: 2cqw;
+        margin-block-start: 2px;
+        padding-inline: 3cqw;
     }
     .nav .reset-button {
         text-transform: capitalize;
@@ -62,7 +66,7 @@
 
 .block-language-dataview > #calendar-container {
     .calendar {
-        margin-top: 0;
+        margin-block-start: 0;
     }
     // table cells
     col.weekend {
@@ -80,7 +84,7 @@
         user-select: none;
     }
     td {
-        border-top: 1px solid var(--table-border-color);
+        border-block-start: 1px solid var(--table-border-color);
         padding: 0;
     }
     // day cells
@@ -132,12 +136,13 @@
         border-color: transparent;
     }
     th {
-        color: var(--text-muted);
+        color: var(--icon-color);
         font-size: 0px;
         font-weight: var(--font-semi-medium);
         text-align: center;
         padding-inline: 0;
-        padding-block: 2px 10px;
+        padding-block: 4px 8px;
+        text-indent: 2px;
     }
     th::first-letter {
         font-size: var(--font-ui-small);
@@ -188,8 +193,8 @@
         scale: 0.75;
     }
     :is(.month, .year) {
-        color: var(--color-base-80);
-        font-size: 0.8em;
+        color: var(--table-text-color);
+        font-size: 0.8125em;
     }
 }
 .mod-root .view-content > #calendar-container th {

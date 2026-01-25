@@ -178,6 +178,7 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 }
 
 // Obsidian Bases (cards)
+
 .bases-view[data-view-type="cards"] {
 	scrollbar-gutter: unset;
 }
@@ -198,7 +199,19 @@ body.hide-bases-header .mod-root .markdown-preview-view {
 	letter-spacing: 0.00625em;
 }
 
+// Obsidian Bases (lists)
+
+.bases-list-property > .list-number {
+	font-size: var(--font-ui-small);
+}
+.bases-list-property > .bases-rendered-value > .metadata-input.mod-datetime {
+	letter-spacing: -0.25px;
+	transform: translateY(0.25rem);
+}
+
+
 // Obsidian Bases (modals)
+
 .bases-toolbar-menu {
 	background-color: var(--background-secondary);
 }
