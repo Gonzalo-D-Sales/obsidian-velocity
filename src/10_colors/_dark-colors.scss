@@ -1,7 +1,7 @@
 .theme-dark {
-	--accent-h: 215;
-	--accent-s: 100%;
-	--accent-l: 53%;
+	--accent-h: 210;
+	--accent-s: 86%;
+	--accent-l: 52%;
 
 	--color-red-rgb: 255, 76, 82;
 	--color-red: rgb(255, 76, 82);
@@ -125,6 +125,13 @@
 	--fab-color: var(--icon-color);
 	--fab-color-active: var(--text-normal);
 
+	--h1-color: var(--color-base-100);
+    --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));
+    --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));
+    --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));
+    --h5-color: var(--color-base-90);
+    --h6-color: var(--color-base-80);
+
 	--hr-color: var(--trans-faint-30);
 
 	--interactive-normal: var(--color-base-30);
@@ -185,23 +192,23 @@
 	--shadow-strong: 0px 0px 24px 0px var(--trans-black-00);
 
 	--glass-base:
-		inset 1.125px 1.75px 2px -1.25px rgba(255, 255, 255, 0.25),
-		inset -1.125px -1.75px 2px -1.25px rgba(255, 255, 255, 0.175), inset 0 8px 16px rgba(255, 255, 255, 0.025);
+		inset 0.875px 1.625px 2px -1px rgba(255, 255, 255, 0.2625),
+		inset -0.875px -1.625px 2px -1px rgba(255, 255, 255, 0.1875), inset 0 8px 16px rgba(255, 255, 255, 0.025);
 	--glass-base-m:
-		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.125),
-		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.1), inset 0 8px 16px rgba(255, 255, 255, 0.015);
+		inset 1px 1.75px 2.25px -1.125px rgba(255, 255, 255, 0.15),
+		inset -1px -1.75px 2.25px -1.125px rgba(255, 255, 255, 0.1), inset 0 8px 16px rgba(255, 255, 255, 0.015);
 	--glass-base-l:
-		inset 1.125px 1.75px 3px -1.25px rgba(255, 255, 255, 0.15),
-		inset -1.125px -1.75px 3px -1.25px rgba(255, 255, 255, 0.125), inset 0 8px 16px rgba(255, 255, 255, 0.015);
+		inset 1.125px 1.875px 2.5px -1.25px rgba(255, 255, 255, 0.1875),
+		inset -1.125px -1.875px 2.5px -1.25px rgba(255, 255, 255, 0.1375), inset 0 8px 16px rgba(255, 255, 255, 0.015);
 	--glass-button:
-		inset 3.5px 3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
-		inset -3.5px -3.5px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5625);
+		inset 3px 3px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
+		inset -3px -3px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5);
 	--glass-button-l:
-		inset 4.5px 4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
-		inset -4.5px -4.5px 1.5px -1.5px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5625);
+		inset 3.75px 3.75px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
+		inset -3.75px -3.75px 1.5px -1.25px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5);
 	--glass-button-error:
-		inset 3.75px 3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.75),
-		inset -3.75px -3.75px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.5625);
+		inset 3.25px 3.25px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.75),
+		inset -3.25px -3.25px 1.25px -1.25px oklab(from var(--text-error) calc(l + 0.075) a b / 0.5);
 
 	--shadow-s: var(--glass-base), var(--shadow-normal);
 	--shadow-l: var(--glass-base-l), var(--shadow-strong);
@@ -229,8 +236,8 @@
 	--shadow-input: 0 0 0 0.5px var(--trans-faint-40);
 	--shadow-input-active: 0 0 0 2.5px var(--color-accent-3);
 	--shadow-toggle:
-		inset 1.5px 1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.125) a b / 0.75),
-		inset -1.5px -1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75);
+		inset 1.5px 1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.75),
+		inset -1.5px -1.5px 1.5px 0px oklab(from var(--interactive-accent) calc(l + 0.075) a b / 0.5);
 	// Markdown item shadows
 
 	// Modal interface shadows

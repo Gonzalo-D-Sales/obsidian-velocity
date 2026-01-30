@@ -34,9 +34,9 @@
 .cm-s-obsidian .cm-line.HyperMD-header-1, 
 .markdown-rendered h1,
 .inline-title {
-	letter-spacing: -0.0125em;
+	letter-spacing: -0.01em;
 	margin-block-end: var(--inline-title-margin-bottom);
-	text-indent: -0.025em;
+	text-indent: -0.035em;
 	&::after {
 		content: '';
 		contain: content;
@@ -66,15 +66,25 @@ body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 
 .cm-s-obsidian .cm-line.HyperMD-header-2, 
 .markdown-rendered h2 {
-	letter-spacing: -0.00625em;
-	text-indent: -0.0125em;
+	letter-spacing: -0.005em;
+	text-indent: -0.0175em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-3, 
 .markdown-rendered h3 {
-	letter-spacing: -0.00625em;
-	text-indent: -0.01em;
+	letter-spacing: -0.005em;
+	text-indent: -0.015em;
 }
 .cm-s-obsidian .cm-line.HyperMD-header-4, 
 .markdown-rendered h4 {
-	text-indent: -0.0075em;
+	letter-spacing: -0.00375em;
+	text-indent: -0.01em;
+}
+.cm-s-obsidian .cm-line.HyperMD-header-5, 
+.markdown-rendered h5 {
+	letter-spacing: 0;
+	text-indent: -0.005em;
+}
+.cm-s-obsidian .cm-line.HyperMD-header-6, 
+.markdown-rendered h6 {
+	letter-spacing: 0.005em;
 }

@@ -38,13 +38,15 @@
     }
     .month {
         font-weight: var(--font-bold);
+        letter-spacing: unset;
     }
     .year {
         font-weight: var(--font-normal);
+        letter-spacing: -0.025em;
     }
     .nav {
         margin-block-start: 2px;
-        padding-inline: 3cqw;
+        padding-inline: 2.5cqw;
     }
     .nav .reset-button {
         text-transform: capitalize;
@@ -123,6 +125,7 @@
 
 .view-content > #calendar-container {
     container-type: inline-size;
+    padding-inline: 8px;
     --color-arrow: var(--text-muted);
     --color-dot: var(--table-header-color);
     --table-header-color: var(--color-base-55);
@@ -136,12 +139,12 @@
         border-color: transparent;
     }
     th {
-        color: var(--icon-color);
+        color: var(--table-header-color);
         font-size: 0px;
-        font-weight: var(--font-semi-medium);
+        font-weight: calc(var(--font-normal) + 50);
         text-align: center;
         padding-inline: 0;
-        padding-block: 4px 8px;
+        padding-block: 0px 6px;
         text-indent: 2px;
     }
     th::first-letter {
@@ -153,17 +156,17 @@
         background-color: transparent;
         color: var(--table-text-color);
         font-size: var(--font-ui-smaller);
-        font-weight: var(--font-semi-medium);
+        font-weight: calc(var(--font-normal) + 50);
         text-box-trim: trim-both;
         text-box-edge: cap alphabetic;
-        padding-block: 8px 4px;
+        padding-block: 8px 6px;
 
         > .dot-container {
             margin-block: 2px -2px;
         }
     }
     .today {
-        font-weight: calc(var(--font-semi-medium) + 50);
+        font-weight: calc(var(--font-semi-medium) + 20);
         &::before {
             content: "";
             width: 24px;
@@ -190,11 +193,11 @@
     }
     // nav
     .arrow {
-        scale: 0.75;
+        scale: 0.8125;
     }
     :is(.month, .year) {
         color: var(--table-text-color);
-        font-size: 0.8125em;
+        font-size: 0.875em;
     }
 }
 .mod-root .view-content > #calendar-container th {

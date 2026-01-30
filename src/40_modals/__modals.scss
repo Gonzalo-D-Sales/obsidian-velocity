@@ -30,7 +30,8 @@ body:not(.is-phone) .modal {
 	--background-modifier-form-field-hover: var(--background-primary);
 }
 .modal-title {
-	font-weight: calc(var(--font-normal) + 50);
+	color: var(--color-base-100);
+	font-weight: calc(var(--font-normal) + 30);
 	font-size: var(--font-ui-larger);
 	font-variation-settings: 'opsz' 28;
 	text-align: center;
@@ -75,7 +76,8 @@ body:not(.is-phone) .modal-container > .modal.mod-settings {
 .modal-container.mod-dim .vertical-tab-header {
 	background-color: transparent;
 	border-inline-end-color: transparent;
-    max-width: 264px;
+    max-width: 268px;
+	padding-block-start: calc(var(--vl-layout-padding) + 18px);
 	padding-inline: 20px 16px;
 }
 .modal-container.mod-dim .vertical-tab-content {
@@ -96,6 +98,7 @@ body:not(.is-phone) .vertical-tab-nav-item {
 	color: var(--text-muted);
 	font: var(--font-medium) var(--font-ui-small) var(--font-interface);
 	padding-block: var(--vl-layout-padding);
+	margin-block-start: 1px;
 	padding-inline-start: 12px;
 	--background-modifier-hover: transparent;
 }
@@ -142,7 +145,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 }
 .setting-items .setting-item {
 	contain: layout;
-	padding-block: calc(var(--vl-layout-padding) + 5px);
+	padding-block: calc(var(--vl-layout-padding) + 8px);
 	border-block-start-color: transparent;
 	&::after {
 		content: '';
