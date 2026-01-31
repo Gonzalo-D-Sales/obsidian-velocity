@@ -55,8 +55,10 @@ body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 }
 .disable-title-h1 .cm-line.HyperMD-header-1, 
 .disable-title-h1 .markdown-rendered h1 {
+	color: var(--text-normal);
 	font-size: var(--h1-size-alt);
 	font-weight: var(--h1-weight-alt);
+	--bold-modifier: 400;
 	&::after {
 		display: none;
 	}
