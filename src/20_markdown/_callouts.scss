@@ -2,10 +2,10 @@
 	--code-background: var(--code-background-alt);
 	--blockquote-color: var(--color-base-80);
 	--blockquote-border-color: rgb(var(--callout-color), 0.75);
-	--math-color: var(--color-base-80);
+	--math-color: var(--color-base-100);
 }
 body:not(.disable-callout-styling) {
-	--callout-border-opacity: 0.2;
+	--callout-border-opacity: 0.2375;
 	--callout-radius: var(--radius-sm);
 	--callout-padding: 1rem;
     
@@ -25,7 +25,7 @@ body:not(.disable-callout-styling) {
 		color: var(--text-normal);
 		background: radial-gradient(180% 60% at 50% 0%, 
 		rgb(var(--callout-color), 0.0625),
-		rgb(var(--callout-color), 0.1));
+		rgb(var(--callout-color), 0.1125));
 		box-shadow: 
 		0 0 0 1.75px rgb(var(--callout-color), var(--callout-border-opacity));
 		outline: 1px solid var(--background-primary);
@@ -67,8 +67,10 @@ body:not(.disable-callout-styling) {
 	}
 	
 	// Callout content
-	.callout > .callout-content {
+	&:not(.is-phone) .callout > .callout-content {
 		overflow: visible;
+	}
+	.callout > .callout-content {
 		padding-inline: 1.75rem 0;
 	}
 	.callout > .callout-content > p:first-child {

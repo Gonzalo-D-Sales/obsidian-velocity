@@ -1,0 +1,118 @@
+// Pretty Properties banners
+
+body:not(.is-phone) .workspace-split.mod-root .view-content.has-banner {
+    background-color: var(--background-primary);
+}
+body:not(.is-phone) .workspace-split.mod-root .banner-image:not(:empty) {
+    inset-inline: 10px 0;
+    width: auto;
+    z-index: unset;
+}
+
+body:not(.is-phone) .banner-image:not(:empty) > img {
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+}
+@container style(--banner-fading: none) {
+    body:not(.is-phone) .banner-image:not(:empty) > img {
+        border-radius: var(--radius-sm) !important;
+    }
+}
+body:not(.is-phone) .popover .banner-image > img {
+    border-radius: 0 !important;
+}
+
+// Pretty properties colored pills
+
+.multi-select-pill.theme-color {
+    --interactive-accent: rgba(var(--pp-color-rgb), 0.875);
+    --text-error: var(--interactive-accent);
+    --pill-color: rgba(var(--pp-color-rgb), 1) !important;
+    --pill-color-remove: var(--pill-color) !important;
+    --pill-color-remove-hover: var(--text-on-accent) !important;
+}
+[data-property-type="tags"] .multi-select-pill.theme-color {
+    --tag-color: var(--pill-color);
+    --tag-color-hover: var(--pill-color);
+    --tag-background: rgba(var(--pp-color-rgb), 0.2);
+    --tag-background-hover: var(--tag-background);
+}
+.tag-pane-tag-parent.theme-color + .tree-item-inner-text.theme-color,
+.tag-pane-tag-parent.custom-color + .tree-item-inner-text.custom-color {
+    border-radius: var(--tag-radius);
+    padding: var(--pill-padding-y) var(--pill-padding-x);
+}
+
+// Custom color pills
+
+.multi-select-pill.custom-color {
+    --interactive-accent: var(--pill-background);
+    --text-error: var(--pill-background);
+    --pill-color: hsl(var(--pp-text-hsl)) !important;
+    --pill-color-remove: var(--pill-color) !important;
+    --pill-color-remove-hover: var(--pill-color) !important;
+}
+[data-property-type="tags"] .multi-select-pill.custom-color {
+    --tag-color: hsl(var(--pp-text-hsl));
+    --tag-background: hsl(var(--pp-background-hsl));
+    --tag-color-hover: var(--tag-color);
+    --tag-background-hover: var(--tag-background);
+    --pill-color-remove-hover: var(--tag-color) !important;
+}
+
+// undo PP padding alterations
+
+body[class*="pp-pill-padding"] {
+    // restore tag size
+    .bases-table-cell a.tag,
+    .bases-cards-line a.tag {
+        font-size: var(--tag-size);
+    }
+    // restore padding
+    .metadata-input-longtext,
+    .bases-cards-line[data-property-longtext-value] {
+        padding: var(--input-padding);
+    }
+    // date inputs -> remove center alignment
+    .metadata-property-value[data-relative-date="past"] .custom-date,
+    .bases-cards-line[data-relative-date="past"] .custom-date,
+    .bases-list-property [data-relative-date="past"] .custom-date,
+    .metadata-property-value:not(.has-custom-date)[data-relative-date="past"] input.mod-date,
+    .metadata-property-value:not(.has-custom-date)[data-relative-date="past"] input.mod-datetime,
+    .bases-cards-line[data-relative-date="past"] input.mod-date,
+    .bases-cards-line[data-relative-date="past"] input.mod-datetime,
+    .bases-rendered-value[data-relative-date="past"] input.mod-date,
+    .bases-rendered-value[data-relative-date="past"] input.mod-datetime,
+    .setting-custom-date-past {
+        text-align: unset;
+    }
+    // tags pane
+    .tag-pane-tag > .tree-item-inner,
+    .tag-pane-tag > .tree-item-inner > .tree-item-inner-text {
+        overflow: visible;
+    }
+    .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]) {
+        border-radius: var(--tag-radius);
+        padding: var(--pill-padding-y) var(--pill-padding-x);
+    }
+    .tag-pane-tag-parent + .tree-item-inner-text[data-tag-value]:not([data-tag-value=""]):not(.theme-color, .transparent-color, .custom-color) {
+        background-color: var(--background-modifier-hover);
+    }
+}
+
+// Pretty properties settings
+
+.pp-settings-tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    border: none;
+    overflow: visible;
+    padding-block-end: calc(var(--vl-layout-padding) * 2);
+}
+.pp-settings-tabs > button.pp-settings-tab {
+    width: 100%;
+}
+.pp-settings-tabs > button.pp-settings-tab-selected {
+    background-color: var(--interactive-accent) !important;
+    box-shadow: var(--shadow-button);
+}

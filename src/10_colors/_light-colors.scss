@@ -1,7 +1,7 @@
 .theme-light {
-	--accent-h: 215;
+	--accent-h: 211;
 	--accent-s: 100%;
-	--accent-l: 55%;
+	--accent-l: 52%;
 
 	--color-red-rgb: 233, 49, 58;
 	--color-red: rgb(233, 49, 58);
@@ -13,8 +13,8 @@
 	--color-green: rgb(0, 187, 93);
 	--color-cyan-rgb: 9, 186, 221;
 	--color-cyan: rgb(9, 186, 221);
-	--color-blue-rgb: 48, 114, 255;
-	--color-blue: rgb(48, 114, 255);
+	--color-blue-rgb: 31, 132, 255;
+	--color-blue: rgb(31, 132, 255);
 	--color-purple-rgb: 124, 80, 237;
 	--color-purple: rgb(124, 80, 237);
 	--color-pink-rgb: 214, 50, 202;
@@ -115,7 +115,7 @@
 	--link-color-sidebar: var(--color-accent-1);
 	--link-unresolved-lch: 0.7;
 
-	--list-bullet-color: var(--text-muted);
+	--list-bullet-color: var(--icon-color);
 	--list-dash-color: oklch(0% 0 0 / 0.25);
 
 	--background-primary: var(--color-base-05);

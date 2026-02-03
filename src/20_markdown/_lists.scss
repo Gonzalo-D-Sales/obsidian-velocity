@@ -10,6 +10,16 @@
 	padding-block: var(--list-spacing);
 }
 
+// Animation for list collapse even in Live Preview
+@starting-style {
+	.cm-fold-indicator > .collapse-icon > .svg-icon {
+		transform: rotate(calc(var(--direction) * -1 * 90deg));
+	}
+	.cm-fold-indicator > .collapse-icon.is-collapsed > .svg-icon {
+		transform: rotate(0);
+	}
+}
+
 // Lists: special styling
 body:not(.disable-list-styling) {
 	.list-bullet::after,
@@ -18,15 +28,18 @@ body:not(.disable-list-styling) {
 		height: 0.125rem;
 		width: 1rem;
 		-electron-corner-smoothing: var(--corner-smoothing);
-		--list-bullet-radius: 0.25rem;
+		--background-modifier-hover: transparent;
+		--background-modifier-active-hover: transparent;
+		--list-bullet-radius: 1rem;
 		--list-bullet-transform: translateX(-0.125rem);
 		--list-marker-color: var(--list-dash-color);
+		--list-marker-color-hover: var(--list-dash-color);
 	}
 	.cm-formatting-list-ul {
 		margin-inline-end: 0.125rem;
 	}
-	.is-collapsed ~ .cm-formatting-list .list-bullet::after,
-	.is-collapsed .list-bullet::after {
-		color: var(--color-accent-2);
+	.is-collapsed ~ .cm-formatting-list-ul,
+	.is-collapsed > .list-bullet {
+		opacity: var(--icon-opacity);
 	}
 }

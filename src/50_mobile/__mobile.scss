@@ -374,6 +374,10 @@ body.is-phone .mobile-navbar-action {
 	background-color: transparent;
 }
 
+.is-mobile .modal.mod-settings .vertical-tab-content {
+  background: var(--settings-background);
+}
+
 .is-mobile .mod-settings .setting-group > .setting-items .setting-item {
 	padding-inline: 0;
 }
@@ -411,6 +415,7 @@ body.is-phone .mobile-navbar-action {
 
 .is-mobile input[type="color"] {
 	height: 100%;
+	width: unset !important;
 }
 
 // Vault profile/Drawer
@@ -455,10 +460,10 @@ body.is-phone .mobile-navbar-action {
 .is-tablet .mod-root .workspace-tabs {
 	overflow: visible;
 }
-.is-tablet .is-left-sidedock-open > .mod-root {
+.is-tablet .is-left-sidedock-open > .is-pinned + .mod-root {
 	padding-inline-start: 0 !important;
 }
-.is-tablet .is-right-sidedock-open > .mod-root {
+.is-tablet .is-right-sidedock-open > .mod-root:has(+ .is-pinned) {
 	padding-inline-end: 0 !important;
 }
 .is-tablet .workspace-drawer.is-pinned,

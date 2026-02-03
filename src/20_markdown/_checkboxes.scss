@@ -8,13 +8,15 @@ input[type=checkbox] {
 input[type=checkbox]:active {
 	transform: scale(0.75);
 }
-.HyperMD-task-line[data-task="x"],
-.HyperMD-task-line[data-task="f"],
-.task-list-item.is-checked:not([data-task="/"]) {
+li[data-task="x"],
+li[data-task="f"],
+li[data-task="-"] {
+	color: var(--checklist-done-color);
+	text-decoration: var(--checklist-done-decoration);
+	--code-normal: var(--checklist-done-color);
+	--text-normal: var(--checklist-done-color);
 	--bold-color: var(--checklist-done-color);
 	--italic-color: var(--checklist-done-color);
-	--code-normal: var(--checklist-done-color);
-	--text-normal: var(--trans-faint-60);
 }
 input[type=checkbox]:checked {
 	background-image: var(--bg-checkbox-active);

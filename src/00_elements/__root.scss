@@ -110,16 +110,16 @@ body {
     --font-ui-larger: 24px;
 
     // Font weights
-    --font-thin: 275;
-    --font-extralight: 300;
-    --font-light: 325;
-    --font-normal: 425;
-    --font-medium: 525;
-    --font-semibold: 625;
-    --font-bold: 725;
-    --font-extrabold: 825;
+    --font-thin: 270;
+    --font-extralight: 305;
+    --font-light: 320;
+    --font-normal: 420;
+    --font-medium: 520;
+    --font-semibold: 620;
+    --font-bold: 720;
+    --font-extrabold: 820;
 
-    --font-semi-medium: calc(var(--font-normal) + 75);
+    --font-semi-medium: calc(var(--font-normal) + 70);
     --font-normal-linux: var(--font-normal);
 
     // Footnotes
@@ -129,7 +129,7 @@ body {
     --graph-node-focused: transparent;
 
     // Headings
-    --h1-color: var(--color-base-90);
+    --h1-color: var(--color-base-100);
     --h2-color: var(--color-base-90);
     --h3-color: var(--color-base-90);
     --h4-color: var(--color-base-90);
@@ -142,13 +142,13 @@ body {
     --h4-size: 1.25em;
     --h5-size: 1.125em;
     --h6-size: 1em;
-    --h1-weight-alt: 625;
-    --h1-weight: 350;
-    --h2-weight: 550;
-    --h3-weight: 550;
-    --h4-weight: 550;
-    --h5-weight: 600;
-    --h6-weight: 650;
+    --h1-weight-alt: 570;
+    --h1-weight: 330;
+    --h2-weight: 570;
+    --h3-weight: 570;
+    --h4-weight: 570;
+    --h5-weight: 620;
+    --h6-weight: 670;
 
     --header-height: 56px;
 
@@ -202,7 +202,7 @@ body {
     --list-marker-color: var(--color-base-50);
 
     // Math
-    --math-color: color-mix(in oklab, var(--color-base-90), var(--color-base-100));
+    --math-color: var(--color-base-100);
 
     // File navigator
     --nav-collapse-icon-color: var(--trans-faint-60);
@@ -251,16 +251,16 @@ body {
     --prompt-input-height: 48px;
 
     // Radiuses
-    --radius-xs: 5px;
-    --radius-s: 7px;
-    --radius-sm: 9px;
-    --radius-m: 11px;
-    --radius-ml: 13px;
-    --radius-l: 17px;
-    --radius-xl: 19px;
-    --radius-xxl: 21px;
+    --radius-xs: 6px;
+    --radius-s: 8px;
+    --radius-sm: 10px;
+    --radius-m: 12px;
+    --radius-ml: 14px;
+    --radius-l: 18px;
+    --radius-xl: 20px;
+    --radius-xxl: 22px;
     --radius-prompt: 24px;
-    --radius-settings: 27px;
+    --radius-settings: 28px;
 
     // Ribbon
     --ribbon-background: transparent;
@@ -322,6 +322,7 @@ body {
     // Mobile tab switcher
 
     // Stacked tabs
+    --tab-stacked-pane-width: var(--file-line-width);
     --tab-stacked-font-weight: var(--font-medium);
     --tab-stacked-shadow: -8px 0 8px 0 var(--stacked-shadow-color);
 
@@ -331,7 +332,7 @@ body {
     --table-row-alt-background: var(--table-row-bg);
     --table-row-alt-background-hover: var(--table-row-bg);
     --table-border-color: var(--trans-faint-30);
-    --table-header-color: var(--color-base-55);
+    --table-header-color: var(--icon-color);
     --table-header-weight: var(--font-medium);
     --table-line-height: var(--line-height-normal);
     --table-text-size: var(--font-small);

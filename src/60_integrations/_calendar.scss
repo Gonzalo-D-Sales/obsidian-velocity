@@ -1,0 +1,212 @@
+#calendar-container {
+    padding-inline: 0;
+    --color-dot: var(--color-base-55);
+    --color-arrow: var(--icon-color);
+    --color-button: var(--text-muted);
+    --color-text-today: var(--color-accent-1);
+    --color-text-weeknum: var(--text-muted);
+    --table-text-color: var(--color-base-80);
+    --table-row-alt-background: none;
+    --table-row-alt-background-hover: none;
+    --table-highlight: var(--background-modifier-active-hover);
+}
+.callout-content #calendar-container {
+    padding-top: 1rem;
+    --color-dot: rgb(var(--callout-color));
+    --color-text-today: rgb(var(--callout-color));
+    --table-highlight: rgb(var(--callout-color), 0.1);
+}
+
+.mod-sidedock .workspace-leaf-content[data-type="calendar"] > .view-content {
+    padding-inline: 12px;
+}
+
+// General calendar styles
+
+#calendar-container {
+    container-type: inline-size;
+    th,
+    td,
+    .calendar,
+    .day,
+    .week-num {
+        contain: content;
+    }
+    .month,
+    .year {
+        color: var(--text-normal);
+    }
+    .month {
+        font-weight: var(--font-bold);
+        letter-spacing: unset;
+    }
+    .year {
+        font-weight: var(--font-normal);
+        letter-spacing: -0.025em;
+    }
+    .nav {
+        margin-block-start: 2px;
+        padding-inline: 2.5cqw;
+    }
+    .nav .reset-button {
+        text-transform: capitalize;
+        font-size: 0.875em;
+        font-weight: var(--font-medium);
+        letter-spacing: normal;
+        text-box-trim: trim-both;
+        text-box-edge: text alphabetic;
+    }
+    .nav .arrow {
+        scale: 0.8;
+    }
+    :is(.day, .week-num):is(:hover, :active) {
+        background-color: transparent;
+    }
+}
+
+// Dataview Calendar
+
+.block-language-dataview > #calendar-container {
+    .calendar {
+        margin-block-start: 0;
+    }
+    // table cells
+    col.weekend {
+        background-color: transparent;
+        background-image: linear-gradient(transparent 1.625rem, var(--table-row-bg) 1.625rem);
+    }
+    th {
+        border-color: var(--trans-faint-40);
+        font-size: var(--font-smaller);
+        font-weight: var(--font-semi-medium);
+        letter-spacing: normal;
+        text-align: end;
+        text-transform: capitalize;
+        padding: 0 0.4375rem 0.25rem 0;
+        user-select: none;
+    }
+    td {
+        border-block-start: 1px solid var(--table-border-color);
+        padding: 0;
+    }
+    // day cells
+    .day {
+        color: var(--table-text-color);
+        font-weight: var(--font-medium);
+        border-radius: 0;
+        padding: 0.125rem 0.25rem 28px;
+        text-align: end;
+        transition: var(--anim-super-swing);
+    }
+    .day:is(:hover, :active) {
+        background-color: var(--table-highlight);
+    }
+    .today {
+        font-weight: var(--font-bold);
+        color: var(--color-text-today);
+    }
+    // day dots
+    .dot-container {
+        position: absolute;
+        bottom: 0.375rem;
+        justify-content: end;
+        align-self: end;
+        flex-wrap: wrap-reverse;
+        inset-inline: 0.3125rem;
+        row-gap: 0.125em;
+    }
+    // nav
+    .nav {
+        padding-inline: 0.5cqw;
+    }
+}
+
+// Calendar View
+
+.view-content > #calendar-container {
+    container-type: inline-size;
+    padding-inline: 8px;
+    --color-arrow: var(--text-muted);
+    --color-dot: var(--table-header-color);
+    --table-header-color: var(--color-base-55);
+    --table-text-color: var(--color-base-80);
+
+    .calendar {
+        table-layout: fixed;
+    }
+    // table cells
+    td {
+        border-color: transparent;
+    }
+    th {
+        color: var(--table-header-color);
+        font-size: 0px;
+        font-weight: calc(var(--font-normal) + 50);
+        text-align: center;
+        padding-inline: 0;
+        padding-block: 0px 6px;
+        text-indent: 2px;
+    }
+    th::first-letter {
+        font-size: var(--font-ui-small);
+    }
+    // day cells
+    .day,
+    .week-num {
+        background-color: transparent;
+        color: var(--table-text-color);
+        font-size: var(--font-ui-smaller);
+        font-weight: calc(var(--font-normal) + 50);
+        text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
+        padding-block: 8px 6px;
+
+        > .dot-container {
+            margin-block: 2px -2px;
+        }
+    }
+    .today {
+        font-weight: calc(var(--font-semi-medium) + 20);
+        &::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            padding: 0.5px;
+            position: absolute;
+            align-self: center;
+            justify-self: center;
+            inset-inline: 0;
+            background-color: var(--color-dot);
+            box-shadow: var(--shadow-toggle);
+            border-radius: 50%;
+            z-index: -1;
+        }
+        > .dot-container {
+            margin-block: 6px -6px;
+        }
+        --color-dot: var(--interactive-accent);
+        --table-text-color: var(--text-on-accent);
+    }
+    .week-num {
+        --color-dot: var(--text-faint);
+        --table-text-color: var(--table-header-color);
+    }
+    // nav
+    .arrow {
+        scale: 0.8125;
+    }
+    :is(.month, .year) {
+        color: var(--table-text-color);
+        font-size: 0.875em;
+    }
+}
+.mod-root .view-content > #calendar-container th {
+    font-size: var(--font-ui-small);
+    padding-block: 0.5rem 0.75rem;
+}
+.mod-root .view-content > #calendar-container td {
+    padding-block: 0.125rem;
+}
+.mod-root .view-content > #calendar-container .nav {
+    padding-inline-start: 3cqw;
+}

@@ -5,7 +5,6 @@
 	border: none;
 	margin-block: var(--block-padding);
 	padding-inline: 1.75em 0;
-	--math-color: var(--blockquote-color);
 }
 body:not(.enable-special-text) blockquote {
 	--bold-color: oklab(from var(--blockquote-color) l a b / 0.875);	
@@ -14,6 +13,7 @@ body:not(.enable-special-text) blockquote {
 .HyperMD-quote,
 .markdown-rendered blockquote,
 .cm-blockquote-border {
+	--math-color: color-mix(in oklab, var(--blockquote-color), var(--color-base-80));
 	&::before {
 		content: '';
 		contain: content;

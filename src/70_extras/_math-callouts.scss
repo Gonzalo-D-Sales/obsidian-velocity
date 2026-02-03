@@ -9,7 +9,7 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 		font-family: MJXZERO, MJXTEX;
 		font-size: 1.25rem;
 		font-weight: var(--font-medium);
-		margin-block-start: 0.5rem;
+		margin-block: 1rem;
 		padding-inline-start: unset;
 	}
 	> .callout-title > .callout-icon {
@@ -20,7 +20,7 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 		padding-inline-start: unset;
 	}
 	> .callout-content > p:first-child {
-		margin-block-start: 0.25rem;
+		margin-block-start: 0;
 	}
 }
 // other colors 

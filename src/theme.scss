@@ -1,7 +1,7 @@
 /* 
 ----------------------------------
 	Velocity 
-	2.0.08
+	2.1.0
 
 	by Floodlight
 ----------------------------------
@@ -64,7 +64,9 @@
 @use "60_integrations/__canvas";
 @use "60_integrations/__web-viewer";
 @use "60_integrations/_autofit-tabs";
+@use "60_integrations/_calendar";
 @use "60_integrations/_omnisearch";
+@use "60_integrations/_pretty-properties";	
 @use "60_integrations/_style-settings";	
 
 @use "70_extras/_css-classes";

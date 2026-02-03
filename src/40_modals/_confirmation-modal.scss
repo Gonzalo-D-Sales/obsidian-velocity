@@ -13,7 +13,7 @@
 }
 .modal-container.mod-confirmation > .modal {
 	> .modal-content > :is(div, p) {
-		color: var(--text-muted);
+		color: var(--color-base-80);
 		text-align: center;
 	}
 	> .modal-content > .mod-warning {
@@ -28,14 +28,15 @@
 		border-top: unset;
 	}
 	.setting-item-name {
-		padding-inline-start: 2px;
+		font-weight: calc(var(--font-normal) + 30);
+		padding-inline-start: 4px;
 	}
 	.setting-item:not(:first-of-type)::before {
 		content: '';
 		contain: content;
 		position: absolute;
 		top: 0;
-		inset-inline: 2px;
+		inset-inline: 4px;
 		background-color: var(--trans-faint-20);
 		border-radius: var(--radius-s);
 		padding-block: 0.0625em;
