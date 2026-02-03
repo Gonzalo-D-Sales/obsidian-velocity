@@ -24,11 +24,14 @@
 <br>
 
 ## News [^](#Table-of-Contents)
-As of January 2026, **the latest release** is `Velocity 2.1.0`.
+As of February 2026, **the latest release** is `Velocity 2.1.0`.
 
-`2.1.0` brings numerous bug fixes as well as some small quality-of-life tweaks to tab interaction. The main event of the update is the comprehensive support for the popular community plugin, **Pretty Properties.** 
+`2.1.0` brings numerous bug fixes as well as some small quality-of-life tweaks to tab interaction. The main event of the update is the comprehensive support for the popular community plugin, **Pretty Properties.**
 
 Check out the [release page for 2.1.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.1.0) for the full list of new features, improvements and fixes.
+
+> [!WARNING] 
+> As of February 3, the maintainer and developer of Velocity is sick. For this reason, **new Issues will not be worked on for the next week or two.**
 
 > [!CAUTION] 
 > A major [issue](https://github.com/Gonzalo-D-Sales/obsidian-velocity/issues/101) has been affecting users with **out-of-date Obsidian installer versions**, causing their app to crash or have a blank screen when using Velocity. This is likely due to incompatibilities with the theme's newer CSS features. Please re-install Obsidian to update the installer version and avoid further problems with Velocity or any other themes/plugins. 
