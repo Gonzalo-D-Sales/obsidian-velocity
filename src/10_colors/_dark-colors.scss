@@ -1,5 +1,5 @@
 .theme-dark {
-	--accent-h: 210;
+	--accent-h: 211;
 	--accent-s: 86%;
 	--accent-l: 52%;
 
@@ -13,8 +13,8 @@
 	--color-green: rgb(24, 209, 125);
 	--color-cyan-rgb: 85, 211, 244;
 	--color-cyan: rgb(85, 211, 244);
-	--color-blue-rgb: 58, 135, 255;
-	--color-blue: rgb(58, 135, 255);
+	--color-blue-rgb: 71, 154, 255;
+	--color-blue: rgb(71, 154, 255);
 	--color-purple-rgb: 168, 130, 255;
 	--color-purple: #a882ff;
 	--color-pink-rgb: 250, 153, 205;
@@ -125,7 +125,7 @@
 	--fab-color: var(--icon-color);
 	--fab-color-active: var(--text-normal);
 
-	--h1-color: var(--color-base-100);
+	--h1-color: oklch(calc(var(--bl-100) - 3.75%) var(--bsat-low) var(--bhue));
     --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));
     --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));
     --h2-color: oklch(calc(var(--bl-100) - 5%) var(--bsat-low) var(--bhue));

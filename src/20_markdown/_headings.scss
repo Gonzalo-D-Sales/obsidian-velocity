@@ -5,7 +5,7 @@
     padding-block-start: unset;
 }
 .markdown-rendered :is(.el-div, .el-blockquote) + div[class*="el-h"] > * {
-  	margin-block-start: var(--heading-spacing);
+  	margin-block-start: calc(var(--heading-spacing) - var(--block-padding));
 }
 .markdown-rendered .el-div + .el-p > p {
   	margin-block-start: var(--block-padding);

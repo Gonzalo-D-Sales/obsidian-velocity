@@ -97,6 +97,7 @@ mjx-math {
 	color: var(--icon-color);
 }
 .metadata-properties-heading > .collapse-indicator {
+	padding-inline-start: 0.625rem;
 	transition: opacity var(--anim-fast-smooth);
 	--collapse-icon-color: var(--text-normal);
 	--collapse-icon-color-collapsed: var(--icon-color);

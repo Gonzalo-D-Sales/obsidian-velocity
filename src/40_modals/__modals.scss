@@ -283,6 +283,9 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 .mod-search-suggestion > .suggestion {
 	--background-secondary: transparent;
 }
+.suggestion {
+	contain: content;
+}
 .suggestion-item {
 	color: var(--text-normal);
 	font-weight: var(--font-normal);
