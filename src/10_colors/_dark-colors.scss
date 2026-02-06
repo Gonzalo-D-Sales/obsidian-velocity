@@ -1,5 +1,5 @@
 .theme-dark {
-	--accent-h: 211;
+	--accent-h: 212;
 	--accent-s: 86%;
 	--accent-l: 52%;
 
@@ -119,7 +119,7 @@
 	--code-background-alt: var(--trans-strong-10);
 
 	--control-icon-background: var(--trans-faint-20);
-	--control-icon-color: color-mix(in oklab, var(--color-base-80), var(--color-base-90));
+	--control-icon-color: var(--color-base-80);
 
 	--fab-bg: var(--background-primary);
 	--fab-color: var(--icon-color);
