@@ -7,7 +7,6 @@
 @container style(--line-height-normal: 1.5) {
 	.markdown-rendered {
 		--list-spacing: 0.1125em;
-		--block-padding: 1rem;
 		--heading-margin-start: 1.25em;
 		--heading-spacing: round(nearest, 2.125em, 2px);
 		--hr-spacing: 2rem;
@@ -17,7 +16,6 @@
 	.markdown-rendered {
 		--list-spacing: 0.125em;
 		--p-spacing: 1.125rem;
-		--block-padding: 1.125rem;
 		--heading-margin-start: 1.375em;
 		--heading-spacing: round(nearest, 2.375em, 2px);
 		--hr-spacing: 2.25rem;
@@ -27,7 +25,6 @@
 	.markdown-rendered {
 		--list-spacing: 0.1375em;
 		--p-spacing: 1.25rem;
-		--block-padding: 1.25rem;
 		--heading-margin-start: 1.5em;
 		--heading-spacing: round(nearest, 2.625em, 2px);
 		--hr-spacing: 2.5rem;

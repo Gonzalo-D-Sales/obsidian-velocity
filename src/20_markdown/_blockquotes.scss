@@ -1,9 +1,8 @@
-.el-blockquote blockquote,
+.el-blockquote > blockquote,
 .markdown-rendered blockquote {
 	position: relative;
 	align-items: center;
 	border: none;
-	margin-block: var(--block-padding);
 	padding-inline: 1.75em 0;
 }
 body:not(.enable-special-text) blockquote {
