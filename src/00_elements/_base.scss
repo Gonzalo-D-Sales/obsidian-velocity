@@ -418,6 +418,9 @@ input[type="range"]::-webkit-slider-runnable-track {
 		var(--shadow-muted);
 	padding: 8px 12px;
 }
+.drag-reorder-ghost {
+	border-radius: var(--radius-xxl);
+}
 
 // --> Scrollbar / scrollbar padding <--
 

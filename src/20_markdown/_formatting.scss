@@ -37,6 +37,7 @@ del {
 :is(.markdown-source-view, .markdown-preview-view) mark {
 	border-radius: var(--radius-xs);
 	padding-inline: 0.25rem;
+	--text-normal: var(--color-base-100);
 }
 
 // first formatting highlight
