@@ -5,13 +5,10 @@
     padding-block-start: unset;
 }
 .markdown-rendered :is(.el-div, .el-blockquote) + div[class*="el-h"] > * {
-  	margin-block-start: calc(var(--heading-spacing) - var(--block-padding));
-}
-.markdown-rendered .el-div + .el-p > p {
-  	margin-block-start: var(--block-padding);
+  	margin-block-start: calc(var(--heading-spacing) - var(--p-spacing));
 }
 .markdown-rendered div[class*="el-h"] + .el-table > table {
-  	margin-block-start: calc(var(--block-padding) / 2);
+  	margin-block-start: calc(var(--p-spacing) / 2);
 }
 .markdown-rendered div[class*="el-h"] > * {
 	margin-block-start: round(nearest, var(--heading-margin-start), 2px);

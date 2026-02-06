@@ -24,7 +24,7 @@
 <br>
 
 ## News [^](#Table-of-Contents)
-As of February 2026, **the latest release** is `Velocity 2.1.0`.
+As of February 2026, **the latest release** is `Velocity 2.1.02`.
 
 `2.1.0` brings numerous bug fixes as well as some small quality-of-life tweaks to tab interaction. The main event of the update is the comprehensive support for the popular community plugin, **Pretty Properties.**
 
