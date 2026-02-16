@@ -395,5 +395,6 @@ body {
     // Text
 
     // Extra theme layout variables
+    --block-padding: calc(var(--p-spacing) * 1.375);
     --vl-layout-padding: 8px;
 }
