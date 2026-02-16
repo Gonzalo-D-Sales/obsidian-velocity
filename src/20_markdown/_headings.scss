@@ -16,9 +16,6 @@
 .markdown-rendered div[class*="el-hr"] > * {
 	margin-block: var(--hr-spacing);
 }
-.inline-title {
-	margin-block-end: var(--p-spacing) !important;
-}
 
 // Headings
 
@@ -32,7 +29,6 @@
 .markdown-rendered h1,
 .inline-title {
 	letter-spacing: -0.01em;
-	margin-block-end: var(--inline-title-margin-bottom);
 	text-indent: -0.035em;
 	&::after {
 		content: '';
@@ -46,6 +42,17 @@
 		-electron-corner-smoothing: var(--corner-smoothing);
 	}
 }
+.markdown-rendered :is(div[class="el-h1"], .mod-header) + :is(.el-div, .el-blockquote) > *,
+.markdown-rendered .mod-header.mod-ui + .el-pre.mod-frontmatter + :is(.el-div, .el-pre, .el-blockquote) > * {
+	margin-block-start: var(--block-padding-mod); 
+	// block padding + account for h1 underline
+}
+// remove h1 compensation
+body.disable-title-h1,
+.markdown-rendered.simple-title {
+	--block-padding-mod: var(--block-padding);
+}
+
 // Disable H1 special styling 
 body:not(.disable-title-h1).alt-font-set :is(.HyperMD-header-1, h1) {
 	font-feature-settings: 'cv05' off, 'cv06', 'cv11' off;

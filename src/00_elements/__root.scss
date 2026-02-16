@@ -174,7 +174,6 @@ body {
     --nav-indentation-guide-color: var(--trans-faint-30);
 
     // Inline title
-    --inline-title-margin-bottom: round(nearest, clamp(0px, 0.5em, 1.5rem), 2px);
 
     // Inputs
     --input-height: 28px;
@@ -395,6 +394,7 @@ body {
     // Text
 
     // Extra theme layout variables
-    --block-padding: calc(var(--p-spacing) * 1.375);
+    --block-padding: calc(var(--p-spacing) + 0.25rem);
+    --block-padding-mod: calc(var(--block-padding) + 0.375rem);
     --vl-layout-padding: 8px;
 }
