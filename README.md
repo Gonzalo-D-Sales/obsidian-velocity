@@ -121,7 +121,7 @@ Valid colors include all the default rainbow colors included in Obsidian by defa
 
 - [x] Several color schemes for light and dark mode
 - [x] Full support for mobile devices
-- [ ] Partial implementation of Damian Korcz's **[Alternative Checkboxes](github.com/damiankorcz/Alternative-Checkboxes-Reference-Set)** reference set
+- [ ] Partial implementation of Damian Korcz's **[Alternative Checkboxes](https://github.com/damiankorcz/Alternative-Checkboxes-Reference-Set)** reference set
 
 <br>
 
