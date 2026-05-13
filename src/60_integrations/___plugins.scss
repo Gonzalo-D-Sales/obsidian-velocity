@@ -25,8 +25,12 @@
 .lc-list-bg::after {
 	border-radius: var(--radius-s);
 }
-.lc-list-callout :is(strong, .cm-strong) {
-	color: rgb(var(--lc-callout-color), 0.8);
+.lc-list-callout {
+	--bold-color: color-mix(in oklab, rgb(var(--lc-callout-color)) 30%, var(--text-normal));
+	--italic-color: var(--bold-color);
+}
+.lc-li-wrapper > .lc-list-marker {
+	color: color-mix(in oklab, rgb(var(--lc-callout-color)) 87.5%, var(--text-normal));
 }
 
 // List Callout Default colors
