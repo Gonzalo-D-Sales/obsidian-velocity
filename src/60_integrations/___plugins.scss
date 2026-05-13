@@ -25,8 +25,12 @@
 .lc-list-bg::after {
 	border-radius: var(--radius-s);
 }
-.lc-list-callout :is(strong, .cm-strong) {
-	color: rgb(var(--lc-callout-color), 0.8);
+.lc-list-callout {
+	--bold-color: color-mix(in oklab, rgb(var(--lc-callout-color)) 30%, var(--text-normal));
+	--italic-color: var(--bold-color);
+}
+.lc-li-wrapper > .lc-list-marker {
+	color: color-mix(in oklab, rgb(var(--lc-callout-color)) 87.5%, var(--text-normal));
 }
 
 // List Callout Default colors
@@ -351,8 +355,27 @@ body:not(.is-mobile) .workspace-leaf-content[data-type="notebook-navigator"] {
 }
 
 .tabs-container .tabs-contents {
-	padding: 0.75em 1.75em;
+	padding-block: 0.5em;
 }
+
+.tabs-container:is(.tabs-nav-left,.tabs-nav-right) .tabs-nav-item-wrapper {
+	margin-block-start: 0.375em;
+
+	> .tabs-nav-item {
+		padding-block: 0.5em;
+	}
+}
+
+.tabs-container.tabs-nav-left  .tabs-nav-item,
+.tabs-container.tabs-nav-right  .tabs-nav-item,
+.tabs-container.tabs-nav-right  .tabs-contents {
+	padding-inline-start: 0px;
+}
+
+.tabs-container.tabs-nav-left  .tabs-contents {
+	padding-inline-end: 0px;
+}
+
 
 .tabs-nav-item {
 	font-weight: var(--font-medium);
