@@ -3,8 +3,8 @@
 // 4 - Modals
 // =========================== ===========================
 
-// Remove redundant exit buttons on PC 
-body:not(.is-mobile) 
+// Remove redundant exit buttons on PC
+body:not(.is-mobile)
 :is(.mod-settings::before,
 .modal-sidebar::before,
 .modal .modal-close-button,
@@ -26,6 +26,7 @@ body:not(.is-phone) .modal {
 	animation: var(--anim-duration-moderate) var(--vl-ease-out) anim-modals;
 }
 .modal, .menu {
+  -electron-corner-smoothing: var(--corner-smoothing);
 	--background-modifier-form-field: var(--background-primary);
 	--background-modifier-form-field-hover: var(--background-primary);
 }
@@ -93,7 +94,7 @@ body:not(.is-phone) .modal-container > .modal.mod-settings {
 .vertical-tab-content .setting-item ~ :is(h1, h2, h3, h4, .setting-item-heading) {
 	margin-block-start: calc(var(--vl-layout-padding) * 3);
 }
-// Settings Sidebar 
+// Settings Sidebar
 body:not(.is-phone) .vertical-tab-nav-item {
 	color: var(--text-muted);
 	font: var(--font-medium) var(--font-ui-small) var(--font-interface);
@@ -121,7 +122,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
     padding-inline-start: 12px;
 }
 
-// Setting item 'sections' 
+// Setting item 'sections'
 .mod-settings .setting-group > .setting-items {
 	box-shadow: var(--shadow-setting-items);
 }
@@ -195,7 +196,7 @@ body:not(.is-phone) .vertical-tab-header-group-title {
 
 
 
-// Hotkeys Settings page 
+// Hotkeys Settings page
 
 .flair.mod-pop,
 .hotkey-filter,

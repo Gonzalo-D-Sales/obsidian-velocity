@@ -4,6 +4,10 @@
   padding-inline-end: 0;
   margin-inline-end: calc(var(--frame-right-space) - 4px);
 }
+.is-hidden-frameless:not(.is-fullscreen):is(.mod-linux, .mod-windows) .workspace-tabs.mod-top-right-space .workspace-tab-header-container::after {
+  pointer-events: none;
+  right: calc(-1 * (var(--frame-right-space) - 4px));
+}
 .titlebar-button-container.mod-right > .titlebar-button::after {
   content: "";
   background-color: var(--titlebar-text-color);
