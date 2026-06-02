@@ -4,6 +4,10 @@
 	align-items: center;
 	border: none;
 	padding-inline: 1.75em 0;
+}
+body:not(.enable-special-text) blockquote {
+	--bold-color: var(--blockquote-color);
+	--italic-color: var(--blockquote-color);
 	margin-block: var(--block-padding);
 }
 .HyperMD-quote,
@@ -33,7 +37,4 @@
 		height: calc(100% + 2px);
 		margin-block: -2px;
 	}
-}
-.cm-line:not(.HyperMD-callout) + .HyperMD-quote-lazy {
-	padding-inline-start: 16px !important;
 }
