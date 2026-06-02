@@ -8,10 +8,13 @@
 body:not(.enable-special-text) blockquote {
 	--bold-color: var(--blockquote-color);
 	--italic-color: var(--blockquote-color);
+	margin-block: var(--block-padding);
 }
 .HyperMD-quote,
 .markdown-rendered blockquote,
 .cm-blockquote-border {
+	--bold-color: var(--color-base-80);	
+	--italic-color: var(--blockquote-color);
 	--math-color: color-mix(in oklab, var(--blockquote-color), var(--color-base-80));
 	&::before {
 		content: '';
