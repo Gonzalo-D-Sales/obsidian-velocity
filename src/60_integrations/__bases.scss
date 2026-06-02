@@ -98,9 +98,11 @@ body:not(.is-phone) .mod-sidedock {
 	);
 }
 .bases-td:focus-within {
-	background-color: transparent;
+	background-color: var(--background-primary);
 }
-
+.bases-tr:nth-child(2n - 1) > .bases-td:focus-within {
+	background-color: var(--background-secondary);
+}
 // Obsidian Bases (interface)
 
 .bases-table-header {
