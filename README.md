@@ -24,17 +24,14 @@
 <br>
 
 ## News [^](#Table-of-Contents)
-As of February 2026, **the latest release** is `Velocity 2.1.02`.
+As of June 2026, **the latest release** is `Velocity 2.1.1`.
 
-`2.1.0` brings numerous bug fixes as well as some small quality-of-life tweaks to tab interaction. The main event of the update is the comprehensive support for the popular community plugin, **Pretty Properties.**
+`2.1.1` is a sanity check and maintenance update that fixes various bugs that have accumulated over time, and addresses many of the issues which were left unattended for the last few months. `2.1.1` does not yet account for the major changes to the Settings UI seen in Obsidian 1.13 (currently an Insider release only).
 
-Check out the [release page for 2.1.0](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.1.0) for the full list of new features, improvements and fixes.
+Check out the [release page for 2.1.1](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.1.1) for the full list of new features, improvements and fixes.
 
 > [!WARNING] 
-> As of February 3, the maintainer and developer of Velocity is sick. For this reason, **new Issues will not be worked on for the next week or two.**
-
-> [!CAUTION] 
-> A major [issue](https://github.com/Gonzalo-D-Sales/obsidian-velocity/issues/101) has been affecting users with **out-of-date Obsidian installer versions**, causing their app to crash or have a blank screen when using Velocity. This is likely due to incompatibilities with the theme's newer CSS features. Please re-install Obsidian to update the installer version and avoid further problems with Velocity or any other themes/plugins. 
+> Velocity has now officially entered **Maintenance Mode.** The theme will not receive any major new updates or features beyond those currently up for consideration in the Issues list as of this ?> month. All future updates will be for maintaining the function and integrity of Velocity, and for addressing breaking changes caused upstream by Obsidian itself changing.
 
 <br>
 
@@ -121,7 +118,7 @@ Valid colors include all the default rainbow colors included in Obsidian by defa
 
 - [x] Several color schemes for light and dark mode
 - [x] Full support for mobile devices
-- [ ] Partial implementation of Damian Korcz's **[Alternative Checkboxes](github.com/damiankorcz/Alternative-Checkboxes-Reference-Set)** reference set
+- [ ] Partial implementation of Damian Korcz's **[Alternative Checkboxes](https://github.com/damiankorcz/Alternative-Checkboxes-Reference-Set)** reference set
 
 <br>
 
@@ -174,3 +171,4 @@ In the end—despite it all—**I do not regret making Velocity**, nor do I regr
 <br>
 
 **The first few alpha-testers for Velocity -** This is a group of maybe around 5-10 individuals who not only tested the theme in its humble infancy, but also mostly stuck around and still use the modern Velocity to this day. Thank you very much for your support, you gave me the motivation to keep on developing Velocity through all those months.
+
