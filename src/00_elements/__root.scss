@@ -98,13 +98,15 @@ body {
     --embed-block-shadow-hover: none;
 
     // File layout
-    --file-line-width: 43.75rem;
+    --file-line-width: calc(var(--file-line-width-multiplier) * var(--font-text-size));
+    --file-line-width-multiplier: 43.75;
     --file-margins-y: 28px;
     --file-margins-x: 5%;
     --file-header-font-weight: var(--font-semi-medium);
 
     // Relative font sizes
     --font-small: 0.90625em;
+    --font-small-relative: calc(0.90625 * var(--font-text-size));
 
     // UI font sizes
     --font-ui-larger: 24px;
@@ -335,7 +337,7 @@ body {
     --table-header-color: var(--icon-color);
     --table-header-weight: var(--font-medium);
     --table-line-height: var(--line-height-normal);
-    --table-text-size: var(--font-small);
+    --table-text-size: var(--font-small-relative);
     --table-text-weight: var(--font-normal);
 
     // Tags
