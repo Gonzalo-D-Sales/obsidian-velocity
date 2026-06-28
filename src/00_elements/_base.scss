@@ -43,9 +43,11 @@ body:not(.is-focused) {
 // Windows & Linux
 .mod-windows,
 .mod-linux {
+  --minimize-visibility: flex;
+  --maximize-visibility: flex;
 	--callout-blend-mode: normal;
 	--flair-padding: 3px 1px;
-	--frame-right-space: 160px;
+	--frame-right-space: 162px;
 	// frame spacing and autohide override
 	--frame-right-space-override: 164px;
 }

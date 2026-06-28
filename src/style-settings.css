@@ -167,6 +167,26 @@ settings:
 	description: Displays the icon of the current editing mode instead of the next mode.
 	type: class-toggle
 -
+  id: titlebar-button-visibility
+  title: Hide titlebar buttons
+  description: Select titlebar buttons to hide; helps reclaim space for sidebar tabs.
+  type: class-select
+  default: none
+  allowEmpty: false
+  options:
+	-
+		label: Show all buttons
+		value: none
+	-
+		label: Hide minimize button
+		value: no-minimize
+	-
+		label: Hide maximize button
+		value: no-maximize
+	-
+		label: Hide minimize & maximize buttons
+		value: only-exit
+-
 */
 
 /* @settings
