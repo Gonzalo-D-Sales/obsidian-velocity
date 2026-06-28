@@ -3,6 +3,16 @@ name: Velocity - Quick Settings
 id: obsidian-velocity
 settings:
 -
+	id: ss-section-news
+	title: Theme News
+	description: Velocity in its current, modern form is now around **one year old!** Thank you everyone for using this theme and supporting my work. A **new special light theme is available** to select. <br><br> **[Tips and donations are now also accepted](https://ko-fi.com/floodlight01)**
+	type: info-text
+	markdown: true
+-
+	id: ss-section-news
+	title: do not show again
+	type: class-toggle
+-
 	id: ss-section-title
 	description: Theme colors
 	type: info-text
@@ -33,6 +43,8 @@ settings:
           value: milgreen
 		- label: Jet Blue Metallic
           value: jetblue
+        - label: 1.0.0 Anniversary
+          value: anniversary
 -
 	id: theme-paint-dark
 	title: Select paint job
