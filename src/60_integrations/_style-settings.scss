@@ -23,6 +23,25 @@
     }
 }
 
+.style-settings-info-text[data-id="ss-section-news"] {
+  margin-block-start: 32px;
+    text-align: center;
+
+  .setting-item-name {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height);
+    padding-block-end: var(--p-spacing);
+  }
+}
+.setting-item[data-id="ss-section-news"] {
+  background-color: var(--background-modifier-hover);
+  display: var(--news-display);
+}
+body.ss-section-news {
+  --news-display: none;
+}
+
 .style-settings-collapse-indicator {
     color: var(--icon-color);
 }
@@ -200,6 +219,9 @@ body.is-phone .style-settings-info-text[data-id="disable-performance-tweaks"] {
 }
 .theme-light.jetblue {
     --paint-description: "A cool blue paint scheme inspired by the Audi R8 and the Nord color palette. Sleek and industrial with a touch of elegance.";
+}
+.theme-light.anniversary {
+    --paint-description: "An energetic and vibrant color scheme and UI overhaul harkening back to the racing game roots of pre-alpha Velocity.";
 }
 
 .theme-dark {
