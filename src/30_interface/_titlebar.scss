@@ -25,6 +25,12 @@
   &:not(.mod-logo) > * {
     display: none;
   }
+  &.mod-minimize {
+    display: var(--minimize-visibility);
+  }
+  &.mod-maximize {
+    display: var(--maximize-visibility);
+  }
   &.mod-minimize::after {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjA2MjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtbWludXMtaWNvbiBsdWNpZGUtbWludXMiPjxwYXRoIGQ9Ik01IDEyaDE0Ii8+PC9zdmc+");
   }
@@ -50,6 +56,20 @@
   .titlebar-button.mod-maximize::after {
   -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyOCIgaGVpZ2h0PSIyOCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyLjU3MTQyODU3MTQyODU3MTYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgY2xhc3M9Imx1Y2lkZSBsdWNpZGUtY29weS1pY29uIGx1Y2lkZS1jb3B5Ij48cmVjdCB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHg9IjgiIHk9IjgiIHJ4PSIyIiByeT0iMiIvPjxwYXRoIGQ9Ik00IDE2Yy0xLjEgMC0yLS45LTItMlY0YzAtMS4xLjktMiAyLTJoMTBjMS4xIDAgMiAuOSAyIDIiLz48L3N2Zz4=");
   transform: rotateY(180deg);
+}
+
+:is(.mod-linux, .mod-windows).no-minimize,
+:is(.mod-linux, .mod-windows).only-exit {
+  --minimize-visibility: none;
+  --frame-right-space: 110px;
+}
+:is(.mod-linux, .mod-windows).no-maximize,
+:is(.mod-linux, .mod-windows).only-exit {
+  --maximize-visibility: none;
+  --frame-right-space: 110px;
+}
+:is(.mod-linux, .mod-windows).only-exit {
+  --frame-right-space: 58px;
 }
 
 // Obsidian icon in titlebar
