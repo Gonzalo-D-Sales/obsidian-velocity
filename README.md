@@ -11,7 +11,7 @@
 <p align="center">
     <a href='https://ko-fi.com/floodlight01' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 </p>
-
+latest changes - 06/28/26 #2 (#141)
 ### Table of Contents
 
 - [News](#News-)
@@ -28,14 +28,9 @@
 <br>
 
 ## News [^](#Table-of-Contents)
-As of June 2026, **the latest release** is `Velocity 2.1.1`.
+As of June 2026, **the latest release** is `Velocity 2.2.0`.
 
-`2.1.1` is a sanity check and maintenance update that fixes various bugs that have accumulated over time, and addresses many of the issues which were left unattended for the last few months. `2.1.1` does not yet account for the major changes to the Settings UI seen in Obsidian 1.13 (currently an Insider release only).
-
-Check out the [release page for 2.1.1](https://github.com/Gonzalo-D-Sales/obsidian-velocity/releases/tag/v2.1.1) for the full list of new features, improvements and fixes.
-
-> [!WARNING] 
-> Velocity has now officially entered **Maintenance Mode.** The theme will not receive any major new updates or features beyond those currently up for consideration in the Issues list as of this ?> month. All future updates will be for maintaining the function and integrity of Velocity, and for addressing breaking changes caused upstream by Obsidian itself changing.
+`2.2.0` celebrates the one-year anniversary of the first modern version of the theme! A new highly stylized light mode color scheme is available as a thank-you gift for everyone who has used Velocity over the past year. I am also now accepting tips & donations via Ko-fi.
 
 <br>
 
