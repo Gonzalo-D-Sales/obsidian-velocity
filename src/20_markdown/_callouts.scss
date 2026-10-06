@@ -10,8 +10,8 @@ body:not(.disable-callout-styling) {
 	--callout-padding: 1rem;
     
     // Callout colors 
-	--callout-bug: var(--color-pink-rgb);
-	--callout-warning: var(--color-yellow-rgb);
+	--callout-bug: var(--color-pink);
+	--callout-warning: var(--color-yellow);
 
     // Callout styling
 	.markdown-source-view .cm-content > .cm-callout[contenteditable=false] {

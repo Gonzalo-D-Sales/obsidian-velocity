@@ -3,7 +3,7 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 	background-image: unset;
 	box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--callout-color) 37.5%, transparent);
 	outline: unset;
-	--callout-color: var(--color-blue-rgb);
+	--callout-color: var(--color-blue);
 
 	> .callout-title > .callout-title-inner {
 		font-family: MJXZERO, MJXTEX;
@@ -25,25 +25,25 @@ body:not(.disable-callout-styling) .callout[data-callout*="math"] {
 }
 // other colors 
 body:not(.disable-callout-styling) .callout[data-callout="math-red"] {
-	--callout-color: var(--color-red-rgb);
+	--callout-color: var(--color-red);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-orange"] {
-	--callout-color: var(--color-orange-rgb);
+	--callout-color: var(--color-orange);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-yellow"] {
-	--callout-color: var(--color-yellow-rgb);
+	--callout-color: var(--color-yellow);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-green"] {
-	--callout-color: var(--color-green-rgb);
+	--callout-color: var(--color-green);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-cyan"] {
-	--callout-color: var(--color-cyan-rgb);
+	--callout-color: var(--color-cyan);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-purple"] {
-	--callout-color: var(--color-purple-rgb);
+	--callout-color: var(--color-purple);
 }
 body:not(.disable-callout-styling) .callout[data-callout="math-pink"] {
-	--callout-color: var(--color-pink-rgb);
+	--callout-color: var(--color-pink);
 }
 body:not(.disable-callout-styling) 
 	.callout:is([data-callout="math-gray"], [data-callout="math-grey"]) {
