@@ -67,8 +67,10 @@ body:not(.is-phone) .mod-root .workspace-tabs:not(.mod-stacked) {
         display: flex;
         justify-content: center;
     }
-    .workspace-tab-header.is-active:hover .workspace-tab-header-inner-close-button {
-        background: var(--tab-right-fade);
+    // Fade the title text under the close button instead of painting a
+    // background behind it: short titles are untouched, long ones fade out.
+    .workspace-tab-header.is-active:hover .workspace-tab-header-inner-title {
+        mask-image: linear-gradient(to left, transparent 26px, #000 48px);
     }
 
     .workspace-tab-header svg {
