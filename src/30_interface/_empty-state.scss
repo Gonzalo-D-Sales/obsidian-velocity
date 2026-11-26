@@ -72,3 +72,32 @@ body.is-phone .empty-state-action-list  > .empty-state-action.tappable {
         -webkit-mask-size: 112.5%;
     }
 }
+
+// Obsidian 1.14+: the actions are pill buttons (.mod-pill) that carry their
+// own icon, label and hotkey. The position-based ::before icons above were
+// drawn for the older text links, so here they are dropped and the native
+// icon is kept, in a row of round buttons. The name stays in the tooltip.
+.empty-state-action-list:has(> .empty-state-action.mod-pill) {
+    flex-direction: row;
+    gap: 8px;
+
+    > .empty-state-action.tappable {
+        width: auto;
+        height: auto;
+        padding: 14px;
+        gap: 0;
+        border: none;
+    }
+    > .empty-state-action.tappable::before {
+        display: none;
+    }
+    > .empty-state-action :is(.text-button-label, .empty-state-hotkey) {
+        display: none;
+    }
+    > .empty-state-action .text-button-icon {
+        --icon-size: 22px;
+        --icon-stroke: 1.75px;
+        width: 22px;
+        height: 22px;
+    }
+}
